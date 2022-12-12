@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="img">
+      <img src="assets/image-background.png">
+  </div>
+    <form autocomplete="off" #loginForm="ngForm">
+        <div class="grid">
+            <div class="col-12 p-fluid" style="text-align: center;">
+              <h1>Login</h1>
+          </div>
+
+          <div class="col-12 p-fluid" style="margin-left: 45px; margin-right: -250px;">
+              <div>E-mail: </div>
+              <input pInputText type="email" name="usuario" placeholder="Insira seu e-mail" style="align-items: center;" ngModel required #usuario>
+          </div>
+
+          <div class="col-12 p-fluid" style="margin-left: 45px;">
+              <div>Senha: </div>
+              <input pInputText type="password" name="senha" placeholder="Insira sua senha" ngModel required #senha>
+          </div>
+
+          <div class="col-12 p-fluid" style="margin-left: 45px;">
+              <button pButton type="submit" label="Entrar" class="p-button-danger"></button>
+          </div>
+        </div>
+
+        <div style="margin-bottom: 170px;">
+          <div style="color: #828282; padding: 0px; text-align: center; margin-left: 25px;">Não é registrado ainda? </div>
+          <div style="color: #8E2929; padding: 0px; text-align: center; margin-left: 25px;"> Crie uma conta</div>
+
+          <div style="color: #828282; padding: 0px; text-align: center; margin-left: 25px;">Esqueceu a senha? </div>
+          <div style="color: #8E2929; padding: 0px; text-align: center; margin-left: 25px;"> Recuperar senha</div>
+        </div>
+
+    </form>
+
+</div>

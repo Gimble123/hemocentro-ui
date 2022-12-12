@@ -1,0 +1,26 @@
+.p-button-danger {
+  text-align: center;
+  font-weight: bold;
+}
+
+.col-12 {
+  margin-bottom: 5px;
+}
+
+.container {
+  display:flex;
+  flex-wrap:wrap;
+  align-items: center;
+
+}
+
+.img {
+  width: auto;
+  background-size: cover;
+}
+
+img {
+  width: auto;
+  height: auto;
+}
+
