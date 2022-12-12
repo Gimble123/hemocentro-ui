@@ -3,6 +3,11 @@
   font-weight: bold;
 }
 
+a {
+  color: #8E2929;
+  text-decoration: none;
+}
+
 .col-12 {
   margin-bottom: 5px;
 }
@@ -10,7 +15,11 @@
 .container {
   display: flex;
   flex: 1;
+}
 
+.text-container-footer {
+  margin-bottom: 12px;
+  color: #828282;
 }
 
 .content-image{
@@ -20,15 +29,20 @@
   background-size: cover;
   background-position: center;
 }
+
 form{
   flex: 1 40%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.container-top{
-  width: 100%;
+h1 {
+  text-align: center;
+  font-size: 40px;
+  font-weight: bolder;
+  color: black;
+  flex-direction: column;
 }
 
 .grid{
@@ -38,5 +52,30 @@ form{
   width: 70%;
   align-items: center;
 }
+
+.p-button-danger {
+  width: 420px;
+  height: 50px;
+  border-radius: 6px;
+  background: #F02323;
+  margin-bottom: 12px;
+}
+
+.input-password, .input-email {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 18px 10px 13px;
+  gap: 13px;
+  width: 420px;
+  height: 45px;
+  border: 1px solid #DED2D9;
+  border-radius: 5px;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+}
+
 
 

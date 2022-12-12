@@ -56,7 +56,7 @@ table {
 
 .login{
   flex: 1 1;
-    background: wheat;
+    background: #ffff;
     display: flex;
     flex: 1;
 }
