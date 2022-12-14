@@ -41,6 +41,10 @@
   align-items: center;
 }
 
+.navbar li i{
+  width: 26px;
+}
+
 .content-navbar-menu li:hover{
   background-color: #7c7c7a;
 }
@@ -94,6 +98,16 @@
   height: 100vh;
   background-size: cover;
   margin-left: 350px;
+}
+
+
+@media(max-width: 1280px){
+  .content-navbar-menu{
+    zoom: 0.8;
+  }
+  .logout{
+    zoom: 0.8;
+  }
 }
 
 .container {
