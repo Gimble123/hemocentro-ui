@@ -5,8 +5,9 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
-import { HomeAdminComponent } from './home-admin/home-admin.component';
+import { HomeAdminComponent } from './admin/home/home-admin/home-admin.component';
 import { TabViewModule } from 'primeng/tabview';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { TabViewModule } from 'primeng/tabview';
     FormsModule,
     ButtonModule,
     InputTextModule,
-    TabViewModule
+    TabViewModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

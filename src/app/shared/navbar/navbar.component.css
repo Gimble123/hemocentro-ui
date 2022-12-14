@@ -91,27 +91,3 @@
 .navbar-menu {
   padding: 0 12px;
 }
-
-.content-image {
-  background: url("/assets/image-background.png") no-repeat;
-  width: 100vw;
-  height: 100vh;
-  background-size: cover;
-  margin-left: 350px;
-}
-
-
-@media(max-width: 1280px){
-  .content-navbar-menu{
-    zoom: 0.8;
-  }
-  .logout{
-    zoom: 0.8;
-  }
-}
-
-.container {
-  display: flex;
-  flex: 1;
-}
-
