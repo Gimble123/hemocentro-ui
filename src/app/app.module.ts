@@ -13,6 +13,8 @@ import { CampanhaGridComponent } from './campanha-grid/campanha-grid.component';
 import { TableModule } from 'primeng/table';
 import { CampanhasPesquisaComponent } from './campanhas-pesquisa/campanhas-pesquisa.component';
 import { CampanhaCadastroComponent } from './campanha-cadastro/campanha-cadastro.component';
+import { CalendarModule } from 'primeng/calendar';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { CampanhaCadastroComponent } from './campanha-cadastro/campanha-cadastro
     CampanhaCadastroComponent
   ],
   imports: [
+    BrowserAnimationsModule,
     BrowserModule,
+    CalendarModule,
     FormsModule,
     ButtonModule,
     InputTextModule,
