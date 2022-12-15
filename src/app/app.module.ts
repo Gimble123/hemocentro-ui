@@ -5,15 +5,24 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
-import { HomeAdminComponent } from './admin/home/home-admin/home-admin.component';
+import { HomeAdminComponent } from './home-admin/home-admin.component';
 import { TabViewModule } from 'primeng/tabview';
 import { SharedModule } from './shared/shared.module';
+import { CampanhaComponent } from './campanha/campanha.component';
+import { CampanhaGridComponent } from './campanha-grid/campanha-grid.component';
+import { TableModule } from 'primeng/table';
+import { CampanhasPesquisaComponent } from './campanhas-pesquisa/campanhas-pesquisa.component';
+import { CampanhaCadastroComponent } from './campanha-cadastro/campanha-cadastro.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    HomeAdminComponent
+    HomeAdminComponent,
+    CampanhaComponent,
+    CampanhaGridComponent,
+    CampanhasPesquisaComponent,
+    CampanhaCadastroComponent
   ],
   imports: [
     BrowserModule,
@@ -21,7 +30,8 @@ import { SharedModule } from './shared/shared.module';
     ButtonModule,
     InputTextModule,
     TabViewModule,
-    SharedModule
+    SharedModule,
+    TableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
