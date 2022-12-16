@@ -1,11 +1,10 @@
-.titles, .center {
-    position: absolute;
-    top: -390px;
-    font-size: 25px;
-    width: 100%;
-    text-align: center;
-    left: 450px;
-    font-weight: normal;
+.titles {
+  top: -390px;
+  font-size: 25px;
+  width: 100%;
+  text-align: center;
+  left: 450px;
+  font-weight: normal;
 }
 
 .relative {
@@ -23,12 +22,12 @@
   z-index: 1;
 }
 
-.disabled-hover, .p-button:hover {
+.disabled-hover, .p-button:hover{
   background-color: #C0BFBD;
 }
 
 
-form {
+form{
   display: flex;
   flex: 1;
   flex-wrap: wrap;
@@ -36,34 +35,36 @@ form {
   min-height: 600px;
 }
 
-.left {
+.left{
   flex: 1;
   margin-right: 20px;
 }
 
-.right {
+.right{
   flex: 1;
   margin-left: 20px;
 }
 
-.buttom {
+.buttom{
   position: absolute;
-    bottom: 50px;
-    left: 0;
-    right: 0;
-    display: flex;
-    justify-content: space-between;
-}
+  bottom: 50px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
 
-.buttom button {
+}
+.buttom button{
   width: 50%;
+  margin-top: 15px;
 }
 
-.buttom button:first-child {
+.buttom button:first-child{
   margin-right: 25px;
+  width: 100%;
 }
 
-.buttom button:last-child {
+.buttom button:last-child{
   margin-left: 25px;
 }
 
@@ -78,42 +79,38 @@ form {
   align-items: center;
 }
 
-:host(app-campanha-cadastro) {
+:host(app-grupo-sanguineo-cadastro) {
   width: 100%;
   margin-left: 350px;
   display: block;
   padding: 10%;
 }
 
-@media(max-width: 1280px) {
-  :host(app-campanha-cadastro){
+@media(max-width: 1280px){
+  :host(app-grupo-sanguineo-cadastro){
     zoom: 0.7;
   }
+}
 
-  .titles {
-    position: absolute;
-    top: -340px;
-    font-size: 25px;
-    width: 100%;
-    text-align: center;
-    left: 450px;
-  }
+.titles {
+  position: absolute;
+  top: -340px;
+  font-size: 25px;
+  width: 100%;
+  text-align: center;
+  left: 450px;
+}
 
-  .relative {
-    position: relative;
-  }
+.relative {
+  position: relative;
 }
 
 @media (min-width: 1200px) {
-  .container {
-      width: 1170px;
-      margin: 0 auto;
-  }
-
+.container {
+    width: 1170px;
+    margin: 0 auto;
 }
 
-.center {
-  align-items: center;
 }
 
 .pInputText {
@@ -128,3 +125,4 @@ form {
 .color {
   background-color: #C0BFBD;
 }
+

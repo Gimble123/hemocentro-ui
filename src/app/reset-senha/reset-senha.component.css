@@ -1,6 +1,9 @@
-.p-button-danger {
+.button-danger {
   text-align: center;
   font-weight: bold;
+  background-color: #F02323 !important;
+  height: 50px;
+  border-radius: 6px;
 }
 
 a {
@@ -20,6 +23,11 @@ a {
 .text-container-footer {
   margin-bottom: 12px;
   color: #828282;
+}
+
+.espacamento {
+  margin-bottom: 15px;
+  display: block;
 }
 
 .content-image {
@@ -44,7 +52,7 @@ h1 {
   flex-direction: column;
 }
 
-.grid {
+.grid{
   display: flex;
   flex-wrap: inherit;
   flex-direction: column;
@@ -56,7 +64,7 @@ h1 {
   width: 420px;
   height: 50px;
   border-radius: 6px;
-  background: #F02323 !important;
+  background: #F02323;
   margin-bottom: 12px;
 }
 

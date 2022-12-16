@@ -1,0 +1,27 @@
+<app-navbar></app-navbar>
+<div class="container">
+  <div class="grid">
+    <div class="col-12 relative">
+      <h2 class="titles">Cadastrar Grupo Sanguíneo</h2>
+    </div>
+    <form autocomplete="off">
+
+      <div class="center">
+        <div class="col-12 md:col-6 p-fluid">
+          <label class="espacamento">Grupo sanguíneo</label>
+          <input placeholder="Ex: A+" pInputText type="text" name="grupo_sanguineo"
+            ngModel #grupo_sanguineo="ngModel" [required]="true">
+        </div>
+      </div>
+
+      <div class="col-12 buttom">
+        <div class="left">
+        <button pButton type="button" class="color" label="Voltar"></button>
+      </div>
+      <div class="right">
+        <button pButton type="submit" class="p-button-danger" label="Finalizar"></button>
+      </div>
+      </div>
+    </form>
+  </div>
+</div>

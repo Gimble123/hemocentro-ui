@@ -19,6 +19,34 @@ time, mark, audio, video {
 }
 
 
+.p-button {
+  color: #ffffff;
+  background-color: #C0BFBD !important;
+  border: 1px solid #D32F2F !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.p-button {
+  color: #ffffff;
+  background-color: #C0BFBD !important;
+  border: 1px solid #D32F2F !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+button:active {
+  background-color:none;
+}
+
+button:hover {
+  background-color:none;
+}
+
+button:focus {
+  background-color:none;
+}
+
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
@@ -59,7 +87,7 @@ body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.login {
+.login, .reset {
   flex: 1 1;
     background: #ffff;
     display: flex;

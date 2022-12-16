@@ -19,6 +19,8 @@ import { CampanhaAtualizacaoComponent } from './campanha-atualizacao/campanha-at
 import { UsuarioCadastroComponent } from './usuario-cadastro/usuario-cadastro.component';
 import { UsuarioCadastroSegundaTelaComponent } from './usuario-cadastro-segunda-tela/usuario-cadastro-segunda-tela.component';
 import { MessageComponent } from './message/message.component';
+import { GrupoSanguineoCadastroComponent } from './grupo-sanguineo-cadastro/grupo-sanguineo-cadastro.component';
+import { ResetSenhaComponent } from './reset-senha/reset-senha.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { MessageComponent } from './message/message.component';
     CampanhaAtualizacaoComponent,
     UsuarioCadastroComponent,
     UsuarioCadastroSegundaTelaComponent,
-    MessageComponent
+    MessageComponent,
+    GrupoSanguineoCadastroComponent,
+    ResetSenhaComponent
   ],
   imports: [
     BrowserAnimationsModule,
