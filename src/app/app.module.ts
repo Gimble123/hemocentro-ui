@@ -5,26 +5,33 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
+import { InputMaskModule } from 'primeng/inputmask';
 import { HomeAdminComponent } from './home-admin/home-admin.component';
 import { TabViewModule } from 'primeng/tabview';
 import { SharedModule } from './shared/shared.module';
-import { CampanhaComponent } from './campanha/campanha.component';
 import { CampanhaGridComponent } from './campanha-grid/campanha-grid.component';
 import { TableModule } from 'primeng/table';
 import { CampanhasPesquisaComponent } from './campanhas-pesquisa/campanhas-pesquisa.component';
 import { CampanhaCadastroComponent } from './campanha-cadastro/campanha-cadastro.component';
 import { CalendarModule } from 'primeng/calendar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CampanhaAtualizacaoComponent } from './campanha-atualizacao/campanha-atualizacao.component';
+import { UsuarioCadastroComponent } from './usuario-cadastro/usuario-cadastro.component';
+import { UsuarioCadastroSegundaTelaComponent } from './usuario-cadastro-segunda-tela/usuario-cadastro-segunda-tela.component';
+import { MessageComponent } from './message/message.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     HomeAdminComponent,
-    CampanhaComponent,
     CampanhaGridComponent,
     CampanhasPesquisaComponent,
-    CampanhaCadastroComponent
+    CampanhaCadastroComponent,
+    CampanhaAtualizacaoComponent,
+    UsuarioCadastroComponent,
+    UsuarioCadastroSegundaTelaComponent,
+    MessageComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -35,7 +42,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     InputTextModule,
     TabViewModule,
     SharedModule,
-    TableModule
+    TableModule,
+    InputMaskModule
   ],
   providers: [],
   bootstrap: [AppComponent]

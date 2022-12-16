@@ -1,0 +1,128 @@
+.titles {
+  position: absolute;
+  top: -390px;
+  font-size: 25px;
+  width: 100%;
+  text-align: center;
+  left: 450px;
+  font-weight: normal;
+}
+
+.relative {
+  position: relative;
+  top: -40px
+}
+
+.relative h2{
+  top: inherit;
+  left: inherit
+}
+
+.disabled-hover {
+  position: relative;
+  z-index: 1;
+}
+
+.disabled-hover, .p-button:hover{
+  background-color: #C0BFBD;
+}
+
+
+form{
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+  position: relative;
+  min-height: 600px;
+}
+
+.left{
+  flex: 1;
+  margin-right: 20px;
+}
+
+.right{
+  flex: 1;
+  margin-left: 20px;
+}
+
+.buttom{
+  position: absolute;
+  bottom: 50px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  pointer-events: none;
+
+}
+.buttom button{
+  width: 50%;
+  margin-top: 15px;
+}
+
+.buttom button:first-child{
+  margin-right: 25px;
+}
+.buttom button:last-child{
+  margin-left: 25px;
+}
+
+.col-12 {
+  width: 100%;
+}
+
+.grid {
+  top: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+}
+
+:host(app-usuario-cadastro-segunda-tela) {
+  width: 100%;
+  margin-left: 350px;
+  display: block;
+  padding: 10%;
+}
+
+@media(max-width: 1280px){
+  :host(app-usuario-cadastro-segunda-tela){
+    zoom: 0.7;
+  }
+}
+
+.titles {
+  position: absolute;
+  top: -340px;
+  font-size: 25px;
+  width: 100%;
+  text-align: center;
+  left: 450px;
+}
+
+.relative {
+  position: relative;
+}
+
+@media (min-width: 1200px) {
+.container {
+    width: 1170px;
+    margin: 0 auto;
+}
+
+}
+
+.pInputText {
+  margin: 12px;
+}
+
+.espacamento {
+  margin-bottom: 15px;
+  display: block;
+}
+
+.color {
+  background-color: #C0BFBD;
+}
+

@@ -17,25 +17,30 @@ time, mark, audio, video {
 	font-size: 100%;
 	vertical-align: baseline;
 }
-/* HTML5 display-role reset for older browsers */
+
+
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
+
 body {
 	line-height: 1;
 }
 
-body, html{
+body, html {
   height: 100%;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+
 ol, ul {
 	list-style: none;
 }
+
 blockquote, q {
 	quotes: none;
 }
+
 blockquote:before, blockquote:after,
 q:before, q:after {
 	content: '';
@@ -49,11 +54,12 @@ table {
 body {
   overflow: hidden;
 }
-*{
+
+* {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.login{
+.login {
   flex: 1 1;
     background: #ffff;
     display: flex;
@@ -61,7 +67,7 @@ body {
 }
 
 
-.root{
+.root {
   display: flex;
   height: 100%;
 }

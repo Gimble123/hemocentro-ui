@@ -1,0 +1,86 @@
+<app-navbar></app-navbar>
+<div class="container">
+  <div class="grid">
+    <div class="col-12 relative">
+      <h2 class="titles">Cadastrar Usuário</h2>
+    </div>
+    <form autocomplete="off" #usuarioForm="ngForm"
+      (ngSubmit)="salvar(usuarioForm)">
+
+      <div class="left">
+        <div class="col-12 md:col-6 p-fluid">
+          <label class="espacamento">Nome</label>
+          <input placeholder="Ex: Pedro Santos" pInputText type="text" name="nome"
+            ngModel #nome="ngModel" [required]="true">
+        </div>
+
+        <div class="col-12 md:col-6 p-fluid">
+          <label class="espacamento">CPF</label>
+          <p-inputMask name="cpf" mask="999.999.999-99"
+          ngModel #cep="ngModel" [required]="true"></p-inputMask>
+        </div>
+
+        <div class="col-12 md:col-6 p-fluid">
+          <label class="espacamento">Data nascimento</label>
+          <p-calendar name="data" dateFormat="dd/mm/yy" [inline]="false" [readonlyInput]="false" [showIcon]="false"
+          ngModel #data="ngModel" [required]="true"></p-calendar>
+        </div>
+
+        <div class="col-12 md:col-6 p-fluid">
+          <label class="espacamento">Estado civil</label>
+          <input placeholder="Ex: Solteiro" pInputText type="text" name="estadoCivil"
+            ngModel #estadoCivil="ngModel" [required]="true">
+        </div>
+
+        <div class="col-12 md:col-6 p-fluid">
+          <label class="espacamento">Número de doações prévias</label>
+          <input placeholder="Ex: 3" pInputText type="text" name="numeroDoacoes"
+            ngModel #numeroDoacoes="ngModel" [required]="true">
+        </div>
+      </div>
+
+      <div class="right">
+        <div class="col-12 md:col-6 p-fluid">
+          <label class="espacamento">E-mail</label>
+          <input placeholder="Ex: maria@gmail.com" pInputText type="text" name="email"
+          ngModel #email="ngModel" [required]="true">
+        </div>
+
+        <div class="col-12 md:col-6 p-fluid">
+          <label class="espacamento">Telefone</label>
+          <input placeholder="Ex: A+" pInputText type="text" name="telefone"
+          ngModel #telefone="ngModel" [required]="true">
+        </div>
+
+        <div class="col-12 md:col-6 p-fluid">
+          <label class="espacamento">Sexo</label>
+          <input placeholder="Ex: masculino" pInputText type="text" name="sexo"
+          ngModel #sexo="ngModel" [required]="true">
+        </div>
+
+        <div class="col-12 md:col-6 p-fluid">
+          <label class="espacamento">Endereço</label>
+          <input placeholder="Ex: Rua do abacaxi" pInputText type="text" name="endereco"
+          ngModel #endereco="ngModel" [required]="true">
+
+          <app-message [control]="endereco" error="required"
+            text="Informe o endereço"></app-message>
+        </div>
+
+        <div class="col-12 md:col-6 p-fluid">
+          <label class="espacamento">Profissão</label>
+          <input placeholder="Ex: Advogado" pInputText type="text" name="tipo"
+          ngModel #tipo="ngModel" [required]="true">
+        </div>
+      </div>
+
+      <div class="col-12 buttom">
+        <button pButton type="button" class="color disabled-hover" label="Voltar"></button>
+        <button pButton type="submit" class="p-button-danger" [disabled]="!usuarioForm.valid" label="Finalizar"></button>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+
