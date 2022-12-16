@@ -12,7 +12,8 @@
   position: relative;
   top: -40px
 }
-.relative h2{
+
+.relative h2 {
   top: inherit;
   left: inherit
 }
@@ -22,12 +23,12 @@
   z-index: 1;
 }
 
-.disabled-hover, .p-button:hover{
+.disabled-hover, .p-button:hover {
   background-color: #C0BFBD;
 }
 
 
-form{
+form {
   display: flex;
   flex: 1;
   flex-wrap: wrap;
@@ -35,15 +36,17 @@ form{
   min-height: 600px;
 }
 
-.left{
+.left {
   flex: 1;
   margin-right: 20px;
 }
-.right{
+
+.right {
   flex: 1;
   margin-left: 20px;
 }
-.buttom{
+
+.buttom {
   position: absolute;
     bottom: 50px;
     left: 0;
@@ -51,14 +54,16 @@ form{
     display: flex;
     justify-content: space-between;
 }
-.buttom button{
+
+.buttom button {
   width: 50%;
 }
 
-.buttom button:first-child{
+.buttom button:first-child {
   margin-right: 25px;
 }
-.buttom button:last-child{
+
+.buttom button:last-child {
   margin-left: 25px;
 }
 
@@ -80,7 +85,7 @@ form{
   padding: 10%;
 }
 
-@media(max-width: 1280px){
+@media(max-width: 1280px) {
   :host(app-campanha-cadastro){
     zoom: 0.7;
   }
