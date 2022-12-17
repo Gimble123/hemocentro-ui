@@ -82,24 +82,22 @@ td {
   vertical-align: center;
 }
 
-button {
-  color: #ffffff;
-  background: #F02323;
-  border: 1px solid #F02323;
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
-  border-radius: 3px;
+.button-nova-campanha, button {
+  background: #F02323 !important;
+  outline: none !important;
+  box-shadow: none !important;
 }
 
-.titles{
-    position: absolute;
-    top: -240px;
-    font-size: 25px;
-    width: 100%;
-    text-align: center;
+.titles {
+  position: absolute;
+  top: -240px;
+  font-size: 25px;
+  width: 100%;
+  text-align: center;
+  font-weight: normal;
 }
 
-.relative{
+.relative {
   position: relative;
 }
 

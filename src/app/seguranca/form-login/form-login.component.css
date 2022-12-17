@@ -1,6 +1,15 @@
-.p-button-danger {
+label {
+  color: white;
+}
+
+.button-danger {
   text-align: center;
   font-weight: bold;
+  background-color: #F02323 !important;
+  border: 1px solid #D32F2F !important;
+  height: 50px;
+  width: 100%;
+  border-radius: 6px;
 }
 
 a {
@@ -77,6 +86,3 @@ h1 {
 .align {
   text-align: center;
 }
-
-
-

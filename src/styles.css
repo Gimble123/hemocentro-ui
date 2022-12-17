@@ -30,7 +30,7 @@ time, mark, audio, video {
 .p-button {
   color: #ffffff;
   background-color: #C0BFBD !important;
-  border: 1px solid #D32F2F !important;
+  border: 1px solid #C0BFBD !important;
   outline: none !important;
   box-shadow: none !important;
 }
@@ -87,7 +87,7 @@ body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.login, .reset {
+.login-form, .reset {
   flex: 1 1;
     background: #ffff;
     display: flex;
