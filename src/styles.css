@@ -104,3 +104,11 @@ label {
   font-weight: bold;
 }
 
+.button-danger {
+  text-align: center;
+  font-weight: bold;
+  background-color: #F02323 !important;
+  height: 50px;
+  border-radius: 6px;
+}
+
