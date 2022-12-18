@@ -1,3 +1,4 @@
+import { UsuarioGridComponent } from './usuario-grid/usuario-grid.component';
 import { UsuarioCadastroSegundaTelaComponent } from './usuario-cadastro-segunda-tela/usuario-cadastro-segunda-tela.component';
 import { UsuarioCadastroComponent } from './usuario-cadastro/usuario-cadastro.component';
 import { SharedModule } from './../shared/shared.module';
@@ -13,13 +14,16 @@ import { InputMaskModule } from 'primeng/inputmask';
 import { TableModule } from 'primeng/table';
 import { TooltipModule } from 'primeng/tooltip';
 import { CalendarModule } from 'primeng/calendar';
+import { UsuariosPesquisaComponent } from './usuarios-pesquisa/usuarios-pesquisa.component';
 
 
 
 @NgModule({
   declarations: [
     UsuarioCadastroComponent,
-    UsuarioCadastroSegundaTelaComponent
+    UsuarioCadastroSegundaTelaComponent,
+    UsuarioGridComponent,
+    UsuariosPesquisaComponent
   ],
   imports: [
     CommonModule,
@@ -36,7 +40,9 @@ import { CalendarModule } from 'primeng/calendar';
   ],
   exports: [
     UsuarioCadastroComponent,
-    UsuarioCadastroSegundaTelaComponent
+    UsuarioCadastroSegundaTelaComponent,
+    UsuarioGridComponent,
+    UsuariosPesquisaComponent
   ]
 })
 export class UsuariosModule { }

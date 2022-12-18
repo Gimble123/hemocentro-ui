@@ -135,7 +135,7 @@ p-column-title {
   align-items: center;
 }
 
-:host(app-campanhas-pesquisa) {
+:host(app-usuarios-pesquisa) {
   width: 100%;
   margin-left: 350px;
   display: block;
@@ -143,7 +143,7 @@ p-column-title {
 }
 
 @media(max-width: 1280px){
-  :host(app-campanhas-pesquisa){
+  :host(app-usuarios-pesquisa){
     zoom: 0.7;
   }
 }

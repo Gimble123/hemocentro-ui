@@ -18,6 +18,24 @@ time, mark, audio, video {
 	vertical-align: baseline;
 }
 
+.p-datatable .p-datatable-thead > tr > th {
+  text-align: center;
+  padding: 1rem 1rem;
+  border: 1px solid #e9ecef;
+  border-width: 0 0 1px 0;
+  font-weight: 600;
+  color: #495057;
+  background: #f8f9fa;
+  transition: box-shadow 0.2s;
+}
+
+.p-datatable .p-datatable-tbody > tr > td {
+  text-align: center;
+  border: 1px solid #e9ecef;
+  border-width: 0 0 1px 0;
+  padding: 1rem 1rem;
+
+}
 
 .p-button {
   color: #ffffff;
