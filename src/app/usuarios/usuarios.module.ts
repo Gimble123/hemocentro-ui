@@ -15,6 +15,8 @@ import { TableModule } from 'primeng/table';
 import { TooltipModule } from 'primeng/tooltip';
 import { CalendarModule } from 'primeng/calendar';
 import { UsuariosPesquisaComponent } from './usuarios-pesquisa/usuarios-pesquisa.component';
+import { UsuarioAtualizacaoComponent } from './usuario-atualizacao/usuario-atualizacao.component';
+import { UsuarioAtualizacaoSegundaTelaComponent } from './usuario-atualizacao-segunda-tela/usuario-atualizacao-segunda-tela.component';
 
 
 
@@ -23,7 +25,9 @@ import { UsuariosPesquisaComponent } from './usuarios-pesquisa/usuarios-pesquisa
     UsuarioCadastroComponent,
     UsuarioCadastroSegundaTelaComponent,
     UsuarioGridComponent,
-    UsuariosPesquisaComponent
+    UsuariosPesquisaComponent,
+    UsuarioAtualizacaoComponent,
+    UsuarioAtualizacaoSegundaTelaComponent
   ],
   imports: [
     CommonModule,

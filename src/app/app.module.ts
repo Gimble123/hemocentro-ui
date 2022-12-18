@@ -7,6 +7,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CampanhasModule } from './campanhas/campanhas.module';
+import { GruposSanguineosPesquisaComponent } from './grupos-sanguineos/grupos-sanguineos-pesquisa/grupos-sanguineos-pesquisa.component';
 
 @NgModule({
   declarations: [
