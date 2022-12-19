@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-agendamento-grid',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./agendamento-grid.component.css']
 })
 export class AgendamentoGridComponent implements OnInit {
+
+  @Input() agendamentos:any[] = [];
 
   constructor() { }
 

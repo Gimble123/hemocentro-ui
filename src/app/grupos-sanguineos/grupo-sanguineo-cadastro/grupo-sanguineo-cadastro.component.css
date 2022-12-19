@@ -141,3 +141,9 @@ form{
   height: 50px;
 }
 
+.center {
+  margin: 0 auto;
+  width: 480px;
+}
+
+
