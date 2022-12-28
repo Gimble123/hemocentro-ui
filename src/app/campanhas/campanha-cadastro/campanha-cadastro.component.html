@@ -2,10 +2,10 @@
 <div class="container">
   <div class="grid">
     <div class="col-12 relative">
-      <h2 class="titles">Cadastrar Campanha</h2>
+      <h2 class="titles">Cadastrar Campanha </h2>
     </div>
-    <form #campanhaForm="ngForm" autocomplete="off" (ngSubmit)="adicionarCampanha(campanhaForm)">
 
+    <form #campanhaForm="ngForm" autocomplete="off" (ngSubmit)="adicionarCampanha(campanhaForm)">
       <div class="left">
         <div class="col-12 md:col-6 p-fluid">
           <label class="espacamento">Nome da campanha</label>
@@ -23,7 +23,7 @@
       <div class="right">
         <div class="col-12 md:col-6 p-fluid">
           <label class="espacamento">Tipo sanguíneo</label>
-          <!-- <p-dropdown [options]="gruposSanguineo" placeholder="Selecione" [(ngModel)]="campanha.grupoSanguineo.codigo"
+          <!-- <p-dropdown [options]="grupoSanguineo" placeholder="Selecione" [(ngModel)]="campanha.grupoSanguineo.id"
           name="grupoSanguineo" #grupoSanguineo [required]="true"></p-dropdown> -->
         </div>
 
@@ -35,7 +35,7 @@
       </div>
 
       <div class="col-12 buttom">
-        <button pButton type="button" class="color disabled-hover" label="Voltar"></button>
+        <button pButton type="button" class="color disabled-hover" routerLink="/campanhas" label="Voltar"></button>
         <button pButton type="submit" class="button-danger" label="Finalizar"></button>
       </div>
     </form>

@@ -13,10 +13,9 @@ export class GrupoSanguineoFiltro {
 })
 export class GrupoSanguineoService {
 
-  gruposSanguineosUrl = 'http://localhost:8081/grupos_sanguineo';
+  gruposSanguineosUrl = 'http://localhost:8081/grupos-sanguineo';
 
-  constructor(private http: HttpClient,
-    private datePipe: DatePipe) { }
+  constructor(private http: HttpClient) { }
 
     listarTodas(): Promise<any> {
       const headers = new HttpHeaders()
@@ -24,7 +23,11 @@ export class GrupoSanguineoService {
 
       return this.http.get(this. gruposSanguineosUrl, { headers })
         .toPromise()
-        .then((response: any) => response['content']);
+        .then((response: any) => {
+
+          //console.log('cscsdfsdsdfsf: ',response)
+          return response
+        });
     }
 
     buscarPorId(id: number): Promise<GrupoSanguineo> {

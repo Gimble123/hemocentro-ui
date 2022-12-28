@@ -37,6 +37,7 @@ export class CampanhaService {
             total: response['totalElements']
           };
 
+          console.log(resultado);
           return resultado;
         });
     }

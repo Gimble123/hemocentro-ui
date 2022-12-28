@@ -13,6 +13,7 @@ import { ToastModule } from 'primeng/toast';
 import { HttpClient } from '@angular/common/http';
 import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { AuthService } from './../seguranca/auth.service';
 
 registerLocaleData(localePt, 'pt-BR');
 
@@ -49,6 +50,7 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   providers: [
     DatePipe,
     ErrorHandlerService,
+    AuthService,
 
     MessageService,
     ConfirmationService,

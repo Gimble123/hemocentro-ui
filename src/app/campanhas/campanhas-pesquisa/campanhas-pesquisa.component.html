@@ -3,7 +3,7 @@
   <div class="col-12 relative">
     <h2 class="titles">Campanhas</h2>
     <div class="button-nova-campanha">
-      <button type="button" class="disabled-hover margin-button" pButton label="Nova campanha"></button>
+      <button type="button" class="disabled-hover margin-button" pButton routerLink="/campanhas/nova" label="Nova campanha"></button>
     </div>
     <p-table [value]="campanhas" [paginator]="true" [rows]="filtro.itensPorPagina" [lazy]="true"
     [totalRecords]="totalRegistros" (onLazyLoad)="aoMudarPagina($event)" #tabela>

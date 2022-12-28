@@ -5,7 +5,8 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
     { path: 'campanhas', component: CampanhasPesquisaComponent },
-    { path: 'campanhas/nova', component: CampanhaCadastroComponent }
+    { path: 'campanhas/nova', component: CampanhaCadastroComponent },
+    { path: 'campanhas/:codigo', component: CampanhaCadastroComponent },
   ];
 
 @NgModule({

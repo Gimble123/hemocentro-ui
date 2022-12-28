@@ -1,3 +1,4 @@
+import { GruposSanguineosRoutingModule } from './grupos-sanguineos-routing.module';
 import { CoreModule } from './../core/core.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -27,7 +28,9 @@ import { GruposSanguineosPesquisaComponent } from './grupos-sanguineos-pesquisa/
     TooltipModule,
     InputMaskModule,
     SharedModule,
-    CoreModule
+    CoreModule,
+
+    GruposSanguineosRoutingModule
 
   ],
   exports: [GrupoSanguineoCadastroComponent]

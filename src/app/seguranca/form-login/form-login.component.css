@@ -86,3 +86,8 @@ h1 {
 .align {
   text-align: center;
 }
+
+:host(app-form-login) {
+  display: flex;
+  width: 100%;
+}

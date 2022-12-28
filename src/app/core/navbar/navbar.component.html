@@ -7,14 +7,16 @@
     </div>
 
     <ul class="navbar-menu">
-      <li class="navbar-usuario">{{ usuarioLogado }}</li>
-      <li class="navbar-menuitem" routerLinkActive="ativo"> <i class="fa-solid fa-house"></i> <a href="/">Home</a></li>
-      <li class="navbar-menuitem" routerLinkActive="ativo"> <i class="fa-solid fa-user-group"></i> <a href="#">Doadores</a></li>
+      <div class="none-background">
+        <li class="navbar-usuario">{{ usuarioLogado }}</li>
+      </div>
+      <li class="navbar-menuitem" routerLinkActive="ativo"> <i class="fa-solid fa-house"></i> <a routerLink="/">Home</a></li>
+      <li class="navbar-menuitem" routerLinkActive="ativo"> <i class="fa-solid fa-user-group"></i> <a routerLink="/doadores">Doadores</a></li>
       <li class="navbar-menuitem" routerLinkActive="ativo"> <i class="fa-solid fa-droplet"></i> <a href="#">Doações</a></li>
-      <li class="navbar-menuitem" routerLinkActive="ativo"> <i class="fa-regular fa-user"></i> <a href="#">Usuários</a></li>
+      <li class="navbar-menuitem" routerLinkActive="ativo"> <i class="fa-regular fa-user"></i> <a routerLink="/usuarios">Usuários</a></li>
       <li class="navbar-menuitem" routerLinkActive="ativo"> <i class="fa-solid fa-rotate-right"></i> <a href="#">Solicitações</a></li>
-      <li class="navbar-menuitem" routerLinkActive="ativo"> <i class="fa-regular fa-bell"></i> <a href="/campanhas">Campanhas</a></li>
-      <li class="navbar-menuitem" routerLinkActive="ativo"> <i class="fa-solid fa-users"></i> <a href="#">Grupos Sanguíneos</a></li>
+      <li class="navbar-menuitem" routerLinkActive="ativo"> <i class="fa-regular fa-bell"></i> <a routerLink="/campanhas">Campanhas</a></li>
+      <li class="navbar-menuitem" routerLinkActive="ativo"> <i class="fa-solid fa-users"></i> <a routerLink="/grupos-sanguineos">Grupos Sanguíneos</a></li>
     </ul>
 
   </div>
