@@ -1,7 +1,7 @@
 <app-navbar></app-navbar>
 <div class="grid">
   <div class="col-12">
-    <p-table [value]="campanhas" [paginator]="true" >
+    <p-table [value]="campanhas" [responsive]="true" [paginator]="true" [rows]="5"></p-table>
       <ng-template pTemplate="header">
         <tr>
           <th>ID</th>
@@ -21,7 +21,13 @@
           </td>
         </tr>
       </ng-template>
-    </p-table>
+      <ng-template pTemplate="emptymessage">
+        <tr>
+          <td colspan="6">
+            Nenhuma campanha encontrada
+          </td>
+        </tr>
+      </ng-template>
   </div>
 </div>
 

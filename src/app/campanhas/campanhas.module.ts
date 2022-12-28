@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { CoreModule } from './../core/core.module';
 import { CampanhaAtualizacaoComponent } from './campanha-atualizacao/campanha-atualizacao.component';
 import { CampanhaGridComponent } from './campanha-grid/campanha-grid.component';
@@ -14,6 +15,7 @@ import { SharedModule } from 'primeng/api';
 import { DropdownModule } from 'primeng/dropdown';
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { CalendarModule } from 'primeng/calendar';
+import { CampanhasRoutingModule } from './campanhas-routing.module';
 
 
 
@@ -35,13 +37,10 @@ import { CalendarModule } from 'primeng/calendar';
     CalendarModule,
     SelectButtonModule,
     DropdownModule,
-    SharedModule
+    SharedModule,
+    HttpClientModule,
+    CampanhasRoutingModule
   ],
-  exports: [
-    CampanhasPesquisaComponent,
-    CampanhaCadastroComponent,
-    CampanhaGridComponent,
-    CampanhaAtualizacaoComponent
-  ]
+  exports: []
 })
 export class CampanhasModule { }

@@ -18,7 +18,8 @@
               </div>
 
               <div class="col-12 p-fluid" >
-                  <button pButton type="submit" label="Entrar" class="button-danger"></button>
+                  <button pButton type="submit" label="Entrar" class="button-danger" [disabled]="loginForm.invalid"
+                    (click)="login(usuario.value, senha.value)"></button>
               </div>
             </div>
 

@@ -5,7 +5,8 @@
     <div class="button-nova-campanha">
       <button type="button" class="disabled-hover margin-button" pButton label="Nova campanha"></button>
     </div>
-    <p-table [value]="campanhas" [paginator]="true" [rows]="2" [responsive]="true">
+    <p-table [value]="campanhas" [paginator]="true" [rows]="filtro.itensPorPagina" [lazy]="true"
+    [totalRecords]="totalRegistros" (onLazyLoad)="aoMudarPagina($event)" #tabela>
       <ng-template pTemplate="header">
         <tr>
           <th>ID</th>

@@ -4,7 +4,7 @@
     <div class="col-12 relative">
       <h2 class="titles">Cadastrar Campanha</h2>
     </div>
-    <form autocomplete="off">
+    <form #campanhaForm="ngForm" autocomplete="off" (ngSubmit)="adicionarCampanha(campanhaForm)">
 
       <div class="left">
         <div class="col-12 md:col-6 p-fluid">
@@ -23,8 +23,8 @@
       <div class="right">
         <div class="col-12 md:col-6 p-fluid">
           <label class="espacamento">Tipo sanguíneo</label>
-          <input placeholder="Ex: A+" pInputText type="text" name="tipo"
-          ngModel #tipo="ngModel" [required]="true">
+          <!-- <p-dropdown [options]="gruposSanguineo" placeholder="Selecione" [(ngModel)]="campanha.grupoSanguineo.codigo"
+          name="grupoSanguineo" #grupoSanguineo [required]="true"></p-dropdown> -->
         </div>
 
         <div class="col-12 md:col-6 p-fluid">

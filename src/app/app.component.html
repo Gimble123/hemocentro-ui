@@ -1,13 +1,12 @@
-<!-- <app-home-admin></app-home-admin> -->
-<!-- <app-form-login class="login-form"></app-form-login> -->
-<!-- <app-campanhas-pesquisa></app-campanhas-pesquisa> -->
-<!-- <app-campanha-cadastro></app-campanha-cadastro> OK -->
-<!-- <app-campanha-atualizacao></app-campanha-atualizacao> OK -->
-<!-- <app-usuario-cadastro></app-usuario-cadastro> -->
-<!-- <app-usuarios-pesquisa></app-usuarios-pesquisa> -->
-<app-agendamentos-pesquisa></app-agendamentos-pesquisa>
- <!-- <app-grupo-sanguineo-cadastro></app-grupo-sanguineo-cadastro> -->
- <!-- <app-navbar-usuario></app-navbar-usuario> -->
-<!-- <app-usuario-cadastro-segunda-tela></app-usuario-cadastro-segunda-tela> -->
-<!-- <app-grupo-sanguineo-cadastro></app-grupo-sanguineo-cadastro> -->
-<!-- <app-reset-senha class="reset"></app-reset-senha> -->
+<router-outlet></router-outlet>
+
+<p-toast position="bottom-right"></p-toast>
+
+<p-confirmDialog header="Confirmação" icon="pi pi-question-circle" #confirmacao>
+    <p-footer>
+      <button type="button" pButton icon="pi pi-check" label="Sim"
+        (click)="confirmacao.accept()"></button>
+      <button type="button" pButton icon="pi pi-times" label="Não"
+        (click)="confirmacao.reject()"></button>
+    </p-footer>
+  </p-confirmDialog>
