@@ -1,3 +1,4 @@
+import { HomeUserComponent } from './home-user/home-user.component';
 import { FormLoginComponent } from './form-login/form-login.component';
 import { CoreModule } from './../core/core.module';
 import { InputTextModule } from 'primeng/inputtext';
@@ -20,6 +21,7 @@ export function tokenGetter(): string {
   declarations: [
     FormLoginComponent,
     HomeAdminComponent,
+    HomeUserComponent,
     ResetSenhaComponent
   ],
   imports: [

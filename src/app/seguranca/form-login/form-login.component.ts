@@ -10,20 +10,30 @@ import { AuthService } from '../auth.service';
 })
 export class FormLoginComponent implements OnInit {
 
+  jwtPayload: any;
+  flag: boolean = true;
+
   constructor(
     private auth: AuthService,
     private errorHandler: ErrorHandlerService,
     private router: Router
-  ) { }
+  ) {
+    this.auth.carregarToken();
+  }
 
   ngOnInit(): void {
   }
 
   login(usuario: string, senha: string) {
+
     this.auth.login(usuario, senha)
       .then(() => {
-        console.log("tstststs");
-        this.router.navigate(['/home-admin']);
+        if (this.auth.temPermissao()) {
+          this.router.navigate(['/home-admin']);
+        } else {
+          this.router.navigate(['/home-user']);
+        }
+
       })
       .catch(erro => {
         this.errorHandler.handle(erro);

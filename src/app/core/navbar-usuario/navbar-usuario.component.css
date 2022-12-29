@@ -6,11 +6,6 @@
   align-items: center;
 }
 
-
-:host(app-home-admin) {
-  width: 100%;
-}
-
 .navbar-menuitem a {
   color: #fff;
   text-decoration: none;

@@ -7,6 +7,7 @@ import { Injectable } from '@angular/core';
 })
 export class AuthService {
 
+  tokensRevokeUrl = 'http://localhost:8080/tokens/revoke';
   oauthTokenUrl = 'http://localhost:8081/oauth/token';
   jwtPayload: any;
 
@@ -69,8 +70,8 @@ export class AuthService {
     return !token || this.jwtHelper.isTokenExpired(token);
   }
 
-  temPermissao(permissao: string) {
-    return this.jwtPayload && this.jwtPayload.authorities.includes(permissao);
+  temPermissao() {
+    return this.jwtPayload && this.jwtPayload.admin;
   }
 
   public armazenarToken(token: string) {
@@ -86,6 +87,19 @@ export class AuthService {
     if (token) {
       this.armazenarToken(token);
     }
+  }
+
+  limparAccessToken() {
+    localStorage.removeItem('token');
+    this.jwtPayload = null;
+  }
+
+  logout() {
+    return this.http.delete(this.tokensRevokeUrl, { withCredentials: true })
+      .toPromise()
+      .then(() => {
+        this.limparAccessToken();
+      });
   }
 
 }
