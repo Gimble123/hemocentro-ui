@@ -1,7 +1,6 @@
 import { HttpClientModule } from '@angular/common/http';
 import { CoreModule } from './../core/core.module';
 import { CampanhaAtualizacaoComponent } from './campanha-atualizacao/campanha-atualizacao.component';
-import { CampanhaGridComponent } from './campanha-grid/campanha-grid.component';
 import { CampanhaCadastroComponent } from './campanha-cadastro/campanha-cadastro.component';
 import { CampanhasPesquisaComponent } from './campanhas-pesquisa/campanhas-pesquisa.component';
 import { NgModule } from '@angular/core';
@@ -23,7 +22,6 @@ import { CampanhasRoutingModule } from './campanhas-routing.module';
   declarations: [
     CampanhasPesquisaComponent,
     CampanhaCadastroComponent,
-    CampanhaGridComponent,
     CampanhaAtualizacaoComponent
   ],
   imports: [

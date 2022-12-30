@@ -7,7 +7,7 @@ import { Injectable } from '@angular/core';
 })
 export class AuthService {
 
-  tokensRevokeUrl = 'http://localhost:8080/tokens/revoke';
+  tokensRevokeUrl = 'http://localhost:8081/tokens/revoke';
   oauthTokenUrl = 'http://localhost:8081/oauth/token';
   jwtPayload: any;
 

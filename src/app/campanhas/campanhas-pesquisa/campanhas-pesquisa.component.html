@@ -27,27 +27,27 @@
 
           <td>
             <span class="p-column-title">Nome da campanha</span>
-            {{ campanha.nomeCampanha }}
+            {{ campanha.nome }}
           </td>
 
           <td class="col-data">
             <span class="p-column-title">Tipo sanguíneo</span>
-            {{ campanha.tipoSanguineo }}
+            {{ campanha.grupoSanguineo.nome }}
           </td>
 
           <td class="col-data">
             <span class="p-column-title">De</span>
-            {{ campanha.de | date:'dd/MM/y' }}
+            {{ campanha.dataInicial | date:'dd/MM/y' }}
           </td>
 
           <td class="col-data">
             <span class="p-column-title">Até</span>
-            {{ campanha.ate | date:'dd/MM/y' }}
+            {{ campanha.dataFinal | date:'dd/MM/y' }}
           </td>
 
           <td>
             <span class="p-column-title">Número de doadores alcançados</span>
-            {{ campanha.numeroDeDoadoresAlcancados }}
+            {{ campanha.quantidadeDoadores }}
           </td>
 
             <td class="col-acoes">

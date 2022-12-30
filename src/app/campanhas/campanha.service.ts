@@ -30,14 +30,14 @@ export class CampanhaService {
       return this.http.get(`${this.campanhasUrl}`, { headers, params })
         .toPromise()
         .then((response: any) => {
-          const campanhas = response['content'];
+          const campanhas = response;
 
           const resultado = {
             campanhas,
             total: response['totalElements']
           };
 
-          console.log(resultado);
+          console.log('Campanhas: ', campanhas);
           return resultado;
         });
     }

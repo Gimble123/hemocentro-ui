@@ -10,7 +10,7 @@ import { LazyLoadEvent } from 'primeng/api';
   templateUrl: './campanhas-pesquisa.component.html',
   styleUrls: ['./campanhas-pesquisa.component.css']
 })
-export class CampanhasPesquisaComponent {
+export class CampanhasPesquisaComponent implements OnInit {
 
   filtro = new CampanhaFiltro();
 
@@ -26,7 +26,7 @@ export class CampanhasPesquisaComponent {
   ) { }
 
   ngOnInit() {
-    this.title.setTitle('Pesquisa de lançamentos');
+    this.title.setTitle('Pesquisa de campanhas');
   }
 
   pesquisar(pagina: number = 0): void {
@@ -36,6 +36,7 @@ export class CampanhasPesquisaComponent {
       .then((resultado: any) => {
         this.campanhas = resultado.campanhas;
         this.totalRegistros = resultado.total;
+        console.log('ksksksksks: ', this.campanhas)
       })
       .catch(erro => this.errorHandler.handle(erro));
 

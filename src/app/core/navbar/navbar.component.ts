@@ -12,6 +12,7 @@ import { ErrorHandlerService } from '../error-handler.service';
 export class NavbarComponent implements OnInit {
 
   usuarioLogado: string = ''
+  menus: any[] = [];
 
   constructor(
     private auth: AuthService,
@@ -21,32 +22,12 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit() {
     this.usuarioLogado = this.auth.jwtPayload?.nome;
-    console.log('kskskssk: ', this.auth.jwtPayload?.admin);
-    this.menus(this.auth.jwtPayload?.admin);
+    this.menus = this.auth.jwtPayload?.menus;
+    console.log('Token: ', this.auth.jwtPayload?.admin);
   }
 
   temPermissao(flag: boolean) {
     return this.auth.temPermissao();
-  }
-
-  menus(type: boolean){
-   let render = []
-    if(type){
-      render.push({
-        value: 'home',
-        icon: 'fa-solid fa-house'
-      },{
-        value: 'home'
-      },{
-        value: 'home'
-      })
-    }else{
-      render.push({
-        value: 'home'
-      })
-    }
-
-    return render
   }
 
   logout() {
