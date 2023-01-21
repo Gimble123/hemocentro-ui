@@ -1,6 +1,5 @@
-import { UsuarioGridComponent } from './usuario-grid/usuario-grid.component';
-import { UsuarioCadastroSegundaTelaComponent } from './usuario-cadastro-segunda-tela/usuario-cadastro-segunda-tela.component';
-import { UsuarioCadastroComponent } from './usuario-cadastro/usuario-cadastro.component';
+
+import { UsuariosRoutingModule } from './usuarios-routing.module';
 import { SharedModule } from './../shared/shared.module';
 import { CoreModule } from './../core/core.module';
 
@@ -8,6 +7,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
+import { StepsModule } from 'primeng/steps';
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
 import { InputMaskModule } from 'primeng/inputmask';
@@ -15,19 +15,15 @@ import { TableModule } from 'primeng/table';
 import { TooltipModule } from 'primeng/tooltip';
 import { CalendarModule } from 'primeng/calendar';
 import { UsuariosPesquisaComponent } from './usuarios-pesquisa/usuarios-pesquisa.component';
-import { UsuarioAtualizacaoComponent } from './usuario-atualizacao/usuario-atualizacao.component';
-import { UsuarioAtualizacaoSegundaTelaComponent } from './usuario-atualizacao-segunda-tela/usuario-atualizacao-segunda-tela.component';
+import { HttpClientModule } from '@angular/common/http';
+import { UsuarioContainerComponent } from './etapas-cadastro/usuario-container/usuario-container.component';
 
 
 
 @NgModule({
   declarations: [
-    UsuarioCadastroComponent,
-    UsuarioCadastroSegundaTelaComponent,
-    UsuarioGridComponent,
     UsuariosPesquisaComponent,
-    UsuarioAtualizacaoComponent,
-    UsuarioAtualizacaoSegundaTelaComponent
+    UsuarioContainerComponent
   ],
   imports: [
     CommonModule,
@@ -39,14 +35,12 @@ import { UsuarioAtualizacaoSegundaTelaComponent } from './usuario-atualizacao-se
     TooltipModule,
     InputMaskModule,
     SharedModule,
-    CoreModule
+    CoreModule,
+    UsuariosRoutingModule,
+    StepsModule,
+    HttpClientModule
 
   ],
-  exports: [
-    UsuarioCadastroComponent,
-    UsuarioCadastroSegundaTelaComponent,
-    UsuarioGridComponent,
-    UsuariosPesquisaComponent
-  ]
+  exports: []
 })
 export class UsuariosModule { }

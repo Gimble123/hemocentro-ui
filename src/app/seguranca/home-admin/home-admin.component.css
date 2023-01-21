@@ -6,13 +6,18 @@
   margin-left: 350px;
 }
 
-
-@media(max-width: 1280px ){
-  .content-navbar-menu {
-    zoom: 0.8;
+@media(max-width: 1280px){
+  :host(app-home-admin){
+    zoom: 0.6;
   }
-  .logout{
-    zoom: 0.8;
+
+  .content-image {
+    background: url("/assets/image-background.png") no-repeat;
+    flex: 1;
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+    margin-left: 350px;
   }
 }
 

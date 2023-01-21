@@ -82,10 +82,11 @@ td {
   vertical-align: center;
 }
 
-.button-nova-campanha, button {
+.button-novo-usuario, a, button {
   background: #F02323 !important;
   outline: none !important;
   box-shadow: none !important;
+  text-decoration: none;
 }
 
 .titles {
@@ -144,8 +145,18 @@ p-column-title {
 
 @media(max-width: 1280px){
   :host(app-usuarios-pesquisa){
-    zoom: 0.7;
+    zoom: 0.6;
   }
+
+  .titles {
+    position: absolute;
+    top: -140px;
+    font-size: 25px;
+    width: 100%;
+    text-align: center;
+    font-weight: normal;
+  }
+
 }
 
 

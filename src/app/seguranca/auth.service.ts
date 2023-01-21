@@ -1,6 +1,7 @@
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Usuario } from '../core/model';
 
 @Injectable({
   providedIn: 'root'
@@ -9,6 +10,7 @@ export class AuthService {
 
   tokensRevokeUrl = 'http://localhost:8081/tokens/revoke';
   oauthTokenUrl = 'http://localhost:8081/oauth/token';
+  recuperarAcessoUrl = 'http://localhost:8081/forgot-password';
   jwtPayload: any;
 
   constructor(
@@ -39,6 +41,18 @@ export class AuthService {
 
         return Promise.reject(response);
       });
+  }
+
+  recuperar(usuario: string) {
+    let user = new Usuario();
+    user.login = usuario;
+
+    console.log('Auth service: ', user.login);
+
+    return this.http.post(this.recuperarAcessoUrl, user.login).subscribe(data => {
+      alert( JSON.parse(JSON.stringify(data)) )
+    });
+
   }
 
   obterNovoAccessToken(): Promise<void> {

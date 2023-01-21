@@ -1,4 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { UsuarioFiltro, UsuarioService } from './../usuario.service';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { ErrorHandlerService } from 'src/app/core/error-handler.service';
+import { ConfirmationService, LazyLoadEvent, MessageService } from 'primeng/api';
+import { AuthService } from 'src/app/seguranca/auth.service';
+import { Title } from '@angular/platform-browser';
+import { Table } from 'primeng/table';
 
 @Component({
   selector: 'app-usuarios-pesquisa',
@@ -7,21 +13,40 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UsuariosPesquisaComponent {
 
-  usuarios = [
-    { id: 1, nome: 'Maria Rita', cpf: '11.400-121',
-      telefone: '(41) 40219-6212', dataNascimento: new Date(1987, 12, 26), sexo: 'Feminino' },
-    { id: 2, nome: 'Maria Rita', cpf: '11.400-121',
-      telefone: '(41) 40219-6212', dataNascimento: new Date(1987, 12, 26), sexo: 'Feminino' },
-    { id: 3, nome: 'Maria Rita', cpf: '11.400-121',
-      telefone: '(41) 40219-6212', dataNascimento: new Date(1987, 12, 26), sexo: 'Feminino' },
-    { id: 4, nome: 'Maria Rita', cpf: '11.400-121',
-      telefone: '(41) 40219-6212', dataNascimento: new Date(1987, 12, 26), sexo: 'Feminino' },
-    { id: 5, nome: 'Maria Rita', cpf: '11.400-121',
-      telefone: '(41) 40219-6212', dataNascimento: new Date(1987, 12, 26), sexo: 'Feminino' },
-    { id: 6, nome: 'Maria Rita', cpf: '11.400-121',
-      telefone: '(41) 40219-6212', dataNascimento: new Date(1987, 12, 26), sexo: 'Feminino' },
-    { id: 7, nome: 'Maria Rita', cpf: '11.400-121',
-      telefone: '(41) 40219-6212', dataNascimento: new Date(1987, 12, 26), sexo: 'Feminino' }
-  ];
+  filtro = new UsuarioFiltro();
+
+  totalRegistros: number = 0
+
+  usuarios: any[] = [];
+  @ViewChild('tabela') grid!: Table;
+
+  constructor(
+    private auth: AuthService,
+    private usuarioService: UsuarioService,
+    private errorHandler: ErrorHandlerService,
+    private messageService: MessageService,
+    private confirmationService: ConfirmationService,
+    private title: Title
+  ) { }
+
+  ngOnInit() {
+    this.title.setTitle('Pesquisa de usuários')
+  }
+
+  pesquisar(pagina: number = 0): void {
+    this.filtro.pagina = pagina;
+
+    this.usuarioService.pesquisar(this.filtro)
+      .then((resultado: any) => {
+        this.usuarios = resultado.usuarios;
+        this.totalRegistros = resultado.total;
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
+
+  aoMudarPagina(event: LazyLoadEvent) {
+    const pagina = event!.first! / event!.rows!;
+    this.pesquisar(pagina);
+  }
 
 }

@@ -23,7 +23,6 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {
     this.usuarioLogado = this.auth.jwtPayload?.nome;
     this.menus = this.auth.jwtPayload?.menus;
-    console.log('Token: ', this.auth.jwtPayload?.admin);
   }
 
   temPermissao(flag: boolean) {

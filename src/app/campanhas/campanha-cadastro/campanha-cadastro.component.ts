@@ -32,7 +32,32 @@ export class CampanhaCadastroComponent implements OnInit {
 
     this.title.setTitle('Nova campanha');
 
+    if (idCampanha && idCampanha !== 'nova') {
+      this.carregarCampanha(idCampanha);
+    }
+
     this.carregarGrupoSanguineo();
+  }
+
+  get editando() {
+    return Boolean(this.campanha.id)
+  }
+
+  carregarCampanha(id: number) {
+    this.campanhaService.buscarPorCodigo(id)
+      .then((campanha: Campanha) => {
+        this.campanha = campanha
+        this.atualizarTituloEdicao()
+      })
+      .catch((erro: any) => this.errorHandler.handle(erro));
+  }
+
+  salvar(form: NgForm) {
+    if (this.editando) {
+      this.atualizarCampanha(form);
+    } else {
+      this.adicionarCampanha(form);
+    }
   }
 
   adicionarCampanha(form: NgForm) {
@@ -52,6 +77,21 @@ export class CampanhaCadastroComponent implements OnInit {
 
       })
       .catch(erro => this.errorHandler.handle(erro));
-}
+  }
+
+  atualizarCampanha(form: NgForm) {
+    this.campanhaService.atualizar(this.campanha)
+      .then(campanha => {
+        this.campanha = campanha;
+
+        this.messageService.add({ severity: 'success', detail: 'Campanha alterada com sucesso!' });
+        this.atualizarTituloEdicao();
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
+
+  atualizarTituloEdicao() {
+    this.title.setTitle(`Edição de campanha: ${this.campanha.nome}`);
+  }
 
 }

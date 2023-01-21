@@ -1,7 +1,7 @@
+import { Campanha } from './../core/model';
 import { DatePipe } from '@angular/common';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Campanha } from '../core/model';
 
 export class CampanhaFiltro {
   pagina: number = 0
@@ -15,8 +15,7 @@ export class CampanhaService {
 
   campanhasUrl = 'http://localhost:8081/campanhas';
 
-  constructor(private http: HttpClient,
-    private datePipe: DatePipe) { }
+  constructor(private http: HttpClient) { }
 
     pesquisar(filtro: CampanhaFiltro): Promise<any> {
       const headers = new HttpHeaders()
@@ -59,43 +58,45 @@ export class CampanhaService {
       .toPromise();
   }
 
-  // atualizar(lancamento: Lancamento): Promise<Lancamento> {
-  //   const headers = new HttpHeaders()
-  //     .append('Authorization', 'Basic YWRtaW5AYWxnYW1vbmV5LmNvbTphZG1pbg==')
-  //     .append('Content-Type', 'application/json');
+  atualizar(campanha: Campanha): Promise<Campanha> {
+    const headers = new HttpHeaders()
+      .append('Authorization', 'Basic YWRtaW5AYWxnYW1vbmV5LmNvbTphZG1pbg==')
+      .append('Content-Type', 'application/json');
 
-  //   return this.http.put<Lancamento>(`${this.lancamentosUrl}/${lancamento.codigo}`, lancamento, { headers })
-  //     .toPromise()
-  //     .then((response: any) => {
-  //       this.converterStringsParaDatas([response]);
+    return this.http.put<Campanha>(`${this.campanhasUrl}/${campanha.id}`, campanha, { headers })
+      .toPromise()
+      .then((response: any) => {
+        this.converterStringsParaDatas([response]);
 
-  //       return response;
-  //     });
-  // }
+        return response;
+      });
+  }
 
-  // buscarPorCodigo(codigo: number): Promise<Lancamento> {
-  //   const headers = new HttpHeaders()
-  //     .append('Authorization', 'Basic YWRtaW5AYWxnYW1vbmV5LmNvbTphZG1pbg==');
+  buscarPorCodigo(id: number): Promise<Campanha> {
+    const headers = new HttpHeaders()
+      .append('Authorization', 'Basic YWRtaW5AYWxnYW1vbmV5LmNvbTphZG1pbg==');
 
-  //   return this.http.get(`${this.lancamentosUrl}/${codigo}`, { headers })
-  //     .toPromise()
-  //     .then((response: any) => {
-  //       this.converterStringsParaDatas([response]);
+    return this.http.get(`${this.campanhasUrl}/${id}`, { headers })
+      .toPromise()
+      .then((response: any) => {
+        this.converterStringsParaDatas([response]);
 
-  //       return response;
-  //     });
-  // }
+        return response;
+      });
+  }
 
-  // private converterStringsParaDatas(lancamentos: Lancamento[]) {
-  //   for (const lancamento of lancamentos) {
-  //     let offset = new Date().getTimezoneOffset() * 60000;
+  private converterStringsParaDatas(campanhas: Campanha[]) {
+    for (const campanha of campanhas) {
+      let offset = new Date().getTimezoneOffset() * 60000;
 
-  //     lancamento.dataVencimento = new Date(new Date(lancamento.dataVencimento!).getTime() + offset);
+      if (campanha.dataInicial) {
+        campanha.dataInicial = new Date(new Date(campanha.dataInicial!).getTime() + offset);
+      }
 
-  //     if (lancamento.dataPagamento) {
-  //       lancamento.dataPagamento = new Date(new Date(lancamento.dataPagamento).getTime() + offset);
-  //     }
-  //   }
-  // }
+      if (campanha.dataFinal) {
+        campanha.dataFinal = new Date(new Date(campanha.dataFinal).getTime() + offset);
+      }
+    }
+  }
 
 }

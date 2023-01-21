@@ -4,7 +4,7 @@
         <div class="grid">
             <div class="container-top">
               <div class="col-12 p-fluid">
-                <h1>Redefinir senha</h1>
+                <h1>Recuperar acesso</h1>
               </div>
 
             <div class="espacamento">
@@ -15,12 +15,12 @@
             </div>
 
               <div class="col-12 p-fluid" >
-                  <button pButton type="submit" label="Enviar" class="button-danger"></button>
+                  <button pButton type="submit" label="Enviar" (click)="recuperar(usuario.value)" class="button-danger"></button>
               </div>
 
 
               <div class="col-12 p-fluid" >
-                <button pButton type="submit" label="Voltar" class="p-button-danger"></button>
+                <button pButton type="submit" label="Voltar" class="p-button-danger" routerLink="/login"></button>
               </div>
             </div>
         </div>

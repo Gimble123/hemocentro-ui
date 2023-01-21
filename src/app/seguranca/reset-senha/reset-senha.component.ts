@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-reset-senha',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ResetSenhaComponent implements OnInit {
 
-  constructor() { }
+  constructor(private auth: AuthService) { }
 
   ngOnInit(): void {
+  }
+
+  recuperar(usuario: string) {
+    console.log('arquivo component', usuario)
+    this.auth.recuperar(usuario);
   }
 
 }

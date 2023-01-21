@@ -3,15 +3,18 @@
   <div class="col-12 relative">
     <h2 class="titles">Usuários</h2>
     <div class="button-novo-usuario">
-      <button type="button" class="disabled-hover margin-button" pButton label="Novo usuário"></button>
+      <a class="disabled-hover margin-button" pButton label="Novo usuário" routerLink="/usuarios/usuario-container"></a>
     </div>
-    <p-table [value]="usuarios" [paginator]="true" [rows]="2" [responsive]="true">
+    <p-table [value]="usuarios" [responsive]="true" [paginator]="true" [rows]="filtro.itensPorPagina" [lazy]="true"
+        [totalRecords]="totalRegistros" (onLazyLoad)="aoMudarPagina($event)" #tabela>
       <ng-template pTemplate="header">
         <tr>
           <th>ID</th>
           <th>Nome</th>
           <th>CPF</th>
           <th>Telefone</th>
+          <th>Nacionalidade</th>
+          <th>Profissão</th>
           <th class="col-data-header">Data de Nascimento</th>
           <th>Sexo</th>
           <th class="col-acoes">Ações</th>
@@ -39,6 +42,16 @@
             {{ usuario.telefone}}
           </td>
 
+          <td>
+            <span class="p-column-title">Nacionalidade</span>
+            {{ usuario.nacionalidade }}
+          </td>
+
+          <td>
+            <span class="p-column-title">Profissão</span>
+            {{ usuario.profissao }}
+          </td>
+
           <td class="col-data">
             <span class="p-column-title">Data de Nascimento</span>
             {{ usuario.dataNascimento | date:'dd/MM/y' }}
@@ -53,6 +66,13 @@
               <button pButton icon="pi pi-pencil" pTooltip="Editar" tooltipPosition="top"></button>
               <button pButton icon="pi pi-trash" pTooltip="Excluir" tooltipPosition="top"></button>
             </td>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="emptymessage">
+        <tr>
+          <td colspan="6">
+            Nenhum usuário encontrado
+          </td>
         </tr>
       </ng-template>
     </p-table>

@@ -14,6 +14,11 @@
 .navbar-menuitem a {
   color: #fff;
   text-decoration: none;
+
+}
+
+li {
+  list-style: none;
 }
 
 .navbar-menuitem a:hover {
@@ -58,15 +63,15 @@
   width: 26px;
 }
 
-.content-navbar-menu li:hover{
+.content-navbar-menu li:hover {
   background-color: #7c7c7a;
 }
 
-.content-navbar-menu li a{
+.content-navbar-menu li a {
   font-size: 16px;
 }
 
-.logout{
+.logout {
   position: absolute;
   bottom: 30px;
   left: 12px;
@@ -74,27 +79,29 @@
   text-align: center;
 }
 
-.logout a{
+.logout a {
   color: #fff;
   text-decoration: none;
 }
 
-.logout a i{
+.logout a i {
   margin: 0;
   padding: 0;
 }
 
-.content-search{
+.content-search {
   position: relative;
   margin: 75px 50px 35px 50px;
 }
-.content-search i{
+
+.content-search i {
   position: absolute;
   color: #7c7c7a;
   top: 5px;
   left: -12px;
 }
-.content-search .search{
+
+.content-search .search {
   padding: 12px 12px 12px 50px;
   border: 0;
   border-radius: 4px;
@@ -108,3 +115,4 @@
 .navbar-menuitem.ativo {
   background-color: #7c7c7a;
 }
+

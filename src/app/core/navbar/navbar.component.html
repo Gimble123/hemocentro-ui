@@ -8,6 +8,9 @@
     <div class="navbar-usuario">
       {{ usuarioLogado }}
     </div>
+    <ul class="navbar-menu">
+      <li class="navbar-menuitem" routerLinkActive="ativo"> <i class="fa-solid fa-house"></i> <a routerLink="/home-admin">Home</a></li>
+    </ul>
     <ul class="navbar-menu" *ngFor="let m of menus">
       <li class="navbar-menuitem" routerLinkActive="ativo"> <i class="{{ m.icon }}"></i> <a routerLink="../{{ m.url }}">{{ m.nome }}</a></li>
     </ul>

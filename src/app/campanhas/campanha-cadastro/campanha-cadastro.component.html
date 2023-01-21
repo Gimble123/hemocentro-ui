@@ -1,8 +1,10 @@
 <app-navbar></app-navbar>
 <div class="container">
-  <div class="grid">
-    <div class="col-12 relative">
-      <h2 class="titles">Cadastrar Campanha </h2>
+
+    <div class="grid">
+      <div class="col-12 relative">
+        <h2 class="titles">{{ editando ? 'Edição de' : 'Nova' }} Campanha</h2>
+      </div>
     </div>
 
     <form #campanhaForm="ngForm" autocomplete="off" (ngSubmit)="adicionarCampanha(campanhaForm)">
@@ -23,7 +25,7 @@
       <div class="right">
         <div class="col-12 md:col-6 p-fluid">
           <label class="espacamento">Tipo sanguíneo</label>
-          <!-- <p-dropdown [options]="grupoSanguineo" placeholder="Selecione" [(ngModel)]="campanha.grupoSanguineo.id"
+          <!-- <p-dropdown [options]="grupoSanguineo" placeholder="Selecione" [(ngModel)]="campanha"
           name="grupoSanguineo" #grupoSanguineo [required]="true"></p-dropdown> -->
         </div>
 
@@ -39,6 +41,6 @@
         <button pButton type="submit" class="button-danger" label="Finalizar"></button>
       </div>
     </form>
-  </div>
+
 </div>
 
