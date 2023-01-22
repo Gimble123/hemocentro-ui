@@ -25,7 +25,7 @@ export class NavbarComponent implements OnInit {
     this.menus = this.auth.jwtPayload?.menus;
   }
 
-  temPermissao(flag: boolean) {
+  temPermissao() {
     return this.auth.temPermissao();
   }
 

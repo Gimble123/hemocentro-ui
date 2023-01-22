@@ -1,4 +1,3 @@
-import { HomeUserComponent } from './home-user/home-user.component';
 import { FormLoginComponent } from './form-login/form-login.component';
 import { CoreModule } from './../core/core.module';
 import { InputTextModule } from 'primeng/inputtext';
@@ -6,12 +5,13 @@ import { InputTextModule } from 'primeng/inputtext';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { HomeAdminComponent } from './home-admin/home-admin.component';
+import { HomeComponent } from './home/home.component';
 import { ResetSenhaComponent } from './reset-senha/reset-senha.component';
 import { SegurancaRoutingModule } from './seguranca-routing.module';
 import { JwtHelperService, JwtModule } from '@auth0/angular-jwt';
 import { MoneyHttpInterceptor } from './money.http';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 export function tokenGetter(): string {
   return localStorage.getItem('token')!;
@@ -20,8 +20,7 @@ export function tokenGetter(): string {
 @NgModule({
   declarations: [
     FormLoginComponent,
-    HomeAdminComponent,
-    HomeUserComponent,
+    HomeComponent,
     ResetSenhaComponent
   ],
   imports: [
@@ -30,8 +29,8 @@ export function tokenGetter(): string {
     JwtModule.forRoot({
       config: {
         tokenGetter,
-        allowedDomains: ['localhost:8081'],
-        disallowedRoutes: ['http://localhost:8081/oauth/token']
+        allowedDomains: environment.tokenAllowedDomains,
+        disallowedRoutes: environment.tokenDisallowedRoutes
       }
     }),
     InputTextModule,

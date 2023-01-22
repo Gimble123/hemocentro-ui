@@ -2,14 +2,15 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Usuario } from '../core/model';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  tokensRevokeUrl = 'http://localhost:8081/tokens/revoke';
-  oauthTokenUrl = 'http://localhost:8081/oauth/token';
+  tokensRevokeUrl = environment.apiUrl + '/tokens/revoke';
+  oauthTokenUrl = environment.apiUrl + '/oauth/token'
   recuperarAcessoUrl = 'http://localhost:8081/forgot-password';
   jwtPayload: any;
 
@@ -86,6 +87,20 @@ export class AuthService {
 
   temPermissao() {
     return this.jwtPayload && this.jwtPayload.admin;
+  }
+
+  temPermissaoRole(permissao: string) {
+    return this.jwtPayload && this.jwtPayload.authorities.includes(permissao);
+  }
+
+  temQualquerPermissao(roles: any) {
+    for (const role of roles) {
+      if (this.temPermissaoRole(role)) {
+        return true;
+      }
+    }
+
+    return false;
   }
 
   public armazenarToken(token: string) {

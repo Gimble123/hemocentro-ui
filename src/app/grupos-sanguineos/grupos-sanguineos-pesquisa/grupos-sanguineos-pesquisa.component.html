@@ -1,1 +1,47 @@
-<p>grupos-sanguineos-pesquisa works!</p>
+<div class="grid">
+  <div class="col-12 relative">
+    <h2 class="titles">Grupos Sanguineos</h2>
+    <div class="button-novo-grupo-sanguineo">
+      <a class="disabled-hover margin-button" pButton label="Novo grupo sanguíneo" routerLink="/grupos-sanguineos/novo"></a>
+    </div>
+    <p-table [value]="grupos" [responsive]="true" [paginator]="true" [rows]="filtro.itensPorPagina" [lazy]="true"
+        [totalRecords]="totalRegistros" (onLazyLoad)="aoMudarPagina($event)" #tabela>
+      <ng-template pTemplate="header">
+        <tr>
+          <th>ID</th>
+          <th>Grupo Sanguíneo</th>
+          <th class="col-acoes">Ações</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-grupo>
+        <tr>
+          <td>
+            <span class="p-column-title">ID</span>
+            {{ grupo.id }}
+          </td>
+
+          <td>
+            <span class="p-column-title">Nome</span>
+            {{ grupo.nome }}
+          </td>
+
+          <td class="col-acoes">
+            <button pButton icon="pi pi-pencil" pTooltip="Editar" tooltipPosition="top"></button>
+            <button pButton icon="pi pi-trash" pTooltip="Excluir" tooltipPosition="top"></button>
+          </td>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="emptymessage">
+        <tr>
+          <td colspan="6">
+            Nenhum grupo sangíneo encontrado
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</div>
+
+
+
+

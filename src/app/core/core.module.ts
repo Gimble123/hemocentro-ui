@@ -2,7 +2,6 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { NgModule } from '@angular/core';
 import localePt from '@angular/common/locales/pt';
 import { CommonModule, DatePipe, registerLocaleData } from '@angular/common';
-import { NavbarUsuarioComponent } from './navbar-usuario/navbar-usuario.component';
 import { PaginaNaoEncontradaComponent } from './pagina-nao-encontrada.component';
 import { ErrorHandlerService } from './error-handler.service';
 import { ConfirmationService, MessageService } from 'primeng/api';
@@ -24,7 +23,6 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
 @NgModule({
   declarations: [
     NavbarComponent,
-    NavbarUsuarioComponent,
     PaginaNaoEncontradaComponent
   ],
   imports: [
@@ -43,9 +41,8 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   ],
   exports: [
     NavbarComponent,
-    NavbarUsuarioComponent,
     ToastModule,
-    ConfirmDialogModule,
+    ConfirmDialogModule
   ],
   providers: [
     DatePipe,

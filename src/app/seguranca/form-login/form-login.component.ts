@@ -28,12 +28,7 @@ export class FormLoginComponent implements OnInit {
 
     this.auth.login(usuario, senha)
       .then(() => {
-        if (this.auth.temPermissao()) {
-          this.router.navigate(['/home-admin']);
-        } else {
-          this.router.navigate(['/home-user']);
-        }
-
+       this.router.navigate(['/home']);
       })
       .catch(erro => {
         this.errorHandler.handle(erro);
