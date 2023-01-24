@@ -1,7 +1,7 @@
 import { ActivatedRoute, Router } from '@angular/router';
 import { UsuarioService } from './../../usuario.service';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-usuario-cadastro-step1',
@@ -23,16 +23,42 @@ export class UsuarioCadastroStep1Component implements OnInit {
 
   ngOnInit(): void {
     this.configurarFormulario();
+
+    const idUsuario = this.route.snapshot.params['id'];
+    if (idUsuario) {
+      this.usuarioService.buscarPorCodigoSteps(idUsuario)
+        .then(() => {
+          this.preencherUsuario()
+        })
+    } else {
+      this.preencherUsuario()
+    }
+  }
+
+  get editando() {
+    return Boolean(this.formulario.get('id')?.value)
+  }
+
+  preencherUsuario() {
+    const infoPrincipal = this.usuarioService.getStep1();
+    if (infoPrincipal) {
+      this.formulario.patchValue(infoPrincipal)
+    }
   }
 
   configurarFormulario() {
     this.formulario = this.formBuilder.group({
-      // id: [],
-      // nome: ['RECEITA', Validators.required],
-      // email: [null, Validators.required],
-      // dataPagamento: [],
-      // descricao: [null, [Validators.required]],
-      // valor: [null, Validators.required],
+      id: [],
+      nome: [null, Validators.required],
+      email: [null, Validators.required],
+      cpf: [null, Validators.required],
+      estadoCivil: [null, Validators.required],
+      telefone: [null, Validators.required],
+      sexo: [null, Validators.required],
+      endereco: [null, Validators.required],
+      profissao: [null, Validators.required],
+      numeroDoacoes: [null, Validators.required],
+      dataNascimento: [null, Validators.required]
     });
   }
 

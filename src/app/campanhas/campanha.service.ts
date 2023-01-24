@@ -1,6 +1,9 @@
+import { AuthService } from 'src/app/seguranca/auth.service';
 import { Campanha } from './../core/model';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { JwtHelperService } from '@auth0/angular-jwt';
+import { environment } from 'src/environments/environment';
 
 export class CampanhaFiltro {
   pagina: number = 0
@@ -12,9 +15,18 @@ export class CampanhaFiltro {
 })
 export class CampanhaService {
 
-  campanhasUrl = 'http://localhost:8081/campanhas';
+  campanhasUrl =  environment.apiUrl + '/campanhas';
+  jwtPayload: any;
+  userId: any;
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    private auth: AuthService
+  ) {
+    this.auth.carregarToken();
+
+    this.userId = this.auth.jwtPayload?.userId;
+  }
 
     pesquisar(filtro: CampanhaFiltro): Promise<any> {
       const headers = new HttpHeaders()
@@ -24,8 +36,25 @@ export class CampanhaService {
         .set('page', filtro.pagina)
         .set('size', filtro.itensPorPagina);
 
+      if (this.auth.jwtPayload?.admin) {
+        console.log('admin')
+        return this.http.get(`${this.campanhasUrl}`, { headers, params })
+          .toPromise()
+          .then((response: any) => {
+            const campanhas = response;
 
-      return this.http.get(`${this.campanhasUrl}`, { headers, params })
+            const resultado = {
+              campanhas,
+              total: response['totalElements']
+            };
+
+            console.log('Resultado: ' + response['content'])
+
+            return resultado;
+          });
+      } else {
+        console.log('user')
+        return this.http.get(`${this.campanhasUrl}` + '/campanhasUsuario/' + this.userId, { headers, params })
         .toPromise()
         .then((response: any) => {
           const campanhas = response;
@@ -35,10 +64,14 @@ export class CampanhaService {
             total: response['totalElements']
           };
 
-          console.log('Campanhas: ', campanhas);
+          console.log('Resultado: ' + resultado)
+
           return resultado;
         });
+      }
+
     }
+
 
   excluir(id: number): Promise<void> {
     const headers = new HttpHeaders()

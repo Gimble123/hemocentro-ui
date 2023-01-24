@@ -1,4 +1,3 @@
-
 import { UsuariosRoutingModule } from './usuarios-routing.module';
 import { SharedModule } from './../shared/shared.module';
 import { CoreModule } from './../core/core.module';
@@ -17,12 +16,14 @@ import { CalendarModule } from 'primeng/calendar';
 import { UsuariosPesquisaComponent } from './usuarios-pesquisa/usuarios-pesquisa.component';
 import { HttpClientModule } from '@angular/common/http';
 import { UsuarioContainerComponent } from './etapas-cadastro/usuario-container/usuario-container.component';
+import { EtapasModule } from './etapas-cadastro/etapas.module';
 
 
 
 @NgModule({
   declarations: [
     UsuariosPesquisaComponent,
+    UsuarioContainerComponent,
     UsuarioContainerComponent
   ],
   imports: [
@@ -38,7 +39,8 @@ import { UsuarioContainerComponent } from './etapas-cadastro/usuario-container/u
     CoreModule,
     UsuariosRoutingModule,
     StepsModule,
-    HttpClientModule
+    HttpClientModule,
+    EtapasModule
 
   ],
   exports: []

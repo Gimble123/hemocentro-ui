@@ -13,11 +13,9 @@ export class UsuarioContainerComponent implements OnDestroy {
 
   constructor(private usuarioService: UsuarioService) {
     this.items = [{
-      label: 'Etapa 1',
       routerLink: 'usuario-cadastro-step1'
     },
     {
-      label: 'Etapa 2',
       routerLink: 'usuario-cadastro-step2'
     }];
   }

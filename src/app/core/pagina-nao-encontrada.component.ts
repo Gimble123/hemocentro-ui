@@ -7,8 +7,7 @@ import { Component, OnInit } from '@angular/core';
       <h1 class="text-center">Página não encontrada</h1>
     <div>
   `,
-  styles: [
-  ]
+  styles: []
 })
 export class PaginaNaoEncontradaComponent implements OnInit {
 

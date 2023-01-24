@@ -157,4 +157,11 @@ p-column-title {
     text-align: center;
     font-weight: normal;
   }
+
+  :host(app-grupos-sanguineos-pesquisa) {
+    width: 100%;
+    margin-left: -1355px;
+    display: block;
+    padding: 10%;
+  }
 }

@@ -28,7 +28,7 @@ export class FormLoginComponent implements OnInit {
 
     this.auth.login(usuario, senha)
       .then(() => {
-       this.router.navigate(['/home']);
+        this.router.navigate(['/home']);
       })
       .catch(erro => {
         this.errorHandler.handle(erro);

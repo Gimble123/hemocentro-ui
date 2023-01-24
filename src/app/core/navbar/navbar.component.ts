@@ -11,6 +11,7 @@ import { ErrorHandlerService } from '../error-handler.service';
 
 export class NavbarComponent implements OnInit {
 
+  exibindoMenu: boolean = false;
   usuarioLogado: string = ''
   menus: any[] = [];
 

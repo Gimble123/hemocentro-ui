@@ -20,8 +20,7 @@ export class UsuarioService {
   usuarioCadastroEtapa2: UsuarioCadastroEtapa2 | undefined
 
   constructor(
-    private http: HttpClient,
-    private datePipe: DatePipe
+    private http: HttpClient
   ) {
     this.usuariosUrl = `${environment.apiUrl}/usuarios`
   }

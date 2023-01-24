@@ -82,10 +82,11 @@ td {
   vertical-align: center;
 }
 
-.button-nova-campanha, button {
+.button-nova-campanha, a, button {
   background: #F02323 !important;
   outline: none !important;
   box-shadow: none !important;
+  text-decoration: none;
 }
 
 .titles {
@@ -142,9 +143,13 @@ p-column-title {
   padding: 10%;
 }
 
-@media(max-width: 1280px){
+@media(min-width: 768px){
   :host(app-campanhas-pesquisa){
     zoom: 0.6;
+    width: 100%;
+    margin-left: -1355px;
+    display: block;
+    padding: 10%;
   }
 
   .titles {
@@ -154,6 +159,56 @@ p-column-title {
     width: 100%;
     text-align: center;
     font-weight: normal;
+  }
+}
+
+@media(min-width: 992px){
+  :host(app-campanhas-pesquisa){
+    zoom: 0.6;
+    width: 100%;
+    margin-left: -1355px;
+    display: block;
+    padding: 10%;
+  }
+
+  .titles {
+    position: absolute;
+    top: -140px;
+    font-size: 25px;
+    width: 100%;
+    text-align: center;
+    font-weight: normal;
+  }
+}
+
+@media (min-width: 40em) {
+  .col-valor-header {
+    width: 120px;
+  }
+
+  .col-valor {
+    text-align: right !important;
+  }
+
+  .col-data-header {
+    width: 120px;
+  }
+
+  .col-data {
+    text-align: center !important;
+  }
+
+  .col-acoes-header {
+    width: 115px;
+  }
+
+  .col-acoes {
+    width: 115px;
+    text-align: center !important;
+  }
+
+  .col-acoes .p-button {
+    margin: 1px;
   }
 }
 

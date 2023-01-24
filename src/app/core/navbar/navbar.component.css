@@ -119,3 +119,13 @@ li {
 .navbar-menuitem.ativo {
   background-color: #7c7c7a;
 }
+
+.pi-bars {
+  color: #fff;
+}
+
+@media screen and (max-width: 600px) {
+  .navbar {
+     display: none;
+  }
+}

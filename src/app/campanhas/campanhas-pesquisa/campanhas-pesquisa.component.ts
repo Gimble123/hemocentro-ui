@@ -18,6 +18,8 @@ export class CampanhasPesquisaComponent implements OnInit {
 
   campanhas: any[] = [];
   @ViewChild('tabela') grid!: Table;
+  jwtPayload: any;
+  userId: any;
 
   constructor(
     private campanhaService: CampanhaService,
@@ -29,6 +31,7 @@ export class CampanhasPesquisaComponent implements OnInit {
 
   ngOnInit() {
     this.title.setTitle('Pesquisa de campanhas');
+    this.userId = this.jwtPayload?.userId;
   }
 
   pesquisar(pagina: number = 0): void {

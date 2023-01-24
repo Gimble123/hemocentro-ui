@@ -1,8 +1,7 @@
-import { DatePipe } from '@angular/common';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { Campanha, GrupoSanguineo } from '../core/model';
+import { GrupoSanguineo } from '../core/model';
 
 export class GruposSanguineosFiltro {
   pagina: number = 0
@@ -32,12 +31,14 @@ export class GrupoSanguineoService {
     return this.http.get(`${this.gruposSanguineosUrl}`, { headers, params })
       .toPromise()
       .then((response: any) => {
-        const grupos = response;
+        const grupos = response['content'];
 
         const resultado = {
           grupos,
           total: response['totalElements']
         };
+
+        console.log('resultado: ' + resultado)
 
         return resultado;
       });
@@ -47,7 +48,7 @@ export class GrupoSanguineoService {
       const headers = new HttpHeaders()
         .append('Authorization', 'Basic YWRtaW5AYWxnYW1vbmV5LmNvbTphZG1pbg==');
 
-      return this.http.get(this. gruposSanguineosUrl, { headers })
+      return this.http.get(this.gruposSanguineosUrl, { headers })
         .toPromise()
         .then((response: any) => {
 

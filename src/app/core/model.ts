@@ -1,12 +1,3 @@
-export class GrupoSanguineo {
-  id?: number;
-  nome?: string;
-}
-
-export class Doacao {
-  id?: number;
-}
-
 export class Campanha {
   id?: number;
   nome?: string;
@@ -14,6 +5,15 @@ export class Campanha {
   dataFinal?: Date;
   quantidadeDoadores?: number;
   grupoSanguineo = new GrupoSanguineo();
+}
+
+export class GrupoSanguineo {
+  id?: number;
+  nome?: string;
+}
+
+export class Doacao {
+  id?: number;
 }
 
 export class Usuario {

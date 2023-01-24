@@ -159,6 +159,13 @@ form{
     text-align: center;
     font-weight: normal;
   }
+
+  :host(app-grupo-sanguineo-cadastro) {
+    width: 100%;
+    margin-left: -1355px;
+    display: block;
+    padding: 10%;
+  }
 }
 
 
