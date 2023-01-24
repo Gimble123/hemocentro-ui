@@ -41,7 +41,7 @@ export class CampanhaService {
         return this.http.get(`${this.campanhasUrl}`, { headers, params })
           .toPromise()
           .then((response: any) => {
-            const campanhas = response;
+            const campanhas = response['content'];
 
             const resultado = {
               campanhas,
@@ -57,7 +57,7 @@ export class CampanhaService {
         return this.http.get(`${this.campanhasUrl}` + '/campanhasUsuario/' + this.userId, { headers, params })
         .toPromise()
         .then((response: any) => {
-          const campanhas = response;
+          const campanhas = response['content'];
 
           const resultado = {
             campanhas,

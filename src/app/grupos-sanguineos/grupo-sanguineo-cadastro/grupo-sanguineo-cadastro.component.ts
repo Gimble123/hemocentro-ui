@@ -44,14 +44,47 @@ export class GrupoSanguineoCadastroComponent implements OnInit {
       .catch((erro: any) => this.errorHandler.handle(erro));
   }
 
-  novo(form: NgForm) {
+  get editando() {
+    return Boolean(this.grupoSanguineo.id)
+  }
+
+  salvar(form: NgForm) {
+    if (this.editando) {
+      this.atualizarGrupoSanguineo(form);
+    } else {
+      this.adicionarGrupoSanguineo();
+    }
+  }
+
+  adicionarGrupoSanguineo() {
+    this.grupoSanguineoService.adicionar(this.grupoSanguineo)
+      .then((grupoAdicionado: GrupoSanguineo) => {
+        this.messageService.add({ severity: 'success', detail: 'Grupo Sanguíneo adicionado com sucesso!' });
+
+        this.router.navigate(['/grupos-sanguineo', grupoAdicionado.id]);
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
+
+  atualizarGrupoSanguineo(form: NgForm) {
+    this.grupoSanguineoService.atualizar(this.grupoSanguineo)
+      .then(grupoSanguineo => {
+        this.grupoSanguineo = grupoSanguineo;
+
+        this.messageService.add({ severity: 'success', detail: 'Grupo Sangíneo alterado com sucesso!' });
+        this.atualizarTituloEdicao();
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
+
+  nova(form: NgForm) {
     form.reset();
 
     setTimeout(() => {
       this.grupoSanguineo = new GrupoSanguineo();
     }, 1);
 
-    this.router.navigate(['grupos-sanguineos', 'novo']);
+    this.router.navigate(['pessoas', 'nova']);
   }
 
   atualizarTituloEdicao() {

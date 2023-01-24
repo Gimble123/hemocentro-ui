@@ -13,7 +13,6 @@
           <th>Tipo sanguíneo</th>
           <th class="col-data-header">De</th>
           <th class="col-data-header">Até</th>
-          <th>Número de doadores alcançados</th>
           <th class="col-acoes">Ações</th>
         </tr>
       </ng-template>
@@ -42,11 +41,6 @@
           <td class="col-data">
             <span class="p-column-title">Até</span>
             {{ campanha.dataFinal | date:'dd/MM/y' }}
-          </td>
-
-          <td>
-            <span class="p-column-title">Número de doadores alcançados</span>
-            {{ campanha.quantidadeDoadores }}
           </td>
 
             <td class="col-acoes">

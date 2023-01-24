@@ -3,7 +3,6 @@ export class Campanha {
   nome?: string;
   dataInicial?: Date;
   dataFinal?: Date;
-  quantidadeDoadores?: number;
   grupoSanguineo = new GrupoSanguineo();
 }
 

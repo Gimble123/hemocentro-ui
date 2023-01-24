@@ -1,7 +1,7 @@
+import { GrupoSanguineo } from './../core/model';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { GrupoSanguineo } from '../core/model';
 
 export class GruposSanguineosFiltro {
   pagina: number = 0
@@ -38,10 +38,17 @@ export class GrupoSanguineoService {
           total: response['totalElements']
         };
 
-        console.log('resultado: ' + resultado)
-
         return resultado;
       });
+  }
+
+  adicionar(grupo: GrupoSanguineo): Promise<GrupoSanguineo> {
+    return this.http.post<GrupoSanguineo>(this.gruposSanguineosUrl, grupo)
+      .toPromise();
+  }
+
+  atualizar(grupo: GrupoSanguineo): Promise<GrupoSanguineo> {
+    return this.http.put<GrupoSanguineo>(`${this.gruposSanguineosUrl}/${grupo.id}`, grupo).toPromise();
   }
 
     listarTodas(): Promise<any> {
@@ -52,7 +59,6 @@ export class GrupoSanguineoService {
         .toPromise()
         .then((response: any) => {
 
-          //console.log('cscsdfsdsdfsf: ',response)
           return response
         });
     }
