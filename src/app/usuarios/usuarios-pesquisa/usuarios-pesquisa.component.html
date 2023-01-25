@@ -1,9 +1,12 @@
+<div class="container">
 <div class="grid">
+
   <div class="col-12 relative">
     <h2 class="titles">Usuários</h2>
     <div class="button-novo-usuario">
       <a class="disabled-hover margin-button" pButton label="Novo usuário" routerLink="/usuarios/usuario-container"></a>
     </div>
+
     <p-table [value]="usuarios" [responsive]="true" [paginator]="true" [rows]="filtro.itensPorPagina" [lazy]="true"
         [totalRecords]="totalRegistros" (onLazyLoad)="aoMudarPagina($event)" #tabela>
       <ng-template pTemplate="header">
@@ -19,6 +22,7 @@
           <th class="col-acoes">Ações</th>
         </tr>
       </ng-template>
+
       <ng-template pTemplate="body" let-usuario>
         <tr>
           <td>
@@ -68,6 +72,7 @@
             </td>
         </tr>
       </ng-template>
+
       <ng-template pTemplate="emptymessage">
         <tr>
           <td colspan="6">
@@ -77,6 +82,7 @@
       </ng-template>
     </p-table>
   </div>
+</div>
 </div>
 
 

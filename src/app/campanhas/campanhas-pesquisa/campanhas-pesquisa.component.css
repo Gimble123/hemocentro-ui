@@ -129,7 +129,6 @@ p-column-title {
 }
 
 .grid{
-  position: absolute;
   top: 0;
   bottom: 0;
   display: flex;
@@ -138,7 +137,6 @@ p-column-title {
 
 :host(app-campanhas-pesquisa) {
   width: 100%;
-  margin-left: 350px;
   display: block;
   padding: 10%;
 }
@@ -148,10 +146,11 @@ p-column-title {
   :host(app-campanhas-pesquisa){
     zoom: 0.6;
     width: 100%;
-    margin-left: -955px;
     display: block;
     padding: 10%;
   }
+
+
 
   .titles {
     position: absolute;
@@ -163,13 +162,15 @@ p-column-title {
   }
 }
 
-@media (min-width: 40em) {
-  .col-valor-header {
-    width: 120px;
+@media (max-width: 992px) {
+
+  .p-datatable-table thead {
+    display: none !important;
   }
 
-  .col-valor {
-    text-align: right !important;
+  tr, th{
+    display: flex;
+    flex-direction: column;
   }
 
   .col-data-header {

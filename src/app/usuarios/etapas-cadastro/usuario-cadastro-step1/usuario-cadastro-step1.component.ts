@@ -2,6 +2,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { UsuarioService } from './../../usuario.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-usuario-cadastro-step1',
@@ -18,10 +19,12 @@ export class UsuarioCadastroStep1Component implements OnInit {
     private usuarioService: UsuarioService,
     private route: ActivatedRoute,
     private router: Router,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private title: Title
   ) { }
 
   ngOnInit(): void {
+    this.title.setTitle('Cadastro de usuários')
     this.configurarFormulario();
 
     const idUsuario = this.route.snapshot.params['id'];

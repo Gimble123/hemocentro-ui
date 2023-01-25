@@ -9,7 +9,7 @@
   <form autocomplete="off" (ngSubmit)="salvar()" [formGroup]="formulario">
     <div class="left">
 
-      <div class="col-12 md:col-6 p-fluid">
+      <div class="col-12 md:col-3 p-fluid">
         <label class="espacamento">Nome</label>
         <input placeholder="Ex: Adolfo" pInputText type="text" name="nome" formControlName="nome"
          [required]="true">
@@ -17,13 +17,13 @@
          text="Informe um nome"></app-message>
       </div>
 
-      <div class="col-12 md:col-6 p-fluid">
+      <div class="col-12 md:col-3 p-fluid">
         <label class="espacamento">CPF</label>
         <p-inputMask mask="999.999.999-99" [required]="true" placeholder="Ex: 999.999.999-99"></p-inputMask>
         <app-message [control]="formulario.get('cpf')" error="required" text="Informe o cpf"></app-message>
       </div>
 
-      <div class="col-12 md:col-6 p-fluid">
+      <div class="col-12 md:col-3 p-fluid">
         <label class="espacamento">Data Nascimento</label>
           <p-calendar name="dataNascimento" dateFormat="dd/mm/yy" [inline]="false" [readonlyInput]="false"
           [showIcon]="false" placeholder="Ex: 99/99/1999" name="dataNascimento" formControlName="dataNascimento"></p-calendar>
@@ -31,7 +31,7 @@
           text="Informe uma data de nascimento"></app-message>
       </div>
 
-      <div class="col-12 md:col-6 p-fluid">
+      <div class="col-12 md:col-3 p-fluid">
         <label class="espacamento">Estado Cívil</label>
         <input placeholder="Ex: Solteiro" pInputText type="text" name="estadoCivil" formControlName="estadoCivil"
          [required]="true">

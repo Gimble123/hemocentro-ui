@@ -13,7 +13,8 @@
 }
 
 :host(app-navbar) {
-  width: 100%;
+  display: flex;
+  width: 419px;
 }
 
 .navbar-menuitem a {

@@ -1,15 +1,14 @@
-.content-image {
-  background: url("/assets/image-background.png") no-repeat;
-  width: 100vw;
-  height: 100vh;
-  background-size: cover;
-  margin-left: 350px;
-}
-
 @media(max-width: 1280px){
-  :host(app-home-admin){
+  :host(app-home){
     zoom: 0.6;
   }
+}
+
+.content-image, :host(app-home) {
+  background: url("/assets/image-background.png") no-repeat;
+  background-size: 80%;
+  background-position: center;
+  background-color: #375e6d;
 }
 
 .container {
@@ -17,7 +16,8 @@
   flex: 1;
 }
 
-:host(app-home-admin) {
+:host(app-home) {
   width: 100%;
 }
+
 

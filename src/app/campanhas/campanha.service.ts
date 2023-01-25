@@ -64,7 +64,7 @@ export class CampanhaService {
             total: response['totalElements']
           };
 
-          console.log('Resultado: ' + resultado)
+          console.log('Resultado: ', resultado.campanhas)
 
           return resultado;
         });
