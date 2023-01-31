@@ -4,7 +4,6 @@ label {
 
 @media (min-width: 1200px) {
   .container {
-      width: 1170px;
       margin: 0 auto;
   }
 }
@@ -91,7 +90,7 @@ td {
 
 .titles {
   position: absolute;
-  top: -240px;
+  top: -113px;
   font-size: 25px;
   width: 100%;
   text-align: center;
@@ -141,8 +140,7 @@ p-column-title {
   padding: 10%;
 }
 
-
-@media(min-width: 992px){
+@media(max-width: 1280px){
   :host(app-campanhas-pesquisa){
     zoom: 0.6;
     width: 100%;
@@ -150,11 +148,9 @@ p-column-title {
     padding: 10%;
   }
 
-
-
   .titles {
     position: absolute;
-    top: -140px;
+    top: -132px;
     font-size: 25px;
     width: 100%;
     text-align: center;
@@ -164,11 +160,15 @@ p-column-title {
 
 @media (max-width: 992px) {
 
+  :host(app-campanhas-pesquisa){
+    zoom: 0.6;
+  }
+
   .p-datatable-table thead {
     display: none !important;
   }
 
-  tr, th{
+  tr, th {
     display: flex;
     flex-direction: column;
   }

@@ -24,8 +24,6 @@ export class UsuariosPesquisaComponent {
     private auth: AuthService,
     private usuarioService: UsuarioService,
     private errorHandler: ErrorHandlerService,
-    private messageService: MessageService,
-    private confirmationService: ConfirmationService,
     private title: Title
   ) { }
 

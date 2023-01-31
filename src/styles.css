@@ -130,6 +130,11 @@ label {
 }
 
 @media (max-width: 992px) {
+
+  :host(app-campanhas-pesquisa){
+    zoom: 0.8;
+  }
+
   .col-valor-header {
     width: 120px;
   }
@@ -145,6 +150,11 @@ label {
     justify-content: space-between;
   }
 
+   .scroll {
+    overflow: auto;
+    height: 100%;
+  }
+
   .p-datatable-tbody > tr > td{
     text-align: left !important;
   }
@@ -158,6 +168,73 @@ label {
   }
 
   .col-acoes .p-button-icon{
+    display: block !important;
+  }
+
+  .col-valor {
+    text-align: right !important;
+  }
+
+  .col-data-header {
+    width: 120px;
+  }
+
+  .col-data {
+    text-align: center !important;
+  }
+
+  .col-acoes-header {
+    width: 115px;
+  }
+
+  .col-acoes {
+    width: 115px;
+    text-align: center !important;
+  }
+
+  .col-acoes .p-button {
+    margin: 1px;
+  }
+}
+
+@media (max-width: 500px) {
+
+  :host(app-campanhas-pesquisa){
+    zoom: 0.8;
+    overflow: visible;
+  }
+
+
+
+  .col-valor-header {
+    width: 120px;
+  }
+
+  thead th{
+    display: none !important;
+  }
+
+  tbody td {
+    display: flex;
+    width: 100% !important;
+    align-items: left !important;
+    justify-content: space-between;
+    font-size: 15px;
+  }
+
+  .p-datatable-tbody > tr > td {
+    text-align: left !important;
+  }
+
+  tbody td span {
+    display: block !important;
+  }
+
+  .col-acoes span {
+    display: none !important;
+  }
+
+  .col-acoes .p-button-icon {
     display: block !important;
   }
 

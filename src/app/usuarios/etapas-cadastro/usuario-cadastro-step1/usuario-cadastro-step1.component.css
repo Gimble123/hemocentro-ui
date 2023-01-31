@@ -80,16 +80,14 @@ align-items: center;
 
 :host(app-usuario-cadastro-step1) {
 width: 100%;
-margin-left: 350px;
-display: block;
-padding: 10%;
+display: flow-root;
+margin-top: 119px;
 }
 
 @media(max-width: 1280px){
   :host(app-usuario-cadastro-step1){
     zoom: 0.6;
     width: 100%;
-    margin-left: -1490px;
     display: block;
     padding: 10%;
     margin-top: 60px;
@@ -97,11 +95,10 @@ padding: 10%;
 
   .titles {
     position: absolute;
-    top: -140px;
+    margin-top: -40px;
     font-size: 25px;
     width: 100%;
     text-align: center;
-    left: 450px;
   }
 
   .relative {
@@ -128,13 +125,6 @@ padding: 10%;
 }
 
 
-@media (min-width: 1200px) {
-.container {
-    width: 1170px;
-    margin: 0 auto;
-}
-
-}
 
 .center {
 align-items: center;

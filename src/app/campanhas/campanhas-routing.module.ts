@@ -4,9 +4,16 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
-    { path: 'campanhas', component: CampanhasPesquisaComponent },
-    { path: 'campanhas/nova', component: CampanhaCadastroComponent },
-    { path: 'campanhas/:codigo', component: CampanhaCadastroComponent },
+    {
+      path: 'campanhas',
+      component: CampanhasPesquisaComponent },
+    {
+      path: 'campanhas/nova',
+      component: CampanhaCadastroComponent },
+    {
+      path: 'campanhas/:id',
+      component: CampanhaCadastroComponent
+    },
   ];
 
 @NgModule({

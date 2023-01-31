@@ -18,7 +18,7 @@ const routes: Routes = [
     data: { roles: ['ROLE_ADMIN'] }
   },
   {
-    path: 'grupos-sanguineos/:codigo',
+    path: 'grupos-sanguineos/:id',
     component: GrupoSanguineoCadastroComponent,
     canActivate: [AuthGuard],
     data: { roles: ['ROLE_ADMIN'] }

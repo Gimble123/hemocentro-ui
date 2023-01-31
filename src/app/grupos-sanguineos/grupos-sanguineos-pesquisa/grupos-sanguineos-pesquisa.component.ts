@@ -22,9 +22,9 @@ export class GruposSanguineosPesquisaComponent implements OnInit {
   constructor(
     private grupoSanguineoService: GrupoSanguineoService,
     private errorHandler: ErrorHandlerService,
-    private title: Title,
     private messageService: MessageService,
-    private confirmation: ConfirmationService
+    private confirmationService: ConfirmationService,
+    private title: Title
   ) { }
 
   ngOnInit() {
@@ -46,6 +46,29 @@ export class GruposSanguineosPesquisaComponent implements OnInit {
   aoMudarPagina(event: LazyLoadEvent) {
     const pagina = event!.first! / event!.rows!;
     this.pesquisar(pagina);
+  }
+
+  confirmarExclusao(grupo: any): void {
+    this.confirmationService.confirm({
+      message: 'Tem certeza que deseja excluir?',
+      accept: () => {
+        this.excluir(grupo);
+      }
+    });
+  }
+
+  excluir(grupo: any) {
+
+    this.grupoSanguineoService.excluir(grupo.id)
+      .then(
+        () => {
+          this.grid.reset();
+
+          this.messageService.add({ severity: 'success', detail: 'Grupo Sanguíneo excluído com sucesso!' })
+        }
+      )
+      .catch((error) => this.errorHandler.handle(error))
+
   }
 
 }

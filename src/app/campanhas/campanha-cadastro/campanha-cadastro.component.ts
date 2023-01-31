@@ -27,16 +27,23 @@ export class CampanhaCadastroComponent implements OnInit {
     private title: Title
   ) { }
 
-  ngOnInit(): void {
-    const idCampanha = this.route.snapshot.params['codigo'];
+  ngOnInit() {
+    this.carregarGrupoSanguineoSemPaginacao();
+    const idCampanha = this.route.snapshot.params['id'];
 
     this.title.setTitle('Nova campanha');
 
     if (idCampanha && idCampanha !== 'nova') {
       this.carregarCampanha(idCampanha);
     }
+  }
 
-    this.carregarGrupoSanguineo();
+  carregarGrupoSanguineoSemPaginacao() {
+    this.grupoSanguineoService.listarTodosSemPaginacao()
+      .then(grupoSanguineo => {
+        this.grupoSanguineo = grupoSanguineo.map((g: any) => ({ label: g.nome, value: g.id }));
+      })
+      .catch(erro => this.errorHandler.handle(erro));
   }
 
   get editando() {
@@ -61,20 +68,10 @@ export class CampanhaCadastroComponent implements OnInit {
   }
 
   adicionarCampanha(form: NgForm) {
+    console.log('campanha component: ', this.campanha)
     this.campanhaService.adicionar(this.campanha)
-      .then(campanhaAdicionada => {
+      .then(() => {
         this.messageService.add({ severity: 'success', detail: 'Campanha adicionado com sucesso!' });
-        this.router.navigate(['/campanhas', campanhaAdicionada.id]);
-
-      })
-      .catch(erro => this.errorHandler.handle(erro));
-  }
-
-  carregarGrupoSanguineo() {
-    this.grupoSanguineoService.listarTodas()
-      .then(grupoSanguineo => {
-        this.grupoSanguineo = grupoSanguineo.map((g: any) => ({ label: g.nome, value: g.id }));
-
       })
       .catch(erro => this.errorHandler.handle(erro));
   }

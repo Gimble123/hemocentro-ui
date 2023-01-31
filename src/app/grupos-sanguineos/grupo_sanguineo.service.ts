@@ -5,7 +5,7 @@ import { environment } from 'src/environments/environment';
 
 export class GruposSanguineosFiltro {
   pagina: number = 0
-  itensPorPagina: number = 5
+  itensPorPagina: number = 3
 }
 
 @Injectable({
@@ -42,8 +42,17 @@ export class GrupoSanguineoService {
       });
   }
 
+  listarTodosSemPaginacao(): Promise<any> {
+    return this.http.get(this.gruposSanguineosUrl + '/all').toPromise();
+  }
+
   adicionar(grupo: GrupoSanguineo): Promise<GrupoSanguineo> {
     return this.http.post<GrupoSanguineo>(this.gruposSanguineosUrl, grupo)
+      .toPromise();
+  }
+
+  excluir(codigo: number): Promise<void> {
+    return this.http.delete<void>(`${this.gruposSanguineosUrl}/${codigo}`)
       .toPromise();
   }
 

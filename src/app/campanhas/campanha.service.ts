@@ -2,7 +2,6 @@ import { AuthService } from 'src/app/seguranca/auth.service';
 import { Campanha } from './../core/model';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { JwtHelperService } from '@auth0/angular-jwt';
 import { environment } from 'src/environments/environment';
 
 export class CampanhaFiltro {
@@ -82,11 +81,8 @@ export class CampanhaService {
   }
 
   adicionar(campanha: Campanha): Promise<Campanha> {
-    const headers = new HttpHeaders()
-      .append('Authorization', 'Basic YWRtaW5AYWxnYW1vbmV5LmNvbTphZG1pbg==')
-      .append('Content-Type', 'application/json');
-
-    return this.http.post<Campanha>(this.campanhasUrl, campanha, { headers })
+    console.log('Campanha: ', campanha)
+    return this.http.post<Campanha>(this.campanhasUrl, campanha)
       .toPromise();
   }
 
@@ -105,16 +101,7 @@ export class CampanhaService {
   }
 
   buscarPorCodigo(id: number): Promise<Campanha> {
-    const headers = new HttpHeaders()
-      .append('Authorization', 'Basic YWRtaW5AYWxnYW1vbmV5LmNvbTphZG1pbg==');
-
-    return this.http.get(`${this.campanhasUrl}/${id}`, { headers })
-      .toPromise()
-      .then((response: any) => {
-        this.converterStringsParaDatas([response]);
-
-        return response;
-      });
+    return this.http.get<Campanha>(`${this.campanhasUrl}/${id}`).toPromise();
   }
 
   private converterStringsParaDatas(campanhas: Campanha[]) {

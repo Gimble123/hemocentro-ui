@@ -1,11 +1,11 @@
 .titles, .center {
-    position: absolute;
-    top: -390px;
-    font-size: 25px;
-    width: 100%;
-    text-align: center;
-    left: 450px;
-    font-weight: normal;
+  position: absolute;
+  top: -390px;
+  font-size: 25px;
+  width: 100%;
+  text-align: center;
+  left: 450px;
+  font-weight: normal;
 }
 
 .relative {
@@ -48,11 +48,11 @@ form {
 
 .buttom {
   position: absolute;
-    bottom: 50px;
-    left: 0;
-    right: 0;
-    display: flex;
-    justify-content: space-between;
+  bottom: 50px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
 }
 
 .buttom button {
@@ -68,7 +68,7 @@ form {
 }
 
 .col-12 {
-  width: 100%;
+width: 100%;
 }
 
 .grid {
@@ -80,36 +80,46 @@ form {
 
 :host(app-campanha-cadastro) {
   width: 100%;
-  margin-left: 350px;
   display: block;
   padding: 10%;
 }
 
-@media(max-width: 1280px) {
+@media(max-width: 1280px){
   :host(app-campanha-cadastro){
     zoom: 0.6;
+    width: 100%;
+    display: block;
+    padding: 10%;
   }
 
   .titles {
-    position: absolute;
-    top: -340px;
+    margin-top: -30px;
     font-size: 25px;
     width: 100%;
     text-align: center;
-    left: 450px;
   }
 
   .relative {
     position: relative;
   }
-}
 
-@media (min-width: 1200px) {
-  .container {
-      width: 1170px;
-      margin: 0 auto;
-  }
+  .center {
+    align-items: center;
+    }
 
+    .pInputText {
+    margin: 12px;
+    }
+
+    .espacamento {
+    margin-bottom: 15px;
+    display: block;
+    }
+
+    .color {
+    background-color: #C0BFBD;
+    font-weight: bold;
+    }
 }
 
 .center {
@@ -117,15 +127,15 @@ form {
 }
 
 .pInputText {
-  margin: 12px;
+margin: 12px;
 }
 
 .espacamento {
-  margin-bottom: 15px;
-  display: block;
+margin-bottom: 15px;
+display: block;
 }
 
 .color {
-  background-color: #C0BFBD;
-  font-weight: bold;
+background-color: #C0BFBD;
+font-weight: bold;
 }

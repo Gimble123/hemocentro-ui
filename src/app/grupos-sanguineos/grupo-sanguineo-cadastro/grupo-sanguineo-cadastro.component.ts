@@ -48,9 +48,9 @@ export class GrupoSanguineoCadastroComponent implements OnInit {
     return Boolean(this.grupoSanguineo.id)
   }
 
-  salvar(form: NgForm) {
+  salvar() {
     if (this.editando) {
-      this.atualizarGrupoSanguineo(form);
+      this.atualizarGrupoSanguineo();
     } else {
       this.adicionarGrupoSanguineo();
     }
@@ -58,15 +58,15 @@ export class GrupoSanguineoCadastroComponent implements OnInit {
 
   adicionarGrupoSanguineo() {
     this.grupoSanguineoService.adicionar(this.grupoSanguineo)
-      .then((grupoAdicionado: GrupoSanguineo) => {
+      .then(() => {
         this.messageService.add({ severity: 'success', detail: 'Grupo Sanguíneo adicionado com sucesso!' });
 
-        this.router.navigate(['/grupos-sanguineo', grupoAdicionado.id]);
+        this.router.navigate(['grupos-sanguineos']);
       })
       .catch(erro => this.errorHandler.handle(erro));
   }
 
-  atualizarGrupoSanguineo(form: NgForm) {
+  atualizarGrupoSanguineo() {
     this.grupoSanguineoService.atualizar(this.grupoSanguineo)
       .then(grupoSanguineo => {
         this.grupoSanguineo = grupoSanguineo;
@@ -75,16 +75,6 @@ export class GrupoSanguineoCadastroComponent implements OnInit {
         this.atualizarTituloEdicao();
       })
       .catch(erro => this.errorHandler.handle(erro));
-  }
-
-  nova(form: NgForm) {
-    form.reset();
-
-    setTimeout(() => {
-      this.grupoSanguineo = new GrupoSanguineo();
-    }, 1);
-
-    this.router.navigate(['pessoas', 'nova']);
   }
 
   atualizarTituloEdicao() {

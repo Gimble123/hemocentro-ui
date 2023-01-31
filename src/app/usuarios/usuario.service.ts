@@ -6,7 +6,7 @@ import { Usuario, UsuarioCadastroEtapa1, UsuarioCadastroEtapa2 } from '../core/m
 
 export class UsuarioFiltro {
   pagina: number = 0
-  itensPorPagina: number = 5
+  itensPorPagina: number = 3
 }
 
 @Injectable({
@@ -95,6 +95,8 @@ export class UsuarioService {
 
         Object.assign(this.usuarioCadastroEtapa1, response)
         Object.assign(this.usuarioCadastroEtapa2, response)
+
+        console.log('Response: ', response)
 
         return response;
       });

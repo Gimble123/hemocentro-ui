@@ -26,8 +26,10 @@
           </td>
 
           <td class="col-acoes">
-            <button pButton icon="pi pi-pencil" pTooltip="Editar" tooltipPosition="top"></button>
-            <button pButton icon="pi pi-trash" pTooltip="Excluir" tooltipPosition="top"></button>
+            <button pButton icon="pi pi-pencil" pTooltip="Editar" tooltipPosition="top"
+            [routerLink]="['/grupos-sanguineos', grupo.id]"></button>
+            <button pButton icon="pi pi-trash" pTooltip="Excluir" tooltipPosition="top"
+            (click)="confirmarExclusao(grupo)"></button>
           </td>
         </tr>
       </ng-template>

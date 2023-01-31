@@ -1,14 +1,14 @@
+export class GrupoSanguineo {
+  id?: number;
+  nome?: string;
+}
+
 export class Campanha {
   id?: number;
   nome?: string;
   dataInicial?: Date;
   dataFinal?: Date;
   grupoSanguineo = new GrupoSanguineo();
-}
-
-export class GrupoSanguineo {
-  id?: number;
-  nome?: string;
 }
 
 export class Doacao {
@@ -48,9 +48,13 @@ export class UsuarioCadastroEtapa1 {
   login?: string;
   profissao?: string;
   sexo?: string;
-  logradouro?: string;
+  endereco = new Endereco();
   cidade?: string;
   nacionalidade?: string;
+}
+
+export class Endereco {
+  logradouro?: string;
 }
 
 export class UsuarioCadastroEtapa2 {
