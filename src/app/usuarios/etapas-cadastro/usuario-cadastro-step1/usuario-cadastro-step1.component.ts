@@ -1,4 +1,3 @@
-import { Endereco } from './../../../core/model';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UsuarioService } from './../../usuario.service';
 import { Component, OnInit } from '@angular/core';
@@ -28,7 +27,6 @@ export class UsuarioCadastroStep1Component implements OnInit {
     this.title.setTitle('Cadastro de usuários')
     this.configurarFormulario();
 
-    //console.log('Formulário: ', this.configurarFormulario())
     const idUsuario = this.route.snapshot.params['id'];
     if (idUsuario) {
       this.usuarioService.buscarPorCodigoSteps(idUsuario)
@@ -47,14 +45,13 @@ export class UsuarioCadastroStep1Component implements OnInit {
 
   preencherUsuario() {
     const infoPrincipal = this.usuarioService.getStep1();
+    console.log('Info principal: ', infoPrincipal)
     if (infoPrincipal) {
-      //console.log(this.usuarioService.usuarioCadastroEtapa1)
       this.formulario.patchValue(infoPrincipal)
     }
   }
 
   configurarFormulario() {
-    //console.log('jashgdajdgsad: ',this.usuarioService.usuarioCadastroEtapa1?.endereco.logradouro)
     this.formulario = this.formBuilder.group({
       id: [],
       nome: [null, Validators.required],
@@ -65,7 +62,7 @@ export class UsuarioCadastroStep1Component implements OnInit {
       sexo: [null, Validators.required],
       endereco: this.formBuilder.group({
         id: [null, Validators.required],
-        logradouro: ['', Validators.required]
+        logradouro: [null, Validators.required]
       }),
       profissao: [null, Validators.required],
       numeroDoacoes: [null, Validators.required],
@@ -73,11 +70,9 @@ export class UsuarioCadastroStep1Component implements OnInit {
       value: [null, Validators.required]
     });
 
-   // console.log('Formulário: ', this.formulario)
   }
 
   salvar() {
-
     this.usuarioService.setStep1(this.formulario.value)
     this.router.navigate(['usuarios/etapa-container/usuario-cadastro-step2'])
   }

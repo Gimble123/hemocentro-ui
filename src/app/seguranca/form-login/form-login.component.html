@@ -1,37 +1,36 @@
 <div class="container">
-  <div class="content-image"></div>
+    <div class="content-image"></div>
     <form autocomplete="off" #loginForm="ngForm">
         <div class="grid">
             <div class="container-top">
-              <div class="col-12 p-fluid">
-                <h1>Acesse sua conta</h1>
-              </div>
+                <div class="col-12 p-fluid">
+                    <h1>Acesse sua conta</h1>
+                </div>
 
-              <div class="col-12 p-fluid">
-                  <div>E-mail: </div>
-                  <input class="input-email" pInputText type="email" name="usuario" placeholder="Insira seu e-mail" ngModel required #usuario>
-              </div>
+                <div class="col-12 p-fluid">
+                    <div>E-mail: </div>
+                    <input class="input-email" pInputText type="email" name="usuario" placeholder="Insira seu e-mail" ngModel required #usuario>
+                </div>
 
-              <div class="col-12 p-fluid">
-                  <div>Senha: </div>
-                  <input class="input-password" pInputText type="password" name="senha" placeholder="Insira sua senha" ngModel required #senha>
-              </div>
+                <div class="col-12 p-fluid">
+                    <div>Senha: </div>
+                    <input class="input-password" pInputText type="password" name="senha" placeholder="Insira sua senha" ngModel required #senha>
+                </div>
 
-              <div class="col-12 p-fluid" >
-                  <button pButton type="submit" label="Entrar" class="button-danger" [disabled]="loginForm.invalid"
-                    (click)="login(usuario.value, senha.value)"></button>
-              </div>
+                <div class="col-12 p-fluid">
+                    <button pButton type="submit" label="Entrar" class="button-danger" [disabled]="loginForm.invalid" (click)="login(usuario.value, senha.value)"></button>
+                </div>
             </div>
 
             <div class="container-footer">
                 <div>
-                  <div class="text-container-footer">Não é registrado ainda? <a href="/">Crie uma conta</a></div>
+                    <div class="text-container-footer">Não é registrado ainda? <a href="/">Crie uma conta</a></div>
                 </div>
 
                 <div>
-                  <div class="text-container-footer align">Esqueceu a senha? <a routerLink="/reset-senha">Recuperar senha</a></div>
+                    <div class="text-container-footer align">Esqueceu a senha? <a routerLink="/reset-senha">Recuperar senha</a></div>
                 </div>
-              </div>
+            </div>
         </div>
     </form>
 </div>

@@ -1,59 +1,49 @@
 <div class="grid">
-  <div class="col-12 relative ">
-    <h2 class="titles scroll">Campanhas</h2>
-    <div class="button-nova-campanha">
-      <a class="disabled-hover margin-button" pButton routerLink="/campanhas/nova" label="Nova campanha"></a>
+    <div class="col-12 relative ">
+        <h2 class="titles scroll">Campanhas</h2>
+        <div class="button-nova-campanha">
+            <a class="disabled-hover margin-button" pButton routerLink="/campanhas/nova" label="Nova campanha"></a>
+        </div>
+        <p-table [value]="campanhas" [paginator]="true" [rows]="filtro.itensPorPagina" [responsive]="true" [lazy]="true" [totalRecords]="totalRegistros" (onLazyLoad)="aoMudarPagina($event)" #tabela>
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>ID</th>
+                    <th>Nome da campanha</th>
+                    <th>Tipo sanguíneo</th>
+                    <th class="col-data-header">De</th>
+                    <th class="col-data-header">Até</th>
+                    <th class="col-acoes">Ações</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-campanha>
+                <tr>
+                    <td>
+                        <span class="p-column-title">ID</span> {{ campanha.id }}
+                    </td>
+
+                    <td>
+                        <span class="p-column-title">Nome da campanha</span> {{ campanha.nome }}
+                    </td>
+
+                    <td class="col-data">
+                        <span class="p-column-title">Tipo sanguíneo</span> {{ campanha.grupoSanguineo.nome }}
+                    </td>
+
+                    <td class="col-data">
+                        <span class="p-column-title">De</span> {{ campanha.dataInicial | date:'dd/MM/y' }}
+                    </td>
+
+                    <td class="col-data">
+                        <span class="p-column-title">Até</span> {{ campanha.dataFinal | date:'dd/MM/y' }}
+                    </td>
+
+                    <td class="col-acoes">
+                        <span class="p-column-title"></span>
+                        <button pButton icon="pi pi-pencil" pTooltip="Editar" [routerLink]="['/campanhas', campanha.id]" tooltipPosition="top"></button>
+                        <button pButton icon="pi pi-trash" pTooltip="Excluir" tooltipPosition="top" (click)="confirmarExclusao(campanha)"></button>
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
     </div>
-    <p-table [value]="campanhas" [paginator]="true" [rows]="filtro.itensPorPagina" [responsive]="true" [lazy]="true"
-    [totalRecords]="totalRegistros" (onLazyLoad)="aoMudarPagina($event)" #tabela>
-      <ng-template pTemplate="header">
-        <tr>
-          <th>ID</th>
-          <th>Nome da campanha</th>
-          <th>Tipo sanguíneo</th>
-          <th class="col-data-header">De</th>
-          <th class="col-data-header">Até</th>
-          <th class="col-acoes">Ações</th>
-        </tr>
-      </ng-template>
-      <ng-template pTemplate="body" let-campanha>
-        <tr>
-          <td>
-            <span class="p-column-title">ID</span>
-            {{ campanha.id }}
-          </td>
-
-          <td>
-            <span class="p-column-title">Nome da campanha</span>
-            {{ campanha.nome }}
-          </td>
-
-          <td class="col-data">
-            <span class="p-column-title">Tipo sanguíneo</span>
-            {{ campanha.grupoSanguineo.nome }}
-          </td>
-
-          <td class="col-data">
-            <span class="p-column-title">De</span>
-            {{ campanha.dataInicial | date:'dd/MM/y' }}
-          </td>
-
-          <td class="col-data">
-            <span class="p-column-title">Até</span>
-            {{ campanha.dataFinal | date:'dd/MM/y' }}
-          </td>
-
-            <td class="col-acoes">
-              <span class="p-column-title"></span>
-              <button pButton icon="pi pi-pencil" pTooltip="Editar"
-                [routerLink]="['/campanhas', campanha.id]" tooltipPosition="top"></button>
-              <button pButton icon="pi pi-trash" pTooltip="Excluir" tooltipPosition="top"
-                (click)="confirmarExclusao(campanha)"></button>
-            </td>
-        </tr>
-      </ng-template>
-    </p-table>
-  </div>
 </div>
-
-

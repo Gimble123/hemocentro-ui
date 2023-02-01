@@ -1,47 +1,45 @@
 <div class="container">
 
-  <div class="grid">
-    <div class="col-12 relative">
-      <h2 class="titles">{{ editando ? 'Edição de' : 'Novo' }} Usuário</h2>
+    <div class="grid">
+        <div class="col-12 relative">
+            <h2 class="titles">{{ editando ? 'Edição de' : 'Novo' }} Usuário</h2>
+        </div>
     </div>
-  </div>
 
-  <form autocomplete="off" (ngSubmit)="salvar()" [formGroup]="formulario">
-    <div class="left">
+    <h1>Formulário inválido: {{ formulario.invalid }}</h1>
 
-      <div class="col-12 md:col-6 p-fluid">
-        <label class="espacamento">Nome</label>
-        <input placeholder="Ex: Adolfo" pInputText type="text" name="nome" formControlName="nome"
-         [required]="true">
-         <app-message [control]="formulario.get('nome')" error="required"
-         text="Informe um nome"></app-message>
-      </div>
+    <form autocomplete="off" (ngSubmit)="salvar()" [formGroup]="formulario">
 
-      <div class="col-12 md:col-6 p-fluid">
-        <label class="espacamento">CPF</label>
-        <p-inputMask mask="999.999.999-99" [required]="true" placeholder="Ex: 999.999.999-99"></p-inputMask>
-        <app-message [control]="formulario.get('cpf')" error="required" text="Informe o cpf"></app-message>
-      </div>
 
-      <div class="col-12 md:col-6 p-fluid">
-        <label class="espacamento">Data Nascimento</label>
-        <p-calendar name="dataNascimento" dateFormat="dd/mm/yy" [inline]="false" [readonlyInput]="false"
-            [showIcon]="false" name="dataNascimento" formControlName="dataNascimento">
-        </p-calendar>
+        <div class="left">
 
-          <app-message [control]="formulario.get('dataNascimento')" error="required"
-          text="Informe uma data de nascimento"></app-message>
-      </div>
+            <div class="col-12 md:col-6 p-fluid">
+                <label class="espacamento">Nome</label>
+                <input placeholder="Ex: Adolfo" pInputText type="text" name="nome" formControlName="nome" [required]="true">
+                <app-message [control]="formulario.get('nome')" error="required" text="Informe um nome"></app-message>
+            </div>
 
-      <div class="col-12 md:col-6 p-fluid">
-        <label class="espacamento">Estado Cívil</label>
-        <input placeholder="Ex: Solteiro" pInputText type="text" name="estadoCivil" formControlName="estadoCivil"
-         [required]="true">
-         <app-message [control]="formulario.get('estadoCivil')" error="required"
-         text="Informe seu estado cívil"></app-message>
-      </div>
+            <div class="col-12 md:col-6 p-fluid">
+                <label class="espacamento">CPF</label>
+                <p-inputMask mask="999.999.999-99" [required]="true" placeholder="Ex: 999.999.999-99" name="cpf" formControlName="cpf"></p-inputMask>
+                <app-message [control]="formulario.get('cpf')" error="required" text="Informe um cpf"></app-message>
+            </div>
 
-      <!-- <div class="col-12 md:col-6 p-fluid">
+            <div class="col-12 md:col-6 p-fluid">
+                <label class="espacamento">Data Nascimento</label>
+                <p-calendar name="nascimento" dateFormat="dd/mm/yy" [inline]="false" [readonlyInput]="false" [showIcon]="false" name="dataNascimento" [required]="true" formControlName="dataNascimento">
+                </p-calendar>
+
+                <app-message [control]="formulario.get('dataNascimento')" error="required" text="Informe uma data de nascimento"></app-message>
+            </div>
+
+            <div class="col-12 md:col-6 p-fluid">
+                <label class="espacamento">Estado Cívil</label>
+                <input placeholder="Ex: Solteiro" pInputText type="text" name="estadoCivil" formControlName="estadoCivil" [required]="true">
+                <app-message [control]="formulario.get('estadoCivil')" error="required" text="Informe seu estado cívil"></app-message>
+            </div>
+
+            <!-- <div class="col-12 md:col-6 p-fluid">
         <label class="espacamento">N° de doações prévias</label>
         <input placeholder="Ex: 5" pInputText type="text" name="numeroDoacoes" formControlName="numeroDoacoes"
          [required]="true">
@@ -49,41 +47,36 @@
          text="Informe o número de doações"></app-message>
       </div> -->
 
-    </div>
+        </div>
 
-    <div class="right">
-      <div class="col-12 md:col-6 p-fluid">
-        <label class="espacamento">E-mail</label>
-        <input placeholder="Ex: teste@gmail.com" pInputText type="text" name="email" formControlName="email"
-         [required]="true">
-         <app-message [control]="formulario.get('email')" error="required"
-         text="Informe um email válido"></app-message>
-      </div>
+        <div class="right">
+            <div class="col-12 md:col-6 p-fluid">
+                <label class="espacamento">E-mail</label>
+                <input placeholder="Ex: teste@gmail.com" pInputText type="text" name="email" formControlName="email" [required]="true">
+                <app-message [control]="formulario.get('email')" error="required" text="Informe um email válido"></app-message>
+            </div>
 
-      <div class="col-12 md:col-6 p-fluid">
-        <label class="espacamento">Telefone</label>
-        <p-inputMask mask="(99) 99999-9999" [required]="true" placeholder="Ex: (51) 99999-9999" name="telefone" formControlName="telefone"></p-inputMask>
-        <app-message [control]="formulario.get('telefone')" error="required"
-         text="Informe um telefone"></app-message>
-      </div>
 
-      <div class="col-12 md:col-6 p-fluid">
-        <label class="espacamento">Sexo</label>
-        <input placeholder="Ex: Feminino" pInputText type="text" name="sexo" formControlName="sexo"
-         [required]="true">
-         <app-message [control]="formulario.get('sexo')" error="required"
-         text="Informe o sexo"></app-message>
-      </div>
 
-      <div class="col-12 md:col-6 p-fluid" formGroupName="endereco">
-        <label class="espacamento">Endereço</label>
-        <input placeholder="Ex: Rua do a" pInputText type="text" name="endereco" formControlName="logradouro"
-         [required]="true">
-         <app-message [control]="formulario.get('endereco')" error="required"
-         text="Informe um endereço"></app-message>
-      </div>
+            <div class="col-12 md:col-6 p-fluid">
+                <label class="espacamento">Telefone</label>
+                <p-inputMask mask="(99) 99999-9999" [required]="true" placeholder="Ex: (51) 99999-9999" name="telefone" formControlName="telefone"></p-inputMask>
+                <app-message [control]="formulario.get('telefone')" error="required" text="Informe um telefone"></app-message>
+            </div>
 
-      <!-- <div class="col-12 md:col-6 p-fluid">
+            <div class="col-12 md:col-6 p-fluid">
+                <label class="espacamento">Sexo</label>
+                <input placeholder="Ex: Feminino" pInputText type="text" name="sexo" formControlName="sexo" [required]="true">
+                <app-message [control]="formulario.get('sexo')" error="required" text="Informe o sexo"></app-message>
+            </div>
+
+            <div class="col-12 md:col-6 p-fluid" formGroupName="endereco">
+                <label class="espacamento">Endereço</label>
+                <input placeholder="Ex: Rua do a" pInputText type="text" name="endereco" formControlName="logradouro" [required]="true">
+                <app-message [control]="formulario.get('endereco')" error="required" text="Informe um endereço"></app-message>
+            </div>
+
+            <!-- <div class="col-12 md:col-6 p-fluid">
         <label class="espacamento">Profissão</label>
         <input placeholder="Ex: Advogado" pInputText type="text" name="profissao" formControlName="profissao"
            [required]="true">
@@ -92,11 +85,11 @@
            text="Informe uma profissão"></app-message>
       </div> -->
 
-    </div>
-    <div class="col-12 buttom">
-      <button pButton type="button" class="color disabled-hover" routerLink="/usuarios" label="Voltar"></button>
-      <button pButton type="submit" class="button-danger" routerLink="/usuario-container/usuario-cadastro-step2" label="Próximo" [disabled]="formulario.invalid"></button>
-    </div>
+        </div>
+        <div class="col-12 buttom">
+            <button pButton type="button" class="color disabled-hover" routerLink="/usuarios" label="Voltar"></button>
+            <button pButton type="submit" class="button-danger" label="Próximo" [disabled]="formulario.invalid"></button>
+        </div>
 
-  </form>
+    </form>
 </div>

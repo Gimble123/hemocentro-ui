@@ -1,26 +1,26 @@
 <div class="container">
-  <div class="grid">
-    <div class="col-12 relative">
-      <h2 class="titles">{{ editando ? 'Edição de' : 'Novo' }} Grupo Sangíneo</h2>
+    <div class="grid">
+        <div class="col-12 relative">
+            <h2 class="titles">{{ editando ? 'Edição de' : 'Novo' }} Grupo Sangíneo</h2>
+        </div>
+        <form #grupoSanguineoForm="ngForm" autocomplete="off" (ngSubmit)="salvar()">
+
+            <div class="center">
+                <div class="col-12 md:col-6 p-fluid">
+                    <label class="espacamento">Grupo sanguíneo</label>
+                    <input pInputText type="text" name="nome" [(ngModel)]="grupoSanguineo.nome" #nome="ngModel" [required]="true">
+                    <app-message [control]="nome.control" error="required" text="Informe o nome"></app-message>
+                </div>
+            </div>
+
+            <div class="col-12 buttom">
+                <div class="left">
+                    <button pButton type="button" class="color disabled-hover" routerLink="/grupos-sanguineos" label="Voltar"></button>
+                </div>
+                <div class="right">
+                    <button pButton type="submit" class="p-button-danger" label="Finalizar"></button>
+                </div>
+            </div>
+        </form>
     </div>
-    <form #grupoSanguineoForm="ngForm" autocomplete="off" (ngSubmit)="salvar()">
-
-      <div class="center">
-        <div class="col-12 md:col-6 p-fluid">
-          <label class="espacamento">Grupo sanguíneo</label>
-          <input pInputText type="text" name="nome" [(ngModel)]="grupoSanguineo.nome" #nome="ngModel" [required]="true">
-            <app-message [control]="nome.control" error="required" text="Informe o nome"></app-message>
-        </div>
-      </div>
-
-      <div class="col-12 buttom">
-        <div class="left">
-          <button pButton type="button" class="color disabled-hover" routerLink="/grupos-sanguineos" label="Voltar"></button>
-        </div>
-      <div class="right">
-        <button pButton type="submit" class="p-button-danger" label="Finalizar"></button>
-      </div>
-      </div>
-    </form>
-  </div>
 </div>

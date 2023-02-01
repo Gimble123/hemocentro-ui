@@ -2,45 +2,40 @@
 
 
     <div class="grid">
-      <div class="col-12 relative">
-        <h2 class="titles">{{ editando ? 'Edição de' : 'Nova' }} Campanha</h2>
-      </div>
-
-      <form #campanhaForm="ngForm" autocomplete="off" (ngSubmit)="salvar(campanhaForm)">
-        <div class="left">
-          <div class="col-12 md:col-6 p-fluid">
-            <label class="espacamento">Nome da campanha</label>
-            <input placeholder="Ex: Campanha de Natal - Grupo Sanguíneo A+" pInputText type="text" name="nome"
-              ngModel #nome="ngModel" [required]="true">
-          </div>
-
-          <div class="col-12 md:col-6 p-fluid">
-            <label class="espacamento">De</label>
-            <p-calendar name="dataInicial" dateFormat="dd/mm/yy" [inline]="false" [readonlyInput]="false" [showIcon]="false"
-            ngModel #dataInicial="ngModel" [required]="true"></p-calendar>
-          </div>
+        <div class="col-12 relative">
+            <h2 class="titles">{{ editando ? 'Edição de' : 'Nova' }} Campanha</h2>
         </div>
 
-        <div class="right">
-          <div class="col-12 md:col-6 p-fluid">
-            <label class="espacamento">Tipo sanguíneo</label>
-            <p-dropdown [options]="grupoSanguineo" placeholder="Selecione"
-            name="grupo" #grupo [required]="true"></p-dropdown>
-          </div>
+        <form #campanhaForm="ngForm" autocomplete="off" (ngSubmit)="salvar(campanhaForm)">
+            <div class="left">
+                <div class="col-12 md:col-6 p-fluid">
+                    <label class="espacamento">Nome da campanha</label>
+                    <input placeholder="Ex: Campanha de Natal - Grupo Sanguíneo A+" pInputText type="text" name="nome" ngModel #nome="ngModel" [required]="true">
+                </div>
 
-          <div class="col-12 md:col-6 p-fluid">
-            <label class="espacamento">Até</label>
-            <p-calendar name="dataFinal" dateFormat="dd/mm/yy" [inline]="false" [readonlyInput]="false" [showIcon]="false"
-            ngModel #dataFinal="ngModel" [required]="true"></p-calendar>
-          </div>
-        </div>
+                <div class="col-12 md:col-6 p-fluid">
+                    <label class="espacamento">De</label>
+                    <p-calendar name="dataInicial" dateFormat="dd/mm/yy" [inline]="false" [readonlyInput]="false" [showIcon]="false" ngModel #dataInicial="ngModel" [required]="true"></p-calendar>
+                </div>
+            </div>
 
-        <div class="col-12 buttom">
-          <button pButton type="button" class="color disabled-hover" routerLink="/campanhas" label="Voltar"></button>
-          <button pButton type="submit" class="button-danger" label="Finalizar"></button>
-        </div>
+            <div class="right">
+                <div class="col-12 md:col-6 p-fluid">
+                    <label class="espacamento">Tipo sanguíneo</label>
+                    <p-dropdown [options]="grupoSanguineo" placeholder="Selecione" name="grupo" #grupo [required]="true"></p-dropdown>
+                </div>
 
-  </form>
+                <div class="col-12 md:col-6 p-fluid">
+                    <label class="espacamento">Até</label>
+                    <p-calendar name="dataFinal" dateFormat="dd/mm/yy" [inline]="false" [readonlyInput]="false" [showIcon]="false" ngModel #dataFinal="ngModel" [required]="true"></p-calendar>
+                </div>
+            </div>
 
-</div>
+            <div class="col-12 buttom">
+                <button pButton type="button" class="color disabled-hover" routerLink="/campanhas" label="Voltar"></button>
+                <button pButton type="submit" class="button-danger" label="Finalizar"></button>
+            </div>
 
+        </form>
+
+    </div>

@@ -1,23 +1,22 @@
-@media(max-width: 1280px){
-  :host(app-home){
-    zoom: 0.6;
-  }
+@media(max-width: 1280px) {
+     :host(app-home) {
+        zoom: 0.6;
+    }
 }
 
-.content-image, :host(app-home) {
-  background: url("/assets/image-background.png") no-repeat;
-  background-size: 80%;
-  background-position: center;
-  background-color: #375e6d;
+.content-image,
+ :host(app-home) {
+    background: url("/assets/image-background.png") no-repeat;
+    background-size: 80%;
+    background-position: center;
+    background-color: #375e6d;
 }
 
 .container {
-  display: flex;
-  flex: 1;
+    display: flex;
+    flex: 1;
 }
 
 :host(app-home) {
-  width: 100%;
+    width: 100%;
 }
-
-

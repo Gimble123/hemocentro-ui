@@ -1,29 +1,29 @@
 <div class="container">
-  <div class="grid">
-    <div class="col-12">
-      <a href="javascript:;" class="navbar-toggle"><i class="pi pi-bars"></i></a>
+    <div class="grid">
+        <div class="col-12">
+            <a href="javascript:;" class="navbar-toggle"><i class="pi pi-bars"></i></a>
+        </div>
     </div>
-  </div>
 </div>
 <nav class="navbar">
-  <div class="content-navbar-menu">
-    <div class="content-search">
-      <i class="fa-solid fa-magnifying-glass"></i>
-      <input type="search" placeholder="Busca" class="search" />
-    </div>
-    <div class="navbar-usuario">
-      {{ usuarioLogado }}
-    </div>
-    <ul class="navbar-menu">
-      <li class="navbar-menuitem" routerLinkActive="ativo"> <i class="fa-solid fa-house"></i> <a routerLink="/home">Home</a></li>
-    </ul>
-    <ul class="navbar-menu" *ngFor="let m of menus">
-      <li class="navbar-menuitem" routerLinkActive="ativo"> <i class="{{ m.icon }}"></i> <a routerLink="../{{ m.url }}">{{ m.nome }}</a></li>
-    </ul>
+    <div class="content-navbar-menu">
+        <div class="content-search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="search" placeholder="Busca" class="search" />
+        </div>
+        <div class="navbar-usuario">
+            {{ usuarioLogado }}
+        </div>
+        <ul class="navbar-menu">
+            <li class="navbar-menuitem" routerLinkActive="ativo"> <i class="fa-solid fa-house"></i> <a routerLink="/home">Home</a></li>
+        </ul>
+        <ul class="navbar-menu" *ngFor="let m of menus">
+            <li class="navbar-menuitem" routerLinkActive="ativo"> <i class="{{ m.icon }}"></i> <a routerLink="../{{ m.url }}">{{ m.nome }}</a></li>
+        </ul>
 
-  </div>
+    </div>
 
-  <div class="logout">
-    <a href="javascript:;" (click)="logout()"><i class="fa-solid fa-right-from-bracket"></i> Sair</a>
-  </div>
+    <div class="logout">
+        <a href="javascript:;" (click)="logout()"><i class="fa-solid fa-right-from-bracket"></i> Sair</a>
+    </div>
 </nav>
