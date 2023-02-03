@@ -5,7 +5,9 @@ import { NaoAutorizadoComponent } from './core/nao-autorizado.component';
 import { PaginaNaoEncontradaComponent } from './core/pagina-nao-encontrada.component';
 
 const routes: Routes = [
+  { path: 'cadastro', loadChildren: () => import('../app/seguranca/seguranca.module').then(m => m.SegurancaModule) },
   { path: 'usuarios',  loadChildren: () => import('../app/usuarios/usuarios.module').then(u => u.UsuariosModule) },
+  { path: 'login',  loadChildren: () => import('../app/seguranca/seguranca.module').then(s => s.SegurancaModule) },
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'nao-autorizado', component: NaoAutorizadoComponent },
   { path: 'pagina-nao-encontrada', component: PaginaNaoEncontradaComponent },

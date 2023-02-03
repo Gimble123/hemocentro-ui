@@ -6,8 +6,6 @@
         </div>
     </div>
 
-    <h1>Formulário inválido: {{ formulario.invalid }}</h1>
-
     <form autocomplete="off" (ngSubmit)="salvar()" [formGroup]="formulario">
 
 
@@ -27,8 +25,7 @@
 
             <div class="col-12 md:col-6 p-fluid">
                 <label class="espacamento">Data Nascimento</label>
-                <p-calendar name="nascimento" dateFormat="dd/mm/yy" [inline]="false" [readonlyInput]="false" [showIcon]="false" name="dataNascimento" [required]="true" formControlName="dataNascimento">
-                </p-calendar>
+                <p-calendar name="nascimento" dateFormat="dd/mm/yy" [inline]="false" [readonlyInput]="false" [showIcon]="false" name="dataNascimento" [required]="true" formControlName="dataNascimento"></p-calendar>
 
                 <app-message [control]="formulario.get('dataNascimento')" error="required" text="Informe uma data de nascimento"></app-message>
             </div>
@@ -39,14 +36,6 @@
                 <app-message [control]="formulario.get('estadoCivil')" error="required" text="Informe seu estado cívil"></app-message>
             </div>
 
-            <!-- <div class="col-12 md:col-6 p-fluid">
-        <label class="espacamento">N° de doações prévias</label>
-        <input placeholder="Ex: 5" pInputText type="text" name="numeroDoacoes" formControlName="numeroDoacoes"
-         [required]="true">
-         <app-message [control]="formulario.get('numeroDoacoes')" error="required"
-         text="Informe o número de doações"></app-message>
-      </div> -->
-
         </div>
 
         <div class="right">
@@ -55,8 +44,6 @@
                 <input placeholder="Ex: teste@gmail.com" pInputText type="text" name="email" formControlName="email" [required]="true">
                 <app-message [control]="formulario.get('email')" error="required" text="Informe um email válido"></app-message>
             </div>
-
-
 
             <div class="col-12 md:col-6 p-fluid">
                 <label class="espacamento">Telefone</label>
@@ -70,25 +57,16 @@
                 <app-message [control]="formulario.get('sexo')" error="required" text="Informe o sexo"></app-message>
             </div>
 
-            <div class="col-12 md:col-6 p-fluid" formGroupName="endereco">
+            <div class="col-12 md:col-6 p-fluid">
                 <label class="espacamento">Endereço</label>
-                <input placeholder="Ex: Rua do a" pInputText type="text" name="endereco" formControlName="logradouro" [required]="true">
+                <input placeholder="Ex: Rua do Abacaxi" pInputText type="text" name="endereco" formControlName="endereco" [required]="true">
                 <app-message [control]="formulario.get('endereco')" error="required" text="Informe um endereço"></app-message>
             </div>
-
-            <!-- <div class="col-12 md:col-6 p-fluid">
-        <label class="espacamento">Profissão</label>
-        <input placeholder="Ex: Advogado" pInputText type="text" name="profissao" formControlName="profissao"
-           [required]="true">
-
-           <app-message [control]="formulario.get('profissao')" error="required"
-           text="Informe uma profissão"></app-message>
-      </div> -->
 
         </div>
         <div class="col-12 buttom">
             <button pButton type="button" class="color disabled-hover" routerLink="/usuarios" label="Voltar"></button>
-            <button pButton type="submit" class="button-danger" label="Próximo" [disabled]="formulario.invalid"></button>
+            <button pButton type="submit" class="button-danger" [disabled]="formulario.invalid" label="Próximo"></button>
         </div>
 
     </form>

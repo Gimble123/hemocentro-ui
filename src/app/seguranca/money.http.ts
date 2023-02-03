@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent } from '@angular/common/http';
 
 import { Observable, from } from 'rxjs';
-import { mergeMap } from 'rxjs/operators';
+import { catchError, mergeMap } from 'rxjs/operators';
 
 import { AuthService } from './auth.service';
 
@@ -29,6 +29,13 @@ export class MoneyHttpInterceptor implements HttpInterceptor {
             });
 
             return next.handle(req);
+          }),
+          catchError(error => {
+            if (this.auth.isAccessTokenInvalido()) {
+              throw new NotAuthenticatedError();
+            }
+
+            return next.handle(req);
           })
         );
     }
@@ -36,3 +43,4 @@ export class MoneyHttpInterceptor implements HttpInterceptor {
     return next.handle(req);
   }
 }
+

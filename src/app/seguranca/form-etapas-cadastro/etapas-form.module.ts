@@ -15,16 +15,16 @@ import { TableModule } from 'primeng/table';
 import { TooltipModule } from 'primeng/tooltip';
 
 import { SharedModule } from 'src/app/shared/shared.module';
-import { EtapasCadastroRoutingModule } from './etapas-cadastro-routing.module';
-import { UsuarioCadastroStep1Component } from './usuario-cadastro-step1/usuario-cadastro-step1.component';
-import { UsuarioCadastroStep2Component } from './usuario-cadastro-step2/usuario-cadastro-step2.component';
-import { UsuarioCadastroStep3Component } from './usuario-cadastro-step3/usuario-cadastro-step3.component';
+import { EtapasFormCadastroRoutingModule } from './etapas-form-cadastro-routing.module';
+import { FormCadastroStep1Component } from './form-cadastro-step1/form-cadastro-step1.component';
+import { FormCadastroStep2Component } from './form-cadastro-step2/form-cadastro-step2.component';
+import { FormCadastroStep3Component } from './form-cadastro-step3/form-cadastro-step3.component';
 
 @NgModule({
   declarations: [
-    UsuarioCadastroStep1Component,
-    UsuarioCadastroStep2Component,
-    UsuarioCadastroStep3Component
+    FormCadastroStep1Component,
+    FormCadastroStep2Component,
+    FormCadastroStep3Component
   ],
   imports: [
     CommonModule,
@@ -44,7 +44,7 @@ import { UsuarioCadastroStep3Component } from './usuario-cadastro-step3/usuario-
     InputMaskModule,
     SharedModule,
 
-    EtapasCadastroRoutingModule
+    EtapasFormCadastroRoutingModule
   ]
 })
-export class EtapasModule { }
+export class EtapasFormModule { }

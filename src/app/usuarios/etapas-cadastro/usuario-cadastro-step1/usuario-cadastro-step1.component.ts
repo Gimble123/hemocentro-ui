@@ -45,7 +45,6 @@ export class UsuarioCadastroStep1Component implements OnInit {
 
   preencherUsuario() {
     const infoPrincipal = this.usuarioService.getStep1();
-    console.log('Info principal: ', infoPrincipal)
     if (infoPrincipal) {
       this.formulario.patchValue(infoPrincipal)
     }
@@ -60,21 +59,16 @@ export class UsuarioCadastroStep1Component implements OnInit {
       estadoCivil: [null, Validators.required],
       telefone: [null, Validators.required],
       sexo: [null, Validators.required],
-      endereco: this.formBuilder.group({
-        id: [null, Validators.required],
-        logradouro: [null, Validators.required]
-      }),
-      profissao: [null, Validators.required],
-      numeroDoacoes: [null, Validators.required],
-      dataNascimento: [null, Validators.required],
-      value: [null, Validators.required]
+      endereco: [null, Validators.required],
+      dataNascimento: [null, Validators.required]
     });
 
   }
 
   salvar() {
+    console.log('Etapa 1', this.formulario)
     this.usuarioService.setStep1(this.formulario.value)
-    this.router.navigate(['usuarios/etapa-container/usuario-cadastro-step2'])
+    this.router.navigate(['usuarios/usuario-container/usuario-cadastro-step2'])
   }
 
 }

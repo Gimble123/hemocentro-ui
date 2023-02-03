@@ -1,0 +1,102 @@
+label {
+    color: white;
+}
+
+.button-danger {
+    text-align: center;
+    font-weight: bold;
+    background-color: #F02323 !important;
+    border: 1px solid #D32F2F !important;
+    height: 50px;
+    width: 100%;
+    border-radius: 6px;
+}
+
+a {
+    color: #8E2929;
+    text-decoration: none;
+}
+
+.col-12 {
+    margin-bottom: 5px;
+}
+
+.container {
+    display: flex;
+    flex: 1;
+}
+
+.content-image {
+    height: 100%;
+    flex: 1 60%;
+    background: url("/assets/image-background.png") no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+form {
+    flex: 1 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+h1 {
+    text-align: center;
+    font-size: 25px;
+    color: black;
+    flex-direction: column;
+}
+
+.root,
+.navbar {
+    display: none;
+}
+
+.grid {
+    display: flex;
+    flex-wrap: inherit;
+    flex-direction: column;
+    width: 70%;
+    align-items: center;
+}
+
+.input-password,
+.input-email,
+.input-nome,
+.input-tipo-sanguineo,
+.inpur-cpf {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 18px 10px 13px;
+    gap: 13px;
+    width: 420px;
+    height: 45px;
+    border: 1px solid #DED2D9;
+    border-radius: 5px;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.container-footer {
+    bottom: 0;
+    position: absolute;
+}
+
+.align {
+    text-align: center;
+}
+
+:host(app-form-cadastro-step1) {
+    display: flex;
+    width: 100%;
+}
+
+@media(max-width: 1280px) {
+     :host(app-form-cadastro-step1) {
+        zoom: 0.6;
+    }
+}

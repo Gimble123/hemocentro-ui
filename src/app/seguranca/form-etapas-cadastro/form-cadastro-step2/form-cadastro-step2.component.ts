@@ -1,17 +1,17 @@
 import { ActivatedRoute, Router } from '@angular/router';
-import { UsuarioService } from './../../usuario.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 import { MessageService } from 'primeng/api';
 import { ErrorHandlerService } from 'src/app/core/error-handler.service';
+import { UsuarioService } from 'src/app/usuarios/usuario.service';
 
 @Component({
-  selector: 'app-usuario-cadastro-step2',
-  templateUrl: './usuario-cadastro-step2.component.html',
-  styleUrls: ['./usuario-cadastro-step2.component.css']
+  selector: 'app-form-cadastro-step2',
+  templateUrl: './form-cadastro-step2.component.html',
+  styleUrls: ['./form-cadastro-step2.component.css']
 })
-export class UsuarioCadastroStep2Component implements OnInit {
+export class FormCadastroStep2Component implements OnInit {
 
   formulario!: FormGroup;
 

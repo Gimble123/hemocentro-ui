@@ -1,5 +1,5 @@
 export class GrupoSanguineo {
-  id?: number;
+  grupoSanguineoId?: number;
   nome?: string;
 }
 
@@ -39,35 +39,38 @@ export class Usuario {
   numeroDoacoes?: number;
 }
 
+export class Solicitacao {
+  id?: number;
+  usuario = new Usuario();
+  dataSolicitacao?: Date;
+  apto?: boolean;
+  grupoSanguineo = new GrupoSanguineo();
+  status?: string;
+}
+
 export class UsuarioCadastroEtapa1 {
   nome?: string;
   cpf?: string;
   dataNascimento?: Date;
   estadoCivil?: string;
-  numeroDoacoes?: number;
-  login?: string;
-  profissao?: string;
   sexo?: string;
-  endereco = new Endereco();
+  endereco?: string;
   cidade?: string;
-  nacionalidade?: string;
-}
-
-export class Endereco {
-  logradouro?: string;
 }
 
 export class UsuarioCadastroEtapa2 {
-  nome?: string;
-  cpf?: string;
-  dataNascimento?: Date;
-  estadoCivil?: string;
-  numeroDoacoes?: number;
-  login?: string;
+  numeroDoacoesPrevias?: number;
   profissao?: string;
-  sexo?: string;
-  logradouro?: string;
-  cidade?: string;
+  bairro?: string;
+  cep?: string;
+  estado?: string;
+  escolaridade?: string;
+  cor?: string;
   nacionalidade?: string;
 }
+
+export class UsuarioCadastroEtapa3 {
+  grupoSanguineoId?: number
+}
+
 

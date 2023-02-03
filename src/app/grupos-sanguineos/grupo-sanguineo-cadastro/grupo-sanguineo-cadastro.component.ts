@@ -45,7 +45,7 @@ export class GrupoSanguineoCadastroComponent implements OnInit {
   }
 
   get editando() {
-    return Boolean(this.grupoSanguineo.id)
+    return Boolean(this.grupoSanguineo.grupoSanguineoId)
   }
 
   salvar() {

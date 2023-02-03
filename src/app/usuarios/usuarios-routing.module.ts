@@ -1,3 +1,4 @@
+import { UsuarioCadastroStep2Component } from './etapas-cadastro/usuario-cadastro-step2/usuario-cadastro-step2.component';
 import { AuthGuard } from './../seguranca/auth.guard';
 
 import { UsuariosPesquisaComponent } from './usuarios-pesquisa/usuarios-pesquisa.component';

@@ -59,24 +59,26 @@ export class CampanhaCadastroComponent implements OnInit {
       .catch((erro: any) => this.errorHandler.handle(erro));
   }
 
-  salvar(form: NgForm) {
+  salvar(e: any) {
     if (this.editando) {
-      this.atualizarCampanha(form);
+      this.atualizarCampanha();
     } else {
-      this.adicionarCampanha(form);
+      this.adicionarCampanha();
     }
   }
 
-  adicionarCampanha(form: NgForm) {
-    console.log('campanha component: ', this.campanha)
+  adicionarCampanha() {
+    console.log('dsdsdsdsdsds campanha: ', this.campanha )
     this.campanhaService.adicionar(this.campanha)
-      .then(() => {
-        this.messageService.add({ severity: 'success', detail: 'Campanha adicionado com sucesso!' });
+      .then((campanhaAdicionada: Campanha) => {
+        this.messageService.add({ severity: 'success', detail: 'Campanha adicionada com sucesso!' });
+
+        this.router.navigate(['campanhas', campanhaAdicionada.id]);
       })
       .catch(erro => this.errorHandler.handle(erro));
   }
 
-  atualizarCampanha(form: NgForm) {
+  atualizarCampanha() {
     this.campanhaService.atualizar(this.campanha)
       .then(campanha => {
         this.campanha = campanha;

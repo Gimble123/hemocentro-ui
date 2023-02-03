@@ -1,19 +1,20 @@
-import { UsuarioService } from '../../usuario.service';
+
 import { Component, OnDestroy } from '@angular/core';
 import { MenuItem } from 'primeng/api';
+import { UsuarioService } from 'src/app/usuarios/usuario.service';
 
 @Component({
-  selector: 'app-usuario-container',
-  templateUrl: './usuario-container.component.html',
-  styleUrls: ['./usuario-container.component.css']
+  selector: 'app-form-cadastro-container',
+  templateUrl: './form-cadastro-container.component.html',
+  styleUrls: ['./form-cadastro-container.component.css']
 })
-export class UsuarioContainerComponent implements OnDestroy {
+export class FormCadastroContainerComponent implements OnDestroy {
 
   items: MenuItem[] = [];
 
   constructor(private usuarioService: UsuarioService) {
     this.items = [{
-      routerLink: 'usuario-cadastro-step1'
+      routerLink: 'form-cadastro-step1'
     },
     {
       routerLink: 'usuario-cadastro-step2'

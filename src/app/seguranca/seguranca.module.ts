@@ -12,17 +12,15 @@ import { JwtHelperService, JwtModule } from '@auth0/angular-jwt';
 import { MoneyHttpInterceptor } from './money.http';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { StepsModule } from 'primeng/steps';
+import { FormCadastroContainerComponent } from './form-etapas-cadastro/form-cadastro-container/form-cadastro-container.component';
+import { EtapasFormModule } from './form-etapas-cadastro/etapas-form.module';
 
 export function tokenGetter(): string {
   return localStorage.getItem('token')!;
 }
 
 @NgModule({
-  declarations: [
-    FormLoginComponent,
-    HomeComponent,
-    ResetSenhaComponent
-  ],
   imports: [
     CommonModule,
     FormsModule,
@@ -35,7 +33,16 @@ export function tokenGetter(): string {
     }),
     InputTextModule,
     CoreModule,
-    SegurancaRoutingModule
+    SegurancaRoutingModule,
+    StepsModule,
+    EtapasFormModule
+  ],
+  declarations: [
+    FormLoginComponent,
+    HomeComponent,
+    ResetSenhaComponent,
+
+    FormCadastroContainerComponent
   ],
   providers: [
     JwtHelperService,
