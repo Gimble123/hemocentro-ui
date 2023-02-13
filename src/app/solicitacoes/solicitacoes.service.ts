@@ -82,7 +82,7 @@ export class SolicitacoesService {
       .append('Authorization', 'Basic YWRtaW5AYWxnYW1vbmV5LmNvbTphZG1pbg==')
       .append('Content-Type', 'application/json');
 
-    return this.http.put<Solicitacao>(`${this.solicitacoesUrl}/${solicitacao.id}`, solicitacao, { headers })
+    return this.http.put<Solicitacao>(`${this.solicitacoesUrl}/${solicitacao.solicitacaoId}`, solicitacao, { headers })
       .toPromise()
       .then((response: any) => {
         this.converterStringsParaDatas([response]);

@@ -57,7 +57,7 @@ export class SolicitacoesPesquisaComponent implements OnInit {
 
   aprovarSolicitacao(solicitacao: any) {
 
-    this.solicitacaoService.aprovarSolicitacao(solicitacao.id, this.novoStatus)
+    this.solicitacaoService.aprovarSolicitacao(solicitacao.solicitacaoId, this.novoStatus)
       .then((response: any) => {
 
         this.acao = response.status;
@@ -69,7 +69,7 @@ export class SolicitacoesPesquisaComponent implements OnInit {
   }
 
   recusarSolicitacao(solicitacao: any) {
-    this.solicitacaoService.recusarSolicitacao(solicitacao.id, this.novoStatus)
+    this.solicitacaoService.recusarSolicitacao(solicitacao.solicitacaoId, this.novoStatus)
     .then((response: any) => {
       this.acao = response.status;
 
@@ -89,7 +89,7 @@ export class SolicitacoesPesquisaComponent implements OnInit {
   }
 
   excluir(solicitacao: any) {
-    this.solicitacaoService.excluir(solicitacao.id)
+    this.solicitacaoService.excluir(solicitacao.solicitacaoId)
       .then(() => {
         if (this.grid.first === 0) {
           this.pesquisar();

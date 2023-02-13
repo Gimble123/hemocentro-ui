@@ -69,4 +69,8 @@ export class FormCadastroStep1Component implements OnInit {
     this.router.navigate(['usuarios/usuario-container/usuario-cadastro-step2'])
   }
 
+  exibindoNavbar() {
+    return this.router.url !== '/form-cadastro-container/form-cadastro-step1';
+  }
+
 }

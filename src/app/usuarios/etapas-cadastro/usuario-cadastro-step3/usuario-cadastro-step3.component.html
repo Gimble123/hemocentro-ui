@@ -16,6 +16,12 @@
                 <p-dropdown [options]="grupoSanguineo" placeholder="Selecione" name="grupoSanguineo" formControlName="grupoSanguineoId" [required]="true"></p-dropdown>
             </div>
 
+            <div class="col-12 md:col-6 p-fluid" formGroupName="permissao">
+                <label class="espacamento">Permissão</label>
+                <p-dropdown [options]="permissoes" placeholder="Selecione" name="permissao" formControlName="id" [required]="true">
+                </p-dropdown>
+            </div>
+
         </div>
 
         <div class="col-12 buttom">

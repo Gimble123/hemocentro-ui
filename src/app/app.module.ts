@@ -1,4 +1,3 @@
-import { UsuarioContainerComponent } from './usuarios/etapas-cadastro/usuario-container/usuario-container.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DoacoesModule } from './doacoes/doacoes.module';
 import { AgendamentosModule } from './agendamentos/agendamentos.module';

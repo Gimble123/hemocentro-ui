@@ -1,45 +1,38 @@
-<div class="align">
-  <h2 class="titles">Agendamentos</h2>
 <div class="grid">
-  <div class="col-12 relative">
-    <div class="button-novo-agendamento">
-      <button type="button" class="disabled-hover margin-button" pButton label="Novo agendamento"></button>
+    <div class="col-12 relative">
+        <h2 class="titles">Agendamentos</h2>
+        <div class="button-novo-agendamento">
+            <a type="button" class="disabled-hover margin-button" pButton label="Novo agendamento"></a>
+        </div>
+        <p-table [value]="agendamentos" [paginator]="true" [rows]="7" [responsive]="true">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>ID</th>
+                    <th class="col-data-header">Data do Agendamento</th>
+                    <th>Status</th>
+                    <th class="col-acoes">Ações</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-agendamento>
+                <tr>
+                    <td>
+                        <span class="p-column-title">ID</span> {{ agendamento.id }}
+                    </td>
+
+                    <td class="col-data">
+                        <span class="p-column-title">Data do agendamento</span> {{ agendamento.dataSolicitacao | date:'dd/MM/y' }}
+                    </td>
+
+                    <td>
+                        <span class="p-column-title">Status</span> {{ agendamento.status }}
+                    </td>
+                    <td class="col-acoes">
+                        <button pButton icon="pi pi-pencil" pTooltip="Editar" tooltipPosition="top"></button>
+                        <button pButton icon="pi pi-trash" pTooltip="Excluir" tooltipPosition="top"></button>
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+
     </div>
-    <p-table [value]="agendamentos" [paginator]="true" [rows]="7" [responsive]="true">
-      <ng-template pTemplate="header">
-        <tr>
-          <th>ID</th>
-          <th class="col-data-header">Data de Solicitação</th>
-          <th>Status</th>
-          <th class="col-acoes">Ações</th>
-        </tr>
-      </ng-template>
-      <ng-template pTemplate="body" let-agendamento>
-        <tr>
-          <td>
-            <span class="p-column-title">ID</span>
-            {{ agendamento.id }}
-          </td>
-
-          <td class="col-data">
-            <span class="p-column-title">Data da solicitação</span>
-            {{ agendamento.dataSolicitacao | date:'dd/MM/y' }}
-          </td>
-
-          <td>
-            <span class="p-column-title">Status</span>
-            {{ agendamento.status }}
-          </td>
-            <td class="col-acoes">
-              <button pButton icon="pi pi-pencil" pTooltip="Editar" tooltipPosition="top"></button>
-              <button pButton icon="pi pi-trash" pTooltip="Excluir" tooltipPosition="top"></button>
-            </td>
-        </tr>
-      </ng-template>
-    </p-table>
-  </div>
 </div>
-</div>
-
-
-

@@ -11,6 +11,14 @@ export class Campanha {
   grupoSanguineo = new GrupoSanguineo();
 }
 
+export class CampanhaUsuario {
+  campanhaId?: number;
+  campanhaNome?: string;
+  dataInicialCampanha?: Date;
+  dataFinalCampanha?: Date;
+  grupoSanguineoNome?: string;
+}
+
 export class Doacao {
   id?: number;
 }
@@ -39,12 +47,15 @@ export class Usuario {
   numeroDoacoes?: number;
 }
 
+export class Agendamento {
+
+}
+
 export class Solicitacao {
-  id?: number;
-  usuario = new Usuario();
+  solicitacaoId?: number;
+  nomeUsuario?: String;
   dataSolicitacao?: Date;
-  apto?: boolean;
-  grupoSanguineo = new GrupoSanguineo();
+  grupoSanguineo?: String;
   status?: string;
 }
 
@@ -71,6 +82,12 @@ export class UsuarioCadastroEtapa2 {
 
 export class UsuarioCadastroEtapa3 {
   grupoSanguineoId?: number
+  permissao = new Permissao();
+}
+
+export class Permissao {
+  id?: number;
+  descricao?: string;
 }
 
 

@@ -27,6 +27,32 @@ export class CampanhaService {
     this.userId = this.auth.jwtPayload?.userId;
   }
 
+  pesquisarCampanhasUsuario(filtro: CampanhaFiltro): Promise<any> {
+    const headers = new HttpHeaders()
+    .append('Authorization', 'Basic YWRtaW5AYWxnYW1vbmV5LmNvbTphZG1pbg==');
+
+  let params = new HttpParams()
+    .set('page', filtro.pagina)
+    .set('size', filtro.itensPorPagina);
+
+    console.log('user')
+    return this.http.get(`${this.campanhasUrl}` + '/campanhasUsuario/' + this.userId, { headers, params })
+    .toPromise()
+    .then((response: any) => {
+      const campanhas = response['content'];
+
+      const resultado = {
+        campanhas,
+        total: response['totalElements']
+      };
+
+      console.log('Resultado: ', resultado.campanhas)
+
+      return resultado;
+    });
+  }
+
+
     pesquisar(filtro: CampanhaFiltro): Promise<any> {
       const headers = new HttpHeaders()
         .append('Authorization', 'Basic YWRtaW5AYWxnYW1vbmV5LmNvbTphZG1pbg==');
@@ -35,8 +61,6 @@ export class CampanhaService {
         .set('page', filtro.pagina)
         .set('size', filtro.itensPorPagina);
 
-      if (this.auth.jwtPayload?.admin) {
-        console.log('admin')
         return this.http.get(`${this.campanhasUrl}`, { headers, params })
           .toPromise()
           .then((response: any) => {
@@ -51,23 +75,6 @@ export class CampanhaService {
 
             return resultado;
           });
-      } else {
-        console.log('user')
-        return this.http.get(`${this.campanhasUrl}` + '/campanhasUsuario/' + this.userId, { headers, params })
-        .toPromise()
-        .then((response: any) => {
-          const campanhas = response['content'];
-
-          const resultado = {
-            campanhas,
-            total: response['totalElements']
-          };
-
-          console.log('Resultado: ', resultado.campanhas)
-
-          return resultado;
-        });
-      }
 
     }
 
@@ -81,8 +88,18 @@ export class CampanhaService {
   }
 
   adicionar(campanha: Campanha): Promise<Campanha> {
-    console.log('Campanha: ', campanha)
-    return this.http.post<Campanha>(this.campanhasUrl, campanha)
+    let dasdad = {
+      "id": null,
+      "nome": campanha.nome,
+      "dataInicial": campanha.dataInicial,
+      "dataFinal": campanha.dataFinal,
+      "grupoSanguineo": {
+          "id": campanha.grupoSanguineo.grupoSanguineoId,
+          "nome": "B+"
+      }
+  }
+    console.log('Campanha: ', dasdad)
+    return this.http.post<Campanha>(this.campanhasUrl, dasdad)
       .toPromise();
   }
 

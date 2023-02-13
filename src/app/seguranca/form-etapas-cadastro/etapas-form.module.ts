@@ -1,3 +1,5 @@
+import { CoreModule } from './../../core/core.module';
+import { NavbarComponent } from './../../core/navbar/navbar.component';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
@@ -43,8 +45,8 @@ import { FormCadastroStep3Component } from './form-cadastro-step3/form-cadastro-
     DropdownModule,
     InputMaskModule,
     SharedModule,
-
-    EtapasFormCadastroRoutingModule
+    EtapasFormCadastroRoutingModule,
+    CoreModule
   ]
 })
 export class EtapasFormModule { }

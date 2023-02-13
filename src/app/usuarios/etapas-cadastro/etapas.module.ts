@@ -1,3 +1,4 @@
+import { CoreModule } from './../../core/core.module';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
@@ -43,7 +44,7 @@ import { UsuarioCadastroStep3Component } from './usuario-cadastro-step3/usuario-
     DropdownModule,
     InputMaskModule,
     SharedModule,
-
+    CoreModule,
     EtapasCadastroRoutingModule
   ]
 })

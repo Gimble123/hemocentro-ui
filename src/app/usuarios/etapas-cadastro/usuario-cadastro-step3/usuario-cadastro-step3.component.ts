@@ -1,3 +1,4 @@
+import { PermissaoService } from './../../../permissoes/permissao.service';
 import { GrupoSanguineoService } from './../../../grupos-sanguineos/grupo_sanguineo.service';
 import { Router } from '@angular/router';
 import { UsuarioService } from '../../usuario.service';
@@ -17,10 +18,12 @@ export class UsuarioCadastroStep3Component implements OnInit {
   formulario!: FormGroup;
 
   grupoSanguineo: any[] = [];
+  permissoes: any[] = [];
 
   constructor(
     private usuarioService: UsuarioService,
     private grupoSanguineoService: GrupoSanguineoService,
+    private permissaoService: PermissaoService,
     private messageService: MessageService,
     private router: Router,
     private formBuilder: FormBuilder,
@@ -32,6 +35,7 @@ export class UsuarioCadastroStep3Component implements OnInit {
     this.title.setTitle('Cadastro de usuários')
     this.configurarFormulario();
     this.carregarGrupoSanguineoSemPaginacao();
+    this.carregarPermissoes();
 
     const step3 = this.usuarioService.getStep3();
 
@@ -50,6 +54,10 @@ export class UsuarioCadastroStep3Component implements OnInit {
       grupoSanguineo: this.formBuilder.group({
         grupoSanguineoId: [null, Validators.required],
         nome: []
+      }),
+      permissao: this.formBuilder.group({
+        id: [null, Validators.required],
+        descricao: []
       })
     });
 
@@ -59,6 +67,15 @@ export class UsuarioCadastroStep3Component implements OnInit {
     this.grupoSanguineoService.listarTodosSemPaginacao()
       .then(grupoSanguineo => {
         this.grupoSanguineo = grupoSanguineo.map((g: any) => ({ label: g.nome, value: g.id }));
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
+
+  carregarPermissoes() {
+    return this.permissaoService.listarTodas()
+      .then(permissoes => {
+        this.permissoes = permissoes
+          .map((p: any) => ({ label: p.descricao, value: p.id }))
       })
       .catch(erro => this.errorHandler.handle(erro));
   }

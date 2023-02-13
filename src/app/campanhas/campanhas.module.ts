@@ -1,3 +1,4 @@
+import { CampanhasUsuarioPesquisaComponent } from './campanhas-usuario-pesquisa/campanhas-usuario-pesquisa.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CoreModule } from './../core/core.module';
 import { CampanhaCadastroComponent } from './campanha-cadastro/campanha-cadastro.component';
@@ -20,7 +21,8 @@ import { CampanhasRoutingModule } from './campanhas-routing.module';
 @NgModule({
   declarations: [
     CampanhasPesquisaComponent,
-    CampanhaCadastroComponent
+    CampanhaCadastroComponent,
+    CampanhasUsuarioPesquisaComponent
   ],
   imports: [
     CommonModule,

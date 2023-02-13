@@ -7,7 +7,6 @@
                     <th>ID</th>
                     <th>Usuário</th>
                     <th class="col-data-header">Data da Solicitação</th>
-                    <th>Apto a Doar</th>
                     <th>Grupo Sanguíneo</th>
                     <th>Status da Solicitação</th>
                     <th class="col-acoes">Ações</th>
@@ -16,19 +15,15 @@
             <ng-template pTemplate="body" let-solicitacao>
                 <tr>
                     <td>
-                        <span class="p-column-title">ID</span> {{ solicitacao.id }}
+                        <span class="p-column-title">ID</span> {{ solicitacao.solicitacaoId }}
                     </td>
 
                     <td>
-                        <span class="p-column-title">Usuário</span> {{ solicitacao.usuario.nome }}
+                        <span class="p-column-title">Usuário</span> {{ solicitacao.nomeUsuario }}
                     </td>
 
                     <td class="col-data">
                         <span class="p-column-title">Data Solicitação</span> {{ solicitacao.dataSolicitacao | date:'dd/MM/y' }}
-                    </td>
-
-                    <td>
-                        <span class="p-column-title">Apto a Doar</span> {{ solicitacao.apto === 'true' ? 'Não' : 'Sim' }}
                     </td>
 
                     <td class="col-data">

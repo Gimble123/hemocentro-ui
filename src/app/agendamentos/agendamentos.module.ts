@@ -1,9 +1,8 @@
+import { AgendamentosRoutingModule } from './agendamentos-routing.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AgendamentoCadastroComponent } from './agendamento-cadastro/agendamento-cadastro.component';
 import { AgendamentosPesquisaComponent } from './agendamentos-pesquisa/agendamentos-pesquisa.component';
-import { AgendamentoGridComponent } from './agendamento-grid/agendamento-grid.component';
-import { AgendamentoAtualizacaoComponent } from './agendamento-atualizacao/agendamento-atualizacao.component';
 import { FormsModule } from '@angular/forms';
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
@@ -18,9 +17,7 @@ import { CoreModule } from '../core/core.module';
 @NgModule({
   declarations: [
     AgendamentoCadastroComponent,
-    AgendamentosPesquisaComponent,
-    AgendamentoGridComponent,
-    AgendamentoAtualizacaoComponent
+    AgendamentosPesquisaComponent
   ],
   imports: [
     CommonModule,
@@ -32,7 +29,8 @@ import { CoreModule } from '../core/core.module';
     TooltipModule,
     InputMaskModule,
     SharedModule,
-    CoreModule
+    CoreModule,
+    AgendamentosRoutingModule
   ],
   exports: [
     AgendamentosPesquisaComponent

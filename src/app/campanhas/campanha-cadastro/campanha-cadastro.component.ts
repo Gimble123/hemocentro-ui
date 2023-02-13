@@ -1,7 +1,6 @@
 import { GrupoSanguineoService } from './../../grupos-sanguineos/grupo_sanguineo.service';
 import { CampanhaService } from './../campanha.service';
 import { Campanha } from './../../core/model';
-import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { MessageService } from 'primeng/api';
@@ -14,8 +13,10 @@ import { Title } from '@angular/platform-browser';
   styleUrls: ['./campanha-cadastro.component.css']
 })
 export class CampanhaCadastroComponent implements OnInit {
-  grupoSanguineo: any[] = [];
+
   campanha = new Campanha();
+  grupoSanguineo: any[] = [];
+
 
   constructor(
     private campanhaService: CampanhaService,
@@ -59,7 +60,7 @@ export class CampanhaCadastroComponent implements OnInit {
       .catch((erro: any) => this.errorHandler.handle(erro));
   }
 
-  salvar(e: any) {
+  salvar() {
     if (this.editando) {
       this.atualizarCampanha();
     } else {
@@ -68,12 +69,12 @@ export class CampanhaCadastroComponent implements OnInit {
   }
 
   adicionarCampanha() {
-    console.log('dsdsdsdsdsds campanha: ', this.campanha )
+    console.log("Componente campanha: ", this.campanha)
     this.campanhaService.adicionar(this.campanha)
-      .then((campanhaAdicionada: Campanha) => {
+      .then(() => {
         this.messageService.add({ severity: 'success', detail: 'Campanha adicionada com sucesso!' });
 
-        this.router.navigate(['campanhas', campanhaAdicionada.id]);
+        this.router.navigate(['campanhas']);
       })
       .catch(erro => this.errorHandler.handle(erro));
   }
