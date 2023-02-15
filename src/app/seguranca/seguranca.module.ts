@@ -9,7 +9,7 @@ import { HomeComponent } from './home/home.component';
 import { ResetSenhaComponent } from './reset-senha/reset-senha.component';
 import { SegurancaRoutingModule } from './seguranca-routing.module';
 import { JwtHelperService, JwtModule } from '@auth0/angular-jwt';
-import { MoneyHttpInterceptor } from './money.http';
+import { MoneyHttpInterceptor } from './money-http-interceptor';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { StepsModule } from 'primeng/steps';

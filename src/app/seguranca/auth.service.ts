@@ -1,7 +1,6 @@
 import { JwtHelperService } from '@auth0/angular-jwt';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Usuario } from '../core/model';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -10,15 +9,13 @@ import { environment } from 'src/environments/environment';
 export class AuthService {
 
   tokensRevokeUrl = environment.apiUrl + '/tokens/revoke';
-  oauthTokenUrl = environment.apiUrl + '/oauth/token'
-  recuperarAcessoUrl = 'http://localhost:8081/forgot-password';
+  oauthTokenUrl = environment.apiUrl + '/oauth/token';
   jwtPayload: any;
 
   constructor(
     private http: HttpClient,
-    private jwtHelper: JwtHelperService
+    private jwtHelper: JwtHelperService,
   ) {
-    this.carregarToken();
   }
 
   login(usuario: string, senha: string): Promise<void> {
@@ -44,39 +41,33 @@ export class AuthService {
       });
   }
 
-  recuperar(usuario: string) {
-    let user = new Usuario();
-    user.login = usuario;
-
-    console.log('Auth service: ', user.login);
-
-    return this.http.post(this.recuperarAcessoUrl, user.login).subscribe(data => {
-      alert( JSON.parse(JSON.stringify(data)) )
-    });
-
-  }
-
   obterNovoAccessToken(): Promise<void> {
     const headers = new HttpHeaders()
       .append('Content-Type', 'application/x-www-form-urlencoded')
       .append('Authorization', 'Basic YW5ndWxhcjpAbmd1bEByMA==');
 
-    const body = 'grant_type=refresh_token';
+    const payload = new HttpParams()
+      .append('grant_type', 'refresh_token')
+      .append('refresh_token', localStorage.getItem('refreshToken')!)
 
-    return this.http.post<any>(this.oauthTokenUrl, body,
-      { headers, withCredentials: true })
+    return this.http.post<any>(this.oauthTokenUrl, payload,
+      { headers })
       .toPromise()
       .then((response: any) => {
         this.armazenarToken(response['access_token']);
-
+        this.armazenarRefreshToken(response['refresh_token'])
         console.log('Novo access token criado!');
 
         return Promise.resolve();
       })
-      .catch(response => {
+      .catch((response: any) => {
         console.error('Erro ao renovar token.', response);
         return Promise.resolve();
       });
+  }
+
+  private armazenarRefreshToken(refreshToken: string) {
+    localStorage.setItem('refreshToken', refreshToken);
   }
 
   isAccessTokenInvalido() {
@@ -128,6 +119,16 @@ export class AuthService {
       .toPromise()
       .then(() => {
         this.limparAccessToken();
+        localStorage.clear();
+      });
+  }
+
+  recuperar(email: String) {
+    const url = `${environment.apiUrl}/usuarios/forgot-password`;
+    this.http.put<any>(url, { email })
+      .toPromise()
+      .then((response: any) => {
+        return Promise.resolve(response);
       });
   }
 

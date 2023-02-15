@@ -12,6 +12,16 @@ label {
     border-radius: 6px;
 }
 
+.button-voltar {
+    text-align: center;
+    font-weight: bold;
+    background-color: #C0BFBD !important;
+    border: 1px solid #C0BFBD !important;
+    height: 50px;
+    width: 100%;
+    border-radius: 6px;
+}
+
 a {
     color: #8E2929;
     text-decoration: none;
@@ -84,6 +94,10 @@ h1 {
 .container-footer {
     bottom: 0;
     position: absolute;
+}
+
+.text-container-footer {
+    margin-bottom: 15px;
 }
 
 .align {

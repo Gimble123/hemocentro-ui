@@ -40,4 +40,8 @@ export class AppComponent implements OnInit {
     return this.router.url !== '/form-cadastro-container/form-cadastro-step3';
   }
 
+  exibindoNavbarResetPassword() {
+    return this.router.url !== '/reset-senha';
+  }
+
 }

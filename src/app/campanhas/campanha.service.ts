@@ -98,7 +98,7 @@ export class CampanhaService {
           "nome": "B+"
       }
   }
-    console.log('Campanha: ', dasdad)
+
     return this.http.post<Campanha>(this.campanhasUrl, dasdad)
       .toPromise();
   }

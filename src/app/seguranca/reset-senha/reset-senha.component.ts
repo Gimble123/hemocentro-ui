@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MessageService } from 'primeng/api';
+import { UpdatePasswordInput } from 'src/app/core/model';
 import { AuthService } from '../auth.service';
 
 @Component({
@@ -13,9 +15,7 @@ export class ResetSenhaComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  recuperar(usuario: string) {
-    console.log('arquivo component', usuario)
-    this.auth.recuperar(usuario);
+  recuperar(email: String) {
+    this.auth.recuperar(email);
   }
-
 }

@@ -34,39 +34,45 @@ export class FormCadastroStep1Component implements OnInit {
   }
 
   ngOnInit(): void {
-    // this.carregarGrupoSanguineoSemPaginacao();
     this.title.setTitle('Cadastro de usuários')
-    // this.configurarFormulario();
+    this.configurarFormulario();
+    this.carregarGrupoSanguineoSemPaginacao();
 
   }
 
-  // configurarFormulario() {
-  //   this.formulario = this.formBuilder.group({
-  //     id: [],
-  //     nome: [null, Validators.required],
-  //     email: [null, Validators.required],
-  //     cpf: [null, Validators.required],
-  //     estadoCivil: [null, Validators.required],
-  //     telefone: [null, Validators.required],
-  //     sexo: [null, Validators.required],
-  //     endereco: [null, Validators.required],
-  //     dataNascimento: [null, Validators.required]
-  //   });
+  configurarFormulario() {
+    this.formulario = this.formBuilder.group({
+      id: [],
+      grupoSanguineo: this.formBuilder.group({
+        grupoSanguineoId: [null, Validators.required],
+        nome: []
+      }),
+      nome: [null, Validators.required],
+      email: [null, Validators.required],
+      senha: [null, Validators.required],
+      dataNascimento: [null, Validators.required],
+      cpf: [null, Validators.required],
+      telefone: [null, Validators.required]
+    });
 
-  // }
+  }
 
-  // carregarGrupoSanguineoSemPaginacao() {
-  //   this.grupoSanguineoService.listarTodosSemPaginacao()
-  //     .then(grupoSanguineo => {
-  //       this.grupoSanguineo = grupoSanguineo.map((g: any) => ({ label: g.nome, value: g.id }));
-  //     })
-  //     .catch(erro => this.errorHandler.handle(erro));
-  // }
+  carregarGrupoSanguineoSemPaginacao() {
+    this.grupoSanguineoService.listarTodosSemPaginacao()
+      .then(grupoSanguineo => {
+        var grupos = this.grupoSanguineo = grupoSanguineo.map((g: any) => ({ label: g.nome, value: g.id }));
+        console.log('Grupos: ', grupos);
+      })
+  }
 
   salvar() {
     console.log('Etapa 1', this.formulario)
     this.usuarioService.setStep1(this.formulario.value)
     this.router.navigate(['usuarios/usuario-container/usuario-cadastro-step2'])
+  }
+
+  voltar() {
+    this.router.navigate(['login'])
   }
 
   exibindoNavbar() {

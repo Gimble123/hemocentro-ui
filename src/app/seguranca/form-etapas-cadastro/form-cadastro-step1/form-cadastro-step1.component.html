@@ -1,6 +1,6 @@
 <div class="container">
     <div class="content-image"></div>
-    <form autocomplete="off" #cadastroForm="ngForm">
+    <form autocomplete="off" (ngSubmit)="salvar()" [formGroup]="formulario">
         <div class="grid">
             <div class="container-top">
                 <div class="col-12 p-fluid">
@@ -8,34 +8,58 @@
                 </div>
 
                 <div class="col-12 p-fluid">
-                    <div>Nome: </div>
+                    <div>Nome</div>
                     <input class="input-nome" pInputText type="text" name="nome" placeholder="Insira seu nome" ngModel required #nome>
                 </div>
 
                 <div class="col-12 p-fluid">
-                    <div>Email: </div>
+                    <div>Email</div>
                     <input class="input-email" pInputText type="email" name="usuario" placeholder="Insira seu e-mail" ngModel required #usuario>
                 </div>
 
                 <div class="col-12 p-fluid">
-                    <div>Senha: </div>
+                    <div>Senha</div>
                     <input class="input-password" pInputText type="password" name="senha" placeholder="Insira sua senha" ngModel required #senha>
                 </div>
 
                 <div class="col-12 p-fluid">
-                    <div>Data Nascimento: </div>
+                    <div>Data Nascimento</div>
                     <p-calendar name="nascimento" dateFormat="dd/mm/yy" [inline]="false" [readonlyInput]="false" [showIcon]="false" name="dataNascimento" [required]="true"></p-calendar>
 
-                    <!-- <app-message [control]="formulario.get('dataNascimento')" error="required" text="Informe uma data de nascimento"></app-message> -->
+                    <app-message [control]="formulario.get('dataNascimento')" error="required" text="Informe uma data de nascimento"></app-message>
                 </div>
 
-                <!-- <div class="col-12 p-fluid">
-                    <div>Tipo sanguíneo</div>
-                    <p-dropdown [options]="grupoSanguineo" placeholder="Selecione" name="grupoSanguineo" #grupo [required]="true"></p-dropdown>
-                </div> -->
+                <div class="col-12 p-fluid" formGroupName="grupoSanguineo">
+                    <div>Grupo sanguíneo</div>
+                    <p-dropdown [options]="grupoSanguineo" placeholder="Selecione" name="grupoSanguineo" formControlName="grupoSanguineoId" [required]="true"></p-dropdown>
+                </div>
+
+                <div class="col-12 p-fluid">
+                    <div>CPF</div>
+                    <p-inputMask mask="999.999.999-99" [required]="true" placeholder="Ex: 999.999.999-99" name="cpf" formControlName="cpf"></p-inputMask>
+                    <app-message [control]="formulario.get('cpf')" error="required" text="Informe um cpf"></app-message>
+                </div>
+
+                <div class="col-12 p-fluid">
+                    <div>Telefone</div>
+                    <p-inputMask mask="(99) 99999-9999" [required]="true" placeholder="Ex: (51) 99999-9999" name="telefone" formControlName="telefone"></p-inputMask>
+                    <app-message [control]="formulario.get('telefone')" error="required" text="Informe um telefone"></app-message>
+                </div>
+
+                <div class="col-12 p-fluid">
+                    <button pButton type="submit" class="button-danger" [disabled]="formulario.invalid" label="Próximo"></button>
+                </div>
+
+                <div class="col-12 p-fluid">
+                    <button pButton type="button" class="color disabled-hover button-voltar" (click)="voltar()" label="Voltar"></button>
+                </div>
 
             </div>
-
+            <div class="container-footer">
+                <div>
+                    <div class="text-container-footer">Já tem cadastro? <a routerLink="/login">Entrar</a></div>
+                </div>
+            </div>
         </div>
     </form>
 </div>

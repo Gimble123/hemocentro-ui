@@ -51,11 +51,6 @@ export class UsuarioService {
   }
 
   adicionar(usuario: Usuario): Promise<Usuario> {
-
-
-    console.log('profissao: ', usuario);
-
-
     return this.http.post<Usuario>(this.usuariosUrl, usuario).toPromise();
   }
 
