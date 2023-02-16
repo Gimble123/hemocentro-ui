@@ -53,7 +53,9 @@ export class Usuario {
 }
 
 export class Agendamento {
-
+  agendamentoId?: number;
+  status?: string;
+  dataAgendamento?: Date;
 }
 
 export class Solicitacao {

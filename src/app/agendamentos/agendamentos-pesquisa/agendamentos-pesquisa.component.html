@@ -4,7 +4,7 @@
         <div class="button-novo-agendamento">
             <a type="button" class="disabled-hover margin-button" pButton label="Novo agendamento"></a>
         </div>
-        <p-table [value]="agendamentos" [paginator]="true" [rows]="7" [responsive]="true">
+        <p-table [value]="agendamentos" [paginator]="true" [rows]="filtro.itensPorPagina" [responsive]="true" [lazy]="true" [totalRecords]="totalRegistros" (onLazyLoad)="aoMudarPagina($event)" #tabela>
             <ng-template pTemplate="header">
                 <tr>
                     <th>ID</th>
@@ -16,11 +16,11 @@
             <ng-template pTemplate="body" let-agendamento>
                 <tr>
                     <td>
-                        <span class="p-column-title">ID</span> {{ agendamento.id }}
+                        <span class="p-column-title">ID</span> {{ agendamento.agendamentoId }}
                     </td>
 
                     <td class="col-data">
-                        <span class="p-column-title">Data do agendamento</span> {{ agendamento.dataSolicitacao | date:'dd/MM/y' }}
+                        <span class="p-column-title">Data do agendamento</span> {{ agendamento.dataAgendamento | date:'dd/MM/y' }}
                     </td>
 
                     <td>

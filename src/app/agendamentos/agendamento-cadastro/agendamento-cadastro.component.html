@@ -1,1 +1,26 @@
-<p>agendamento-cadastro works!</p>
+<div class="container">
+    <div class="grid">
+        <div class="col-12 relative">
+            <h2 class="titles">{{ editando ? 'Edição de' : 'Novo' }} Agendamento</h2>
+        </div>
+        <form #agendamentoForm="ngForm" autocomplete="off" (ngSubmit)="salvar()">
+
+            <div class="center">
+                <div class="col-12 md:col-6 p-fluid">
+                    <label class="espacamento">Data Agendamento</label>
+                    <input pInputText type="text" name="dataAgendamento" [(ngModel)]="agendamento.dataAgendamento" #dataAgendamento="ngModel" [required]="true">
+                    <!-- <app-message [control]="dataAgendamento.control" error="required" text="Informe a data"></app-message> -->
+                </div>
+            </div>
+
+            <div class="col-12 buttom">
+                <div class="left">
+                    <button pButton type="button" class="color disabled-hover" routerLink="/agendamentos" label="Voltar"></button>
+                </div>
+                <div class="right">
+                    <button pButton type="submit" class="p-button-danger" label="Finalizar"></button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

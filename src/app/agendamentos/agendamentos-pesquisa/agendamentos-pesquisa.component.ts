@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { Title } from '@angular/platform-browser';
+import { ConfirmationService, LazyLoadEvent, MessageService } from 'primeng/api';
+import { Table } from 'primeng/table';
+import { ErrorHandlerService } from 'src/app/core/error-handler.service';
+import { AgendamentoFiltro, AgendamentoService } from '../agendamento.service';
 
 @Component({
   selector: 'app-agendamentos-pesquisa',
@@ -7,14 +12,69 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AgendamentosPesquisaComponent {
 
-  agendamentos = [
-    { id: 1, dataSolicitacao: new Date(2020, 1, 25), status: 'Pendente'},
-    { id: 2, dataSolicitacao: new Date(2020, 1, 25), status: 'Pendente'},
-    { id: 3, dataSolicitacao: new Date(2020, 1, 25), status: 'Pendente'},
-    { id: 4, dataSolicitacao: new Date(2020, 1, 25), status: 'Rejeitado'},
-    { id: 5, dataSolicitacao: new Date(2020, 1, 25), status: 'Aprovado'},
-    { id: 6, dataSolicitacao: new Date(2020, 1, 25), status: 'Aprovado'},
-    { id: 7, dataSolicitacao: new Date(2020, 1, 25), status: 'Aprovado'}
-  ];
+  filtro = new AgendamentoFiltro();
+
+  totalRegistros: number = 0
+
+  agendamentos: any[] = [];
+  @ViewChild('tabela') grid!: Table;
+  jwtPayload: any;
+  userId: any;
+
+  constructor(
+    private agendamentoService: AgendamentoService,
+    private errorHandler: ErrorHandlerService,
+    private title: Title,
+    private messageService: MessageService,
+    private confirmation: ConfirmationService
+  ) { }
+
+  ngOnInit() {
+    this.title.setTitle('Pesquisa de agendamentos');
+    this.userId = this.jwtPayload?.userId;
+  }
+
+  pesquisar(pagina: number = 0): void {
+    this.filtro.pagina = pagina;
+
+    console.log('Pesquisar')
+
+    this.agendamentoService.pesquisar(this.filtro)
+      .then((resultado: any) => {
+        this.agendamentos = resultado.agendamentos;
+        this.totalRegistros = resultado.total;
+
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+
+  }
+
+  aoMudarPagina(event: LazyLoadEvent) {
+    const pagina = event!.first! / event!.rows!;
+    this.pesquisar(pagina);
+  }
+
+  confirmarExclusao(solicitacao: any) {
+    this.confirmation.confirm({
+      message: 'Tem certeza que deseja excluir?',
+      accept: () => {
+        this.excluir(solicitacao);
+      }
+    });
+  }
+
+  excluir(agendamento: any) {
+    this.agendamentoService.excluir(agendamento.id)
+      .then(() => {
+        if (this.grid.first === 0) {
+          this.pesquisar();
+        } else {
+          this.grid.reset();
+        }
+
+        this.messageService.add({ severity: 'success', detail: 'Agendamento excluída com sucesso!' })
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
 
 }

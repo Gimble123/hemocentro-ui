@@ -17,7 +17,10 @@ import { GruposSanguineosPesquisaComponent } from './grupos-sanguineos-pesquisa/
 
 
 @NgModule({
-  declarations: [GrupoSanguineoCadastroComponent, GruposSanguineosPesquisaComponent],
+  declarations: [
+    GrupoSanguineoCadastroComponent,
+    GruposSanguineosPesquisaComponent
+  ],
   imports: [
     CommonModule,
     FormsModule,
@@ -29,10 +32,11 @@ import { GruposSanguineosPesquisaComponent } from './grupos-sanguineos-pesquisa/
     InputMaskModule,
     SharedModule,
     CoreModule,
-
     GruposSanguineosRoutingModule
 
   ],
-  exports: [GrupoSanguineoCadastroComponent]
+  exports: [
+    GrupoSanguineoCadastroComponent
+  ]
 })
 export class GruposSanguineosModule { }

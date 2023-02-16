@@ -5,7 +5,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { ErrorHandlerService } from '../../core/error-handler.service';
 import { Title } from '@angular/platform-browser';
-import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-grupo-sanguineo-cadastro',

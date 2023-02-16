@@ -49,7 +49,6 @@ export class FormCadastroStep1Component implements OnInit {
       }),
       nome: [null, Validators.required],
       email: [null, Validators.required],
-      senha: [null, Validators.required],
       dataNascimento: [null, Validators.required],
       cpf: [null, Validators.required],
       telefone: [null, Validators.required]

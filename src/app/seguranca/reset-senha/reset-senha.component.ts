@@ -10,12 +10,16 @@ import { AuthService } from '../auth.service';
 })
 export class ResetSenhaComponent implements OnInit {
 
-  constructor(private auth: AuthService) { }
+  constructor(
+    private auth: AuthService,
+    private messageService: MessageService
+  ) { }
 
   ngOnInit(): void {
   }
 
   recuperar(email: String) {
     this.auth.recuperar(email);
+    this.messageService.add({ severity: 'success', detail: 'Nova senha enviada para seu email!' })
   }
 }
