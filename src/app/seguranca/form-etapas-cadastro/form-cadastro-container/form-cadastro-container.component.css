@@ -1,4 +1,8 @@
 :host(app-form-cadastro-container) {
     flex: 1;
-    padding-right: 60px;
+}
+
+.container {
+    display: flex;
+    height: 100%;
 }

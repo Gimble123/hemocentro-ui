@@ -69,6 +69,7 @@ h1 {
     flex-direction: column;
     width: 70%;
     align-items: center;
+    margin-top: 12px;
 }
 
 .input-password,
@@ -92,12 +93,8 @@ h1 {
 }
 
 .container-footer {
-    bottom: 0;
+    bottom: 15px;
     position: absolute;
-}
-
-.text-container-footer {
-    margin-top: 15px;
 }
 
 .align {

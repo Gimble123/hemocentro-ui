@@ -88,7 +88,7 @@ export class CampanhaService {
   }
 
   adicionar(campanha: Campanha): Promise<Campanha> {
-    let dasdad = {
+    let novaCampanha = {
       "id": null,
       "nome": campanha.nome,
       "dataInicial": campanha.dataInicial,
@@ -99,7 +99,7 @@ export class CampanhaService {
       }
   }
 
-    return this.http.post<Campanha>(this.campanhasUrl, dasdad)
+    return this.http.post<Campanha>(this.campanhasUrl, novaCampanha)
       .toPromise();
   }
 

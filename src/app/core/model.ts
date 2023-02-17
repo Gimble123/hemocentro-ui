@@ -3,6 +3,35 @@ export class GrupoSanguineo {
   nome?: string;
 }
 
+export class GrupoSanguineoInput {
+  id?: number;
+  nome?: string;
+}
+
+export class UsuarioInput {
+  grupoSanguineo = new GrupoSanguineoInput();
+  login?: string;
+	senha?: string;
+  nome?: string;
+  cpf?: string;
+  logradouro?: string;
+  numero?: string;
+  complemento?: string;
+  bairro?: string;
+  cep?: string;
+  cidade?: string;
+  estado?: string;
+  dataNascimento?: Date;
+  profissao?: string;
+  sexo?: string;
+  cor?: string;
+  telefone?: string;
+  escolaridade?: string;
+  estadoCivil?: string;
+  nacionalidade?: string;
+  numeroDoacoes?: number;
+}
+
 export class Campanha {
   id?: number;
   nome?: string;
@@ -46,11 +75,14 @@ export class Usuario {
   profissao?: string;
   sexo?: string;
   cor?: string;
+  telefone?: string;
   escolaridade?: string;
   estadoCivil?: string;
   nacionalidade?: string;
   numeroDoacoes?: number;
+  permissao = new Permissao();
 }
+
 
 export class Agendamento {
   agendamentoId?: number;
