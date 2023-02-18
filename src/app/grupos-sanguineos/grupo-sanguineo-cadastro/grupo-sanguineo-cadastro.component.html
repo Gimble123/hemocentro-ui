@@ -7,7 +7,7 @@
 
             <div class="center">
                 <div class="col-12 md:col-6 p-fluid">
-                    <label class="espacamento">Grupo sanguíneo</label>
+                    <label class="espacamento">Grupo sanguíneo: </label>
                     <input pInputText type="text" name="nome" [(ngModel)]="grupoSanguineo.nome" #nome="ngModel" [required]="true">
                     <app-message [control]="nome.control" error="required" text="Informe o nome"></app-message>
                 </div>

@@ -31,7 +31,6 @@ export class FormCadastroStep3Component implements OnInit {
   ngOnInit(): void {
     this.title.setTitle('Cadastro de usuários')
     this.configurarFormulario();
-    this.carregarGrupoSanguineoSemPaginacao();
 
     const step3 = this.usuarioService.getStep3();
 
@@ -41,26 +40,16 @@ export class FormCadastroStep3Component implements OnInit {
 
   }
 
-  get editando() {
-    return Boolean(this.formulario.get('id')?.value)
-  }
-
   configurarFormulario() {
     this.formulario = this.formBuilder.group({
-      grupoSanguineo: this.formBuilder.group({
-        grupoSanguineoId: [null, Validators.required],
-        nome: []
-      })
+      numeroDoacoes: [null, Validators.required],
+      bairro: [null, Validators.required],
+      cep: [null, Validators.required],
+      estado: [null, Validators.required],
+      escolaridade: [null, Validators.required],
+      cor: [null, Validators.required]
     });
 
-  }
-
-  carregarGrupoSanguineoSemPaginacao() {
-    this.grupoSanguineoService.listarTodosSemPaginacao()
-      .then(grupoSanguineo => {
-        this.grupoSanguineo = grupoSanguineo.map((g: any) => ({ label: g.nome, value: g.id }));
-      })
-      .catch(erro => this.errorHandler.handle(erro));
   }
 
   salvar() {

@@ -36,10 +36,6 @@ export class FormCadastroStep2Component implements OnInit {
 
   }
 
-  get editando() {
-    return Boolean(this.formulario.get('id')?.value)
-  }
-
   preencherUsuario() {
     const infoPrincipal = this.usuarioService.getStep2();
     if (infoPrincipal) {
@@ -49,26 +45,24 @@ export class FormCadastroStep2Component implements OnInit {
 
   configurarFormulario() {
     this.formulario = this.formBuilder.group({
-      numeroDoacoesPrevias: [null, Validators.required],
-      profissao: [null, Validators.required],
-      bairro: [null, Validators.required],
       nacionalidade: [null, Validators.required],
-      estado: [null, Validators.required],
-      escolaridade: [null, Validators.required],
-      cor: [null, Validators.required],
-      cep: [null, Validators.required],
+      sexo: [null, Validators.required],
+      estadoCivil: [null, Validators.required],
+      cidade: [null, Validators.required],
+      endereco: [null, Validators.required],
+      profissao: [null, Validators.required]
     });
 
   }
 
   voltar() {
-    this.router.navigate(['usuarios/usuario-container/usuario-cadastro-step1'])
+    this.router.navigate(['form-cadastro-container/form-cadastro-step1'])
   }
 
   salvar() {
     console.log('Etapa 2', this.formulario)
     this.usuarioService.setStep2(this.formulario.value)
-    this.router.navigate(['usuarios/usuario-container/usuario-cadastro-step3'])
+    this.router.navigate(['form-cadastro-container/form-cadastro-step3'])
   }
 
 }

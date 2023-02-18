@@ -75,8 +75,7 @@ h1 {
 .input-password,
 .input-email,
 .input-nome,
-.input-tipo-sanguineo,
-.inpur-cpf {
+.input-tipo-sanguineo {
     box-sizing: border-box;
     display: flex;
     flex-direction: row;

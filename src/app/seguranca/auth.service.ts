@@ -1,7 +1,9 @@
+import { GrupoSanguineoService } from './../grupos-sanguineos/grupo_sanguineo.service';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
+
 
 @Injectable({
   providedIn: 'root'
@@ -11,11 +13,17 @@ export class AuthService {
   tokensRevokeUrl = environment.apiUrl + '/tokens/revoke';
   oauthTokenUrl = environment.apiUrl + '/oauth/token';
   jwtPayload: any;
+  grupoSanguineo: any[] = [];
 
   constructor(
     private http: HttpClient,
     private jwtHelper: JwtHelperService,
+    private grupoSanguineoService: GrupoSanguineoService
   ) {
+  }
+
+  carregarGruposSanguineos() {
+    this.grupoSanguineoService.listarTodosSemPaginacao();
   }
 
   login(usuario: string, senha: string): Promise<void> {
@@ -96,7 +104,6 @@ export class AuthService {
 
   public armazenarToken(token: string) {
     this.jwtPayload = this.jwtHelper.decodeToken(token);
-    console.log(this.jwtPayload);
 
     localStorage.setItem('token', token);
   }

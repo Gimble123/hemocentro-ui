@@ -23,10 +23,8 @@ export class FormCadastroStep1Component implements OnInit {
   constructor(
     private usuarioService: UsuarioService,
     private grupoSanguineoService: GrupoSanguineoService,
-    private route: ActivatedRoute,
     private router: Router,
     private formBuilder: FormBuilder,
-    private errorHandler: ErrorHandlerService,
     private title: Title,
     private auth: AuthService
   ) {
@@ -35,18 +33,22 @@ export class FormCadastroStep1Component implements OnInit {
 
   ngOnInit(): void {
     this.title.setTitle('Cadastro de usuários')
-    this.configurarFormulario();
     this.carregarGrupoSanguineoSemPaginacao();
+    this.configurarFormulario();
 
+  }
+
+  carregarGrupoSanguineoSemPaginacao() {
+    this.auth.carregarGruposSanguineos();
   }
 
   configurarFormulario() {
     this.formulario = this.formBuilder.group({
       id: [],
-      grupoSanguineo: this.formBuilder.group({
-        grupoSanguineoId: [null, Validators.required],
-        nome: []
-      }),
+      // grupoSanguineo: this.formBuilder.group({
+      //   grupoSanguineoId: [null, Validators.required],
+      //   nome: []
+      // }),
       nome: [null, Validators.required],
       email: [null, Validators.required],
       dataNascimento: [null, Validators.required],
@@ -56,18 +58,10 @@ export class FormCadastroStep1Component implements OnInit {
 
   }
 
-  carregarGrupoSanguineoSemPaginacao() {
-    this.grupoSanguineoService.listarTodosSemPaginacao()
-      .then(grupoSanguineo => {
-        var grupos = this.grupoSanguineo = grupoSanguineo.map((g: any) => ({ label: g.nome, value: g.id }));
-        console.log('Grupos: ', grupos);
-      })
-  }
-
   salvar() {
     console.log('Etapa 1', this.formulario)
     this.usuarioService.setStep1(this.formulario.value)
-    this.router.navigate(['usuarios/usuario-container/usuario-cadastro-step2'])
+    this.router.navigate(['form-cadastro-container/form-cadastro-step2'])
   }
 
   voltar() {

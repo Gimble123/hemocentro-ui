@@ -1,40 +1,15 @@
-.titles,
-.center {
-    position: absolute;
-    top: -390px;
-    font-size: 25px;
-    width: 100%;
+label {
+    color: white;
+}
+
+.button-danger {
     text-align: center;
-    left: 450px;
-    font-weight: normal;
-}
-
-.relative {
-    position: relative;
-    top: -40px
-}
-
-.relative h2 {
-    top: inherit;
-    left: inherit
-}
-
-.disabled-hover {
-    position: relative;
-    z-index: 1;
-}
-
-.disabled-hover,
-.p-button:hover {
-    background-color: #C0BFBD;
-}
-
-form {
-    display: flex;
-    flex: 1;
-    flex-wrap: wrap;
-    position: relative;
-    min-height: 600px;
+    font-weight: bold;
+    background-color: #F02323 !important;
+    border: 1px solid #D32F2F !important;
+    height: 50px;
+    width: 100%;
+    border-radius: 6px;
 }
 
 .left {
@@ -47,92 +22,103 @@ form {
     margin-left: 20px;
 }
 
-.buttom {
-    position: absolute;
-    bottom: 50px;
-    left: 0;
-    right: 0;
-    display: flex;
-    justify-content: space-between;
+.button-voltar {
+    text-align: center;
+    font-weight: bold;
+    background-color: #C0BFBD !important;
+    border: 1px solid #C0BFBD !important;
+    height: 50px;
+    width: 100%;
+    border-radius: 6px;
 }
 
-.buttom button {
-    width: 50%;
-}
-
-.buttom button:first-child {
-    margin-right: 25px;
-}
-
-.buttom button:last-child {
-    margin-left: 25px;
+a {
+    color: #8E2929;
+    text-decoration: none;
 }
 
 .col-12 {
-    width: 100%;
+    margin-bottom: 5px;
+}
+
+.container {
+    display: flex;
+    flex: 1;
+}
+
+.content-image {
+    height: 100%;
+    flex: 1 60%;
+    background: url("/assets/image-background.png") no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+form {
+    flex: 1 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+h1 {
+    text-align: center;
+    font-size: 25px;
+    color: black;
+    flex-direction: column;
+}
+
+.root,
+.navbar {
+    display: none;
 }
 
 .grid {
-    top: 0;
-    bottom: 0;
     display: flex;
+    flex-wrap: inherit;
+    flex-direction: column;
+    width: 70%;
     align-items: center;
+    margin-top: 12px;
 }
 
-:host(app-usuario-cadastro-step3) {
+.input-doacoes,
+.input-bairro,
+.input-cep,
+.input-estado,
+.input-escolaridade,
+.input-cor {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 18px 10px 13px;
+    gap: 13px;
+    width: 420px;
+    height: 45px;
+    border: 1px solid #DED2D9;
+    border-radius: 5px;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.container-footer {
+    bottom: 15px;
+    position: absolute;
+}
+
+.align {
+    text-align: center;
+}
+
+:host(app-form-cadastro-step3) {
+    display: flex;
     width: 100%;
-    display: flow-root;
-    margin-top: 119px;
 }
 
 @media(max-width: 1280px) {
-     :host(app-usuario-cadastro-step3) {
+     :host(app-form-cadastro-step3) {
         zoom: 0.6;
-        width: 100%;
-        display: block;
-        padding: 10%;
-        margin-top: 60px;
     }
-    .titles {
-        position: absolute;
-        margin-top: -40px;
-        font-size: 25px;
-        width: 100%;
-        text-align: center;
-    }
-    .relative {
-        position: relative;
-    }
-    .center {
-        align-items: center;
-    }
-    .pInputText {
-        margin: 12px;
-    }
-    .espacamento {
-        margin-bottom: 15px;
-        display: block;
-    }
-    .color {
-        background-color: #C0BFBD;
-        font-weight: bold;
-    }
-}
-
-.center {
-    align-items: center;
-}
-
-.pInputText {
-    margin: 12px;
-}
-
-.espacamento {
-    margin-bottom: 15px;
-    display: block;
-}
-
-.color {
-    background-color: #C0BFBD;
-    font-weight: bold;
 }
