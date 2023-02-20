@@ -1,11 +1,10 @@
-import { GrupoSanguineoService } from '../../../grupos-sanguineos/grupo_sanguineo.service';
+import { AuthService } from 'src/app/seguranca/auth.service';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 import { MessageService } from 'primeng/api';
 import { ErrorHandlerService } from 'src/app/core/error-handler.service';
-import { UsuarioService } from 'src/app/usuarios/usuario.service';
 
 @Component({
   selector: 'app-form-cadastro-step3',
@@ -19,8 +18,7 @@ export class FormCadastroStep3Component implements OnInit {
   grupoSanguineo: any[] = [];
 
   constructor(
-    private usuarioService: UsuarioService,
-    private grupoSanguineoService: GrupoSanguineoService,
+    private auth: AuthService,
     private messageService: MessageService,
     private router: Router,
     private formBuilder: FormBuilder,
@@ -32,7 +30,7 @@ export class FormCadastroStep3Component implements OnInit {
     this.title.setTitle('Cadastro de usuários')
     this.configurarFormulario();
 
-    const step3 = this.usuarioService.getStep3();
+    const step3 = this.auth.getFormStep3();
 
 
     if (step3)
@@ -42,7 +40,8 @@ export class FormCadastroStep3Component implements OnInit {
 
   configurarFormulario() {
     this.formulario = this.formBuilder.group({
-      numeroDoacoes: [null, Validators.required],
+      profissao: [null, Validators.required],
+      numeroDoacoesPrevias: [null, Validators.required],
       bairro: [null, Validators.required],
       cep: [null, Validators.required],
       estado: [null, Validators.required],
@@ -54,8 +53,8 @@ export class FormCadastroStep3Component implements OnInit {
 
   salvar() {
     console.log('Etapa 3', this.formulario)
-    this.usuarioService.setStep3(this.formulario.value)
-    this.usuarioService.adicionarStep()
+    this.auth.setFormStep3(this.formulario.value)
+    this.auth.adicionarStepFormCadastro()
       .then(() => {
         this.messageService.add({ severity: 'success', detail: 'Cadastro realizado com sucesso! Uma nova senha foi enviada ao seu e-mail' });
 

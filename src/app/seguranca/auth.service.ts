@@ -3,6 +3,7 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
+import { Usuario, UsuarioFormStep1, UsuarioFormStep2, UsuarioFormStep3 } from '../core/model';
 
 
 @Injectable({
@@ -10,16 +11,23 @@ import { environment } from 'src/environments/environment';
 })
 export class AuthService {
 
+  usuariosUrl: string = '';
+
   tokensRevokeUrl = environment.apiUrl + '/tokens/revoke';
   oauthTokenUrl = environment.apiUrl + '/oauth/token';
   jwtPayload: any;
   grupoSanguineo: any[] = [];
+
+  formCadastroStep1: UsuarioFormStep1 | undefined
+  formCadastroStep2: UsuarioFormStep2 | undefined
+  formCadastroStep3: UsuarioFormStep3 | undefined
 
   constructor(
     private http: HttpClient,
     private jwtHelper: JwtHelperService,
     private grupoSanguineoService: GrupoSanguineoService
   ) {
+    this.usuariosUrl = `${environment.apiUrl}/usuarios`
   }
 
   carregarGruposSanguineos() {
@@ -137,6 +145,81 @@ export class AuthService {
       .then((response: any) => {
         return Promise.resolve(response);
       });
+  }
+
+  adicionarStepFormCadastro(): Promise<Usuario> {
+    if (!this.formCadastroStep1 || !this.formCadastroStep2 || !this.formCadastroStep3)
+      return Promise.reject('Usuário incompleto')
+
+    let usuario = new Usuario()
+    Object.assign(usuario, this.formCadastroStep1, this.formCadastroStep2, this.formCadastroStep3)
+
+      return this.http.post<Usuario>(`${this.usuariosUrl}/cadastro`, usuario)
+      .toPromise()
+      .then((usuario) => {
+        this.apagarStepsForm()
+        return usuario
+      });
+
+  }
+
+  buscarPorCodigoFormCadastroSteps(codigo: number): Promise<Usuario> {
+    return this.http.get(`${this.usuariosUrl}/${codigo}`)
+      .toPromise()
+      .then((response: any) => {
+        this.converterStringsParaDatas([response]);
+
+
+        this.formCadastroStep1 = new UsuarioFormStep1()
+        this.formCadastroStep2 = new UsuarioFormStep2()
+        this.formCadastroStep3 = new UsuarioFormStep3();
+
+
+        Object.assign(this.formCadastroStep1, response)
+        Object.assign(this.formCadastroStep2, response)
+        Object.assign(this.formCadastroStep3, response)
+
+        return response;
+      });
+  }
+
+  setFormStep1(stepForm1: UsuarioFormStep1) {
+    this.formCadastroStep1 = stepForm1
+  }
+
+  setFormStep2(stepForm2: UsuarioFormStep2) {
+    this.formCadastroStep2 = stepForm2
+  }
+
+  setFormStep3(stepForm3: UsuarioFormStep3) {
+    this.formCadastroStep3 = stepForm3
+  }
+
+  getFormStep1() {
+    return this.formCadastroStep1
+  }
+
+  getFormStep2() {
+    return this.formCadastroStep2
+  }
+
+  getFormStep3() {
+    return this.formCadastroStep3
+  }
+
+  apagarStepsForm() {
+    this.formCadastroStep1 = undefined
+    this.formCadastroStep2 = undefined
+    this.formCadastroStep3 = undefined
+  }
+
+  private converterStringsParaDatas(usuarios: Usuario[]) {
+    for (const usuario of usuarios) {
+      let offset = new Date().getTimezoneOffset() * 60000;
+
+      usuario.dataNascimento = new Date(new Date(usuario.dataNascimento!).getTime() + offset);
+
+    }
   }
 
 }

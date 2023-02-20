@@ -21,7 +21,6 @@ export class FormCadastroStep1Component implements OnInit {
   grupoSanguineo: any[] = [];
 
   constructor(
-    private usuarioService: UsuarioService,
     private grupoSanguineoService: GrupoSanguineoService,
     private router: Router,
     private formBuilder: FormBuilder,
@@ -50,10 +49,7 @@ export class FormCadastroStep1Component implements OnInit {
   configurarFormulario() {
     this.formulario = this.formBuilder.group({
       id: [],
-      grupoSanguineo: this.formBuilder.group({
-        grupoSanguineoId: [null, Validators.required],
-        nome: []
-      }),
+      grupoSanguineoId: [null, Validators.required],
       nome: [null, Validators.required],
       email: [null, Validators.required],
       dataNascimento: [null, Validators.required],
@@ -64,7 +60,8 @@ export class FormCadastroStep1Component implements OnInit {
   }
 
   salvar() {
-    this.usuarioService.setStep1(this.formulario.value)
+    console.log('Etapa 1', this.formulario)
+    this.auth.setFormStep1(this.formulario.value)
     this.router.navigate(['form-cadastro-container/form-cadastro-step2'])
   }
 

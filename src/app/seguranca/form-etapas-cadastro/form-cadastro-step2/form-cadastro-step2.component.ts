@@ -5,6 +5,7 @@ import { Title } from '@angular/platform-browser';
 import { MessageService } from 'primeng/api';
 import { ErrorHandlerService } from 'src/app/core/error-handler.service';
 import { UsuarioService } from 'src/app/usuarios/usuario.service';
+import { AuthService } from '../../auth.service';
 
 @Component({
   selector: 'app-form-cadastro-step2',
@@ -21,22 +22,23 @@ export class FormCadastroStep2Component implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private formBuilder: FormBuilder,
-    private title: Title
+    private title: Title,
+    private auth: AuthService,
   ) { }
 
   ngOnInit(): void {
     this.title.setTitle('Cadastro de usuários')
     this.configurarFormulario();
 
-    const step2 = this.usuarioService.getStep2();
+    const formStep2 = this.auth.getFormStep2();
 
-    if (step2)
-      this.formulario.patchValue(step2);
+    if (formStep2)
+      this.formulario.patchValue(formStep2);
 
   }
 
   preencherUsuario() {
-    const infoPrincipal = this.usuarioService.getStep2();
+    const infoPrincipal = this.auth.getFormStep2();
     if (infoPrincipal) {
       this.formulario.patchValue(infoPrincipal)
     }
@@ -48,8 +50,8 @@ export class FormCadastroStep2Component implements OnInit {
       sexo: [null, Validators.required],
       estadoCivil: [null, Validators.required],
       cidade: [null, Validators.required],
-      endereco: [null, Validators.required],
-      profissao: [null, Validators.required]
+      logradouro: [null, Validators.required],
+      numero: [null, Validators.required]
     });
 
   }
@@ -60,7 +62,7 @@ export class FormCadastroStep2Component implements OnInit {
 
   salvar() {
     console.log('Etapa 2', this.formulario)
-    this.usuarioService.setStep2(this.formulario.value)
+    this.auth.setFormStep2(this.formulario.value)
     this.router.navigate(['form-cadastro-container/form-cadastro-step3'])
   }
 

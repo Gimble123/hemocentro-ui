@@ -1,8 +1,11 @@
+import { FormCadastroStep3Component } from './../seguranca/form-etapas-cadastro/form-cadastro-step3/form-cadastro-step3.component';
+import { FormCadastroStep2Component } from './../seguranca/form-etapas-cadastro/form-cadastro-step2/form-cadastro-step2.component';
+import { FormCadastroStep1Component } from './../seguranca/form-etapas-cadastro/form-cadastro-step1/form-cadastro-step1.component';
 import { environment } from './../../environments/environment';
 
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Usuario, UsuarioCadastroEtapa1, UsuarioCadastroEtapa2, UsuarioCadastroEtapa3 } from '../core/model';
+import { Usuario, UsuarioCadastroEtapa1, UsuarioCadastroEtapa2, UsuarioCadastroEtapa3, UsuarioFormStep1, UsuarioFormStep2, UsuarioFormStep3 } from '../core/model';
 
 export class UsuarioFiltro {
   pagina: number = 0
@@ -67,7 +70,6 @@ export class UsuarioService {
         this.apagarSteps()
         return usuario
       });
-
   }
 
   atualizar(usuario: Usuario): Promise<Usuario> {
@@ -135,6 +137,8 @@ export class UsuarioService {
     this.usuarioCadastroEtapa2 = undefined
     this.usuarioCadastroEtapa3 = undefined
   }
+
+
 
   private converterStringsParaDatas(usuarios: Usuario[]) {
     for (const usuario of usuarios) {

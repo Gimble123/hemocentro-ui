@@ -14,7 +14,7 @@ export class MoneyHttpInterceptor implements HttpInterceptor {
   constructor(private auth: AuthService) {}
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    if (!req.url.includes('/oauth/token') && !req.url.includes('/forgot-password') && !req.url.includes('/grupos-sanguineo/all') && !req.url.includes('/form-cadastro-step1') && !req.url.includes('/form-cadastro-step2') && !req.url.includes('/form-cadastro-step3') && this.auth.isAccessTokenInvalido()) {
+    if (!req.url.includes('/oauth/token') && !req.url.includes('/forgot-password') && !req.url.includes('/grupos-sanguineo/all') && !req.url.includes('/usuarios/cadastro') && !req.url.includes('/form-cadastro-step1') && !req.url.includes('/form-cadastro-step2') && !req.url.includes('/form-cadastro-step3') && this.auth.isAccessTokenInvalido()) {
       return from(this.auth.obterNovoAccessToken())
         .pipe(
           mergeMap(() => {
@@ -39,6 +39,8 @@ export class MoneyHttpInterceptor implements HttpInterceptor {
           })
         );
     }
+
+    console.log('Request: ', req)
 
     return next.handle(req);
   }

@@ -124,4 +124,32 @@ export class Permissao {
   descricao?: string;
 }
 
+export class UsuarioFormStep1 {
+  nome?: string;
+  email?: string;
+  dataNascimento?: Date;
+  grupoSanguineoId?: number;
+  cpf?: string;
+  telefone?: string;
+}
+
+export class UsuarioFormStep2 {
+  nacionalidade?: string;
+  sexo?: string;
+  estadoCivil?: string;
+  cidade?: string;
+  logradouro?: string;
+  numero?: string;
+}
+
+export class UsuarioFormStep3 {
+  profissao?: string;
+  numeroDoacoesPrevias?: number;
+  bairro?: string;
+  cep?: string;
+  estado?: string;
+  escolaridade?: string;
+  cor?: string;
+}
+
 

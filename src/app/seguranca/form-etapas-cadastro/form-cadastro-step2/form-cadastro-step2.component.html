@@ -32,14 +32,14 @@
 
                 <div class="col-12 p-fluid">
                     <div>Endereço: </div>
-                    <input class="input-endereco" pInputText type="text" name="endereco" formControlName="endereco" placeholder="Informe seu endereço" required>
-                    <app-message [control]="formulario.get('endereco')" error="required" text="Informe um endereço"></app-message>
+                    <input class="input-endereco" pInputText type="text" name="logradouro" formControlName="logradouro" placeholder="Informe seu endereço" required>
+                    <app-message [control]="formulario.get('logradouro')" error="required" text="Informe um endereço"></app-message>
                 </div>
 
                 <div class="col-12 p-fluid">
-                    <div>Profissão: </div>
-                    <input class="input-profissao" pInputText type="text" name="profissao" formControlName="profissao" placeholder="Informe sua profissão" required>
-                    <app-message [control]="formulario.get('profissao')" error="required" text="Informe uma profissão"></app-message>
+                    <div>Número: </div>
+                    <input class="input-numero" pInputText type="text" name="numero" formControlName="numero" placeholder="Informe o número" required>
+                    <app-message [control]="formulario.get('numero')" error="required" text="Informe o número"></app-message>
                 </div>
 
                 <div class="col-12 p-fluid">
