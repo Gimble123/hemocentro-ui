@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { MessageService } from 'primeng/api';
-import { UpdatePasswordInput } from 'src/app/core/model';
 import { AuthService } from '../auth.service';
 
 @Component({

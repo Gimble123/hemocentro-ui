@@ -1,3 +1,4 @@
+import { ProfileModule } from './profile/profile.module';
 import { HttpClientModule } from '@angular/common/http';
 import { DoacoesModule } from './doacoes/doacoes.module';
 import { AgendamentosModule } from './agendamentos/agendamentos.module';
@@ -31,7 +32,8 @@ import { AppRoutingModule } from './app-routing.module';
     DoacoesModule,
     CoreModule,
     SegurancaModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ProfileModule
 
   ],
   providers: [],

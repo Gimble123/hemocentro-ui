@@ -20,6 +20,7 @@ import { EtapasCadastroRoutingModule } from './etapas-cadastro-routing.module';
 import { UsuarioCadastroStep1Component } from './usuario-cadastro-step1/usuario-cadastro-step1.component';
 import { UsuarioCadastroStep2Component } from './usuario-cadastro-step2/usuario-cadastro-step2.component';
 import { UsuarioCadastroStep3Component } from './usuario-cadastro-step3/usuario-cadastro-step3.component';
+import { StepsModule } from 'primeng/steps';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { UsuarioCadastroStep3Component } from './usuario-cadastro-step3/usuario-
     InputMaskModule,
     SharedModule,
     CoreModule,
-    EtapasCadastroRoutingModule
+    EtapasCadastroRoutingModule,
+    StepsModule
   ]
 })
 export class EtapasModule { }

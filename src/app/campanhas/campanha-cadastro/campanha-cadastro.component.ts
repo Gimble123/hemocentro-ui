@@ -54,6 +54,7 @@ export class CampanhaCadastroComponent implements OnInit {
   carregarCampanha(id: number) {
     this.campanhaService.buscarPorCodigo(id)
       .then((campanha: Campanha) => {
+        console.log('Campanha carregada', campanha)
         this.campanha = campanha
         this.atualizarTituloEdicao()
       })
@@ -69,7 +70,6 @@ export class CampanhaCadastroComponent implements OnInit {
   }
 
   adicionarCampanha() {
-    console.log("Componente campanha: ", this.campanha)
     this.campanhaService.adicionar(this.campanha)
       .then(() => {
         this.messageService.add({ severity: 'success', detail: 'Campanha adicionada com sucesso!' });

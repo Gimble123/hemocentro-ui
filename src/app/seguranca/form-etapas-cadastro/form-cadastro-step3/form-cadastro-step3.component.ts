@@ -57,15 +57,15 @@ export class FormCadastroStep3Component implements OnInit {
     this.usuarioService.setStep3(this.formulario.value)
     this.usuarioService.adicionarStep()
       .then(() => {
-        this.messageService.add({ severity: 'success', detail: 'Usuário adicionado com sucesso!' });
+        this.messageService.add({ severity: 'success', detail: 'Cadastro realizado com sucesso! Uma nova senha foi enviada ao seu e-mail' });
 
-        this.router.navigate(['/usuarios'])
+        this.router.navigate(['/login'])
       }
       ).catch(erro => this.errorHandler.handle(erro));
   }
 
   voltar() {
-    this.router.navigate(['usuarios/usuario-container/usuario-cadastro-step2'])
+    this.router.navigate(['form-cadastro-container/form-cadastro-step2'])
   }
 
 }

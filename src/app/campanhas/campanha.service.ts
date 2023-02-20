@@ -28,6 +28,7 @@ export class CampanhaService {
   }
 
   pesquisarCampanhasUsuario(filtro: CampanhaFiltro): Promise<any> {
+    console.log('Service')
     const headers = new HttpHeaders()
     .append('Authorization', 'Basic YWRtaW5AYWxnYW1vbmV5LmNvbTphZG1pbg==');
 

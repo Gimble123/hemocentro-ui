@@ -84,6 +84,22 @@ li {
     font-size: 16px;
 }
 
+.profile {
+    position: absolute;
+    bottom: 80px;
+    text-align: center;
+}
+
+.profile a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.profile a {
+    margin: 0;
+    padding: 0;
+}
+
 .logout {
     position: absolute;
     bottom: 30px;

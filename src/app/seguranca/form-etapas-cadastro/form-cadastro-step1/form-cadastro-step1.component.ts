@@ -26,7 +26,8 @@ export class FormCadastroStep1Component implements OnInit {
     private router: Router,
     private formBuilder: FormBuilder,
     private title: Title,
-    private auth: AuthService
+    private auth: AuthService,
+    private errorHandler: ErrorHandlerService
   ) {
     this.auth.carregarToken();
   }
@@ -39,16 +40,20 @@ export class FormCadastroStep1Component implements OnInit {
   }
 
   carregarGrupoSanguineoSemPaginacao() {
-    this.auth.carregarGruposSanguineos();
+    this.grupoSanguineoService.listarTodosSemPaginacao()
+      .then(grupoSanguineo => {
+        this.grupoSanguineo = grupoSanguineo.map((g: any) => ({ label: g.nome, value: g.id }));
+      })
+      .catch(erro => this.errorHandler.handle(erro));
   }
 
   configurarFormulario() {
     this.formulario = this.formBuilder.group({
       id: [],
-      // grupoSanguineo: this.formBuilder.group({
-      //   grupoSanguineoId: [null, Validators.required],
-      //   nome: []
-      // }),
+      grupoSanguineo: this.formBuilder.group({
+        grupoSanguineoId: [null, Validators.required],
+        nome: []
+      }),
       nome: [null, Validators.required],
       email: [null, Validators.required],
       dataNascimento: [null, Validators.required],
@@ -59,7 +64,6 @@ export class FormCadastroStep1Component implements OnInit {
   }
 
   salvar() {
-    console.log('Etapa 1', this.formulario)
     this.usuarioService.setStep1(this.formulario.value)
     this.router.navigate(['form-cadastro-container/form-cadastro-step2'])
   }

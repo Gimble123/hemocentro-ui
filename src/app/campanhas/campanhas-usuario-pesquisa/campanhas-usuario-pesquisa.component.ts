@@ -37,6 +37,7 @@ export class CampanhasUsuarioPesquisaComponent implements OnInit {
 
     this.campanhaService.pesquisarCampanhasUsuario(this.filtro)
       .then((resultado: any) => {
+        console.log('Resultado: ', resultado)
         this.campanhaUsuario = resultado.campanhas;
         this.totalRegistros = resultado.total;
       })

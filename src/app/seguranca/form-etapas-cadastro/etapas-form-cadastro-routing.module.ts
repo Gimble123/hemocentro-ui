@@ -1,6 +1,5 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from '@angular/router';
-import { AuthGuard } from "src/app/seguranca/auth.guard";
 import { FormCadastroContainerComponent } from "./form-cadastro-container/form-cadastro-container.component";
 import { FormCadastroStep1Component } from "./form-cadastro-step1/form-cadastro-step1.component";
 import { FormCadastroStep2Component } from "./form-cadastro-step2/form-cadastro-step2.component";

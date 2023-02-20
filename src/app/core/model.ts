@@ -52,11 +52,6 @@ export class Doacao {
   id?: number;
 }
 
-export class UpdatePasswordInput {
-  usuarioEmail?: String;
-  novaSenha?: String;
-}
-
 export class Usuario {
 	id?: number;
 	login?: string;

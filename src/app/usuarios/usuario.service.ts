@@ -61,44 +61,13 @@ export class UsuarioService {
     let usuario = new Usuario()
     Object.assign(usuario, this.usuarioCadastroEtapa1, this.usuarioCadastroEtapa2, this.usuarioCadastroEtapa3)
 
-    if (usuario.permissao.id == null) {
-      let novoUsuario = {
-        "id": null,
-        "bairro": usuario.bairro,
-        "cep": usuario.cep,
-        "cor": usuario.cor,
-        "cpf": usuario.cpf,
-        "dataNascimento": usuario.dataNascimento,
-        "email": usuario.login,
-        "endereco": usuario.logradouro,
-        "escolaridade": usuario.escolaridade,
-        "estado": usuario.estado,
-        "estadoCivil": usuario.estadoCivil,
-        "nacionalidade": usuario.nacionalidade,
-        "numeroDoacoesPrevias": usuario.numeroDoacoes,
-        "profissao": usuario.profissao,
-        "sexo": usuario.sexo,
-        "telefone": usuario.telefone,
-        "grupoSanguineo": {
-            "grupoSanguineoId": usuario.grupoSanguineo.grupoSanguineoId,
-            "nome": "B+"
-        }
-    }
-
-      return this.http.post<Usuario>(`${this.usuariosUrl}/cadastro`, novoUsuario)
-        .toPromise()
-        .then((novoUsuario) => {
-          this.apagarSteps()
-          return novoUsuario
-        });
-    } else {
       return this.http.post<Usuario>(`${this.usuariosUrl}/cadastro`, usuario)
       .toPromise()
       .then((usuario) => {
         this.apagarSteps()
         return usuario
       });
-    }
+
   }
 
   atualizar(usuario: Usuario): Promise<Usuario> {

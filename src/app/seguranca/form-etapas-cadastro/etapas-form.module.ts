@@ -1,5 +1,4 @@
 import { CoreModule } from './../../core/core.module';
-import { NavbarComponent } from './../../core/navbar/navbar.component';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
