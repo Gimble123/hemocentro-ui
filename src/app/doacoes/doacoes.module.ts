@@ -1,6 +1,8 @@
+import { EtapasModule } from './../doacoes/etapas-cadastro/etapas.module';
+
+import { DoacoesRoutingModule } from './doacoes-routing.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { DoacaoCadastroComponent } from './doacao-cadastro/doacao-cadastro.component';
 import { DoacoesPesquisaComponent } from './doacoes-pesquisa/doacoes-pesquisa.component';
 import { FormsModule } from '@angular/forms';
 import { CoreModule } from '../core/core.module';
@@ -13,13 +15,14 @@ import { SelectButtonModule } from 'primeng/selectbutton';
 import { DropdownModule } from 'primeng/dropdown';
 import { SharedModule } from 'primeng/api';
 import { HttpClientModule } from '@angular/common/http';
-
+import { StepsModule } from 'primeng/steps';
+import { DoacaoContainerComponent } from './etapas-cadastro/doacao-container/doacao-container.component';
 
 
 @NgModule({
   declarations: [
-    DoacaoCadastroComponent,
-    DoacoesPesquisaComponent
+    DoacoesPesquisaComponent,
+    DoacaoContainerComponent
   ],
   imports: [
     CommonModule,
@@ -34,6 +37,10 @@ import { HttpClientModule } from '@angular/common/http';
     DropdownModule,
     SharedModule,
     HttpClientModule,
-  ]
+    DoacoesRoutingModule,
+    StepsModule,
+    EtapasModule
+  ],
+  exports: []
 })
 export class DoacoesModule { }

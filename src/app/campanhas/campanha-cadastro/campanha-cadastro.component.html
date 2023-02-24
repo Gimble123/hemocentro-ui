@@ -22,7 +22,7 @@
             <div class="right">
                 <div class="col-12 md:col-6 p-fluid">
                     <label class="espacamento">Tipo sanguíneo: </label>
-                    <p-dropdown [options]="grupoSanguineo" placeholder="Selecione" name="grupoSanguineo" [(ngModel)]="campanha.grupoSanguineo.grupoSanguineoId" #campanha.grupoSanguineo [required]="true"></p-dropdown>
+                    <p-dropdown [options]="grupoSanguineo" placeholder="Selecione" name="grupoSanguineo" [(ngModel)]="campanha.grupoSanguineo.id" #campanha.grupoSanguineo="ngModel" [required]="true"></p-dropdown>
                 </div>
 
                 <div class="col-12 md:col-6 p-fluid">

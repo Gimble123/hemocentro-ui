@@ -1,0 +1,138 @@
+.titles,
+.center {
+    position: absolute;
+    top: -390px;
+    font-size: 25px;
+    width: 100%;
+    text-align: center;
+    left: 450px;
+    font-weight: normal;
+}
+
+.relative {
+    position: relative;
+    top: -40px
+}
+
+.relative h2 {
+    top: inherit;
+    left: inherit
+}
+
+.disabled-hover {
+    position: relative;
+    z-index: 1;
+}
+
+.disabled-hover,
+.p-button:hover {
+    background-color: #C0BFBD;
+}
+
+form {
+    display: flex;
+    flex: 1;
+    flex-wrap: wrap;
+    position: relative;
+    min-height: 600px;
+}
+
+.left {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.right {
+    flex: 1;
+    margin-left: 20px;
+}
+
+.buttom {
+    position: absolute;
+    bottom: 50px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.buttom button {
+    width: 50%;
+}
+
+.buttom button:first-child {
+    margin-right: 25px;
+}
+
+.buttom button:last-child {
+    margin-left: 25px;
+}
+
+.col-12 {
+    width: 100%;
+}
+
+.grid {
+    top: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+}
+
+:host(app-doacao-cadastro-step2) {
+    width: 100%;
+    display: flow-root;
+    margin-top: 119px;
+}
+
+@media(max-width: 1280px) {
+     :host(app-doacao-cadastro-step2) {
+        zoom: 0.6;
+        width: 100%;
+        display: block;
+        padding: 10%;
+        margin-top: 60px;
+    }
+    .titles {
+        position: absolute;
+        margin-top: -40px;
+        font-size: 25px;
+        width: 100%;
+        text-align: center;
+    }
+    .relative {
+        position: relative;
+    }
+    .center {
+        align-items: center;
+    }
+    .pInputText {
+        margin: 12px;
+    }
+    .espacamento {
+        margin-bottom: 15px;
+        display: block;
+    }
+    .color {
+        background-color: #C0BFBD;
+        font-weight: bold;
+    }
+}
+
+.center {
+    align-items: center;
+}
+
+.pInputText {
+    margin: 12px;
+}
+
+.espacamento {
+    margin-bottom: 15px;
+    display: block;
+}
+
+.color {
+    background-color: #C0BFBD;
+    font-weight: bold;
+}

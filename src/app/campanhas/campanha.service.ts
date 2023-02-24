@@ -72,8 +72,6 @@ export class CampanhaService {
               total: response['totalElements']
             };
 
-            console.log('Resultado: ' + response['content'])
-
             return resultado;
           });
 
@@ -95,7 +93,7 @@ export class CampanhaService {
       "dataInicial": campanha.dataInicial,
       "dataFinal": campanha.dataFinal,
       "grupoSanguineo": {
-          "id": campanha.grupoSanguineo.grupoSanguineoId,
+          "id": campanha.grupoSanguineo.id,
           "nome": "B+"
       }
   }

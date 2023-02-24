@@ -37,7 +37,7 @@ export class Campanha {
   nome?: string;
   dataInicial?: Date;
   dataFinal?: Date;
-  grupoSanguineo = new GrupoSanguineo();
+  grupoSanguineo = new GrupoSanguineoInput();
 }
 
 export class CampanhaUsuario {
@@ -48,8 +48,48 @@ export class CampanhaUsuario {
   grupoSanguineoNome?: string;
 }
 
+export class DoacaoCadastroEtapa1 {
+  numeroDaBolsa?: String;
+  hora?: String;
+  pulso?: String;
+  hematocrito?: String;
+  volumeASerColetado?: String;
+  hbsAg?: String;
+  numeroDoNat?: String;
+  peso?: number;
+}
+
+export class DoacaoCadastroEtapa2 {
+  pressaoArterial?: String;
+  temperatura?: String;
+  hgs?: String;
+  chagas?: String;
+  antiHiv?: String;
+  hdrl?: String;
+  hcv?: String;
+  hcvNat?: String;
+}
+
+export class DoacaoCadastroEtapa3 {
+  htlv?: String;
+  antiHbc?: String;
+  hbvNat?: String;
+  nomePai?: String;
+  responsavelColeta?: String;
+  usuario?: String;
+  volumeColetado?: String;
+}
+
+export class DoacaoCadastroEtapa4 {
+  observacao?: String;
+}
+
 export class Doacao {
-  id?: number;
+  doacaoId?: number;
+  hora?: Date;
+  nomePai?: string;
+  responsavelColeta?: string;
+  nomeUsuario?: string;
 }
 
 export class Usuario {

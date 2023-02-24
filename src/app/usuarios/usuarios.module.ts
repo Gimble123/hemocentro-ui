@@ -23,7 +23,6 @@ import { EtapasModule } from './etapas-cadastro/etapas.module';
 @NgModule({
   declarations: [
     UsuariosPesquisaComponent,
-    UsuarioContainerComponent,
     UsuarioContainerComponent
   ],
   imports: [

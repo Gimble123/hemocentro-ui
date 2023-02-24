@@ -51,6 +51,7 @@ export class UsuarioCadastroStep3Component implements OnInit {
 
   configurarFormulario() {
     this.formulario = this.formBuilder.group({
+      id: [],
       grupoSanguineo: this.formBuilder.group({
         grupoSanguineoId: [null, Validators.required],
         nome: []
@@ -81,7 +82,6 @@ export class UsuarioCadastroStep3Component implements OnInit {
   }
 
   salvar() {
-    console.log('Etapa 3', this.formulario)
     this.usuarioService.setStep3(this.formulario.value)
     this.usuarioService.adicionarStep()
       .then(() => {

@@ -17,12 +17,9 @@ export class UsuarioCadastroStep2Component implements OnInit {
 
   constructor(
     private usuarioService: UsuarioService,
-    private messageService: MessageService,
-    private route: ActivatedRoute,
     private router: Router,
     private formBuilder: FormBuilder,
-    private title: Title,
-    private errorHandler: ErrorHandlerService,
+    private title: Title
   ) { }
 
   ngOnInit(): void {
@@ -49,6 +46,7 @@ export class UsuarioCadastroStep2Component implements OnInit {
 
   configurarFormulario() {
     this.formulario = this.formBuilder.group({
+      id: [],
       numeroDoacoesPrevias: [null, Validators.required],
       profissao: [null, Validators.required],
       bairro: [null, Validators.required],

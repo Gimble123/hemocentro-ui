@@ -1,16 +1,15 @@
-import { AuthGuard } from './../seguranca/auth.guard';
-import { UsuariosPesquisaComponent } from './usuarios-pesquisa/usuarios-pesquisa.component';
+import { DoacoesPesquisaComponent } from './doacoes-pesquisa/doacoes-pesquisa.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AuthGuard } from '../seguranca/auth.guard';
 
 const routes: Routes = [
   {
-    path: 'usuarios',
-    component: UsuariosPesquisaComponent,
+    path: 'doacoes',
+    component: DoacoesPesquisaComponent,
     canActivate: [AuthGuard],
     data: { roles: ['ROLE_ADMIN'] }
   }
-
   ];
 
 @NgModule({
@@ -19,4 +18,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
-export class UsuariosRoutingModule { }
+export class DoacoesRoutingModule { }

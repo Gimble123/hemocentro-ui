@@ -1,53 +1,51 @@
-<div class="grid">
-    <div class="col-12 relative">
-        <h2 class="titles">Doações</h2>
-        <div class="button-nova-campanha">
-            <button type="button" class="disabled-hover margin-button" pButton routerLink="/doacao/nova" label="Nova doação"></button>
+<div class="container">
+    <div class="grid">
+        <div class="col-12 relative">
+            <h2 class="titles">Doações</h2>
+            <div class="button-nova-doacao">
+                <a class="disabled-hover margin-button" pButton routerLink="/doacoes/doacao-container" label="Nova doação"></a>
+            </div>
+
+            <p-table [value]="doacoes" [paginator]="true" [rows]="filtro.itensPorPagina" [lazy]="true" [totalRecords]="totalRegistros" (onLazyLoad)="aoMudarPagina($event)" #tabela>
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th>ID</th>
+                        <th>Hora</th>
+                        <th>Nome do Pai</th>
+                        <th>Responsável pela coleta</th>
+                        <th>Doador</th>
+                        <th class="col-acoes">Ações</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-doacao>
+                    <tr>
+                        <td>
+                            <span class="p-column-title">ID</span> {{ doacao.doacaoId }}
+                        </td>
+
+                        <td>
+                            <span class="p-column-title">Hora</span> {{ doacao.hora | date:'HH:MM:SS' }}
+                        </td>
+
+                        <td class="col-data">
+                            <span class="p-column-title">Nome do Pai</span> {{ doacao.nomePai }}
+                        </td>
+
+                        <td class="col-data">
+                            <span class="p-column-title">Responsável pela coleta</span> {{ doacao.responsavelColeta }}
+                        </td>
+
+                        <td class="col-data">
+                            <span class="p-column-title">Doador</span> {{ doacao.nomeUsuario }}
+                        </td>
+
+                        <td class="col-acoes">
+                            <button pButton icon="pi pi-pencil" pTooltip="Editar" [routerLink]="['/doacoes/doacao-container/doacao-cadastro-step1/', doacao.doacaoId]" tooltipPosition="top"></button>
+                            <button pButton icon="pi pi-trash" pTooltip="Excluir" tooltipPosition="top"></button>
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>
         </div>
-        <p-table [value]="doacoes" [paginator]="true" [rows]="filtro.itensPorPagina" [lazy]="true" [totalRecords]="totalRegistros" (onLazyLoad)="aoMudarPagina($event)" #tabela>
-            <ng-template pTemplate="header">
-                <tr>
-                    <th>ID</th>
-                    <th>Nome da campanha</th>
-                    <th>Tipo sanguíneo</th>
-                    <th class="col-data-header">De</th>
-                    <th class="col-data-header">Até</th>
-                    <th>Número de doadores alcançados</th>
-                    <th class="col-acoes">Ações</th>
-                </tr>
-            </ng-template>
-            <ng-template pTemplate="body" let-campanha>
-                <tr>
-                    <td>
-                        <span class="p-column-title">ID</span> {{ campanha.id }}
-                    </td>
-
-                    <td>
-                        <span class="p-column-title">Nome da campanha</span> {{ campanha.nome }}
-                    </td>
-
-                    <td class="col-data">
-                        <span class="p-column-title">Tipo sanguíneo</span> {{ campanha.grupoSanguineo.nome }}
-                    </td>
-
-                    <td class="col-data">
-                        <span class="p-column-title">De</span> {{ campanha.dataInicial | date:'dd/MM/y' }}
-                    </td>
-
-                    <td class="col-data">
-                        <span class="p-column-title">Até</span> {{ campanha.dataFinal | date:'dd/MM/y' }}
-                    </td>
-
-                    <td>
-                        <span class="p-column-title">Número de doadores alcançados</span> {{ campanha.quantidadeDoadores }}
-                    </td>
-
-                    <td class="col-acoes">
-                        <button pButton icon="pi pi-pencil" pTooltip="Editar" routerLink="/campanhas/atualizar" tooltipPosition="top"></button>
-                        <button pButton icon="pi pi-trash" pTooltip="Excluir" tooltipPosition="top"></button>
-                    </td>
-                </tr>
-            </ng-template>
-        </p-table>
     </div>
 </div>

@@ -54,7 +54,6 @@ export class CampanhaCadastroComponent implements OnInit {
   carregarCampanha(id: number) {
     this.campanhaService.buscarPorCodigo(id)
       .then((campanha: Campanha) => {
-        console.log('Campanha carregada', campanha)
         this.campanha = campanha
         this.atualizarTituloEdicao()
       })
@@ -91,7 +90,7 @@ export class CampanhaCadastroComponent implements OnInit {
   }
 
   atualizarTituloEdicao() {
-    this.title.setTitle(`Edição de campanha: ${this.campanha.nome}`);
+    this.title.setTitle(`Edição de campanha`);
   }
 
 }

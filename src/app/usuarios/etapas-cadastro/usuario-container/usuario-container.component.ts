@@ -12,6 +12,9 @@ export class UsuarioContainerComponent implements OnDestroy {
   items: MenuItem[] = [];
 
   constructor(private usuarioService: UsuarioService) {
+
+    console.log('usuário container')
+
     this.items = [{
       routerLink: 'usuario-cadastro-step1'
     },

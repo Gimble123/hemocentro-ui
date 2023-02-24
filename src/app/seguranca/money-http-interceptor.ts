@@ -40,8 +40,6 @@ export class MoneyHttpInterceptor implements HttpInterceptor {
         );
     }
 
-    console.log('Request: ', req)
-
     return next.handle(req);
   }
 }

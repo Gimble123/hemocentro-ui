@@ -66,9 +66,12 @@ export class UsuarioCadastroStep1Component implements OnInit {
   }
 
   salvar() {
-    console.log('Etapa 1', this.formulario)
     this.usuarioService.setStep1(this.formulario.value)
     this.router.navigate(['usuarios/usuario-container/usuario-cadastro-step2'])
+  }
+
+  atualizarTituloEdicao() {
+    this.title.setTitle(`Edição de usuário`);
   }
 
 }
