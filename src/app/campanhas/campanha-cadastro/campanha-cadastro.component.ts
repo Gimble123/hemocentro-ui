@@ -54,8 +54,9 @@ export class CampanhaCadastroComponent implements OnInit {
   carregarCampanha(id: number) {
     this.campanhaService.buscarPorCodigo(id)
       .then((campanha: Campanha) => {
-        this.campanha = campanha
-        this.atualizarTituloEdicao()
+          this.campanha = campanha
+          console.log('Campanha: ', campanha)
+          this.atualizarTituloEdicao()
       })
       .catch((erro: any) => this.errorHandler.handle(erro));
   }
@@ -84,7 +85,8 @@ export class CampanhaCadastroComponent implements OnInit {
         this.campanha = campanha;
 
         this.messageService.add({ severity: 'success', detail: 'Campanha alterada com sucesso!' });
-        this.atualizarTituloEdicao();
+
+        //this.router.navigate(['campanhas']);
       })
       .catch(erro => this.errorHandler.handle(erro));
   }

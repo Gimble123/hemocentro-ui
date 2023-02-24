@@ -52,7 +52,7 @@ export class UsuarioCadastroStep2Component implements OnInit {
       bairro: [null, Validators.required],
       nacionalidade: [null, Validators.required],
       estado: [null, Validators.required],
-      escolaridade: [null, Validators.required],
+      cidade: [null, Validators.required],
       cor: [null, Validators.required],
       cep: [null, Validators.required],
     });

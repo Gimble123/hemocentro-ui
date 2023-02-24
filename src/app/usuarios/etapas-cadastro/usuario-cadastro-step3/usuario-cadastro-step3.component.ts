@@ -59,7 +59,9 @@ export class UsuarioCadastroStep3Component implements OnInit {
       permissao: this.formBuilder.group({
         id: [null, Validators.required],
         descricao: []
-      })
+      }),
+      escolaridade: [null, Validators.required],
+      numero: [null, Validators.required]
     });
 
   }

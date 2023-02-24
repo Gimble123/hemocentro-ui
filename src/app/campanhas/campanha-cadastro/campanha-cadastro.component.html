@@ -15,7 +15,7 @@
 
                 <div class="col-12 md:col-6 p-fluid">
                     <label class="espacamento">De: </label>
-                    <p-calendar name="dataInicial" dateFormat="dd/mm/yy" [inline]="false" [readonlyInput]="false" [showIcon]="false" [(ngModel)]="campanha.dataInicial" #dataInicial="ngModel" [required]="true"></p-calendar>
+                    <p-calendar name="inicial" name="dataInicial" dateFormat="dd/mm/yy" [inline]="false" [readonlyInput]="false" [showIcon]="false" [(ngModel)]="campanha.dataInicial" [required]="true"></p-calendar>
                 </div>
             </div>
 
@@ -27,7 +27,7 @@
 
                 <div class="col-12 md:col-6 p-fluid">
                     <label class="espacamento">Até: </label>
-                    <p-calendar name="dataFinal" dateFormat="dd/mm/yy" [inline]="false" [readonlyInput]="false" [showIcon]="false" [(ngModel)]="campanha.dataFinal" #dataFinal="ngModel" [required]="true"></p-calendar>
+                    <p-calendar name="dataFinal" dateFormat="dd/mm/yy" [(ngModel)]="campanha.dataFinal" #dataFinal="ngModel" [required]="true"></p-calendar>
                 </div>
             </div>
 

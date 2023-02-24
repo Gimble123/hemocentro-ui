@@ -88,7 +88,6 @@ export class AuthService {
 
   isAccessTokenInvalido() {
     const token = localStorage.getItem('token');
-
     return !token || this.jwtHelper.isTokenExpired(token);
   }
 
@@ -112,6 +111,8 @@ export class AuthService {
 
   public armazenarToken(token: string) {
     this.jwtPayload = this.jwtHelper.decodeToken(token);
+
+    console.log('slkfncbdsl: ', this.jwtPayload)
 
     localStorage.setItem('token', token);
   }

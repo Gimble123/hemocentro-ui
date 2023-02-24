@@ -40,6 +40,7 @@ export class UsuarioCadastroStep1Component implements OnInit {
   }
 
   get editando() {
+    console.log('Edição usuário: ', this.formulario.get('id')?.value)
     return Boolean(this.formulario.get('id')?.value)
   }
 

@@ -149,7 +149,7 @@ export class UsuarioCadastroEtapa2 {
   bairro?: string;
   cep?: string;
   estado?: string;
-  escolaridade?: string;
+  cidade?: string;
   cor?: string;
   nacionalidade?: string;
 }
@@ -157,6 +157,8 @@ export class UsuarioCadastroEtapa2 {
 export class UsuarioCadastroEtapa3 {
   grupoSanguineoId?: number
   permissao = new Permissao();
+  escolaridade?: string;
+  numero?: string;
 }
 
 export class Permissao {

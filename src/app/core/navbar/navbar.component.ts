@@ -24,6 +24,23 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {
     this.usuarioLogado = this.auth.jwtPayload?.nome;
     this.menus = this.auth.jwtPayload?.menus;
+    console.log('weffcre ', this.menus)
+    this.menus.sort((a, b) => {
+      let ma = a.nome.toLowerCase(),
+        mb = b.nome.toLowerCase();
+
+
+      if (ma < mb) {
+        return -1;
+      }
+
+      if (ma > mb) {
+        return 1;
+      }
+
+      return 0;
+
+    });
   }
 
   temPermissao() {
