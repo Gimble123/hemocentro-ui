@@ -40,12 +40,12 @@ export class UsuarioCadastroStep1Component implements OnInit {
   }
 
   get editando() {
-    console.log('Edição usuário: ', this.formulario.get('id')?.value)
     return Boolean(this.formulario.get('id')?.value)
   }
 
   preencherUsuario() {
     const infoPrincipal = this.usuarioService.getStep1();
+    console.log('Info: ', infoPrincipal)
     if (infoPrincipal) {
       this.formulario.patchValue(infoPrincipal)
     }
@@ -60,7 +60,7 @@ export class UsuarioCadastroStep1Component implements OnInit {
       estadoCivil: [null, Validators.required],
       telefone: [null, Validators.required],
       sexo: [null, Validators.required],
-      endereco: [null, Validators.required],
+      logradouro: [null, Validators.required],
       dataNascimento: [null, Validators.required]
     });
 

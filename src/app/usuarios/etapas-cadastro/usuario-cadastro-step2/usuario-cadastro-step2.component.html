@@ -58,7 +58,7 @@
 
             <div class="col-12 md:col-6 p-fluid">
                 <label class="espacamento">Cep: </label>
-                <input placeholder="Ex: 75703-600" pInputText type="text" name="cep" formControlName="cep" [required]="true">
+                <p-inputMask mask="99999-999" [required]="true" placeholder="Ex: 99999-999" name="cep" formControlName="cep"></p-inputMask>
                 <app-message [control]="formulario.get('cep')" error="required" text="Informe o cep"></app-message>
             </div>
 

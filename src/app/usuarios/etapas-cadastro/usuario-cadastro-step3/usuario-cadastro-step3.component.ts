@@ -53,7 +53,7 @@ export class UsuarioCadastroStep3Component implements OnInit {
     this.formulario = this.formBuilder.group({
       id: [],
       grupoSanguineo: this.formBuilder.group({
-        grupoSanguineoId: [null, Validators.required],
+        id: [null, Validators.required],
         nome: []
       }),
       permissao: this.formBuilder.group({

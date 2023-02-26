@@ -28,7 +28,6 @@ export class CampanhaService {
   }
 
   pesquisarCampanhasUsuario(filtro: CampanhaFiltro): Promise<any> {
-    console.log('Service')
     const headers = new HttpHeaders()
     .append('Authorization', 'Basic YWRtaW5AYWxnYW1vbmV5LmNvbTphZG1pbg==');
 
@@ -36,7 +35,6 @@ export class CampanhaService {
     .set('page', filtro.pagina)
     .set('size', filtro.itensPorPagina);
 
-    console.log('user')
     return this.http.get(`${this.campanhasUrl}` + '/campanhasUsuario/' + this.userId, { headers, params })
     .toPromise()
     .then((response: any) => {

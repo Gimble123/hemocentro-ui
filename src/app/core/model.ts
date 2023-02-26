@@ -139,8 +139,9 @@ export class UsuarioCadastroEtapa1 {
   dataNascimento?: Date;
   estadoCivil?: string;
   sexo?: string;
-  endereco?: string;
+  logradouro?: string;
   cidade?: string;
+  telefone?: string;
 }
 
 export class UsuarioCadastroEtapa2 {

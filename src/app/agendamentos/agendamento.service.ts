@@ -46,8 +46,6 @@ export class AgendamentoService {
               total: response['totalElements']
             };
 
-            console.log('Resultado: ' + response['content'])
-
             return resultado;
           });
 
