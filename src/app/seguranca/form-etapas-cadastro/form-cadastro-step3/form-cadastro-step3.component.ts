@@ -52,7 +52,6 @@ export class FormCadastroStep3Component implements OnInit {
   }
 
   salvar() {
-    console.log('Etapa 3', this.formulario)
     this.auth.setFormStep3(this.formulario.value)
     this.auth.adicionarStepFormCadastro()
       .then(() => {

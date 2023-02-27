@@ -8,6 +8,11 @@ export class GrupoSanguineoInput {
   nome?: string;
 }
 
+export class Estoque {
+  id?: number;
+  descricao?: string;
+}
+
 export class UsuarioInput {
   grupoSanguineo = new GrupoSanguineoInput();
   login?: string;

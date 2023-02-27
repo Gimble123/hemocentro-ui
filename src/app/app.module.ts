@@ -1,3 +1,4 @@
+import { EstoquesModule } from './estoques/estoques.module';
 import { ProfileModule } from './profile/profile.module';
 import { HttpClientModule } from '@angular/common/http';
 import { DoacoesModule } from './doacoes/doacoes.module';
@@ -23,7 +24,6 @@ import { AppRoutingModule } from './app-routing.module';
     BrowserAnimationsModule,
     BrowserModule,
     HttpClientModule,
-
     CampanhasModule,
     UsuariosModule,
     GruposSanguineosModule,
@@ -33,7 +33,8 @@ import { AppRoutingModule } from './app-routing.module';
     CoreModule,
     SegurancaModule,
     AppRoutingModule,
-    ProfileModule
+    ProfileModule,
+    EstoquesModule
 
   ],
   providers: [],

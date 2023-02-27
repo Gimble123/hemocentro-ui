@@ -1,6 +1,3 @@
-import { FormCadastroStep3Component } from './../seguranca/form-etapas-cadastro/form-cadastro-step3/form-cadastro-step3.component';
-import { FormCadastroStep2Component } from './../seguranca/form-etapas-cadastro/form-cadastro-step2/form-cadastro-step2.component';
-import { FormCadastroStep1Component } from './../seguranca/form-etapas-cadastro/form-cadastro-step1/form-cadastro-step1.component';
 import { environment } from './../../environments/environment';
 
 import { HttpClient, HttpParams } from '@angular/common/http';

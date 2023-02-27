@@ -60,7 +60,6 @@ export class FormCadastroStep1Component implements OnInit {
   }
 
   salvar() {
-    console.log('Etapa 1', this.formulario)
     this.auth.setFormStep1(this.formulario.value)
     this.router.navigate(['form-cadastro-container/form-cadastro-step2'])
   }
