@@ -1,7 +1,6 @@
+import { CampanhasUsuarioPesquisaComponent } from './campanhas-usuario-pesquisa/campanhas-usuario-pesquisa.component';
 import { HttpClientModule } from '@angular/common/http';
-import { CoreModule } from './../core/core.module';
-import { CampanhaCadastroComponent } from './campanha-cadastro/campanha-cadastro.component';
-import { CampanhasPesquisaComponent } from './campanhas-pesquisa/campanhas-pesquisa.component';
+import { CoreModule } from '../core/core.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TableModule } from 'primeng/table';
@@ -13,14 +12,13 @@ import { SharedModule } from 'primeng/api';
 import { DropdownModule } from 'primeng/dropdown';
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { CalendarModule } from 'primeng/calendar';
-import { CampanhasRoutingModule } from './campanhas-routing.module';
+import { CampanhasUsuarioRoutingModule } from './campanhas-usuario-routing.module';
 
 
 
 @NgModule({
   declarations: [
-    CampanhasPesquisaComponent,
-    CampanhaCadastroComponent
+    CampanhasUsuarioPesquisaComponent
   ],
   imports: [
     CommonModule,
@@ -35,8 +33,8 @@ import { CampanhasRoutingModule } from './campanhas-routing.module';
     DropdownModule,
     SharedModule,
     HttpClientModule,
-    CampanhasRoutingModule
+    CampanhasUsuarioRoutingModule
   ],
   exports: []
 })
-export class CampanhasModule { }
+export class CampanhasUsuarioModule { }

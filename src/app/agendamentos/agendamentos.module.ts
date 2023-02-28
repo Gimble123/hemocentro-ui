@@ -11,6 +11,7 @@ import { TooltipModule } from 'primeng/tooltip';
 import { InputMaskModule } from 'primeng/inputmask';
 import { SharedModule } from 'primeng/api';
 import { CoreModule } from '../core/core.module';
+import { CalendarModule } from 'primeng/calendar';
 
 
 
@@ -22,7 +23,7 @@ import { CoreModule } from '../core/core.module';
   imports: [
     CommonModule,
     FormsModule,
-
+    CalendarModule,
     InputTextModule,
     ButtonModule,
     TableModule,

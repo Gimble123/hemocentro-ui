@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 import { DoacaoService } from '../../doacao.service';
+import { MessageService } from 'primeng/api';
+import { ErrorHandlerService } from 'src/app/core/error-handler.service';
 
 @Component({
   selector: 'app-doacao-cadastro-step3',
@@ -19,8 +21,10 @@ export class DoacaoCadastroStep3Component implements OnInit {
     private doacaoService: DoacaoService,
     private route: ActivatedRoute,
     private router: Router,
+    private messageService: MessageService,
     private formBuilder: FormBuilder,
-    private title: Title
+    private title: Title,
+    private errorHandler: ErrorHandlerService
   ) { }
 
   ngOnInit(): void {
@@ -53,21 +57,26 @@ export class DoacaoCadastroStep3Component implements OnInit {
   configurarFormulario() {
     this.formulario = this.formBuilder.group({
       doacaoId: [],
-      pressaoArterial: [null, Validators.required],
-      temperatura: [null, Validators.required],
-      hgs: [null, Validators.required],
-      chagas: [null, Validators.required],
-      antiHiv: [null, Validators.required],
-      hdrl: [null, Validators.required],
-      hcv: [null, Validators.required],
-      hcvNat: [null, Validators.required]
+      htlv: [null, Validators.required],
+      antiHbc: [null, Validators.required],
+      hbvNat: [null, Validators.required],
+      nomePai: [null, Validators.required],
+      responsavelColeta: [null, Validators.required],
+      usuario: [null, Validators.required],
+      volumeColetado: [null, Validators.required]
     });
 
   }
 
   salvar() {
-    this.doacaoService.setStep1(this.formulario.value)
-    this.router.navigate(['doacoes/doacao-container/doacao-cadastro-step4'])
+    this.doacaoService.setStep3(this.formulario.value)
+    this.doacaoService.adicionarStep()
+      .then(() => {
+        this.messageService.add({ severity: 'success', detail: 'Doação adicionado com sucesso!' });
+
+        this.router.navigate(['/doacoes'])
+      }
+      ).catch(erro => this.errorHandler.handle(erro));
   }
 
   voltar() {

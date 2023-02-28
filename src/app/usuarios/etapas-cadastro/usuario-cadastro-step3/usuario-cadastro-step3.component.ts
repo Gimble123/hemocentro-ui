@@ -18,7 +18,7 @@ export class UsuarioCadastroStep3Component implements OnInit {
   formulario!: FormGroup;
 
   grupoSanguineo: any[] = [];
-  permissoes: any[] = [];
+  permissao: any[] = [];
 
   constructor(
     private usuarioService: UsuarioService,
@@ -28,7 +28,7 @@ export class UsuarioCadastroStep3Component implements OnInit {
     private router: Router,
     private formBuilder: FormBuilder,
     private title: Title,
-    private errorHandler: ErrorHandlerService,
+    private errorHandler: ErrorHandlerService
   ) { }
 
   ngOnInit(): void {
@@ -76,14 +76,15 @@ export class UsuarioCadastroStep3Component implements OnInit {
 
   carregarPermissoes() {
     return this.permissaoService.listarTodas()
-      .then(permissoes => {
-        this.permissoes = permissoes
+      .then(permissao => {
+        this.permissao = permissao
           .map((p: any) => ({ label: p.descricao, value: p.id }))
       })
       .catch(erro => this.errorHandler.handle(erro));
   }
 
   salvar() {
+    console.log(this.formulario.value)
     this.usuarioService.setStep3(this.formulario.value)
     this.usuarioService.adicionarStep()
       .then(() => {

@@ -56,7 +56,6 @@ export class GrupoSanguineoCadastroComponent implements OnInit {
   }
 
   adicionarGrupoSanguineo() {
-    console.log("Component grupo sanguineo: ", this.grupoSanguineo)
     this.grupoSanguineoService.adicionar(this.grupoSanguineo)
       .then(() => {
         this.messageService.add({ severity: 'success', detail: 'Grupo Sanguíneo adicionado com sucesso!' });

@@ -1,3 +1,4 @@
+import { AgendamentoInput } from './../core/model';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
@@ -60,8 +61,9 @@ export class AgendamentoService {
       .toPromise();
   }
 
-  adicionar(agendamento: Agendamento): Promise<Agendamento> {
-    return this.http.post<Agendamento>(this.agendamentosUrl, agendamento)
+  adicionar(agendamento: AgendamentoInput): Promise<AgendamentoInput> {
+    console.log('AgendamentoService: ', agendamento)
+    return this.http.post<AgendamentoInput>(this.agendamentosUrl, agendamento)
       .toPromise();
   }
 

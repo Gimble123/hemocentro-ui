@@ -1,7 +1,7 @@
 <div class="grid">
     <div class="col-12 relative ">
         <h2 class="titles scroll">Campanhas</h2>
-        <p-table [value]="campanhaUsuario" [paginator]="true" [rows]="filtro.itensPorPagina" [responsive]="true" [lazy]="true" [totalRecords]="totalRegistros" (onLazyLoad)="aoMudarPagina($event)" #tabela>
+        <p-table [value]="campanhasUsuarios" [paginator]="true" [rows]="filtro.itensPorPagina" [responsive]="true" [lazy]="true" [totalRecords]="totalRegistros" (onLazyLoad)="aoMudarPagina($event)" #tabela>
             <ng-template pTemplate="header">
                 <tr>
                     <th>ID</th>
@@ -12,26 +12,26 @@
                     <th class="col-acoes">Ações</th>
                 </tr>
             </ng-template>
-            <ng-template pTemplate="body" let-campanhaUsuario>
+            <ng-template pTemplate="body" let-campanha>
                 <tr>
                     <td>
-                        <span class="p-column-title">ID</span> {{ campanhaUsuario.id }}
+                        <span class="p-column-title">ID</span> {{ campanha.id }}
                     </td>
 
                     <td>
-                        <span class="p-column-title">Nome da campanha</span> {{ campanhaUsuario.nome }}
+                        <span class="p-column-title">Nome da campanha</span> {{ campanha.nome }}
                     </td>
 
                     <td class="col-data">
-                        <span class="p-column-title">Tipo sanguíneo</span> {{ campanhaUsuario.grupoSanguineo.nome }}
+                        <span class="p-column-title">Tipo sanguíneo</span> {{ campanha.grupoSanguineo.nome }}
                     </td>
 
                     <td class="col-data">
-                        <span class="p-column-title">De</span> {{ campanhaUsuario.dataInicial | date:'dd/MM/y' }}
+                        <span class="p-column-title">De</span> {{ campanha.dataInicial | date:'dd/MM/y' }}
                     </td>
 
                     <td class="col-data">
-                        <span class="p-column-title">Até</span> {{ campanhaUsuario.dataFinal | date:'dd/MM/y' }}
+                        <span class="p-column-title">Até</span> {{ campanha.dataFinal | date:'dd/MM/y' }}
                     </td>
                 </tr>
             </ng-template>

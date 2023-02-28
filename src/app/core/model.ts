@@ -123,6 +123,11 @@ export class Usuario {
   permissao = new Permissao();
 }
 
+export class AgendamentoInput {
+  agendamentoId?: number;
+  dataAgendamento?: Date;
+  usuarioId?: number;
+}
 
 export class Agendamento {
   agendamentoId?: number;

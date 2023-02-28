@@ -14,17 +14,18 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CampanhasModule } from './campanhas/campanhas.module';
 import { AppRoutingModule } from './app-routing.module';
+import { CampanhasUsuarioModule } from './campanhas-usuario/campanhas-usuario.module';
 
 @NgModule({
   declarations: [
     AppComponent
-
   ],
   imports: [
     BrowserAnimationsModule,
     BrowserModule,
     HttpClientModule,
     CampanhasModule,
+    CampanhasUsuarioModule,
     UsuariosModule,
     GruposSanguineosModule,
     SolicitacoesModule,

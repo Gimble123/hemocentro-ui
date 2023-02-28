@@ -32,6 +32,7 @@ export class MoneyHttpInterceptor implements HttpInterceptor {
           }),
           catchError(error => {
             if (this.auth.isAccessTokenInvalido()) {
+              console.error('Usuário não autenticado')
               throw new NotAuthenticatedError();
             }
 

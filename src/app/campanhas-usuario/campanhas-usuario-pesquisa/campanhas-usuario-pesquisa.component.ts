@@ -1,9 +1,9 @@
-import { CampanhaFiltro, CampanhaService } from '../campanha.service';
+import { CampanhaFiltro, CampanhaUsuarioService } from '../campanha-usuario.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Table } from 'primeng/table';
 import { Title } from '@angular/platform-browser';
 import { ErrorHandlerService } from 'src/app/core/error-handler.service';
-import { LazyLoadEvent} from 'primeng/api';
+import { LazyLoadEvent } from 'primeng/api';
 
 @Component({
   selector: 'app-campanhas-usuario-pesquisa',
@@ -16,13 +16,13 @@ export class CampanhasUsuarioPesquisaComponent implements OnInit {
 
   totalRegistros: number = 0
 
-  campanhaUsuario: any[] = [];
+  campanhasUsuarios: any[] = [];
   @ViewChild('tabela') grid!: Table;
   jwtPayload: any;
   userId: any;
 
   constructor(
-    private campanhaService: CampanhaService,
+    private campanhaService: CampanhaUsuarioService,
     private errorHandler: ErrorHandlerService,
     private title: Title
   ) { }
@@ -37,8 +37,7 @@ export class CampanhasUsuarioPesquisaComponent implements OnInit {
 
     this.campanhaService.pesquisarCampanhasUsuario(this.filtro)
       .then((resultado: any) => {
-        console.log('Resultado: ', resultado)
-        this.campanhaUsuario = resultado.campanhas;
+        this.campanhasUsuarios = resultado.campanhas;
         this.totalRegistros = resultado.total;
       })
       .catch(erro => this.errorHandler.handle(erro));
@@ -49,5 +48,4 @@ export class CampanhasUsuarioPesquisaComponent implements OnInit {
     const pagina = event!.first! / event!.rows!;
     this.pesquisarCampanhasUsuario(pagina);
   }
-
 }

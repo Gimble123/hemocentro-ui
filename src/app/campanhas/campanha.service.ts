@@ -27,31 +27,6 @@ export class CampanhaService {
     this.userId = this.auth.jwtPayload?.userId;
   }
 
-  pesquisarCampanhasUsuario(filtro: CampanhaFiltro): Promise<any> {
-    const headers = new HttpHeaders()
-    .append('Authorization', 'Basic YWRtaW5AYWxnYW1vbmV5LmNvbTphZG1pbg==');
-
-  let params = new HttpParams()
-    .set('page', filtro.pagina)
-    .set('size', filtro.itensPorPagina);
-
-    return this.http.get(`${this.campanhasUrl}` + '/campanhasUsuario/' + this.userId, { headers, params })
-    .toPromise()
-    .then((response: any) => {
-      const campanhas = response['content'];
-
-      const resultado = {
-        campanhas,
-        total: response['totalElements']
-      };
-
-      console.log('Resultado: ', resultado.campanhas)
-
-      return resultado;
-    });
-  }
-
-
     pesquisar(filtro: CampanhaFiltro): Promise<any> {
       const headers = new HttpHeaders()
         .append('Authorization', 'Basic YWRtaW5AYWxnYW1vbmV5LmNvbTphZG1pbg==');

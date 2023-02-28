@@ -1,4 +1,3 @@
-import { CampanhasUsuarioPesquisaComponent } from './campanhas-usuario-pesquisa/campanhas-usuario-pesquisa.component';
 import { CampanhaCadastroComponent } from './campanha-cadastro/campanha-cadastro.component';
 import { CampanhasPesquisaComponent } from './campanhas-pesquisa/campanhas-pesquisa.component';
 import { NgModule } from '@angular/core';
@@ -23,12 +22,6 @@ const routes: Routes = [
       component: CampanhaCadastroComponent,
       canActivate: [AuthGuard],
       data: { roles: ['ROLE_ADMIN'] }
-    },
-    {
-      path: 'campanhas/usuario',
-      component: CampanhasUsuarioPesquisaComponent,
-      canActivate: [AuthGuard],
-      data: { roles: ['ROLE_USER'] }
     }
   ];
 

@@ -24,11 +24,12 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {
     this.usuarioLogado = this.auth.jwtPayload?.nome;
     this.menus = this.auth.jwtPayload?.menus;
-    this.sortMenus();
+    this.transform(this.menus);
   }
 
-  sortMenus() {
-    this.menus.sort((a, b) => {
+  transform(records: any): any {
+    records = records || [];
+    return records.sort((a: any, b: any) => {
       let ma = a.nome.toLowerCase(),
         mb = b.nome.toLowerCase();
 

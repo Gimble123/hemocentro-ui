@@ -1,5 +1,6 @@
+import { AuthService } from 'src/app/seguranca/auth.service';
 import { AgendamentoService } from './../agendamento.service';
-import { Agendamento } from './../../core/model';
+import { Agendamento, AgendamentoInput } from './../../core/model';
 import { Component, OnInit } from '@angular/core';
 import { MessageService } from 'primeng/api';
 import { ErrorHandlerService } from 'src/app/core/error-handler.service';
@@ -13,7 +14,8 @@ import { Title } from '@angular/platform-browser';
 })
 export class AgendamentoCadastroComponent implements OnInit {
 
-  agendamento = new Agendamento();
+  idUsuarioLogado: any;
+  agendamentoInput = new AgendamentoInput();
 
   constructor(
     private agendamentoService: AgendamentoService,
@@ -21,11 +23,15 @@ export class AgendamentoCadastroComponent implements OnInit {
     private errorHandler: ErrorHandlerService,
     private route: ActivatedRoute,
     private router: Router,
-    private title: Title
-  ) {}
+    private title: Title,
+    private auth: AuthService
+  ) {
+    this.idUsuarioLogado = this.auth.jwtPayload?.userId;
+  }
 
   ngOnInit() {
     const idAgendamento = this.route.snapshot.params['id'];
+
 
     this.title.setTitle('Novo agendamento');
 
@@ -37,13 +43,13 @@ export class AgendamentoCadastroComponent implements OnInit {
   carregarAgendamento(id: number) {
     this.agendamentoService.buscarPorCodigo(id)
       .then((agendamento: Agendamento) => {
-        this.agendamento = agendamento
+        this.agendamentoInput = agendamento
       })
       .catch((erro: any) => this.errorHandler.handle(erro));
   }
 
   get editando() {
-    return Boolean(this.agendamento.agendamentoId)
+    return Boolean(this.agendamentoInput.agendamentoId)
   }
 
   salvar() {
@@ -55,7 +61,13 @@ export class AgendamentoCadastroComponent implements OnInit {
   }
 
   adicionarAgendamento() {
-    this.agendamentoService.adicionar(this.agendamento)
+
+    let agendamento = {
+        "dataAgendamento": this.agendamentoInput.dataAgendamento,
+        "usuarioId": this.idUsuarioLogado
+    }
+
+    this.agendamentoService.adicionar(agendamento)
       .then(() => {
         this.messageService.add({ severity: 'success', detail: 'Agendamento adicionado com sucesso!' });
 
@@ -65,9 +77,9 @@ export class AgendamentoCadastroComponent implements OnInit {
   }
 
   atualizarAgendamento() {
-    this.agendamentoService.atualizar(this.agendamento)
+    this.agendamentoService.atualizar(this.agendamentoInput)
       .then(agendamento => {
-        this.agendamento = agendamento;
+        this.agendamentoInput = agendamento;
 
         this.messageService.add({ severity: 'success', detail: 'Agendamento alterado com sucesso!' });
       })

@@ -19,7 +19,6 @@ export class DoacaoService {
   doacaoCadastroEtapa1: DoacaoCadastroEtapa1 | undefined
   doacaoCadastroEtapa2: DoacaoCadastroEtapa2 | undefined
   doacaoCadastroEtapa3: DoacaoCadastroEtapa3 | undefined
-  doacaoCadastroEtapa4: DoacaoCadastroEtapa4 | undefined
 
   constructor(private http: HttpClient) {
     this.doacoesUrl = `${environment.apiUrl}/doacoes`
@@ -66,11 +65,11 @@ export class DoacaoService {
   }
 
   adicionarStep(): Promise<Doacao> {
-    if (!this.doacaoCadastroEtapa1 || !this.doacaoCadastroEtapa2 || !this.doacaoCadastroEtapa3 || !this.doacaoCadastroEtapa4)
+    if (!this.doacaoCadastroEtapa1 || !this.doacaoCadastroEtapa2 || !this.doacaoCadastroEtapa3)
       return Promise.reject('Doação incompleta')
 
     let doacao = new Doacao()
-    Object.assign(doacao, this.doacaoCadastroEtapa1, this.doacaoCadastroEtapa2, this.doacaoCadastroEtapa3, this.doacaoCadastroEtapa4)
+    Object.assign(doacao, this.doacaoCadastroEtapa1, this.doacaoCadastroEtapa2, this.doacaoCadastroEtapa3)
 
       return this.http.post<Doacao>(`${this.doacoesUrl}`, doacao)
       .toPromise()
@@ -88,13 +87,10 @@ export class DoacaoService {
         this.doacaoCadastroEtapa1 = new DoacaoCadastroEtapa1()
         this.doacaoCadastroEtapa2 = new DoacaoCadastroEtapa2()
         this.doacaoCadastroEtapa3 = new DoacaoCadastroEtapa3();
-        this.doacaoCadastroEtapa4 = new DoacaoCadastroEtapa4();
-
 
         Object.assign(this.doacaoCadastroEtapa1, response)
         Object.assign(this.doacaoCadastroEtapa2, response)
         Object.assign(this.doacaoCadastroEtapa3, response)
-        Object.assign(this.doacaoCadastroEtapa4, response)
 
         return response;
       });
@@ -112,10 +108,6 @@ export class DoacaoService {
     this.doacaoCadastroEtapa3 = step3
   }
 
-  setStep4(step4: DoacaoCadastroEtapa4) {
-    this.doacaoCadastroEtapa4 = step4
-  }
-
   getStep1() {
     return this.doacaoCadastroEtapa1
   }
@@ -128,15 +120,10 @@ export class DoacaoService {
     return this.doacaoCadastroEtapa3
   }
 
-  getStep4() {
-    return this.doacaoCadastroEtapa4
-  }
-
   apagarSteps() {
     this.doacaoCadastroEtapa1 = undefined
     this.doacaoCadastroEtapa2 = undefined
     this.doacaoCadastroEtapa3 = undefined
-    this.doacaoCadastroEtapa4 = undefined
   }
 
 }

@@ -31,7 +31,6 @@ export class AuthGuard implements CanActivate {
         });
     }
 
-
     return this.podeAcessarRota(next.data['roles']);
   }
 

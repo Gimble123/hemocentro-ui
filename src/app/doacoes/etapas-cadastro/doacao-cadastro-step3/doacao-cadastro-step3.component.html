@@ -12,61 +12,55 @@
         <div class="left">
 
             <div class="col-12 md:col-6 p-fluid">
-                <label class="espacamento">Pressão arterial: </label>
-                <input placeholder="Ex: 120/80 mmHg" pInputText type="text" name="pressaoArterial" formControlName="pressaoArterial" [required]="true">
-                <app-message [control]="formulario.get('pressaoArterial')" error="required" text="Informe a pressão arterial"></app-message>
+                <label class="espacamento">Htlv: </label>
+                <input placeholder="Ex: Positivo" pInputText type="text" name="htlv" formControlName="htlv" [required]="true">
+                <app-message [control]="formulario.get('htlv')" error="required" text="Informe o resultado"></app-message>
             </div>
 
             <div class="col-12 md:col-6 p-fluid">
-                <label class="espacamento">Temperatura: </label>
-                <input placeholder="Ex: 37°" pInputText type="text" name="temperatura" formControlName="temperatura" [required]="true">
-                <app-message [control]="formulario.get('temperatura')" error="required" text="Informe uma temperatura"></app-message>
+                <label class="espacamento">Anti hbc: </label>
+                <input placeholder="Ex: Positivo" pInputText type="text" name="antiHbc" formControlName="antiHbc" [required]="true">
+                <app-message [control]="formulario.get('antiHbc')" error="required" text="Informe o resultado"></app-message>
             </div>
 
             <div class="col-12 md:col-6 p-fluid">
-                <label class="espacamento">Hgs: </label>
-                <input placeholder="Ex: 4,7%" pInputText type="text" name="hgs" formControlName="hgs" [required]="true">
+                <label class="espacamento">Hbv nat: </label>
+                <input placeholder="Ex: Positivo" pInputText type="text" name="hbvNat" formControlName="hbvNat" [required]="true">
 
-                <app-message [control]="formulario.get('hgs')" error="required" text="Informe o hgs"></app-message>
+                <app-message [control]="formulario.get('hbvNat')" error="required" text="Informe o resultado"></app-message>
             </div>
 
             <div class="col-12 md:col-6 p-fluid">
-                <label class="espacamento">Chagas: </label>
-                <input placeholder="Positivo" pInputText type="text" name="chagas" formControlName="chagas" [required]="true">
-                <app-message [control]="formulario.get('chagas')" error="required" text="Informe o resultado do teste"></app-message>
+                <label class="espacamento">Nome do pai: </label>
+                <input placeholder="Ex: Claudio" pInputText type="text" name="nomePai" formControlName="nomePai" [required]="true">
+                <app-message [control]="formulario.get('nomePai')" error="required" text="Informe o nome do pai do doador"></app-message>
             </div>
 
         </div>
 
         <div class="right">
             <div class="col-12 md:col-6 p-fluid">
-                <label class="espacamento">Anti hiv: </label>
-                <input placeholder="Ex: Positivo" pInputText type="text" name="antiHiv" formControlName="antiHiv" [required]="true">
-                <app-message [control]="formulario.get('antiHiv')" error="required" text="Informe o resultado do teste"></app-message>
+                <label class="espacamento">Responsável pela coleta: </label>
+                <input placeholder="Ex: Maria" pInputText type="text" name="responsavelColeta" formControlName="responsavelColeta" [required]="true">
+                <app-message [control]="formulario.get('responsavelColeta')" error="required" text="Informe o responsável pela coleta"></app-message>
             </div>
 
             <div class="col-12 md:col-6 p-fluid">
-                <label class="espacamento">Hdrl: </label>
-                <input placeholder="Ex: Negativo" pInputText type="text" name="hdrl" formControlName="hdrl" [required]="true">
-                <app-message [control]="formulario.get('hdrl')" error="required" text="Informe o resultado"></app-message>
+                <label class="espacamento">Doador: </label>
+                <input placeholder="Ex: Augusto" pInputText type="text" name="usuario" formControlName="usuario" [required]="true">
+                <app-message [control]="formulario.get('usuario')" error="required" text="Informe o nome do doador"></app-message>
             </div>
 
             <div class="col-12 md:col-6 p-fluid">
-                <label class="espacamento">Hcv: </label>
-                <input placeholder="Ex: 65789" pInputText type="text" name="hcv" formControlName="hcv" [required]="true">
-                <app-message [control]="formulario.get('hcv')" error="required" text="Informe o resultado"></app-message>
-            </div>
-
-            <div class="col-12 md:col-6 p-fluid">
-                <label class="espacamento">HCV NAT: </label>
-                <input placeholder="Ex: Negativo" pInputText type="text" name="hcvNat" formControlName="hcvNat" [required]="true">
-                <app-message [control]="formulario.get('hcvNat')" error="required" text="Informe o resultado"></app-message>
+                <label class="espacamento">Volume coletado: </label>
+                <input placeholder="Ex: 400ml" pInputText type="text" name="volumeColetado" formControlName="volumeColetado" [required]="true">
+                <app-message [control]="formulario.get('volumeColetado')" error="required" text="Informe o volume coletado"></app-message>
             </div>
 
         </div>
         <div class="col-12 buttom">
             <button pButton type="button" class="color disabled-hover" (click)="voltar()" label="Voltar"></button>
-            <button pButton type="submit" class="button-danger" [disabled]="formulario.invalid" label="Próximo"></button>
+            <button pButton type="submit" class="button-danger" [disabled]="formulario.invalid" label="Finalizar"></button>
         </div>
 
     </form>
