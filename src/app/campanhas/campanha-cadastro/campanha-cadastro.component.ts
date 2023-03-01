@@ -16,7 +16,8 @@ export class CampanhaCadastroComponent implements OnInit {
 
   campanha = new Campanha();
   grupoSanguineo: any[] = [];
-
+  dataInicial: string = '';
+  dataFinal: string = '';
 
   constructor(
     private campanhaService: CampanhaService,
@@ -55,6 +56,14 @@ export class CampanhaCadastroComponent implements OnInit {
     this.campanhaService.buscarPorCodigo(id)
       .then((campanha: Campanha) => {
           this.campanha = campanha
+
+          var dataInicial = new Date(campanha.dataInicial!);
+
+          var dataFinal = new Date(campanha.dataFinal!);
+
+          campanha.dataInicial = new Date(dataInicial);
+          campanha.dataFinal = new Date(dataFinal);
+
           console.log('Campanha: ', campanha)
           this.atualizarTituloEdicao()
       })
