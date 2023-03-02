@@ -95,14 +95,12 @@ export class CampanhaService {
 
   private converterStringsParaDatas(campanhas: Campanha[]) {
     for (const campanha of campanhas) {
-      let offset = new Date().getTimezoneOffset() * 60000;
-
       if (campanha.dataInicial) {
-        campanha.dataInicial = new Date(new Date(campanha.dataInicial!).getTime() + offset);
+        campanha.dataInicial = new Date(new Date(campanha.dataInicial).getTime());
       }
 
       if (campanha.dataFinal) {
-        campanha.dataFinal = new Date(new Date(campanha.dataFinal).getTime() + offset);
+        campanha.dataFinal = new Date(new Date(campanha.dataFinal).getTime());
       }
     }
   }

@@ -9,29 +9,28 @@
                     <th>Tipo sanguíneo</th>
                     <th class="col-data-header">De</th>
                     <th class="col-data-header">Até</th>
-                    <th class="col-acoes">Ações</th>
                 </tr>
             </ng-template>
             <ng-template pTemplate="body" let-campanha>
                 <tr>
                     <td>
-                        <span class="p-column-title">ID</span> {{ campanha.id }}
+                        <span class="p-column-title">ID</span> {{ campanha.campanhaId }}
                     </td>
 
                     <td>
-                        <span class="p-column-title">Nome da campanha</span> {{ campanha.nome }}
+                        <span class="p-column-title">Nome da campanha</span> {{ campanha.campanhaNome }}
                     </td>
 
                     <td class="col-data">
-                        <span class="p-column-title">Tipo sanguíneo</span> {{ campanha.grupoSanguineo.nome }}
+                        <span class="p-column-title">Tipo sanguíneo</span> {{ campanha.grupoSanguineoNome }}
                     </td>
 
                     <td class="col-data">
-                        <span class="p-column-title">De</span> {{ campanha.dataInicial | date:'dd/MM/y' }}
+                        <span class="p-column-title">De</span> {{ campanha.dataInicialCampanha | date:'dd/MM/y' }}
                     </td>
 
                     <td class="col-data">
-                        <span class="p-column-title">Até</span> {{ campanha.dataFinal | date:'dd/MM/y' }}
+                        <span class="p-column-title">Até</span> {{ campanha.dataFinalCampanha | date:'dd/MM/y' }}
                     </td>
                 </tr>
             </ng-template>

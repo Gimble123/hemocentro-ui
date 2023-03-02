@@ -12,7 +12,7 @@ const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'nao-autorizado', component: NaoAutorizadoComponent },
   { path: 'pagina-nao-encontrada', component: PaginaNaoEncontradaComponent },
-  { path: '**', redirectTo: 'login' }
+  { path: '**', redirectTo: 'pagina-nao-encontrada' }
 
 ];
 

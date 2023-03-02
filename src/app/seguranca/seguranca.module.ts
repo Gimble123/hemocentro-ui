@@ -1,3 +1,4 @@
+import { AuthGuard } from 'src/app/seguranca/auth.guard';
 import { FormLoginComponent } from './form-login/form-login.component';
 import { CoreModule } from './../core/core.module';
 import { InputTextModule } from 'primeng/inputtext';
@@ -50,7 +51,8 @@ export function tokenGetter(): string {
       provide: HTTP_INTERCEPTORS,
       useClass: MoneyHttpInterceptor,
       multi: true
-    }
+    },
+    AuthGuard
   ]
 })
 export class SegurancaModule { }

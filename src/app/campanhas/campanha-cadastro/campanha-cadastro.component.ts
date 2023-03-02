@@ -58,13 +58,14 @@ export class CampanhaCadastroComponent implements OnInit {
           this.campanha = campanha
 
           var dataInicial = new Date(campanha.dataInicial!);
+              dataInicial.setDate(dataInicial.getDate() + 1)
 
           var dataFinal = new Date(campanha.dataFinal!);
+              dataFinal.setDate(dataFinal.getDate() + 1)
 
           campanha.dataInicial = new Date(dataInicial);
           campanha.dataFinal = new Date(dataFinal);
 
-          console.log('Campanha: ', campanha)
           this.atualizarTituloEdicao()
       })
       .catch((erro: any) => this.errorHandler.handle(erro));
@@ -90,12 +91,11 @@ export class CampanhaCadastroComponent implements OnInit {
 
   atualizarCampanha() {
     this.campanhaService.atualizar(this.campanha)
-      .then(campanha => {
-        this.campanha = campanha;
+      .then(() => {
 
         this.messageService.add({ severity: 'success', detail: 'Campanha alterada com sucesso!' });
 
-        //this.router.navigate(['campanhas']);
+        this.router.navigate(['campanhas']);
       })
       .catch(erro => this.errorHandler.handle(erro));
   }
