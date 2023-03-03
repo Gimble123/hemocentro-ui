@@ -7,12 +7,12 @@
                     <h1>Recuperar acesso</h1>
                 </div>
 
-                <div class="espacamento">
-                    <div class="col-12 p-fluid">
-                        <div>E-mail: </div>
-                        <input class="input-email" pInputText type="email" name="usuario" placeholder="Insira seu e-mail" ngModel required #email>
-                    </div>
+
+                <div class="col-12 p-fluid">
+                    <div>E-mail: </div>
+                    <input class="input-email" pInputText type="email" name="usuario" placeholder="Insira seu e-mail" ngModel required #email>
                 </div>
+
 
                 <div class="col-12 p-fluid">
                     <button pButton type="submit" label="Enviar" (click)="recuperar(email.value)" class="button-danger"></button>

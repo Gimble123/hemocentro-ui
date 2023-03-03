@@ -101,6 +101,8 @@ export class UsuarioService {
         Object.assign(this.usuarioCadastroEtapa2, response)
         Object.assign(this.usuarioCadastroEtapa3, response)
 
+        console.log('buscarPorCodigoSteps: ', response)
+
         return response;
       });
   }

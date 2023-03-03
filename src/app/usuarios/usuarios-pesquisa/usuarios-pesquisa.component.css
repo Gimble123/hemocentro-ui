@@ -2,12 +2,6 @@ label {
     font-weight: bold;
 }
 
-@media (min-width: 1200px) {
-    .container {
-        margin: 0 auto;
-    }
-}
-
 .label {
     margin: 0.5em;
 }
@@ -108,11 +102,10 @@ p-column-title {
 
 :host(app-usuarios-pesquisa) {
     width: 100%;
-    display: block;
     padding: 10%;
 }
 
-@media(max-width: 1280px) {
+@media(max-width: 1200px) {
      :host(app-usuarios-pesquisa) {
         zoom: 0.6;
         width: 100%;
@@ -126,35 +119,5 @@ p-column-title {
         width: 100%;
         text-align: center;
         font-weight: normal;
-    }
-}
-
-@media (max-width: 992px) {
-     :host(app-usuarios-pesquisa) {
-        zoom: 0.6;
-    }
-    .p-datatable-table thead {
-        display: none !important;
-    }
-    tr,
-    th {
-        display: flex;
-        flex-direction: column;
-    }
-    .col-data-header {
-        width: 120px;
-    }
-    .col-data {
-        text-align: center !important;
-    }
-    .col-acoes-header {
-        width: 115px;
-    }
-    .col-acoes {
-        width: 115px;
-        text-align: center !important;
-    }
-    .col-acoes .p-button {
-        margin: 1px;
     }
 }

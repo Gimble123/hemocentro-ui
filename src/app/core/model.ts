@@ -166,7 +166,7 @@ export class UsuarioCadastroEtapa2 {
 }
 
 export class UsuarioCadastroEtapa3 {
-  grupoSanguineoId?: number
+  grupoSanguineo = new GrupoSanguineoInput();
   permissao = new Permissao();
   escolaridade?: string;
   numero?: string;

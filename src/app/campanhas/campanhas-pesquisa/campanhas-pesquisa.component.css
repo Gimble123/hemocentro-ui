@@ -137,49 +137,21 @@ p-column-title {
     padding: 10%;
 }
 
-@media(max-width: 1280px) {
+@media(max-width: 1600px) {
      :host(app-campanhas-pesquisa) {
         zoom: 0.6;
-        width: 100%;
-        display: block;
-        padding: 10%;
-    }
-    .titles {
-        position: absolute;
-        top: -132px;
-        font-size: 25px;
-        width: 100%;
-        text-align: center;
-        font-weight: normal;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
     }
 }
 
-@media (max-width: 992px) {
+
+/* @media(max-width: 570px) {
      :host(app-campanhas-pesquisa) {
         zoom: 0.6;
-    }
-    .p-datatable-table thead {
-        display: none !important;
-    }
-    tr,
-    th {
         display: flex;
-        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
     }
-    .col-data-header {
-        width: 120px;
-    }
-    .col-data {
-        text-align: center !important;
-    }
-    .col-acoes-header {
-        width: 115px;
-    }
-    .col-acoes {
-        width: 115px;
-        text-align: center !important;
-    }
-    .col-acoes .p-button {
-        margin: 1px;
-    }
-}
+} */

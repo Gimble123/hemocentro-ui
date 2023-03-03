@@ -107,8 +107,43 @@ h1 {
     width: 100%;
 }
 
-@media(max-width: 1280px) {
+@media(max-width: 1600px) {
      :host(app-form-cadastro-step2) {
         zoom: 0.6;
+    }
+    .content-image {
+        display: none;
+    }
+    grid {
+        display: flex;
+        width: 100%;
+    }
+    .container-top {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        width: 70%;
+    }
+    .input-nacionalidade,
+    .input-sexo,
+    .input-estadoCivil,
+    .input-cidade,
+    .input-endereco,
+    .input-profissao {
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media(max-width: 810px) {
+    grid {
+        display: flex;
+        width: 100%;
+    }
+    .container-top {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        width: 70%;
     }
 }

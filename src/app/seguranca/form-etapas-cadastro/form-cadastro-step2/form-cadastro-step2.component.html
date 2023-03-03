@@ -13,8 +13,9 @@
                 </div>
 
                 <div class="col-12 p-fluid">
-                    <div>Sexo: </div>
-                    <input class="input-sexo" pInputText type="text" name="sexo" formControlName="sexo" placeholder="Informe seu sexo" required>
+                    <div>Gênero: </div>
+                    <input class="input-sexo" pInputText type="text" name="sexo" formControlName="sexo" placeholder="Informe seu gênero" required>
+                    <app-message [control]="formulario.get('sexo')" error="required" text="Informe um gênero"></app-message>
                 </div>
 
                 <div class="col-12 p-fluid">

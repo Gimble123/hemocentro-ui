@@ -8,13 +8,13 @@
                 </div>
 
                 <div class="col-12 p-fluid">
-                    <div>Profissão: </div>
+                    <div>ProfissWão: </div>
                     <input class="input-profissao" pInputText type="text" name="profissao" formControlName="profissao" placeholder="Informe a profissao" required>
                 </div>
 
                 <div class="col-12 p-fluid">
                     <div>N° de doações prévias: </div>
-                    <input class="input-doacoes" pInputText type="text" name="nome" formControlName="numeroDoacoesPrevias" placeholder="5" required>
+                    <input class="input-doacoes" pInputText type="text" name="nome" formControlName="numeroDoacoesPrevias" placeholder="Informe o número de doações prévias" required>
                 </div>
 
                 <div class="col-12 p-fluid">
@@ -24,6 +24,7 @@
 
                 <div class="col-12 p-fluid">
                     <div>Cep: </div>
+                    <p-inputMask mask="999.999.999-99" [required]="true" placeholder="Ex: 999.999.999-99" name="cpf" formControlName="cpf"></p-inputMask>
                     <input class="input-cep" pInputText type="text" name="cep" formControlName="cep" placeholder="Informe o cep" required>
                 </div>
 

@@ -96,13 +96,11 @@ export class AuthService {
   }
 
   temPermissaoRole(permissao: string) {
-    console.log('Permissão role: ', permissao)
     return this.jwtPayload && this.jwtPayload.authorities.includes(permissao);
   }
 
   temQualquerPermissao(roles: any) {
     for (const role of roles) {
-      console.log('Permissão tem: ', role)
       if (this.temPermissaoRole(role)) {
         return true;
       }
@@ -113,8 +111,6 @@ export class AuthService {
 
   public armazenarToken(token: string) {
     this.jwtPayload = this.jwtHelper.decodeToken(token);
-
-    console.log('Tokem: ', this.jwtPayload)
 
     localStorage.setItem('token', token);
   }

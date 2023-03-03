@@ -25,11 +25,6 @@ a {
     color: #828282;
 }
 
-.espacamento {
-    margin-bottom: 15px;
-    display: block;
-}
-
 .content-image {
     height: 100%;
     flex: 1 60%;
@@ -61,14 +56,12 @@ h1 {
 }
 
 .p-button-danger {
-    width: 420px;
     height: 50px;
     border-radius: 6px;
     background: #F02323;
     margin-bottom: 12px;
 }
 
-.input-password,
 .input-email {
     box-sizing: border-box;
     display: flex;
@@ -99,8 +92,38 @@ h1 {
     width: 100%;
 }
 
-@media(max-width: 1280px) {
+@media(max-width: 1600px) {
      :host(app-reset-senha) {
         zoom: 0.6;
+    }
+    .content-image {
+        display: none;
+    }
+    grid {
+        display: flex;
+        width: 100%;
+    }
+    .container-top {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        width: 70%;
+    }
+    .input-email {
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media(max-width: 810px) {
+    grid {
+        display: flex;
+        width: 100%;
+    }
+    .container-top {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        width: 70%;
     }
 }
