@@ -37,8 +37,6 @@ export class AgendamentosPesquisaComponent {
   pesquisar(pagina: number = 0): void {
     this.filtro.pagina = pagina;
 
-    console.log('Pesquisar')
-
     this.agendamentoService.pesquisar(this.filtro)
       .then((resultado: any) => {
         this.agendamentos = resultado.agendamentos;

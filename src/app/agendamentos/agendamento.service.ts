@@ -62,7 +62,6 @@ export class AgendamentoService {
   }
 
   adicionar(agendamento: AgendamentoInput): Promise<AgendamentoInput> {
-    console.log('AgendamentoService: ', agendamento)
     return this.http.post<AgendamentoInput>(this.agendamentosUrl, agendamento)
       .toPromise();
   }

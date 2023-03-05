@@ -5,7 +5,7 @@ import { CampanhasUsuarioPesquisaComponent } from './campanhas-usuario-pesquisa/
 
 const routes: Routes = [
     {
-      path: 'campanhas/usuario',
+      path: 'campanhas-usuario',
       component: CampanhasUsuarioPesquisaComponent,
       canActivate: [AuthGuard],
       data: { roles: ['ROLE_USER'] }

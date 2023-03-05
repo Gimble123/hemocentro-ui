@@ -84,7 +84,6 @@ export class UsuarioCadastroStep3Component implements OnInit {
   }
 
   salvar() {
-    console.log(this.formulario.value)
     this.usuarioService.setStep3(this.formulario.value)
     this.usuarioService.adicionarStep()
       .then(() => {

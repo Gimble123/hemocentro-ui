@@ -1,6 +1,6 @@
 import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 import { EstoqueService } from '../estoque.service';
 
@@ -20,7 +20,7 @@ export class EstoqueAtualizacaoComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-
+    console.log('Componente estoque atualização')
   }
 
 }

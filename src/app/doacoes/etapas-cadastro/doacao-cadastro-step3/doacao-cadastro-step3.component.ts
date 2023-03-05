@@ -72,7 +72,7 @@ export class DoacaoCadastroStep3Component implements OnInit {
     this.doacaoService.setStep3(this.formulario.value)
     this.doacaoService.adicionarStep()
       .then(() => {
-        this.messageService.add({ severity: 'success', detail: 'Doação adicionado com sucesso!' });
+        this.messageService.add({ severity: 'success', detail: 'Doação adicionada com sucesso!' });
 
         this.router.navigate(['/doacoes'])
       }

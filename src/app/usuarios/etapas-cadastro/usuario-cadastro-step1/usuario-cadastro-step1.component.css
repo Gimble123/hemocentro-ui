@@ -1,11 +1,10 @@
 .titles,
 .center {
     position: absolute;
-    top: -390px;
+    margin-top: 12px;
     font-size: 25px;
     width: 100%;
     text-align: center;
-    left: 450px;
     font-weight: normal;
 }
 

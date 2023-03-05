@@ -44,8 +44,6 @@ export class CampanhaUsuarioService {
         total: response['totalElements']
       };
 
-      console.log('Resultado: ', resultado.campanhas)
-
       return resultado;
     });
   }

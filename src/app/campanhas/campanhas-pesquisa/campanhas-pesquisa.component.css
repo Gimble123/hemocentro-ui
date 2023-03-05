@@ -145,13 +145,3 @@ p-column-title {
         align-items: center;
     }
 }
-
-
-/* @media(max-width: 570px) {
-     :host(app-campanhas-pesquisa) {
-        zoom: 0.6;
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-    }
-} */
