@@ -2,12 +2,6 @@ label {
     font-weight: bold;
 }
 
-@media (min-width: 1200px) {
-    .container {
-        margin: 0 auto;
-    }
-}
-
 .label {
     margin: 0.5em;
 }
@@ -75,7 +69,6 @@ td {
     vertical-align: center;
 }
 
-.button-nova-campanha,
 a,
 button {
     background: #F02323 !important;
@@ -88,6 +81,7 @@ button {
     position: absolute;
     top: -113px;
     font-size: 25px;
+    margin-top: -10px;
     width: 100%;
     text-align: center;
     font-weight: normal;
@@ -129,6 +123,10 @@ p-column-title {
     bottom: 0;
     display: flex;
     align-items: center;
+}
+
+.container {
+    margin-top: 30px;
 }
 
 :host(app-solicitacoes-pesquisa) {
