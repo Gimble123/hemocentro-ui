@@ -1,4 +1,4 @@
-import { GrupoSanguineoService } from './../../grupos-sanguineos/grupo_sanguineo.service';
+import { GrupoSanguineoService } from '../../grupos-sanguineos/grupo-sanguineo.service';
 import { CampanhaService } from './../campanha.service';
 import { Campanha } from './../../core/model';
 import { ActivatedRoute, Router } from '@angular/router';

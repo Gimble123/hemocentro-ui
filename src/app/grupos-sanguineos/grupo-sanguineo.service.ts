@@ -1,4 +1,4 @@
-import { GrupoSanguineo } from './../core/model';
+import { GrupoSanguineo } from '../core/model';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';

@@ -1,5 +1,5 @@
 import { GrupoSanguineo } from './../../core/model';
-import { GrupoSanguineoService } from './../grupo_sanguineo.service';
+import { GrupoSanguineoService } from '../grupo-sanguineo.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MessageService } from 'primeng/api';

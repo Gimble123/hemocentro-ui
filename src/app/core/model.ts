@@ -70,7 +70,7 @@ export class DoacaoCadastroEtapa2 {
   hgs?: String;
   chagas?: String;
   antiHiv?: String;
-  hdrl?: String;
+  vdrl?: String;
   hcv?: String;
   hcvNat?: String;
 }

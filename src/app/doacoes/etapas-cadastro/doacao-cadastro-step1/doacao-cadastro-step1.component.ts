@@ -40,7 +40,6 @@ export class DoacaoCadastroStep1Component implements OnInit {
   }
 
   get editando() {
-    this.atualizarTituloEdicao();
     return Boolean(this.formulario.get('doacaoId')?.value)
   }
 

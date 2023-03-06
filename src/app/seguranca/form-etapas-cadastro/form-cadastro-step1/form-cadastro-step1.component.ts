@@ -1,9 +1,8 @@
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
-import { UsuarioService } from 'src/app/usuarios/usuario.service';
-import { GrupoSanguineoService } from 'src/app/grupos-sanguineos/grupo_sanguineo.service';
+import { GrupoSanguineoService } from 'src/app/grupos-sanguineos/grupo-sanguineo.service';
 import { ErrorHandlerService } from 'src/app/core/error-handler.service';
 import { AuthService } from '../../auth.service';
 

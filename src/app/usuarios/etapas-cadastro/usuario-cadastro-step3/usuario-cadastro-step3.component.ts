@@ -1,5 +1,5 @@
 import { PermissaoService } from './../../../permissoes/permissao.service';
-import { GrupoSanguineoService } from './../../../grupos-sanguineos/grupo_sanguineo.service';
+import { GrupoSanguineoService } from '../../../grupos-sanguineos/grupo-sanguineo.service';
 import { Router } from '@angular/router';
 import { UsuarioService } from '../../usuario.service';
 import { Component, OnInit } from '@angular/core';

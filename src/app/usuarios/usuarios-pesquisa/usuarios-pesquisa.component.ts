@@ -21,9 +21,10 @@ export class UsuariosPesquisaComponent {
   @ViewChild('tabela') grid!: Table;
 
   constructor(
-    private auth: AuthService,
     private usuarioService: UsuarioService,
     private errorHandler: ErrorHandlerService,
+    private messageService: MessageService,
+    private confirmationService: ConfirmationService,
     private title: Title
   ) { }
 
@@ -45,6 +46,29 @@ export class UsuariosPesquisaComponent {
   aoMudarPagina(event: LazyLoadEvent) {
     const pagina = event!.first! / event!.rows!;
     this.pesquisar(pagina);
+  }
+
+  confirmarExclusao(grupo: any): void {
+    this.confirmationService.confirm({
+      message: 'Tem certeza que deseja excluir?',
+      accept: () => {
+        this.excluir(grupo);
+      }
+    });
+  }
+
+  excluir(usuario: any) {
+
+    this.usuarioService.excluir(usuario.id)
+      .then(
+        () => {
+          this.grid.reset();
+
+          this.messageService.add({ severity: 'success', detail: 'Usuário excluído com sucesso!' })
+        }
+      )
+      .catch((error) => this.errorHandler.handle(error))
+
   }
 
 }

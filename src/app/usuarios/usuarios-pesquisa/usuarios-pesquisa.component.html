@@ -33,11 +33,11 @@
                         </td>
 
                         <td>
-                            <span class="p-column-title">CPF</span> {{ usuario.cpf }}
+                            <span class="p-column-title">CPF</span> {{ usuario.cpf | cpf }}
                         </td>
 
                         <td>
-                            <span class="p-column-title">Telefone</span> {{ usuario.telefone}}
+                            <span class="p-column-title">Telefone</span> {{ usuario.telefone | phone }}
                         </td>
 
                         <td>
@@ -58,7 +58,7 @@
 
                         <td class="col-acoes">
                             <button pButton icon="pi pi-pencil" pTooltip="Editar" tooltipPosition="top" [routerLink]="['/usuarios/usuario-container/usuario-cadastro-step1/', usuario.id]"></button>
-                            <button pButton icon="pi pi-trash" pTooltip="Excluir" tooltipPosition="top"></button>
+                            <button pButton icon="pi pi-trash" pTooltip="Excluir" (click)="confirmarExclusao(usuario)" tooltipPosition="top"></button>
                         </td>
                     </tr>
                 </ng-template>

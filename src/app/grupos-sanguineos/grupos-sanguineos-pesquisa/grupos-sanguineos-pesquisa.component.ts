@@ -1,4 +1,4 @@
-import { GrupoSanguineoService, GruposSanguineosFiltro } from './../grupo_sanguineo.service';
+import { GrupoSanguineoService, GruposSanguineosFiltro } from '../grupo-sanguineo.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Table } from 'primeng/table';
 import { ErrorHandlerService } from 'src/app/core/error-handler.service';

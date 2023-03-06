@@ -58,7 +58,7 @@ export class DoacaoCadastroStep2Component implements OnInit {
       hgs: [null, Validators.required],
       chagas: [null, Validators.required],
       antiHiv: [null, Validators.required],
-      hdrl: [null, Validators.required],
+      vdrl: [null, Validators.required],
       hcv: [null, Validators.required],
       hcvNat: [null, Validators.required]
     });

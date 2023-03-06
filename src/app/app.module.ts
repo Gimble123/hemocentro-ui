@@ -15,14 +15,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CampanhasModule } from './campanhas/campanhas.module';
 import { AppRoutingModule } from './app-routing.module';
 import { CampanhasUsuarioModule } from './campanhas-usuario/campanhas-usuario.module';
-import { DoacoesUsuarioComponent } from './doacoes-usuario/doacoes-usuario.component';
-import { DoacoesUsuarioPesquisaComponent } from './doacoes-usuario/doacoes-usuario-pesquisa/doacoes-usuario-pesquisa.component';
+import { DoacoesUsuarioModule } from './doacoes-usuario/doacoes-usuario.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    DoacoesUsuarioComponent,
-    DoacoesUsuarioPesquisaComponent
+    AppComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -35,6 +32,7 @@ import { DoacoesUsuarioPesquisaComponent } from './doacoes-usuario/doacoes-usuar
     SolicitacoesModule,
     AgendamentosModule,
     DoacoesModule,
+    DoacoesUsuarioModule,
     CoreModule,
     SegurancaModule,
     AppRoutingModule,

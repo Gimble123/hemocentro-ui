@@ -1,4 +1,4 @@
-import { GrupoSanguineoService } from './../grupos-sanguineos/grupo_sanguineo.service';
+import { GrupoSanguineoService } from '../grupos-sanguineos/grupo-sanguineo.service';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
