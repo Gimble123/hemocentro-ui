@@ -27,6 +27,18 @@ const routes: Routes = [
         data: { roles: ['ROLE_ADMIN'] }
       },
       {
+        path: 'usuario-cadastro-step2/:id',
+        component: UsuarioCadastroStep2Component,
+        canActivate: [AuthGuard],
+        data: { roles: ['ROLE_ADMIN'] }
+      },
+      {
+        path: 'usuario-cadastro-step3/:id',
+        component: UsuarioCadastroStep3Component,
+        canActivate: [AuthGuard],
+        data: { roles: ['ROLE_ADMIN'] }
+      },
+      {
         path: 'usuario-cadastro-step2',
         component: UsuarioCadastroStep2Component,
         canActivate: [AuthGuard],

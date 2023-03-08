@@ -3,7 +3,7 @@ import { GrupoSanguineoService } from '../../../grupos-sanguineos/grupo-sanguine
 import { Router } from '@angular/router';
 import { UsuarioService } from '../../usuario.service';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 import { MessageService } from 'primeng/api';
 import { ErrorHandlerService } from 'src/app/core/error-handler.service';
@@ -39,7 +39,6 @@ export class UsuarioCadastroStep3Component implements OnInit {
 
     const step3 = this.usuarioService.getStep3();
 
-
     if (step3)
       this.formulario.patchValue(step3);
 
@@ -50,20 +49,16 @@ export class UsuarioCadastroStep3Component implements OnInit {
   }
 
   configurarFormulario() {
+
     this.formulario = this.formBuilder.group({
       id: [],
-      grupoSanguineo: this.formBuilder.group({
-        id: [null, Validators.required],
-        nome: []
-      }),
-      permissao: this.formBuilder.group({
-        id: [null, Validators.required],
-        descricao: []
-      }),
+      grupoSanguineoId: [null, Validators.required],
+      permissaoDescricao: [null, Validators.required],
       escolaridade: [null, Validators.required],
       numero: [null, Validators.required]
     });
 
+    console.log('Formulário: ', this.formulario);
   }
 
   carregarGrupoSanguineoSemPaginacao() {

@@ -54,7 +54,7 @@ button {
 }
 
 .titles {
-    position: absolute;
+    position: relative;
     top: -113px;
     font-size: 25px;
     margin-top: -10px;
@@ -107,22 +107,15 @@ p-column-title {
 
 :host(app-usuarios-pesquisa) {
     width: 100%;
+    display: block;
     padding: 10%;
 }
 
-@media(max-width: 1200px) {
+@media(max-width: 1600px) {
      :host(app-usuarios-pesquisa) {
         zoom: 0.6;
-        width: 100%;
-        display: block;
-        padding: 10%;
-    }
-    .titles {
-        position: absolute;
-        top: -132px;
-        font-size: 25px;
-        width: 100%;
-        text-align: center;
-        font-weight: normal;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
     }
 }

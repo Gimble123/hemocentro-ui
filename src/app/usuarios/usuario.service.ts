@@ -1,3 +1,4 @@
+import { PermissaoService } from './../permissoes/permissao.service';
 import { environment } from './../../environments/environment';
 
 import { HttpClient, HttpParams } from '@angular/common/http';
@@ -21,7 +22,8 @@ export class UsuarioService {
   usuarioCadastroEtapa3: UsuarioCadastroEtapa3 | undefined
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private permissaoService: PermissaoService
   ) {
     this.usuariosUrl = `${environment.apiUrl}/usuarios`
   }
@@ -45,6 +47,8 @@ export class UsuarioService {
       });
   }
 
+
+
   excluir(codigo: number): Promise<void> {
     return this.http.delete<void>(`${this.usuariosUrl}/${codigo}`)
       .toPromise();
@@ -60,6 +64,7 @@ export class UsuarioService {
 
     let usuario = new Usuario()
     Object.assign(usuario, this.usuarioCadastroEtapa1, this.usuarioCadastroEtapa2, this.usuarioCadastroEtapa3)
+
 
       return this.http.post<Usuario>(`${this.usuariosUrl}/cadastro`, usuario)
       .toPromise()
@@ -77,16 +82,8 @@ export class UsuarioService {
       });
   }
 
-  buscarPorCodigo(codigo: number): Promise<Usuario> {
-    return this.http.get(`${this.usuariosUrl}/${codigo}`)
-      .toPromise()
-      .then((response: any) => {
-        return response;
-      });
-  }
-
   buscarPorCodigoSteps(codigo: number): Promise<Usuario> {
-    return this.http.get(`${this.usuariosUrl}/${codigo}`)
+    return this.http.get(`${this.usuariosUrl}/findUserByEdit/${codigo}`)
       .toPromise()
       .then((response: any) => {
         this.converterStringsParaDatas([response]);

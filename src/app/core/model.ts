@@ -14,7 +14,7 @@ export class Estoque {
 }
 
 export class UsuarioInput {
-  grupoSanguineo = new GrupoSanguineoInput();
+  grupoSanguineoId?: number;
   login?: string;
 	senha?: string;
   nome?: string;
@@ -144,7 +144,9 @@ export class Solicitacao {
 }
 
 export class UsuarioCadastroEtapa1 {
+  id?: number;
   nome?: string;
+  email?: string;
   cpf?: string;
   dataNascimento?: Date;
   estadoCivil?: string;
@@ -155,6 +157,7 @@ export class UsuarioCadastroEtapa1 {
 }
 
 export class UsuarioCadastroEtapa2 {
+  id?: number;
   numeroDoacoesPrevias?: number;
   profissao?: string;
   bairro?: string;
@@ -166,8 +169,9 @@ export class UsuarioCadastroEtapa2 {
 }
 
 export class UsuarioCadastroEtapa3 {
-  grupoSanguineo = new GrupoSanguineoInput();
-  permissao = new Permissao();
+  id?: number;
+  grupoSanguineoId?: string;
+  permissaoDescricao?: string;
   escolaridade?: string;
   numero?: string;
 }

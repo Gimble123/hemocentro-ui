@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
+import { Permissao } from '../core/model';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,9 @@ export class PermissaoService {
 
   permissoesUrl: string = ''
 
-  constructor(private http: HttpClient) {
+  constructor(
+    private http: HttpClient
+    ) {
     this.permissoesUrl = `${environment.apiUrl}/permissoes`;
   }
 

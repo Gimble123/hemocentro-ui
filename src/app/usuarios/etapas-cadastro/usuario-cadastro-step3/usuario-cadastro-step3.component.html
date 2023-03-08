@@ -24,21 +24,21 @@
         </div>
 
         <div class="right">
-            <div class="col-12 md:col-6 p-fluid" formGroupName="grupoSanguineo">
+            <div class="col-12 md:col-6 p-fluid">
                 <label class="espacamento">Tipo sanguíneo: </label>
-                <p-dropdown [options]="grupoSanguineo" placeholder="Selecione" name="grupoSanguineo" formControlName="id" [required]="true"></p-dropdown>
+                <p-dropdown [options]="grupoSanguineo" placeholder="Selecione" name="grupoSanguineoId" formControlName="grupoSanguineoId" [required]="true"></p-dropdown>
             </div>
 
-            <div class="col-12 md:col-6 p-fluid" formGroupName="permissao">
+            <div class="col-12 md:col-6 p-fluid">
                 <label class="espacamento">Permissão: </label>
-                <p-dropdown [options]="permissao" placeholder="Selecione" name="permissao" formControlName="id" [required]="true"></p-dropdown>
+                <p-dropdown [options]="permissao" placeholder="Selecione" name="permissaoDescricao" formControlName="permissaoDescricao" [required]="true"></p-dropdown>
             </div>
 
         </div>
 
         <div class="col-12 buttom">
             <button pButton type="button" class="color disabled-hover" (click)="voltar()" label="Voltar"></button>
-            <button pButton type="submit" class="button-danger" label="Finalizar"></button>
+            <button pButton type="submit" class="button-danger" [disabled]="formulario.invalid" label="Finalizar"></button>
         </div>
 
     </form>
