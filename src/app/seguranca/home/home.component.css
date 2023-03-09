@@ -1,22 +1,26 @@
-@media(max-width: 1280px) {
-     :host(app-home) {
-        zoom: 0.6;
-    }
-}
 
-.content-image,
- :host(app-home) {
-    background: url("/assets/image-background.png") no-repeat;
+:host(app-home){
+
+    background: url(/assets/image-background.png) no-repeat;
     background-size: 80%;
     background-position: center;
     background-color: #375e6d;
+    width: 100%;
+    height: 100%;
 }
 
-.container {
+/*.container {
     display: flex;
     flex: 1;
+    height: 100%;
+}*/
+
+@media (max-width: 821px){
+
+    :host(app-home){
+    
+        background-size: 100%;
+
+    }
 }
 
-:host(app-home) {
-    width: 100%;
-}

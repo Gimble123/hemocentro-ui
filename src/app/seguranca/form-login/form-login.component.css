@@ -44,7 +44,8 @@ a {
     height: 100%;
     flex: 1 60%;
     background: url("/assets/image-background.png") no-repeat;
-    background-size: cover;
+    background-size: 80%;
+    background-color: #375e6d;
     background-position: center;
 }
 
@@ -101,10 +102,15 @@ h1 {
     width: 100%;
 }
 
-@media(max-width: 1600px) {
+@media(max-width: 899px) {
      :host(app-form-login) {
         zoom: 0.6;
+        padding: 10px;
     }
+
+    
+
+   
     .content-image {
         display: none;
     }
@@ -117,6 +123,7 @@ h1 {
         align-items: center;
         flex-direction: column;
         width: 70%;
+        padding: 20px;
     }
     .input-password,
     .input-email {

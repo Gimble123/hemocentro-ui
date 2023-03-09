@@ -98,12 +98,16 @@
                             "node_modules/primeflex/primeflex.css",
                             "node_modules/primeng/resources/themes/saga-blue/theme.css",
                             "node_modules/primeng/resources/primeng.min.css",
-                            "src/styles.css"
+                            "src/styles.css",
+                            "src/reset.css"
                         ],
                         "scripts": []
                     }
                 }
             }
         }
+    },
+    "cli": {
+      "analytics": "ce46d99a-4a1c-4d48-ab39-cdc7bc10f079"
     }
 }
