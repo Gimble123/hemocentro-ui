@@ -85,6 +85,7 @@ video {
     font-size: 100%;
 }
 
+
 .p-datatable .p-datatable-thead>tr>th {
     text-align: center;
     padding: 1rem 1rem;
@@ -260,6 +261,7 @@ label {
     }
 }
 
+
 @media (max-width: 500px) {
      :host(app-campanhas-pesquisa) {
         zoom: 0.8;
@@ -309,4 +311,11 @@ label {
     .col-acoes .p-button {
         margin: 1px;
     }
+}
+
+@media (max-width: 821px){
+    .root{
+        flex-direction: row-reverse;
+    }
+
 }

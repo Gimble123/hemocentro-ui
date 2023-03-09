@@ -6,15 +6,9 @@
     align-items: center;
 }
 
-@media(max-width: 1280px) {
-     :host(app-navbar) {
-        zoom: 0.6;
-    }
-}
-
 :host(app-navbar) {
     display: flex;
-    width: 419px;
+    width: 25%;
 }
 
 .navbar-menuitem a {
@@ -60,12 +54,12 @@ li {
 }
 
 .navbar {
-    position: fixed;
+    position: relative;
     display: flex;
     top: 0;
     bottom: 0;
     left: 0;
-    width: 350px;
+    width: 100%;
     margin: 0;
     padding: 0;
     background-color: #CA0002;
@@ -148,4 +142,45 @@ li {
 
 .pi-bars {
     color: #fff;
+}
+
+.navmob {
+
+    cursor: pointer;
+    display: none;
+}
+
+.navmob div {
+
+    width: 32px;
+    height: 2px;
+    background: #f80000;
+    margin: 8px;
+}
+
+
+@media (max-width: 821px){
+
+    
+    :host(app-navbar){
+        background-color: #375e6d;
+        width: 20%;
+    }
+    
+    .navbar{
+        
+        width: 0;
+        flex-direction: row;
+        height: 10%;
+        left: 5%;
+    }
+    
+    .content-navbar-menu{
+        display: none;
+    }
+
+    .navmob{
+        display: block;
+        
+    }
 }
