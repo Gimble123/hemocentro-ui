@@ -22,10 +22,17 @@ export class UsuarioService {
   usuarioCadastroEtapa3: UsuarioCadastroEtapa3 | undefined
 
   constructor(
-    private http: HttpClient,
-    private permissaoService: PermissaoService
+    private http: HttpClient
   ) {
     this.usuariosUrl = `${environment.apiUrl}/usuarios`
+  }
+
+  listarTodos(): Promise<any> {
+    return this.http.get(`${this.usuariosUrl}` + '/listarDoadores').toPromise();
+  }
+
+  listarTodosResponsaveisColeta(): Promise<any> {
+    return this.http.get(`${this.usuariosUrl}` + '/listarResponsaveis').toPromise();
   }
 
   pesquisar(filtro: UsuarioFiltro): Promise<any> {

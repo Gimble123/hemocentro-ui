@@ -1,4 +1,4 @@
-import { EstoquesModule } from './estoques/estoques.module';
+import { EstoqueAtualizacaoComponent } from './estoques/estoque-atualizacao/estoque-atualizacao.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { NaoAutorizadoComponent } from './core/nao-autorizado.component';
@@ -9,7 +9,7 @@ const routes: Routes = [
   { path: 'cadastro', loadChildren: () => import('../app/seguranca/seguranca.module').then(m => m.SegurancaModule) },
   { path: 'usuarios',  loadChildren: () => import('../app/usuarios/usuarios.module').then(u => u.UsuariosModule) },
   { path: 'doacoes',  loadChildren: () => import('../app/doacoes/doacoes.module').then(d => d.DoacoesModule) },
-  { path: 'estoques',  loadChildren: () => import('../app/estoques/estoques.module').then(e => e.EstoquesModule) },
+  { path: 'estoques',  component: EstoqueAtualizacaoComponent},
   { path: 'login',  loadChildren: () => import('../app/seguranca/seguranca.module').then(s => s.SegurancaModule) },
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'nao-autorizado', component: NaoAutorizadoComponent },

@@ -12,19 +12,17 @@ export class DoacaoContainerComponent implements OnDestroy {
   items: MenuItem[] = [];
 
   constructor(private doacaoService: DoacaoService) {
-
-    this.items = [
-      {
-      routerLink: 'doacao-cadastro-step1'
-      },
-      {
-      routerLink: 'doacao-cadastro-step2'
-      }
-    ];
   }
 
   ngOnDestroy(): void {
     this.doacaoService.apagarSteps();
+  }
+
+  editandoDoacao(): string {
+    if (this.doacaoService.editandoDoacao)
+      return 'Atualização de doação'
+
+    return 'Nova doação'
   }
 
 }

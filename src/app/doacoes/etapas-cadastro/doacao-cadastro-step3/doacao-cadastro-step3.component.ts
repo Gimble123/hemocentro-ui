@@ -1,3 +1,4 @@
+import { UsuarioService } from './../../../usuarios/usuario.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -17,14 +18,19 @@ export class DoacaoCadastroStep3Component implements OnInit {
 
   formulario!: FormGroup;
 
+  usuarios: any[] = []
+
+  editando: boolean = false
+
   constructor(
     private doacaoService: DoacaoService,
-    private route: ActivatedRoute,
+    private usuarioService: UsuarioService,
     private router: Router,
+    private route: ActivatedRoute,
     private messageService: MessageService,
     private formBuilder: FormBuilder,
-    private title: Title,
-    private errorHandler: ErrorHandlerService
+    private errorHandler: ErrorHandlerService,
+    private title: Title
   ) { }
 
   ngOnInit(): void {
@@ -33,6 +39,7 @@ export class DoacaoCadastroStep3Component implements OnInit {
 
     const doacaoId = this.route.snapshot.params['doacaoId'];
     if (doacaoId) {
+      this.editando = true
       this.doacaoService.buscarPorCodigoSteps(doacaoId)
         .then(() => {
           this.preencherDoacao()
@@ -41,10 +48,6 @@ export class DoacaoCadastroStep3Component implements OnInit {
       this.preencherDoacao()
     }
 
-  }
-
-  get editando() {
-    return Boolean(this.formulario.get('doacaoId')?.value)
   }
 
   preencherDoacao() {
@@ -62,13 +65,26 @@ export class DoacaoCadastroStep3Component implements OnInit {
       hbvNat: [null, Validators.required],
       nomePai: [null, Validators.required],
       responsavelColeta: [null, Validators.required],
-      usuario: [null, Validators.required],
+      usuario: this.formBuilder.group({
+        id: [null, Validators.required],
+        nome: []
+      }),
       volumeColetado: [null, Validators.required]
     });
 
   }
 
+  carregarUsuarios() {
+    this.usuarioService.listarTodos()
+      .then(usuarios => {
+        this.usuarios = usuarios
+          .map((u: any) => ({ label: u.nome, value: u.id }));
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
+
   salvar() {
+    console.log('salvar')
     this.doacaoService.setStep3(this.formulario.value)
     this.doacaoService.adicionarStep()
       .then(() => {
@@ -81,10 +97,6 @@ export class DoacaoCadastroStep3Component implements OnInit {
 
   voltar() {
     this.router.navigate(['doacoes/doacao-container/doacao-cadastro-step2'])
-  }
-
-  atualizarTituloEdicao() {
-    this.title.setTitle(`Edição de doação`);
   }
 
 }

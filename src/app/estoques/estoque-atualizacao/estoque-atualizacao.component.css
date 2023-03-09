@@ -1,22 +1,105 @@
-.titles,
-.center {
+label {
+    font-weight: bold;
+}
+
+@media (min-width: 1200px) {
+    .container {
+        margin: 0 auto;
+    }
+}
+
+.label {
+    margin: 0.5em;
+}
+
+.col-valor-header {
+    width: 120px;
+}
+
+.col-valor-content {
+    text-align: right;
+}
+
+.col-data-header {
+    width: 120px;
+}
+
+.col-data-content {
+    text-align: center;
+}
+
+.col-acoes-header {
+    width: 115px;
+}
+
+.col-acoes {
+    width: 115px;
+    text-align: center !important;
+}
+
+.col-acoes .p-button {
+    margin: 1px;
+}
+
+.col-acoes>a {
+    margin-right: 5px;
+}
+
+@media (min-width: 40em) {
+    .col-valor-header {
+        width: 120px;
+    }
+    .col-valor {
+        text-align: right !important;
+    }
+    .col-data-header {
+        width: 120px;
+    }
+    .col-data {
+        text-align: center !important;
+    }
+    .col-acoes-header {
+        width: 115px;
+    }
+    .col-acoes {
+        width: 115px;
+        text-align: center !important;
+    }
+    .col-acoes .p-button {
+        margin: 1px;
+    }
+}
+
+td {
+    text-align: center;
+    vertical-align: center;
+}
+
+.button-nova-campanha,
+a,
+button {
+    background: #F02323 !important;
+    outline: none !important;
+    box-shadow: none !important;
+    text-decoration: none;
+}
+
+.titles {
     position: absolute;
-    top: -390px;
+    top: -113px;
     font-size: 25px;
+    margin-top: -10px;
     width: 100%;
     text-align: center;
-    left: 450px;
     font-weight: normal;
 }
 
 .relative {
     position: relative;
-    top: -40px
 }
 
-.relative h2 {
-    top: inherit;
-    left: inherit
+p-column-title {
+    text-align: center;
 }
 
 .disabled-hover {
@@ -26,50 +109,20 @@
 
 .disabled-hover,
 .p-button:hover {
-    background-color: #C0BFBD;
+    background-color: #F02323;
 }
 
-form {
-    display: flex;
-    flex: 1;
-    flex-wrap: wrap;
-    position: relative;
-    min-height: 600px;
-}
-
-.left {
-    flex: 1;
-    margin-right: 20px;
-}
-
-.right {
-    flex: 1;
-    margin-left: 20px;
-}
-
-.buttom {
+.margin-button {
     position: absolute;
-    bottom: 50px;
-    left: 0;
+    top: -70px;
     right: 0;
-    display: flex;
-    justify-content: space-between;
 }
 
-.buttom button {
-    width: 50%;
-}
-
-.buttom button:first-child {
-    margin-right: 25px;
-}
-
-.buttom button:last-child {
-    margin-left: 25px;
-}
-
-.col-12 {
-    width: 100%;
+.p-datatable-table {
+    border: 1px solid red;
+    width: 100% !important;
+    /*Importante manter o !important rs */
+    margin: auto;
 }
 
 .grid {
@@ -79,60 +132,23 @@ form {
     align-items: center;
 }
 
-:host(app-doacao-cadastro-step1) {
+.container {
+    margin-top: 30px;
+}
+
+:host(app-estoque-atualizacao) {
     width: 100%;
-    display: flow-root;
-    margin-top: 119px;
+    display: block;
+    padding: 10%;
 }
 
 @media(max-width: 1280px) {
-     :host(app-doacao-cadastro-step1) {
-        zoom: 0.6;
-        width: 100%;
-        display: block;
-        padding: 10%;
-        margin-top: 60px;
-    }
-    .titles {
-        position: absolute;
-        margin-top: -40px;
-        font-size: 25px;
-        width: 100%;
-        text-align: center;
-    }
-    .relative {
-        position: relative;
-    }
-    .center {
-        align-items: center;
-    }
-    .pInputText {
-        margin: 12px;
-    }
-    .espacamento {
-        margin-bottom: 15px;
-        display: block;
-    }
-    .color {
-        background-color: #C0BFBD;
-        font-weight: bold;
+     :host(app-estoque-atualizacao) {
+        zoom: 0.7;
     }
 }
 
-.center {
-    align-items: center;
-}
-
-.pInputText {
-    margin: 12px;
-}
-
-.espacamento {
-    margin-bottom: 15px;
+p-table {
+    max-height: 470px;
     display: block;
-}
-
-.color {
-    background-color: #C0BFBD;
-    font-weight: bold;
 }

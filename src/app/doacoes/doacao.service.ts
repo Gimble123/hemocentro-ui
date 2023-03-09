@@ -20,6 +20,8 @@ export class DoacaoService {
   doacaoCadastroEtapa2: DoacaoCadastroEtapa2 | undefined
   doacaoCadastroEtapa3: DoacaoCadastroEtapa3 | undefined
 
+  editandoDoacao: boolean = false;
+
   constructor(private http: HttpClient) {
     this.doacoesUrl = `${environment.apiUrl}/doacoes`
   }
@@ -70,7 +72,7 @@ export class DoacaoService {
 
     let doacao = new Doacao()
     Object.assign(doacao, this.doacaoCadastroEtapa1, this.doacaoCadastroEtapa2, this.doacaoCadastroEtapa3)
-
+    console.log(this.doacoesUrl)
       return this.http.post<Doacao>(`${this.doacoesUrl}`, doacao)
       .toPromise()
       .then((doacao) => {
@@ -92,16 +94,18 @@ export class DoacaoService {
         Object.assign(this.doacaoCadastroEtapa2, response)
         Object.assign(this.doacaoCadastroEtapa3, response)
 
+        this.editandoDoacao = true;
+
         return response;
       });
   }
 
-  setStep2(step2: DoacaoCadastroEtapa2) {
-    this.doacaoCadastroEtapa2 = step2
-  }
-
   setStep1(step1: DoacaoCadastroEtapa1) {
     this.doacaoCadastroEtapa1 = step1
+  }
+
+  setStep2(step2: DoacaoCadastroEtapa2) {
+    this.doacaoCadastroEtapa2 = step2
   }
 
   setStep3(step3: DoacaoCadastroEtapa3) {
@@ -124,6 +128,7 @@ export class DoacaoService {
     this.doacaoCadastroEtapa1 = undefined
     this.doacaoCadastroEtapa2 = undefined
     this.doacaoCadastroEtapa3 = undefined
+    this.editandoDoacao = false;
   }
 
 }

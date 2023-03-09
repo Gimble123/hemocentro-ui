@@ -15,32 +15,32 @@ export class DoacaoCadastroStep2Component implements OnInit {
 
   formulario!: FormGroup;
 
+  editando: boolean = false
+
   constructor(
     private doacaoService: DoacaoService,
     private route: ActivatedRoute,
     private router: Router,
     private formBuilder: FormBuilder,
     private title: Title
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     this.title.setTitle('Cadastro de doações')
     this.configurarFormulario();
 
     const doacaoId = this.route.snapshot.params['doacaoId'];
+    console.log('DoaçãoId 2: ', doacaoId)
     if (doacaoId) {
+      this.editando = true
       this.doacaoService.buscarPorCodigoSteps(doacaoId)
-        .then(() => {
+        .then((doacao) => {
           this.preencherDoacao()
         })
     } else {
       this.preencherDoacao()
     }
 
-  }
-
-  get editando() {
-    return Boolean(this.formulario.get('doacaoId')?.value)
   }
 
   preencherDoacao() {
@@ -66,16 +66,12 @@ export class DoacaoCadastroStep2Component implements OnInit {
   }
 
   salvar() {
-    this.doacaoService.setStep1(this.formulario.value)
+    this.doacaoService.setStep2(this.formulario.value)
     this.router.navigate(['doacoes/doacao-container/doacao-cadastro-step3'])
   }
 
   voltar() {
     this.router.navigate(['doacoes/doacao-container/doacao-cadastro-step1'])
-  }
-
-  atualizarTituloEdicao() {
-    this.title.setTitle(`Edição de doação`);
   }
 
 }

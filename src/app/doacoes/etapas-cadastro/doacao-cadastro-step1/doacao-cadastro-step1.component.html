@@ -1,73 +1,70 @@
 <div class="container">
 
     <div class="grid">
-        <div class="col-12 relative">
-            <h2 class="titles">{{ editando ? 'Edição de' : 'Nova' }} Doação</h2>
-        </div>
+
+        <form autocomplete="off" (ngSubmit)="salvar()" [formGroup]="formulario">
+
+
+            <div class="left">
+
+                <div class="col-12 md:col-6 p-fluid">
+                    <label class="espacamento">N° da Bolsa: </label>
+                    <input placeholder="Ex: 435" pInputText type="text" name="numeroDaBolsa" formControlName="numeroDaBolsa" [required]="true">
+                    <app-message [control]="formulario.get('numeroDaBolsa')" error="required" text="Informe o número da bolsa"></app-message>
+                </div>
+
+                <div class="col-12 md:col-6 p-fluid">
+                    <label class="espacamento">Hora: </label>
+                    <p-inputMask mask="99:99:99" [required]="true" placeholder="Ex: 12:03:45" name="hora" formControlName="hora"></p-inputMask>
+                    <app-message [control]="formulario.get('hora')" error="required" text="Informe a hora"></app-message>
+                </div>
+
+                <div class="col-12 md:col-6 p-fluid">
+                    <label class="espacamento">Pulso: </label>
+                    <input placeholder="Ex: 120/80 mmHg" pInputText type="text" name="pulso" formControlName="pulso" [required]="true">
+
+                    <app-message [control]="formulario.get('pulso')" error="required" text="Informe o pulso"></app-message>
+                </div>
+
+                <div class="col-12 md:col-6 p-fluid">
+                    <label class="espacamento">Hematócrito: </label>
+                    <input placeholder="Ex: 45%" pInputText type="text" name="hematocrito" formControlName="hematocrito" [required]="true">
+                    <app-message [control]="formulario.get('hematocrito')" error="required" text="Informe o hematócrito"></app-message>
+                </div>
+
+            </div>
+
+            <div class="right">
+                <div class="col-12 md:col-6 p-fluid">
+                    <label class="espacamento">Volume a ser coletado: </label>
+                    <input placeholder="Ex: 400 ml" pInputText type="text" name="volumeASerColetado" formControlName="volumeASerColetado" [required]="true">
+                    <app-message [control]="formulario.get('volumeASerColetado')" error="required" text="Informe o volume a ser coletado"></app-message>
+                </div>
+
+                <div class="col-12 md:col-6 p-fluid">
+                    <label class="espacamento">Antígeno Austrália (Hbs-Ag): </label>
+                    <input placeholder="Ex: Negativo" pInputText type="text" name="hbsAg" formControlName="hbsAg" [required]="true">
+                    <app-message [control]="formulario.get('hbsAg')" error="required" text="Informe o resultado"></app-message>
+                </div>
+
+                <div class="col-12 md:col-6 p-fluid">
+                    <label class="espacamento">N° do NAT: </label>
+                    <input placeholder="Ex: 65789" pInputText type="text" name="numeroDoNat" formControlName="numeroDoNat" [required]="true">
+                    <app-message [control]="formulario.get('numeroDoNat')" error="required" text="Informe o número do NAT"></app-message>
+                </div>
+
+                <div class="col-12 md:col-6 p-fluid">
+                    <label class="espacamento">Peso: </label>
+                    <input placeholder="Ex: 70kg" pInputText type="text" name="peso" formControlName="peso" [required]="true">
+                    <app-message [control]="formulario.get('peso')" error="required" text="Informe o peso"></app-message>
+                </div>
+
+            </div>
+            <div class="col-12 buttom">
+                <button pButton type="button" class="color disabled-hover" routerLink="/doacoes" label="Voltar"></button>
+                <button pButton type="submit" class="button-danger" [disabled]="formulario.invalid" label="Próximo"></button>
+            </div>
+
+        </form>
     </div>
-
-    <form autocomplete="off" (ngSubmit)="salvar()" [formGroup]="formulario">
-
-
-        <div class="left">
-
-            <div class="col-12 md:col-6 p-fluid">
-                <label class="espacamento">N° da Bolsa: </label>
-                <input placeholder="Ex: 435" pInputText type="text" name="numeroDaBolsa" formControlName="numeroDaBolsa" [required]="true">
-                <app-message [control]="formulario.get('numeroDaBolsa')" error="required" text="Informe o número da bolsa"></app-message>
-            </div>
-
-            <div class="col-12 md:col-6 p-fluid">
-                <label class="espacamento">Hora: </label>
-                <p-inputMask mask="99:99:99" [required]="true" placeholder="Ex: 12:03:45" name="hora" formControlName="hora"></p-inputMask>
-                <app-message [control]="formulario.get('hora')" error="required" text="Informe a hora"></app-message>
-            </div>
-
-            <div class="col-12 md:col-6 p-fluid">
-                <label class="espacamento">Pulso: </label>
-                <input placeholder="Ex: 120/80 mmHg" pInputText type="text" name="pulso" formControlName="pulso" [required]="true">
-
-                <app-message [control]="formulario.get('pulso')" error="required" text="Informe o pulso"></app-message>
-            </div>
-
-            <div class="col-12 md:col-6 p-fluid">
-                <label class="espacamento">Hematócrito: </label>
-                <input placeholder="Ex: 45%" pInputText type="text" name="hematocrito" formControlName="hematocrito" [required]="true">
-                <app-message [control]="formulario.get('hematocrito')" error="required" text="Informe o hematócrito"></app-message>
-            </div>
-
-        </div>
-
-        <div class="right">
-            <div class="col-12 md:col-6 p-fluid">
-                <label class="espacamento">Volume a ser coletado: </label>
-                <input placeholder="Ex: 400 ml" pInputText type="text" name="volumeASerColetado" formControlName="volumeASerColetado" [required]="true">
-                <app-message [control]="formulario.get('volumeASerColetado')" error="required" text="Informe o volume a ser coletado"></app-message>
-            </div>
-
-            <div class="col-12 md:col-6 p-fluid">
-                <label class="espacamento">Antígeno Austrália (Hbs-Ag): </label>
-                <input placeholder="Ex: Negativo" pInputText type="text" name="hbsAg" formControlName="hbsAg" [required]="true">
-                <app-message [control]="formulario.get('hbsAg')" error="required" text="Informe o resultado"></app-message>
-            </div>
-
-            <div class="col-12 md:col-6 p-fluid">
-                <label class="espacamento">N° do NAT: </label>
-                <input placeholder="Ex: 65789" pInputText type="text" name="numeroDoNat" formControlName="numeroDoNat" [required]="true">
-                <app-message [control]="formulario.get('numeroDoNat')" error="required" text="Informe o número do NAT"></app-message>
-            </div>
-
-            <div class="col-12 md:col-6 p-fluid">
-                <label class="espacamento">Peso: </label>
-                <input placeholder="Ex: 70kg" pInputText type="text" name="peso" formControlName="peso" [required]="true">
-                <app-message [control]="formulario.get('peso')" error="required" text="Informe o peso"></app-message>
-            </div>
-
-        </div>
-        <div class="col-12 buttom">
-            <button pButton type="button" class="color disabled-hover" routerLink="/doacoes" label="Voltar"></button>
-            <button pButton type="submit" class="button-danger" [disabled]="formulario.invalid" label="Próximo"></button>
-        </div>
-
-    </form>
 </div>

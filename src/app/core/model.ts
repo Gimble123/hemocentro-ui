@@ -53,6 +53,14 @@ export class CampanhaUsuario {
   grupoSanguineoNome?: string;
 }
 
+export class Doacao {
+  doacaoId?: number;
+  hora?: Date;
+  nomePai?: string;
+  responsavelColeta?: string;
+  nomeUsuario?: string;
+}
+
 export class DoacaoCadastroEtapa1 {
   numeroDaBolsa?: String;
   hora?: String;
@@ -87,14 +95,6 @@ export class DoacaoCadastroEtapa3 {
 
 export class DoacaoCadastroEtapa4 {
   observacao?: String;
-}
-
-export class Doacao {
-  doacaoId?: number;
-  hora?: Date;
-  nomePai?: string;
-  responsavelColeta?: string;
-  nomeUsuario?: string;
 }
 
 export class Usuario {

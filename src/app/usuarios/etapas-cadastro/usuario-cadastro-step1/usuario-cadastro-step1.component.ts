@@ -15,21 +15,24 @@ export class UsuarioCadastroStep1Component implements OnInit {
 
   formulario!: FormGroup;
 
+  usuarioId!: number;
+
   constructor(
     private usuarioService: UsuarioService,
     private route: ActivatedRoute,
     private router: Router,
     private formBuilder: FormBuilder,
     private title: Title
-  ) { }
+  ) {
+    this.usuarioId = this.route.snapshot.params['id'];
+  }
 
   ngOnInit(): void {
     this.title.setTitle('Cadastro de usuários')
     this.configurarFormulario();
 
-    const idUsuario = this.route.snapshot.params['id'];
-    if (idUsuario) {
-      this.usuarioService.buscarPorCodigoSteps(idUsuario)
+    if (this.usuarioId) {
+      this.usuarioService.buscarPorCodigoSteps(this.usuarioId)
         .then(() => {
           this.preencherUsuario()
         })
@@ -40,7 +43,7 @@ export class UsuarioCadastroStep1Component implements OnInit {
   }
 
   get editando() {
-    return Boolean(this.formulario.get('id')?.value)
+    return Boolean(this.usuarioId)
   }
 
   preencherUsuario() {

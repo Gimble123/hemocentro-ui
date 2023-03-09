@@ -82,7 +82,7 @@ form {
 :host(app-doacao-cadastro-step3) {
     width: 100%;
     display: flow-root;
-    margin-top: 119px;
+    margin-top: -18px;
 }
 
 @media(max-width: 1280px) {

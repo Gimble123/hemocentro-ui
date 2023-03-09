@@ -1,11 +1,5 @@
 <div class="container">
 
-    <div class="grid">
-        <div class="col-12 relative">
-            <h2 class="titles">{{ editando ? 'Edição de' : 'Nova' }} Doação</h2>
-        </div>
-    </div>
-
     <form autocomplete="off" (ngSubmit)="salvar()" [formGroup]="formulario">
 
 
@@ -41,14 +35,14 @@
         <div class="right">
             <div class="col-12 md:col-6 p-fluid">
                 <label class="espacamento">Responsável pela coleta: </label>
-                <input placeholder="Ex: Maria" pInputText type="text" name="responsavelColeta" formControlName="responsavelColeta" [required]="true">
+                <input placeholder="" pInputText type="text" name="responsavelColeta" formControlName="responsavelColeta" [required]="true">
                 <app-message [control]="formulario.get('responsavelColeta')" error="required" text="Informe o responsável pela coleta"></app-message>
             </div>
 
-            <div class="col-12 md:col-6 p-fluid">
+            <div class="col-12 md:col-6 p-fluid" formGroupName="usuario">
                 <label class="espacamento">Doador: </label>
-                <input placeholder="Ex: Augusto" pInputText type="text" name="usuario" formControlName="usuario" [required]="true">
-                <app-message [control]="formulario.get('usuario')" error="required" text="Informe o nome do doador"></app-message>
+                <p-dropdown [options]="usuarios" placeholder="Selecione" name="usuario" [filter]="true" formControlName="id">
+                </p-dropdown>
             </div>
 
             <div class="col-12 md:col-6 p-fluid">

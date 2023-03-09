@@ -20,7 +20,6 @@ export class EstoqueAtualizacaoComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    console.log('Componente estoque atualização')
   }
 
 }
