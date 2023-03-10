@@ -39,8 +39,9 @@ a {
 .content-image {
     height: 100%;
     flex: 1 60%;
-    background: url("/assets/image-background.png") no-repeat;
-    background-size: cover;
+    background: url(/assets/image-background.png) no-repeat;
+    background-size: 80%;
+    background-color: #375e6d;
     background-position: center;
 }
 

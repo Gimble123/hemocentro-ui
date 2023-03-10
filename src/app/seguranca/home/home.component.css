@@ -7,13 +7,6 @@
     height: 100%;
 }
 
-
-/*.container {
-    display: flex;
-    flex: 1;
-    height: 100%;
-}*/
-
 @media (max-width: 821px) {
      :host(app-home) {
         background-size: 100%;
