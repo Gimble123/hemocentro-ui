@@ -70,7 +70,6 @@ export class UsuarioCadastroStep3Component implements OnInit {
       numero: [null, Validators.required]
     });
 
-    console.log('Formulário: ', this.formulario);
   }
 
   carregarGrupoSanguineoSemPaginacao() {
@@ -92,6 +91,7 @@ export class UsuarioCadastroStep3Component implements OnInit {
 
   salvar() {
     this.usuarioService.setStep3(this.formulario.value)
+
     this.usuarioService.adicionarStep()
       .then(() => {
         this.messageService.add({ severity: 'success', detail: 'Usuário adicionado com sucesso!' });

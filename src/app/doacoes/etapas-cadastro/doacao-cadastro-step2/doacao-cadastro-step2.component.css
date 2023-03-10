@@ -79,6 +79,10 @@ form {
     align-items: center;
 }
 
+.container {
+    margin-left: 174px;
+}
+
 :host(app-doacao-cadastro-step2) {
     width: 85%;
     display: flow-root;

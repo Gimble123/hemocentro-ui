@@ -123,6 +123,36 @@ export class Usuario {
   permissao = new Permissao();
 }
 
+export class UsuarioCadastroEtapa1 {
+  nome?: string;
+  email?: string;
+  cpf?: string;
+  dataNascimento?: Date;
+  estadoCivil?: string;
+  sexo?: string;
+  logradouro?: string;
+  cidade?: string;
+  telefone?: string;
+}
+
+export class UsuarioCadastroEtapa2 {
+  numeroDoacoesPrevias?: number;
+  profissao?: string;
+  bairro?: string;
+  cep?: string;
+  estado?: string;
+  cidade?: string;
+  cor?: string;
+  nacionalidade?: string;
+}
+
+export class UsuarioCadastroEtapa3 {
+  grupoSanguineoId?: string;
+  permissaoDescricao?: string;
+  escolaridade?: string;
+  numero?: string;
+}
+
 export class AgendamentoInput {
   agendamentoId?: number;
   dataAgendamento?: Date;
@@ -141,39 +171,6 @@ export class Solicitacao {
   dataSolicitacao?: Date;
   grupoSanguineo?: String;
   status?: string;
-}
-
-export class UsuarioCadastroEtapa1 {
-  id?: number;
-  nome?: string;
-  email?: string;
-  cpf?: string;
-  dataNascimento?: Date;
-  estadoCivil?: string;
-  sexo?: string;
-  logradouro?: string;
-  cidade?: string;
-  telefone?: string;
-}
-
-export class UsuarioCadastroEtapa2 {
-  id?: number;
-  numeroDoacoesPrevias?: number;
-  profissao?: string;
-  bairro?: string;
-  cep?: string;
-  estado?: string;
-  cidade?: string;
-  cor?: string;
-  nacionalidade?: string;
-}
-
-export class UsuarioCadastroEtapa3 {
-  id?: number;
-  grupoSanguineoId?: string;
-  permissaoDescricao?: string;
-  escolaridade?: string;
-  numero?: string;
 }
 
 export class Permissao {

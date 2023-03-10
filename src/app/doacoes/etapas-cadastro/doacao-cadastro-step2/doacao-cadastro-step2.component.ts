@@ -30,7 +30,7 @@ export class DoacaoCadastroStep2Component implements OnInit {
     this.configurarFormulario();
 
     const id = this.route.snapshot.params['id'];
-    console.log('DoaçãoId 2: ', id)
+
     if (id) {
       this.editando = true
       this.doacaoService.buscarPorCodigoSteps(id)

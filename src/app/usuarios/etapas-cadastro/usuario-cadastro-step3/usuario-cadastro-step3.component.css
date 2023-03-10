@@ -1,7 +1,6 @@
 .titles,
 .center {
     position: absolute;
-    margin-top: 12px;
     font-size: 25px;
     width: 100%;
     text-align: center;
@@ -78,10 +77,14 @@ form {
     align-items: center;
 }
 
+.container {
+    margin-left: 174px;
+}
+
 :host(app-usuario-cadastro-step3) {
     width: 85%;
     display: flow-root;
-    margin-top: 119px;
+    margin-top: -18px;
 }
 
 @media(max-width: 1280px) {

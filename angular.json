@@ -30,7 +30,7 @@
                             "src/styles.css"
                         ],
                         "scripts": [
-                            "src/app/core/navbar/navbar-mobile.js"
+                            "src/core/navbar/navbar-mobile.js"
                         ]
                     },
                     "configurations": {
@@ -103,9 +103,7 @@
                             "src/styles.css",
                             "src/reset.css"
                         ],
-                        "scripts": [
-                            "src/app/core/navbar/navbar-mobile.js"
-                        ]
+                        "scripts": []
                     }
                 }
             }

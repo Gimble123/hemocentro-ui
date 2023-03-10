@@ -8,7 +8,7 @@
                 </div>
 
                 <div class="col-12 p-fluid">
-                    <div>ProfissWão: </div>
+                    <div>Profissão: </div>
                     <input class="input-profissao" pInputText type="text" name="profissao" formControlName="profissao" placeholder="Informe a profissao" required>
                 </div>
 
@@ -24,8 +24,8 @@
 
                 <div class="col-12 p-fluid">
                     <div>Cep: </div>
-                    <p-inputMask mask="999.999.999-99" [required]="true" placeholder="Ex: 999.999.999-99" name="cpf" formControlName="cpf"></p-inputMask>
-                    <input class="input-cep" pInputText type="text" name="cep" formControlName="cep" placeholder="Informe o cep" required>
+                    <p-inputMask mask="99999-999" [required]="true" placeholder="Ex: 99999-999" name="cep" formControlName="cep"></p-inputMask>
+                    <app-message [control]="formulario.get('cep')" error="required" text="Informe o cep"></app-message>
                 </div>
 
                 <div class="col-12 p-fluid">

@@ -74,7 +74,6 @@ export class UsuarioService {
     let usuario = new Usuario()
     Object.assign(usuario, this.usuarioCadastroEtapa1, this.usuarioCadastroEtapa2, this.usuarioCadastroEtapa3)
 
-
       return this.http.post<Usuario>(`${this.usuariosUrl}/cadastro`, usuario)
       .toPromise()
       .then((usuario) => {

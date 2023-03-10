@@ -81,7 +81,6 @@ form {
 
 :host(app-grupo-sanguineo-cadastro) {
     width: 85%;
-    margin-left: 350px;
     display: block;
     padding: 10%;
 }

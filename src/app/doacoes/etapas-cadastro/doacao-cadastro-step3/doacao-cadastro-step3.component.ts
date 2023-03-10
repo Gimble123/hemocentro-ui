@@ -39,7 +39,6 @@ export class DoacaoCadastroStep3Component implements OnInit {
 
     const id = this.route.snapshot.params['id'];
     if (id) {
-      console.log('Doação id: ', id)
       this.editando = true
       this.doacaoService.buscarPorCodigoSteps(id)
         .then(() => {
@@ -85,7 +84,6 @@ export class DoacaoCadastroStep3Component implements OnInit {
   }
 
   salvar() {
-    console.log('salvar')
     this.doacaoService.setStep3(this.formulario.value)
     this.doacaoService.adicionarStep()
       .then(() => {

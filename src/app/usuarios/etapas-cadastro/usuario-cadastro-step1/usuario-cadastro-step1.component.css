@@ -78,10 +78,14 @@ form {
     align-items: center;
 }
 
+.container {
+    margin-left: 174px;
+}
+
 :host(app-usuario-cadastro-step1) {
     width: 85%;
     display: flow-root;
-    margin-top: 119px;
+    margin-top: -18px;
 }
 
 @media(max-width: 1280px) {
