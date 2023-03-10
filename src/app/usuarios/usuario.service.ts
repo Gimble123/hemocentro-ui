@@ -30,6 +30,7 @@ export class UsuarioService {
   }
 
   listarTodos(): Promise<any> {
+    console.log('Chamou')
     return this.http.get(`${this.usuariosUrl}` + '/listarDoadores').toPromise();
   }
 

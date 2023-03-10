@@ -35,6 +35,7 @@ export class DoacaoCadastroStep3Component implements OnInit {
 
   ngOnInit(): void {
     this.title.setTitle('Cadastro de doações')
+    this.carregarUsuarios();
     this.configurarFormulario();
 
     const id = this.route.snapshot.params['id'];
@@ -71,6 +72,8 @@ export class DoacaoCadastroStep3Component implements OnInit {
       }),
       volumeColetado: [null, Validators.required]
     });
+
+    console.log('this.formulario', this.formulario)
 
   }
 
