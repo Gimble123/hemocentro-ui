@@ -1,72 +1,69 @@
 <div class="container">
 
     <div class="grid">
-        <div class="col-12 relative">
-            <h2 class="titles">{{ editando ? 'Edição de' : 'Novo' }} Usuário</h2>
-        </div>
+
+        <form autocomplete="off" (ngSubmit)="salvar()" [formGroup]="formulario">
+
+
+            <div class="left">
+
+                <div class="col-12 md:col-6 p-fluid">
+                    <label class="espacamento">N° de doações prévias: </label>
+                    <input placeholder="Ex: 3" pInputText type="text" name="numeroDoacoesPrevias" formControlName="numeroDoacoesPrevias" [required]="true">
+                    <app-message [control]="formulario.get('numeroDoacoesPrevias')" error="required" text="Informe o número de doações"></app-message>
+                </div>
+
+                <div class="col-12 md:col-6 p-fluid">
+                    <label class="espacamento">Profissão: </label>
+                    <input placeholder="Ex: Advogado" pInputText type="text" name="profissao" formControlName="profissao" [required]="true">
+                    <app-message [control]="formulario.get('profissao')" error="required" text="Informe a profissão"></app-message>
+                </div>
+
+                <div class="col-12 md:col-6 p-fluid">
+                    <label class="espacamento">Bairro: </label>
+                    <input placeholder="Ex: Loteamento Vila Cruzeiro I" pInputText type="text" name="bairro" formControlName="bairro" [required]="true">
+                    <app-message [control]="formulario.get('bairro')" error="required" text="Informe o bairro"></app-message>
+                </div>
+
+                <div class="col-12 md:col-6 p-fluid">
+                    <label class="espacamento">Nacionalidade: </label>
+                    <input placeholder="Ex: Brasileiro" pInputText type="text" name="nacionalidade" formControlName="nacionalidade" [required]="true">
+                    <app-message [control]="formulario.get('nacionalidade')" error="required" text="Informe a nacionalidade"></app-message>
+                </div>
+
+            </div>
+
+            <div class="right">
+                <div class="col-12 md:col-6 p-fluid">
+                    <label class="espacamento">Estado: </label>
+                    <input placeholder="Ex: GO" pInputText type="text" name="estado" formControlName="estado" [required]="true">
+                    <app-message [control]="formulario.get('estado')" error="required" text="Informe o estado"></app-message>
+                </div>
+
+                <div class="col-12 md:col-6 p-fluid">
+                    <label class="espacamento">Cidade: </label>
+                    <input placeholder="Ex: Rio Pardo" pInputText type="text" name="cidade" formControlName="cidade" [required]="true">
+                    <app-message [control]="formulario.get('cidade')" error="required" text="Informe uma cidade"></app-message>
+                </div>
+
+                <div class="col-12 md:col-6 p-fluid">
+                    <label class="espacamento">Cor: </label>
+                    <input placeholder="Ex: Parda" pInputText type="text" name="cor" formControlName="cor" [required]="true">
+                    <app-message [control]="formulario.get('cor')" error="required" text="Informe a cor"></app-message>
+                </div>
+
+                <div class="col-12 md:col-6 p-fluid">
+                    <label class="espacamento">Cep: </label>
+                    <p-inputMask mask="99999-999" [required]="true" placeholder="Ex: 99999-999" name="cep" formControlName="cep"></p-inputMask>
+                    <app-message [control]="formulario.get('cep')" error="required" text="Informe o cep"></app-message>
+                </div>
+
+            </div>
+            <div class="col-12 buttom">
+                <button pButton type="button" class="color disabled-hover" (click)="voltar()" label="Voltar"></button>
+                <button pButton type="submit" class="button-danger" label="Próximo" [disabled]="formulario.invalid"></button>
+            </div>
+
+        </form>
     </div>
-
-    <form autocomplete="off" (ngSubmit)="salvar()" [formGroup]="formulario">
-
-
-        <div class="left">
-
-            <div class="col-12 md:col-6 p-fluid">
-                <label class="espacamento">N° de doações prévias: </label>
-                <input placeholder="Ex: 3" pInputText type="text" name="numeroDoacoesPrevias" formControlName="numeroDoacoesPrevias" [required]="true">
-                <app-message [control]="formulario.get('numeroDoacoesPrevias')" error="required" text="Informe o número de doações"></app-message>
-            </div>
-
-            <div class="col-12 md:col-6 p-fluid">
-                <label class="espacamento">Profissão: </label>
-                <input placeholder="Ex: Advogado" pInputText type="text" name="profissao" formControlName="profissao" [required]="true">
-                <app-message [control]="formulario.get('profissao')" error="required" text="Informe a profissão"></app-message>
-            </div>
-
-            <div class="col-12 md:col-6 p-fluid">
-                <label class="espacamento">Bairro: </label>
-                <input placeholder="Ex: Loteamento Vila Cruzeiro I" pInputText type="text" name="bairro" formControlName="bairro" [required]="true">
-                <app-message [control]="formulario.get('bairro')" error="required" text="Informe o bairro"></app-message>
-            </div>
-
-            <div class="col-12 md:col-6 p-fluid">
-                <label class="espacamento">Nacionalidade: </label>
-                <input placeholder="Ex: Brasileiro" pInputText type="text" name="nacionalidade" formControlName="nacionalidade" [required]="true">
-                <app-message [control]="formulario.get('nacionalidade')" error="required" text="Informe a nacionalidade"></app-message>
-            </div>
-
-        </div>
-
-        <div class="right">
-            <div class="col-12 md:col-6 p-fluid">
-                <label class="espacamento">Estado: </label>
-                <input placeholder="Ex: GO" pInputText type="text" name="estado" formControlName="estado" [required]="true">
-                <app-message [control]="formulario.get('estado')" error="required" text="Informe o estado"></app-message>
-            </div>
-
-            <div class="col-12 md:col-6 p-fluid">
-                <label class="espacamento">Cidade: </label>
-                <input placeholder="Ex: Rio Pardo" pInputText type="text" name="cidade" formControlName="cidade" [required]="true">
-                <app-message [control]="formulario.get('cidade')" error="required" text="Informe uma cidade"></app-message>
-            </div>
-
-            <div class="col-12 md:col-6 p-fluid">
-                <label class="espacamento">Cor: </label>
-                <input placeholder="Ex: Parda" pInputText type="text" name="cor" formControlName="cor" [required]="true">
-                <app-message [control]="formulario.get('cor')" error="required" text="Informe a cor"></app-message>
-            </div>
-
-            <div class="col-12 md:col-6 p-fluid">
-                <label class="espacamento">Cep: </label>
-                <p-inputMask mask="99999-999" [required]="true" placeholder="Ex: 99999-999" name="cep" formControlName="cep"></p-inputMask>
-                <app-message [control]="formulario.get('cep')" error="required" text="Informe o cep"></app-message>
-            </div>
-
-        </div>
-        <div class="col-12 buttom">
-            <button pButton type="button" class="color disabled-hover" (click)="voltar()" label="Voltar"></button>
-            <button pButton type="submit" class="button-danger" label="Próximo" [disabled]="formulario.invalid"></button>
-        </div>
-
-    </form>
 </div>

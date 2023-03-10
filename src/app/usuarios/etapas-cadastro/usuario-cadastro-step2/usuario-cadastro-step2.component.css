@@ -79,7 +79,7 @@ form {
 }
 
 :host(app-usuario-cadastro-step2) {
-    width: 100%;
+    width: 85%;
     display: flow-root;
     margin-top: 119px;
 }

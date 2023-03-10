@@ -2,3 +2,23 @@
     flex: 1;
     padding-right: 60px;
 }
+
+.titles,
+.center {
+    position: relative;
+    margin-top: 108px;
+    font-size: 25px;
+    width: 100%;
+    text-align: center;
+    font-weight: normal;
+}
+
+.relative {
+    position: relative;
+    top: -40px
+}
+
+.relative h2 {
+    top: inherit;
+    left: inherit
+}

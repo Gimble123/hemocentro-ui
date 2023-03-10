@@ -8,7 +8,6 @@
 
 :host(app-navbar) {
     display: flex;
-    width: 25%;
 }
 
 .navbar-menuitem a {
@@ -59,7 +58,6 @@ li {
     top: 0;
     bottom: 0;
     left: 0;
-    width: 100%;
     margin: 0;
     padding: 0;
     background-color: #CA0002;
@@ -145,42 +143,32 @@ li {
 }
 
 .navmob {
-
     cursor: pointer;
     display: none;
 }
 
 .navmob div {
-
     width: 32px;
     height: 2px;
     background: #f80000;
     margin: 8px;
 }
 
-
-@media (max-width: 821px){
-
-    
-    :host(app-navbar){
+@media (max-width: 821px) {
+     :host(app-navbar) {
         background-color: #375e6d;
         width: 20%;
     }
-    
-    .navbar{
-        
+    .navbar {
         width: 0;
         flex-direction: row;
         height: 10%;
         left: 5%;
     }
-    
-    .content-navbar-menu{
+    .content-navbar-menu {
         display: none;
     }
-
-    .navmob{
+    .navmob {
         display: block;
-        
     }
 }

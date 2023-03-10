@@ -11,21 +11,17 @@ export class UsuarioContainerComponent implements OnDestroy {
 
   items: MenuItem[] = [];
 
-  constructor(private usuarioService: UsuarioService) {
-
-    this.items = [{
-      routerLink: 'usuario-cadastro-step1'
-    },
-    {
-      routerLink: 'usuario-cadastro-step2'
-    },
-    {
-      routerLink: 'usuario-cadastro-step3'
-    }];
-  }
+  constructor(private usuarioService: UsuarioService) {}
 
   ngOnDestroy(): void {
     this.usuarioService.apagarSteps();
+  }
+
+  editandoUsuario(): string {
+    if (this.usuarioService.editandoUsuario)
+      return 'Atualização de usuário'
+
+    return 'Novo usuário'
   }
 
 }

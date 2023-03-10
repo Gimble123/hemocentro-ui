@@ -72,7 +72,8 @@ export class DoacaoService {
 
     let doacao = new Doacao()
     Object.assign(doacao, this.doacaoCadastroEtapa1, this.doacaoCadastroEtapa2, this.doacaoCadastroEtapa3)
-    console.log(this.doacoesUrl)
+    console.log('Doação: ', doacao)
+
       return this.http.post<Doacao>(`${this.doacoesUrl}`, doacao)
       .toPromise()
       .then((doacao) => {

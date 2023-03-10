@@ -21,7 +21,7 @@ const routes: Routes = [
         data: { roles: ['ROLE_ADMIN'] }
       },
       {
-        path: 'doacao-cadastro-step1/:doacaoId',
+        path: 'doacao-cadastro-step1/:id',
         component: DoacaoCadastroStep1Component,
         canActivate: [AuthGuard],
         data: { roles: ['ROLE_ADMIN'] }

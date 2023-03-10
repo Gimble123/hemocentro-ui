@@ -29,11 +29,11 @@ export class DoacaoCadastroStep2Component implements OnInit {
     this.title.setTitle('Cadastro de doações')
     this.configurarFormulario();
 
-    const doacaoId = this.route.snapshot.params['doacaoId'];
-    console.log('DoaçãoId 2: ', doacaoId)
-    if (doacaoId) {
+    const id = this.route.snapshot.params['id'];
+    console.log('DoaçãoId 2: ', id)
+    if (id) {
       this.editando = true
-      this.doacaoService.buscarPorCodigoSteps(doacaoId)
+      this.doacaoService.buscarPorCodigoSteps(id)
         .then((doacao) => {
           this.preencherDoacao()
         })
@@ -52,7 +52,7 @@ export class DoacaoCadastroStep2Component implements OnInit {
 
   configurarFormulario() {
     this.formulario = this.formBuilder.group({
-      doacaoId: [],
+      id: [],
       pressaoArterial: [null, Validators.required],
       temperatura: [null, Validators.required],
       hgs: [null, Validators.required],

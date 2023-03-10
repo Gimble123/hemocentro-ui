@@ -130,7 +130,7 @@ p-column-title {
 }
 
 :host(app-solicitacoes-pesquisa) {
-    width: 100%;
+    width: 85%;
     display: block;
     padding: 10%;
 }

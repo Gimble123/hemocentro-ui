@@ -1,45 +1,43 @@
 <div class="container">
 
     <div class="grid">
-        <div class="col-12 relative">
-            <h2 class="titles">{{ editando ? 'Edição de' : 'Novo' }} Usuário</h2>
-        </div>
+
+
+        <form autocomplete="off" (ngSubmit)="salvar()" [formGroup]="formulario">
+
+
+            <div class="left">
+                <div class="col-12 md:col-6 p-fluid">
+                    <label class="espacamento">Escolaridade: </label>
+                    <input placeholder="Ex: Ensino Superior Incompleto" pInputText type="text" name="escolaridade" formControlName="escolaridade" [required]="true">
+                    <app-message [control]="formulario.get('escolaridade')" error="required" text="Informe sua escolaridade"></app-message>
+                </div>
+
+                <div class="col-12 md:col-6 p-fluid">
+                    <label class="espacamento">Número: </label>
+                    <input placeholder="Ex: 113" pInputText type="text" name="numero" formControlName="numero" [required]="true">
+                    <app-message [control]="formulario.get('numero')" error="required" text="Informe o número"></app-message>
+                </div>
+            </div>
+
+            <div class="right">
+                <div class="col-12 md:col-6 p-fluid">
+                    <label class="espacamento">Tipo sanguíneo: </label>
+                    <p-dropdown [options]="grupoSanguineo" placeholder="Selecione" name="grupoSanguineoId" formControlName="grupoSanguineoId" [required]="true"></p-dropdown>
+                </div>
+
+                <div class="col-12 md:col-6 p-fluid">
+                    <label class="espacamento">Permissão: </label>
+                    <p-dropdown [options]="permissao" placeholder="Selecione" name="permissaoDescricao" formControlName="permissaoDescricao" [required]="true"></p-dropdown>
+                </div>
+
+            </div>
+
+            <div class="col-12 buttom">
+                <button pButton type="button" class="color disabled-hover" (click)="voltar()" label="Voltar"></button>
+                <button pButton type="submit" class="button-danger" [disabled]="formulario.invalid" label="Finalizar"></button>
+            </div>
+
+        </form>
     </div>
-
-    <form autocomplete="off" (ngSubmit)="salvar()" [formGroup]="formulario">
-
-
-        <div class="left">
-            <div class="col-12 md:col-6 p-fluid">
-                <label class="espacamento">Escolaridade: </label>
-                <input placeholder="Ex: Ensino Superior Incompleto" pInputText type="text" name="escolaridade" formControlName="escolaridade" [required]="true">
-                <app-message [control]="formulario.get('escolaridade')" error="required" text="Informe sua escolaridade"></app-message>
-            </div>
-
-            <div class="col-12 md:col-6 p-fluid">
-                <label class="espacamento">Número: </label>
-                <input placeholder="Ex: 113" pInputText type="text" name="numero" formControlName="numero" [required]="true">
-                <app-message [control]="formulario.get('numero')" error="required" text="Informe o número"></app-message>
-            </div>
-        </div>
-
-        <div class="right">
-            <div class="col-12 md:col-6 p-fluid">
-                <label class="espacamento">Tipo sanguíneo: </label>
-                <p-dropdown [options]="grupoSanguineo" placeholder="Selecione" name="grupoSanguineoId" formControlName="grupoSanguineoId" [required]="true"></p-dropdown>
-            </div>
-
-            <div class="col-12 md:col-6 p-fluid">
-                <label class="espacamento">Permissão: </label>
-                <p-dropdown [options]="permissao" placeholder="Selecione" name="permissaoDescricao" formControlName="permissaoDescricao" [required]="true"></p-dropdown>
-            </div>
-
-        </div>
-
-        <div class="col-12 buttom">
-            <button pButton type="button" class="color disabled-hover" (click)="voltar()" label="Voltar"></button>
-            <button pButton type="submit" class="button-danger" [disabled]="formulario.invalid" label="Finalizar"></button>
-        </div>
-
-    </form>
 </div>

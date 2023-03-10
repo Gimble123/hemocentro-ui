@@ -21,6 +21,8 @@ export class UsuarioService {
   usuarioCadastroEtapa2: UsuarioCadastroEtapa2 | undefined
   usuarioCadastroEtapa3: UsuarioCadastroEtapa3 | undefined
 
+  editandoUsuario: boolean = false;
+
   constructor(
     private http: HttpClient
   ) {
@@ -81,14 +83,6 @@ export class UsuarioService {
       });
   }
 
-  atualizar(usuario: Usuario): Promise<Usuario> {
-    return this.http.put<Usuario>(`${this.usuariosUrl}/${usuario.id}`, usuario)
-      .toPromise()
-      .then((response: any) => {
-        return response;
-      });
-  }
-
   buscarPorCodigoSteps(codigo: number): Promise<Usuario> {
     return this.http.get(`${this.usuariosUrl}/findUserByEdit/${codigo}`)
       .toPromise()
@@ -104,6 +98,8 @@ export class UsuarioService {
         Object.assign(this.usuarioCadastroEtapa1, response)
         Object.assign(this.usuarioCadastroEtapa2, response)
         Object.assign(this.usuarioCadastroEtapa3, response)
+
+        this.editandoUsuario = true;
 
         return response;
       });
@@ -137,6 +133,7 @@ export class UsuarioService {
     this.usuarioCadastroEtapa1 = undefined
     this.usuarioCadastroEtapa2 = undefined
     this.usuarioCadastroEtapa3 = undefined
+    this.editandoUsuario = false;
   }
 
 

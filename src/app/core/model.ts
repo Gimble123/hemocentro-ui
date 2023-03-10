@@ -54,7 +54,7 @@ export class CampanhaUsuario {
 }
 
 export class Doacao {
-  doacaoId?: number;
+  id?: number;
   hora?: Date;
   nomePai?: string;
   responsavelColeta?: string;

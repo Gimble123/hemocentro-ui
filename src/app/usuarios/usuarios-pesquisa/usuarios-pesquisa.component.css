@@ -106,7 +106,7 @@ p-column-title {
 }
 
 :host(app-usuarios-pesquisa) {
-    width: 100%;
+    width: 85%;
     display: block;
     padding: 10%;
 }

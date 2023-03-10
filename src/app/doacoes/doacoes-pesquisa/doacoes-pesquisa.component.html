@@ -20,7 +20,7 @@
                 <ng-template pTemplate="body" let-doacao>
                     <tr>
                         <td>
-                            <span class="p-column-title">ID</span> {{ doacao.doacaoId }}
+                            <span class="p-column-title">ID</span> {{ doacao.id }}
                         </td>
 
                         <td>
@@ -40,7 +40,7 @@
                         </td>
 
                         <td class="col-acoes">
-                            <button pButton icon="pi pi-pencil" pTooltip="Editar" [routerLink]="['/doacoes/doacao-container/doacao-cadastro-step1/', doacao.doacaoId]" tooltipPosition="top"></button>
+                            <button pButton icon="pi pi-pencil" pTooltip="Editar" [routerLink]="['/doacoes/doacao-container/doacao-cadastro-step1/', doacao.id]" tooltipPosition="top"></button>
                             <button pButton icon="pi pi-trash" pTooltip="Excluir" tooltipPosition="top"></button>
                         </td>
                     </tr>

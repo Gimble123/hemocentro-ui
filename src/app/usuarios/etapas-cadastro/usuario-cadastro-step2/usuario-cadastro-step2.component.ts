@@ -3,8 +3,6 @@ import { UsuarioService } from './../../usuario.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
-import { MessageService } from 'primeng/api';
-import { ErrorHandlerService } from 'src/app/core/error-handler.service';
 
 @Component({
   selector: 'app-usuario-cadastro-step2',
@@ -15,8 +13,11 @@ export class UsuarioCadastroStep2Component implements OnInit {
 
   formulario!: FormGroup;
 
+  editando: boolean = false
+
   constructor(
     private usuarioService: UsuarioService,
+    private route: ActivatedRoute,
     private router: Router,
     private formBuilder: FormBuilder,
     private title: Title
@@ -26,15 +27,18 @@ export class UsuarioCadastroStep2Component implements OnInit {
     this.title.setTitle('Cadastro de usuários')
     this.configurarFormulario();
 
-    const step2 = this.usuarioService.getStep2();
+    const id = this.route.snapshot.params['id'];
+    console.log('DoaçãoId 2: ', id)
+    if (id) {
+      this.editando = true
+      this.usuarioService.buscarPorCodigoSteps(id)
+        .then(() => {
+          this.preencherUsuario()
+        })
+    } else {
+      this.preencherUsuario()
+    }
 
-    if (step2)
-      this.formulario.patchValue(step2);
-
-  }
-
-  get editando() {
-    return Boolean(this.formulario.get('id')?.value)
   }
 
   preencherUsuario() {

@@ -1,9 +1,9 @@
 import { PermissaoService } from './../../../permissoes/permissao.service';
 import { GrupoSanguineoService } from '../../../grupos-sanguineos/grupo-sanguineo.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UsuarioService } from '../../usuario.service';
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 import { MessageService } from 'primeng/api';
 import { ErrorHandlerService } from 'src/app/core/error-handler.service';
@@ -20,11 +20,14 @@ export class UsuarioCadastroStep3Component implements OnInit {
   grupoSanguineo: any[] = [];
   permissao: any[] = [];
 
+  editando: boolean = false
+
   constructor(
     private usuarioService: UsuarioService,
     private grupoSanguineoService: GrupoSanguineoService,
     private permissaoService: PermissaoService,
     private messageService: MessageService,
+    private route: ActivatedRoute,
     private router: Router,
     private formBuilder: FormBuilder,
     private title: Title,
@@ -37,15 +40,24 @@ export class UsuarioCadastroStep3Component implements OnInit {
     this.carregarGrupoSanguineoSemPaginacao();
     this.carregarPermissoes();
 
-    const step3 = this.usuarioService.getStep3();
-
-    if (step3)
-      this.formulario.patchValue(step3);
+    const id = this.route.snapshot.params['id'];
+    if (id) {
+      this.editando = true
+      this.usuarioService.buscarPorCodigoSteps(id)
+        .then(() => {
+          this.preencherUsuario()
+        })
+    } else {
+      this.preencherUsuario()
+    }
 
   }
 
-  get editando() {
-    return Boolean(this.formulario.get('id')?.value)
+  preencherUsuario() {
+    const infoPrincipal = this.usuarioService.getStep3();
+    if (infoPrincipal) {
+      this.formulario.patchValue(infoPrincipal)
+    }
   }
 
   configurarFormulario() {

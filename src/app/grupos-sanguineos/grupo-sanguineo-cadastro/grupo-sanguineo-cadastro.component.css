@@ -80,7 +80,7 @@ form {
 }
 
 :host(app-grupo-sanguineo-cadastro) {
-    width: 100%;
+    width: 85%;
     margin-left: 350px;
     display: block;
     padding: 10%;
@@ -103,13 +103,6 @@ form {
 
 .relative {
     position: relative;
-}
-
-@media (min-width: 1200px) {
-    .container {
-        width: 1170px;
-        margin: 0 auto;
-    }
 }
 
 .pInputText {
