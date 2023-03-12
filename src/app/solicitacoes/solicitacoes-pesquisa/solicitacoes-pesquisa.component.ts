@@ -1,10 +1,9 @@
-import { SolicitacoesService } from './../solicitacoes.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Table } from 'primeng/table';
-import { SolicitacaoFiltro } from '../solicitacoes.service';
-import { ErrorHandlerService } from 'src/app/core/error-handler.service';
 import { Title } from '@angular/platform-browser';
 import { ConfirmationService, LazyLoadEvent, MessageService } from 'primeng/api';
+import { Table } from 'primeng/table';
+import { ErrorHandlerService } from 'src/app/core/error-handler.service';
+import { SolicitacaoFiltro, SolicitacoesService } from '../solicitacoes-service.service';
 
 @Component({
   selector: 'app-solicitacoes-pesquisa',

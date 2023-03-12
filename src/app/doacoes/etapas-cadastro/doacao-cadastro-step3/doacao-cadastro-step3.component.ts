@@ -70,11 +70,21 @@ export class DoacaoCadastroStep3Component implements OnInit {
         id: [null, Validators.required],
         nome: []
       }),
+
       volumeColetado: [null, Validators.required]
     });
 
     console.log('this.formulario', this.formulario)
 
+  }
+
+  carregarResponsaveis() {
+    this.usuarioService.listarTodosResponsaveisColeta()
+      .then(responsaveis => {
+        this.usuarios = responsaveis
+          .map((r: any) => ({ label: r.nome, value: r.id }));
+      })
+      .catch(erro => this.errorHandler.handle(erro));
   }
 
   carregarUsuarios() {

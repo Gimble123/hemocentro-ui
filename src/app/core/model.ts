@@ -83,6 +83,14 @@ export class DoacaoCadastroEtapa2 {
   hcvNat?: String;
 }
 
+export enum StatusEstoque {
+    Critico,
+    Baixo,
+    Razoavel,
+    Satisfatorio,
+    Excelente
+}
+
 export class DoacaoCadastroEtapa3 {
   htlv?: String;
   antiHbc?: String;
