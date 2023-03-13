@@ -28,8 +28,8 @@
                             <span class="p-column-title">Status</span> {{ agendamento.status }}
                         </td>
                         <td class="col-acoes">
-                            <button pButton icon="pi pi-pencil" pTooltip="Editar" tooltipPosition="top"></button>
-                            <button pButton icon="pi pi-trash" pTooltip="Excluir" tooltipPosition="top"></button>
+                            <button pButton icon="pi pi-pencil" pTooltip="Editar" [routerLink]="['/agendamentos', agendamento.agendamentoId]" tooltipPosition="top"></button>
+                            <button pButton icon="pi pi-trash" pTooltip="Excluir" tooltipPosition="top" (click)="confirmarExclusao(agendamento)"></button>
                         </td>
                     </tr>
                 </ng-template>

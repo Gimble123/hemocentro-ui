@@ -57,6 +57,7 @@ export class UsuarioCadastroStep3Component implements OnInit {
     const infoPrincipal = this.usuarioService.getStep3();
     if (infoPrincipal) {
       this.formulario.patchValue(infoPrincipal)
+      console.log('infoPrincipal', infoPrincipal)
     }
   }
 
@@ -65,7 +66,7 @@ export class UsuarioCadastroStep3Component implements OnInit {
     this.formulario = this.formBuilder.group({
       id: [],
       grupoSanguineoId: [null, Validators.required],
-      permissaoDescricao: [null, Validators.required],
+      permissaoId: [null, Validators.required],
       escolaridade: [null, Validators.required],
       numero: [null, Validators.required]
     });

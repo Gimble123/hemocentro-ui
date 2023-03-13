@@ -52,17 +52,18 @@ export class AgendamentosPesquisaComponent {
     this.pesquisar(pagina);
   }
 
-  confirmarExclusao(solicitacao: any) {
+  confirmarExclusao(agendamento: any) {
     this.confirmation.confirm({
       message: 'Tem certeza que deseja excluir?',
       accept: () => {
-        this.excluir(solicitacao);
+        this.excluir(agendamento);
       }
     });
   }
 
   excluir(agendamento: any) {
-    this.agendamentoService.excluir(agendamento.id)
+    console.log('Agendamento: ', agendamento)
+    this.agendamentoService.excluir(agendamento.agendamentoId)
       .then(() => {
         if (this.grid.first === 0) {
           this.pesquisar();

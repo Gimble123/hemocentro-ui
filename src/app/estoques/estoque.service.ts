@@ -33,9 +33,12 @@ export class EstoqueService {
       .append('Authorization', 'Basic YWRtaW5AYWxnYW1vbmV5LmNvbTphZG1pbg==')
       .append('Content-Type', 'application/json');
 
-    return this.http.put<Estoque[]>(`${this.estoquesUrl}`, estoques, { headers })
+    return this.http.post<Estoque[]>(`${this.estoquesUrl}`, estoques, { headers })
       .toPromise()
       .then((response: any) => {
+
+        console.log('Response atualização estoque: ', response)
+
         return response;
       });
   }

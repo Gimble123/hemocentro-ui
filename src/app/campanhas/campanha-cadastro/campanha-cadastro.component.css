@@ -79,7 +79,7 @@ form {
 }
 
 :host(app-campanha-cadastro) {
-    width: 100%;
+    width: 85%;
     display: block;
     padding: 10%;
 }

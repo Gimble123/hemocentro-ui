@@ -1,18 +1,18 @@
 <div class="container">
-    <form #estoqueForm="ngForm" autocomplete="off" (ngSubmit)="atualizarEstoques()"></form>
+    <form #estoquesForm="ngForm" autocomplete="off" (ngSubmit)="atualizarEstoques()">
 
-    <div class="grid">
-        <div class="col-12 relative">
-            <h2 class="titles">Atualização de Estoque</h2>
+        <div class="grid">
+            <div class="col-12 relative">
+                <h2 class="titles">Atualização de Estoque</h2>
+            </div>
+
+            <div class="col-12 md:col-3 p-fluid" *ngFor="let s of status">
+                <label>{{s.nomeGrupoSanguineo}}</label>
+                <p-dropdown [options]="allStatus" placeholder="{{s.status}}" name="s" [filter]="true" #estoque [(ngModel)]="estoque.id" [required]="true"></p-dropdown>
+            </div>
+
+            <button pButton type="submit" class="button-danger" label="Salvar"></button>
+
         </div>
-
-        <div class="col-12 md:col-3 p-fluid" *ngFor="let s of status">
-            <label>{{s.nomeGrupoSanguineo}}</label>
-            <p-dropdown [options]="allStatus" placeholder="{{s.status}}" name="status" [filter]="true" #status [required]="true"></p-dropdown>
-        </div>
-
-        <button pButton type="submit" class="button-danger" label="Salvar"></button>
-
-
-    </div>
+    </form>
 </div>
