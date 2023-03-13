@@ -40,14 +40,12 @@ export class EstoqueAtualizacaoComponent implements OnInit {
     return this.estoqueService.carregarStatus()
       .then(status => {
         this.status = status
-        console.log(status);
       })
 
       .catch(erro => this.errorHandler.handle(erro));
   }
 
   atualizarEstoques() {
-    console.log('Chamou o método atualizar do componente ',  this.estoque)
     this.estoqueService.atualizar(this.estoque)
       .then((estoque) => {
         this.estoque = estoque;

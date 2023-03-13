@@ -57,7 +57,6 @@ export class UsuarioCadastroStep3Component implements OnInit {
     const infoPrincipal = this.usuarioService.getStep3();
     if (infoPrincipal) {
       this.formulario.patchValue(infoPrincipal)
-      console.log('infoPrincipal', infoPrincipal)
     }
   }
 

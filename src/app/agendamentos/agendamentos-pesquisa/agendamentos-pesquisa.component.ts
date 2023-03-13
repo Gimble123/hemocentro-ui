@@ -62,7 +62,6 @@ export class AgendamentosPesquisaComponent {
   }
 
   excluir(agendamento: any) {
-    console.log('Agendamento: ', agendamento)
     this.agendamentoService.excluir(agendamento.agendamentoId)
       .then(() => {
         if (this.grid.first === 0) {

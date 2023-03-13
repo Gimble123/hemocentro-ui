@@ -74,8 +74,6 @@ export class DoacaoCadastroStep3Component implements OnInit {
       volumeColetado: [null, Validators.required]
     });
 
-    console.log('this.formulario', this.formulario)
-
   }
 
   carregarResponsaveis() {
