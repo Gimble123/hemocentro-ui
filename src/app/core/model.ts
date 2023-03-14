@@ -11,6 +11,7 @@ export class GrupoSanguineoInput {
 export class Estoque {
   id?: number;
   descricao?: string;
+  status?: string;
 }
 
 export class UsuarioInput {

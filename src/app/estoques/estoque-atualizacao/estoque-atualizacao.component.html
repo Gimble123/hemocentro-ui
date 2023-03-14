@@ -7,8 +7,9 @@
             </div>
 
             <div class="col-12 md:col-3 p-fluid" *ngFor="let s of status">
+                statusAtual: {{s.status}}
                 <label>{{s.nomeGrupoSanguineo}}</label>
-                <p-dropdown [options]="allStatus" placeholder="{{s.status}}" name="s" [filter]="true" #estoque [(ngModel)]="estoque.id" [required]="true"></p-dropdown>
+                <p-dropdown [options]="allStatus" placeholder="{{s.status}}" name="status" [filter]="true" #status [(ngModel)]="s.status" [required]="true"></p-dropdown>
             </div>
 
             <button pButton type="submit" class="button-danger" label="Salvar"></button>

@@ -75,13 +75,13 @@ td {
     vertical-align: center;
 }
 
-.button-nova-campanha,
 a,
 button {
     background: #F02323 !important;
     outline: none !important;
     box-shadow: none !important;
     text-decoration: none;
+    margin-left: 7px;
 }
 
 .titles {

@@ -11,7 +11,7 @@ import { MessageService } from 'primeng/api';
 export class EstoqueAtualizacaoComponent implements OnInit {
 
   allStatus: any[] = [];
-  estoque: any[] = [];
+  estoques: any[] = [];
   status: any[] = [];
 
   constructor(
@@ -40,15 +40,19 @@ export class EstoqueAtualizacaoComponent implements OnInit {
     return this.estoqueService.carregarStatus()
       .then(status => {
         this.status = status
+        console.log(status);
       })
 
       .catch(erro => this.errorHandler.handle(erro));
   }
 
   atualizarEstoques() {
-    this.estoqueService.atualizar(this.estoque)
+    console.log('Chamou o método atualizar do componente ',  this.estoques.map(e => {
+      e.status
+    }))
+    this.estoqueService.atualizar(this.estoques)
       .then((estoque) => {
-        this.estoque = estoque;
+        this.estoques = estoque;
         this.messageService.add({ severity: 'success', detail: 'Estoques atualizados com sucesso!' });
 
       })
