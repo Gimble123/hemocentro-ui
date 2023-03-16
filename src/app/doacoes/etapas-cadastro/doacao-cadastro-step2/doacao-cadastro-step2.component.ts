@@ -1,4 +1,4 @@
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
@@ -15,39 +15,25 @@ export class DoacaoCadastroStep2Component implements OnInit {
 
   formulario!: FormGroup;
 
-  editando: boolean = false
-
   constructor(
     private doacaoService: DoacaoService,
-    private route: ActivatedRoute,
     private router: Router,
     private formBuilder: FormBuilder,
     private title: Title
   ) {}
 
   ngOnInit(): void {
-    this.title.setTitle('Cadastro de doações')
     this.configurarFormulario();
 
-    const id = this.route.snapshot.params['id'];
+   const step2 = this.doacaoService.getStep2();
 
-    if (id) {
-      this.editando = true
-      this.doacaoService.buscarPorCodigoSteps(id)
-        .then((doacao) => {
-          this.preencherDoacao()
-        })
-    } else {
-      this.preencherDoacao()
-    }
+   if (step2)
+    this.formulario.patchValue(step2)
 
   }
 
-  preencherDoacao() {
-    const infoPrincipal = this.doacaoService.getStep2();
-    if (infoPrincipal) {
-      this.formulario.patchValue(infoPrincipal)
-    }
+  get editando() {
+    return Boolean(this.formulario.get('id')?.value)
   }
 
   configurarFormulario() {

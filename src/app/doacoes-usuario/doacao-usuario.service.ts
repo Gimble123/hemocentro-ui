@@ -47,6 +47,8 @@ export class DoacaoUsuarioService {
             total: response['totalElements']
           };
 
+          console.log('Doações: ', resultado)
+
           return resultado;
         });
     }

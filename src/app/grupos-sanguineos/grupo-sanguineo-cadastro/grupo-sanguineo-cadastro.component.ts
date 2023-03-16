@@ -14,6 +14,7 @@ import { Title } from '@angular/platform-browser';
 export class GrupoSanguineoCadastroComponent implements OnInit {
 
   grupoSanguineo = new GrupoSanguineo();
+  idGrupoSanguineo: number;
 
   constructor(
     private grupoSanguineoService: GrupoSanguineoService,
@@ -22,15 +23,17 @@ export class GrupoSanguineoCadastroComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private title: Title
-  ) {}
+  ) {
+    this.idGrupoSanguineo = this.route.snapshot.params['id'];
+  }
 
   ngOnInit() {
-    const idGrupoSanguineo = this.route.snapshot.params['id'];
+
 
     this.title.setTitle('Novo grupo sanguíneo');
 
-    if (idGrupoSanguineo && idGrupoSanguineo !== 'novo') {
-      this.carregarGrupoSanguineo(idGrupoSanguineo);
+    if (this.idGrupoSanguineo) {
+      this.carregarGrupoSanguineo(this.idGrupoSanguineo);
     }
   }
 
@@ -38,13 +41,14 @@ export class GrupoSanguineoCadastroComponent implements OnInit {
     this.grupoSanguineoService.buscarPorId(id)
       .then((grupo: GrupoSanguineo) => {
         this.grupoSanguineo = grupo
+
         this.atualizarTituloEdicao()
       })
       .catch((erro: any) => this.errorHandler.handle(erro));
   }
 
   get editando() {
-    return Boolean(this.grupoSanguineo.grupoSanguineoId)
+    return Boolean(this.idGrupoSanguineo)
   }
 
   salvar() {
@@ -66,18 +70,19 @@ export class GrupoSanguineoCadastroComponent implements OnInit {
   }
 
   atualizarGrupoSanguineo() {
+    console.log('Grupo Sanguineo Atualização: ', this.grupoSanguineo)
     this.grupoSanguineoService.atualizar(this.grupoSanguineo)
-      .then(grupoSanguineo => {
-        this.grupoSanguineo = grupoSanguineo;
+      .then(() => {
 
         this.messageService.add({ severity: 'success', detail: 'Grupo Sangíneo alterado com sucesso!' });
-        this.atualizarTituloEdicao();
+
+        this.router.navigate(['grupos-sanguineos']);
       })
       .catch(erro => this.errorHandler.handle(erro));
   }
 
   atualizarTituloEdicao() {
-    this.title.setTitle(`Edição de grupo sanguíneo: ${this.grupoSanguineo.nome}`);
+    this.title.setTitle(`Edição de grupo sanguíneo`);
   }
 
 }

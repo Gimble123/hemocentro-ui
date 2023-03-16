@@ -15,7 +15,6 @@ export class DoacaoCadastroStep1Component implements OnInit {
 
   formulario!: FormGroup;
 
-  editando: boolean = false
 
   constructor(
     private doacaoService: DoacaoService,
@@ -26,13 +25,11 @@ export class DoacaoCadastroStep1Component implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.title.setTitle('Cadastro de doações')
+
     this.configurarFormulario();
 
     const id = this.route.snapshot.params['id'];
-
     if (id) {
-      this.editando = true
       this.doacaoService.buscarPorCodigoSteps(id)
         .then((doacao) => {
           this.preencherDoacao()
@@ -41,6 +38,10 @@ export class DoacaoCadastroStep1Component implements OnInit {
       this.preencherDoacao()
     }
 
+  }
+
+  get editando() {
+    return Boolean(this.formulario.get('id')?.value)
   }
 
   preencherDoacao() {

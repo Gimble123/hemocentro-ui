@@ -1,7 +1,9 @@
+import { Estoque } from './../../core/model';
 import { Component, OnInit } from '@angular/core';
 import { EstoqueService } from '../estoque.service';
 import { ErrorHandlerService } from 'src/app/core/error-handler.service';
 import { MessageService } from 'primeng/api';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-estoque-atualizacao',
@@ -11,7 +13,7 @@ import { MessageService } from 'primeng/api';
 export class EstoqueAtualizacaoComponent implements OnInit {
 
   allStatus: any[] = [];
-  estoques: any[] = [];
+  estoques: Estoque[] = [];
   status: any[] = [];
 
   constructor(
@@ -40,10 +42,20 @@ export class EstoqueAtualizacaoComponent implements OnInit {
     return this.estoqueService.carregarStatus()
       .then(status => {
         this.status = status
-        console.log(status);
-      })
+        console.log("teste status", status)
 
+      })
       .catch(erro => this.errorHandler.handle(erro));
+  }
+
+  teste(event: any, index: any) {
+    for(let i = 0; i < this.status.length; i++) {
+      if(index == i) {
+        this.estoques.push(this.status[i]);
+      }
+
+    }
+
   }
 
   atualizarEstoques() {
@@ -52,6 +64,7 @@ export class EstoqueAtualizacaoComponent implements OnInit {
     }))
     this.estoqueService.atualizar(this.estoques)
       .then((estoque) => {
+        console.log('Estoque após chamar o método atualizar: ', estoque)
         this.estoques = estoque;
         this.messageService.add({ severity: 'success', detail: 'Estoques atualizados com sucesso!' });
 

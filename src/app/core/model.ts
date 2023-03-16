@@ -1,5 +1,5 @@
 export class GrupoSanguineo {
-  grupoSanguineoId?: number;
+  id?: number;
   nome?: string;
 }
 
@@ -10,7 +10,6 @@ export class GrupoSanguineoInput {
 
 export class Estoque {
   id?: number;
-  descricao?: string;
   status?: string;
 }
 
@@ -214,5 +213,3 @@ export class UsuarioFormStep3 {
   escolaridade?: string;
   cor?: string;
 }
-
-
