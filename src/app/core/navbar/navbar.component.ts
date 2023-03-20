@@ -12,7 +12,7 @@ import { ErrorHandlerService } from '../error-handler.service';
 
 export class NavbarComponent implements OnInit {
 
-  exibindoMenu: boolean = false;
+  isMenuOpen: boolean = false;
   usuarioLogado: string = ''
   menus: any[] = [];
 
@@ -25,6 +25,7 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {
     this.usuarioLogado = this.auth.jwtPayload?.nome;
     this.menus = this.auth.jwtPayload?.menus;
+
     this.transform(this.menus);
   }
 

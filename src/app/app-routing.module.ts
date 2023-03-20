@@ -1,15 +1,15 @@
-import { EstoqueAtualizacaoComponent } from './estoques/estoque-atualizacao/estoque-atualizacao.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { NaoAutorizadoComponent } from './core/nao-autorizado.component';
 
 import { PaginaNaoEncontradaComponent } from './core/pagina-nao-encontrada.component';
+import { RelatorioComponent } from './relatorios/relatorio.component';
 
 const routes: Routes = [
   { path: 'cadastro', loadChildren: () => import('../app/seguranca/seguranca.module').then(m => m.SegurancaModule) },
   { path: 'usuarios',  loadChildren: () => import('../app/usuarios/usuarios.module').then(u => u.UsuariosModule) },
   { path: 'doacoes',  loadChildren: () => import('../app/doacoes/doacoes.module').then(d => d.DoacoesModule) },
-  { path: 'estoques',  component: EstoqueAtualizacaoComponent},
+  { path: 'relatorios', component: RelatorioComponent},
   { path: 'login',  loadChildren: () => import('../app/seguranca/seguranca.module').then(s => s.SegurancaModule) },
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'nao-autorizado', component: NaoAutorizadoComponent },

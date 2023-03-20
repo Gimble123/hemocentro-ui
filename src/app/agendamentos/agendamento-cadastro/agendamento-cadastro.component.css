@@ -1,5 +1,8 @@
 .titles {
+    position: absolute;
+    top: -113px;
     font-size: 25px;
+    margin-top: -10px;
     width: 100%;
     text-align: center;
     font-weight: normal;
@@ -78,8 +81,7 @@ form {
 }
 
 :host(app-agendamento-cadastro) {
-    width: 100%;
-    margin-left: 350px;
+    width: 85%;
     display: block;
     padding: 10%;
 }

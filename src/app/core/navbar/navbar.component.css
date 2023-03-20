@@ -33,7 +33,8 @@ li {
 .fa-right-from-bracket,
 .fa-droplet,
 .fa-address-book,
-.fa-truck-droplet {
+.fa-truck-droplet,
+.fa-file-pdf {
     font-size: 25px;
     margin-right: 15px;
     color: white;
@@ -147,16 +148,16 @@ li {
     display: none;
 }
 
-.navmob div {
+
+/* .navmob div {
     width: 32px;
     height: 2px;
     background: #f80000;
     margin: 8px;
-}
+} */
 
 @media (max-width: 821px) {
      :host(app-navbar) {
-        background-color: #375e6d;
         width: 20%;
     }
     .navbar {
@@ -169,6 +170,14 @@ li {
         display: none;
     }
     .navmob {
+        display: none;
         display: block;
+        position: absolute;
+        top: 62px;
+        background: #fff;
+        width: 100%;
+    }
+    .pi-bars {
+        color: gray;
     }
 }

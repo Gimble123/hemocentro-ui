@@ -1,4 +1,4 @@
-import { EstoquesModule } from './estoques/estoques.module';
+import { RelatoriosModule } from './relatorios/relatorios.module';
 import { ProfileModule } from './profile/profile.module';
 import { HttpClientModule } from '@angular/common/http';
 import { DoacoesModule } from './doacoes/doacoes.module';
@@ -37,7 +37,7 @@ import { DoacoesUsuarioModule } from './doacoes-usuario/doacoes-usuario.module';
     SegurancaModule,
     AppRoutingModule,
     ProfileModule,
-    EstoquesModule
+    RelatoriosModule
 
   ],
   providers: [],

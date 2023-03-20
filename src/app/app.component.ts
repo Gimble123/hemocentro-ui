@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { PrimeNGConfig } from 'primeng/api';
@@ -14,10 +14,15 @@ export class AppComponent implements OnInit {
   constructor(
     private config: PrimeNGConfig,
     private translateService: TranslateService,
-    private router: Router
+    private router: Router,
+    private renderer2: Renderer2
   ) {}
 
   ngOnInit() {
+    const script = this.renderer2.createElement('script');
+    script.type = 'text/javascript';
+    script.src = './assets/navbar-mobile.js';
+    this.renderer2.appendChild(document.body, script);
     this.translateService.setDefaultLang('pt');
     this.translateService.get('primeng')
       .subscribe(res => this.config.setTranslation(res));

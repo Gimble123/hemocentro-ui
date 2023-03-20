@@ -1,0 +1,34 @@
+.titles {
+    position: absolute;
+    top: -113px;
+    font-size: 25px;
+    margin-top: -10px;
+    width: 100%;
+    text-align: center;
+    font-weight: normal;
+}
+
+.relative {
+    position: relative;
+}
+
+.grid {
+    top: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+}
+
+.container {
+    margin-top: 30px;
+}
+
+:host(app-relatorio) {
+    width: 85%;
+    display: block;
+    padding: 10%;
+}
+
+.remove-bold {
+    font-weight: normal;
+}

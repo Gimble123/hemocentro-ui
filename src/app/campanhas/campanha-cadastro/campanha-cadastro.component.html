@@ -8,24 +8,24 @@
 
         <form #campanhasForm="ngForm" autocomplete="off" (ngSubmit)="salvar()">
             <div class="left">
-                <div class="col-12 md:col-6 p-fluid">
+                <div class="col-12 md:col-6 sm:col-3 p-fluid">
                     <label class="espacamento">Nome da campanha: </label>
                     <input placeholder="Ex: Campanha de Natal - Grupo Sanguíneo A+" pInputText type="text" name="nome" [(ngModel)]="campanha.nome" #nome="ngModel" [required]="true">
                 </div>
 
-                <div class="col-12 md:col-6 p-fluid">
+                <div class="col-12 md:col-6 sm:col-3 p-fluid">
                     <label class="espacamento">De: </label>
                     <p-calendar name="inicial" name="dataInicial" dateFormat="dd/mm/yy" [inline]="false" [readonlyInput]="false" [showIcon]="false" [(ngModel)]="campanha.dataInicial" [required]="true"></p-calendar>
                 </div>
             </div>
 
             <div class="right">
-                <div class="col-12 md:col-6 p-fluid">
+                <div class="col-12 md:col-6 sm:col-3 p-fluid">
                     <label class="espacamento">Tipo sanguíneo: </label>
                     <p-dropdown [options]="grupoSanguineo" placeholder="Selecione" name="grupoSanguineo" [(ngModel)]="campanha.grupoSanguineo.id" #campanha.grupoSanguineo="ngModel" [required]="true"></p-dropdown>
                 </div>
 
-                <div class="col-12 md:col-6 p-fluid">
+                <div class="col-12 md:col-6 sm:col-3 p-fluid">
                     <label class="espacamento">Até: </label>
                     <p-calendar name="dataFinal" dateFormat="dd/mm/yy" [(ngModel)]="campanha.dataFinal" #dataFinal="ngModel" [required]="true"></p-calendar>
                 </div>

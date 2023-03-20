@@ -1,44 +1,40 @@
+<nav class="navbar">
+    <div class="content-navbar-menu">
+        <div class="content-search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="search" placeholder="Busca" class="search" />
+        </div>
+        <div class="navbar-usuario">
+            {{ usuarioLogado }}
+        </div>
+        <ul class="navbar-menu">
+            <li class="navbar-menuitem" routerLinkActive="ativo"> <i class="fa-solid fa-house"></i> <a routerLink="/home">Home</a></li>
+        </ul>
+        <ul class="navbar-menu" *ngFor="let m of menus">
+            <li class="navbar-menuitem" routerLinkActive="ativo"> <i class="{{ m.icon }}"></i> <a routerLink="../{{ m.url }}">{{ m.nome }}</a></li>
+        </ul>
 
-
-
-    <nav class="navbar">
-        <div class="content-navbar-menu">
-            <div class="content-search">
-                <i class="fa-solid fa-magnifying-glass"></i>
-                <input type="search" placeholder="Busca" class="search" />
-            </div>
-            <div class="navbar-usuario">
-                {{ usuarioLogado }}
-            </div>
-            <ul class="navbar-menu">
-                <li class="navbar-menuitem" routerLinkActive="ativo"> <i class="fa-solid fa-house"></i> <a routerLink="/home">Home</a></li>
-            </ul>
-            <ul class="navbar-menu" *ngFor="let m of menus">
-                <li class="navbar-menuitem" routerLinkActive="ativo"> <i class="{{ m.icon }}"></i> <a routerLink="../{{ m.url }}">{{ m.nome }}</a></li>
-            </ul>
-
-            <div class="logout">
-                <a href="javascript:;" (click)="logout()"><i class="fa-solid fa-right-from-bracket"></i> Sair</a>
-            </div>
-
-            
-    
-
+        <div class="logout">
+            <a href="javascript:;" (click)="logout()"><i class="fa-solid fa-right-from-bracket"></i> Sair</a>
         </div>
 
-        <div class="navmob">
 
-            <div class="line1"></div>
-            <div class="line2"></div>
-            <div class="line3"></div>
 
-        </div>
 
-        <!-- <div class="profile">
+    </div>
+
+    <div class="navmob">
+
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+
+    </div>
+
+    <!-- <div class="profile">
             <a routerLink="profile/profile-container"><i class="fa-solid fa-regular fa-user"></i>Perfil</a>
         </div> -->
 
-        
-    </nav>
-    <script type="text/javascript" src="navbar-mobile.js"></script>
 
+</nav>
+<script type="text/javascript" src="./assets/navbar-mobile.js"></script>
