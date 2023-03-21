@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/seguranca/auth.service';
 import { ErrorHandlerService } from '../error-handler.service';
@@ -12,8 +12,9 @@ import { ErrorHandlerService } from '../error-handler.service';
 
 export class NavbarComponent implements OnInit {
 
-  isMenuOpen: boolean = false;
-  usuarioLogado: string = ''
+  @ViewChild('menu') elementView: any;
+  usuarioLogado: string = '';
+  openmenu = false;
   menus: any[] = [];
 
   constructor(

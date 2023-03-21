@@ -148,36 +148,32 @@ li {
     display: none;
 }
 
-
-/* .navmob div {
-    width: 32px;
-    height: 2px;
-    background: #f80000;
-    margin: 8px;
-} */
-
 @media (max-width: 821px) {
-     :host(app-navbar) {
-        width: 20%;
-    }
-    .navbar {
-        width: 0;
-        flex-direction: row;
-        height: 10%;
-        left: 5%;
-    }
-    .content-navbar-menu {
-        display: none;
-    }
-    .navmob {
-        display: none;
+    .open-menu :host(app-navbar) {
         display: block;
-        position: absolute;
-        top: 62px;
-        background: #fff;
-        width: 100%;
+        position: fixed;
+        z-index: 2;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
     }
-    .pi-bars {
+    .open-menu .navbar {
+        width: 100%;
+        height: 100%;
+    }
+    .open-menu .pi-bars {
         color: gray;
+    }
+    .button-menu {
+        display: block;
+    }
+     :host(app-navbar) {
+        display: none;
+    }
+    .search,
+    .navbar-usuario,
+    .fa-magnifying-glass {
+        display: none;
     }
 }

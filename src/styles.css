@@ -85,7 +85,6 @@ video {
     font-size: 100%;
 }
 
-
 .p-datatable .p-datatable-thead>tr>th {
     text-align: center;
     padding: 1rem 1rem;
@@ -200,6 +199,12 @@ body {
     height: 100%;
 }
 
+.plix {
+    display: flex;
+    height: 100%;
+    flex: 1 1;
+}
+
 label {
     font-weight: bold;
 }
@@ -261,7 +266,6 @@ label {
     }
 }
 
-
 @media (max-width: 500px) {
      :host(app-campanhas-pesquisa) {
         zoom: 0.8;
@@ -313,9 +317,17 @@ label {
     }
 }
 
-@media (max-width: 821px){
-    .root{
+.button-menu {
+    display: none;
+}
+
+@media (max-width: 821px) {
+    .root {
         flex-direction: row-reverse;
     }
-
+    .button-menu {
+        display: block;
+        position: absolute;
+        z-index: 11;
+    }
 }

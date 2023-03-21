@@ -10,5 +10,6 @@
 @media (max-width: 821px) {
      :host(app-home) {
         background-size: 100%;
+        width: 100%;
     }
 }

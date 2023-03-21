@@ -152,3 +152,12 @@ p-column-title {
         font-weight: normal;
     }
 }
+
+@media(max-width: 821px) {
+    .open-menu :host(app-campanhas-pesquisa) {
+        background-color: green;
+    }
+    .titles {
+        display: none;
+    }
+}
