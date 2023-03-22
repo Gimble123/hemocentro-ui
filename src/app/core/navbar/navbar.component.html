@@ -13,10 +13,10 @@
         <ul class="navbar-menu" *ngFor="let m of menus">
             <li class="navbar-menuitem" routerLinkActive="ativo"> <i class="{{ m.icon }}"></i> <a routerLink="../{{ m.url }}">{{ m.nome }}</a></li>
         </ul>
-
-        <div class="logout">
-            <a href="javascript:;" (click)="logout()"><i class="fa-solid fa-right-from-bracket"></i> Sair</a>
-        </div>
+        <ul class="navbar-menu">
+            <div class="logout">
+                <a href="javascript:;" (click)="logout()"><i class="fa-solid fa-right-from-bracket"></i> Sair</a>
+            </div>
+        </ul>
     </div>
 </nav>
-<script type="text/javascript" src="./assets/navbar-mobile.js"></script>

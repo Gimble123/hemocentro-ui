@@ -148,7 +148,7 @@ li {
     display: none;
 }
 
-@media (max-width: 821px) {
+@media (max-width: 876px) {
     .open-menu :host(app-navbar) {
         display: block;
         position: fixed;
@@ -173,7 +173,15 @@ li {
     }
     .search,
     .navbar-usuario,
-    .fa-magnifying-glass {
+    .fa-magnifying-glass,
+    .content-search {
         display: none;
+    }
+    .content-navbar-menu {
+        margin-top: 55px;
+        width: 100%;
+    }
+    .logout {
+        bottom: 407px;
     }
 }
