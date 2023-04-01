@@ -57,20 +57,20 @@ export class CampanhaUsuario {
 export class Doacao {
   id?: number;
   hora?: Date;
-  nomePai?: string;
+  nomeMae?: string;
   responsavelColeta?: string;
   nomeUsuario?: string;
 }
 
 export class DoacaoCadastroEtapa1 {
-  numeroDaBolsa?: String;
+  dataDoacao?: Date;
   hora?: String;
-  pulso?: String;
-  hematocrito?: String;
-  volumeASerColetado?: String;
-  hbsAg?: String;
-  numeroDoNat?: String;
-  peso?: number;
+  usuario?: String;
+  tipoDoacao?: String;
+  tipoDoador?: String;
+  sexo?: String;
+  idadeUsuario?: Number;
+  grupoSanguineoId?: String;
 }
 
 export class DoacaoCadastroEtapa2 {
@@ -84,21 +84,12 @@ export class DoacaoCadastroEtapa2 {
   hcvNat?: String;
 }
 
-export enum StatusEstoque {
-    Critico,
-    Baixo,
-    Razoavel,
-    Satisfatorio,
-    Excelente
-}
-
 export class DoacaoCadastroEtapa3 {
   htlv?: String;
   antiHbc?: String;
   hbvNat?: String;
-  nomePai?: String;
+  nomeMae?: String;
   responsavelColeta?: String;
-  usuario?: String;
   volumeColetado?: String;
 }
 

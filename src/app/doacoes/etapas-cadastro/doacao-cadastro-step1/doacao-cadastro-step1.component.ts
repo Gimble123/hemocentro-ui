@@ -3,6 +3,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 import { DoacaoService } from '../../doacao.service';
+import { GrupoSanguineoService } from 'src/app/grupos-sanguineos/grupo-sanguineo.service';
+import { ErrorHandlerService } from 'src/app/core/error-handler.service';
+import { UsuarioService } from 'src/app/usuarios/usuario.service';
 
 @Component({
   selector: 'app-doacao-cadastro-step1',
@@ -15,23 +18,30 @@ export class DoacaoCadastroStep1Component implements OnInit {
 
   formulario!: FormGroup;
 
+  grupoSanguineo: any[] = [];
+
+  usuarios: any[] = []
 
   constructor(
     private doacaoService: DoacaoService,
+    private grupoSanguineoService: GrupoSanguineoService,
+    private usuarioService: UsuarioService,
     private route: ActivatedRoute,
     private router: Router,
     private formBuilder: FormBuilder,
-    private title: Title
+    private title: Title,
+    private errorHandler: ErrorHandlerService
   ) {}
 
   ngOnInit(): void {
-
+    this.carregarUsuarios();
+    this.carregarGrupoSanguineoSemPaginacao();
     this.configurarFormulario();
 
     const id = this.route.snapshot.params['id'];
     if (id) {
       this.doacaoService.buscarPorCodigoSteps(id)
-        .then((doacao) => {
+        .then(() => {
           this.preencherDoacao()
         })
     } else {
@@ -46,6 +56,7 @@ export class DoacaoCadastroStep1Component implements OnInit {
 
   preencherDoacao() {
     const infoPrincipal = this.doacaoService.getStep1();
+    console.log('Info principal: ', infoPrincipal);
     if (infoPrincipal) {
       this.formulario.patchValue(infoPrincipal)
     }
@@ -54,16 +65,33 @@ export class DoacaoCadastroStep1Component implements OnInit {
   configurarFormulario() {
     this.formulario = this.formBuilder.group({
       id: [],
-      numeroDaBolsa: [null, Validators.required],
+      dataDoacao: [null, Validators.required],
       hora: [null, Validators.required],
-      pulso: [null, Validators.required],
-      hematocrito: [null, Validators.required],
-      volumeASerColetado: [null, Validators.required],
-      hbsAg: [null, Validators.required],
-      numeroDoNat: [null, Validators.required],
-      peso: [null, Validators.required]
+      usuarioId: [null, Validators.required],
+      tipoDoacao: [null, Validators.required],
+      tipoDoador: [null, Validators.required],
+      sexoUsuario: [null, Validators.required],
+      idadeUsuario: [null, Validators.required],
+      grupoSanguineoId: [null, Validators.required]
     });
 
+  }
+
+  carregarUsuarios() {
+    this.usuarioService.listarTodos()
+      .then(usuarios => {
+        this.usuarios = usuarios
+          .map((u: any) => ({ label: u.nome, value: u.id }));
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
+
+  carregarGrupoSanguineoSemPaginacao() {
+    this.grupoSanguineoService.listarTodosSemPaginacao()
+      .then(grupoSanguineo => {
+        this.grupoSanguineo = grupoSanguineo.map((g: any) => ({ label: g.nome, value: g.id }));
+      })
+      .catch(erro => this.errorHandler.handle(erro));
   }
 
   salvar() {

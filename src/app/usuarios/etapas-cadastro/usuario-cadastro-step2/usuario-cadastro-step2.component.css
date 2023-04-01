@@ -1,22 +1,3 @@
-.titles,
-.center {
-    position: absolute;
-    font-size: 25px;
-    width: 100%;
-    text-align: center;
-    font-weight: normal;
-}
-
-.relative {
-    position: relative;
-    top: -40px
-}
-
-.relative h2 {
-    top: inherit;
-    left: inherit
-}
-
 .disabled-hover {
     position: relative;
     z-index: 1;
@@ -88,13 +69,6 @@ form {
 }
 
 @media(max-width: 1280px) {
-     :host(app-usuario-cadastro-step2) {
-        zoom: 0.6;
-        width: 100%;
-        display: block;
-        padding: 10%;
-        margin-top: 60px;
-    }
     .titles {
         position: absolute;
         margin-top: -40px;

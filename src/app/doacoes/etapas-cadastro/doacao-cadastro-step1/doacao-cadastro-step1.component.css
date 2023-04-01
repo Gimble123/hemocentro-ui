@@ -1,139 +1,137 @@
-.titles,
-.center {
-    position: absolute;
-    font-size: 25px;
-    width: 100%;
-    text-align: center;
-    font-weight: normal;
+.relative {
+  position: relative;
+  top: -40px
 }
 
-.relative {
-    position: relative;
-    top: -40px
+.color-red {
+  color: red;
+}
+
+.container {
+  margin-top: -110px;
 }
 
 .relative h2 {
-    top: inherit;
-    left: inherit
+  top: inherit;
+  left: inherit
 }
 
 .disabled-hover {
-    position: relative;
-    z-index: 1;
+  position: relative;
+  z-index: 1;
 }
 
 .disabled-hover,
 .p-button:hover {
-    background-color: #C0BFBD;
-}
-
-form {
-    display: flex;
-    flex: 1;
-    flex-wrap: wrap;
-    position: relative;
-    min-height: 600px;
+  background-color: #C0BFBD;
 }
 
 .left {
-    flex: 1;
-    margin-right: 20px;
+flex: 1;
 }
 
 .right {
-    flex: 1;
-    margin-left: 20px;
+flex: 1;
 }
 
 .buttom {
-    position: absolute;
-    bottom: 50px;
-    left: 0;
-    right: 0;
-    display: flex;
-    justify-content: space-between;
+position: absolute;
+bottom: 50px;
+left: 0;
+right: 0;
+display: flex;
+justify-content: space-between;
 }
 
 .buttom button {
-    width: 50%;
+width: 50%;
 }
 
 .buttom button:first-child {
-    margin-right: 25px;
+margin-right: 25px;
 }
 
 .buttom button:last-child {
-    margin-left: 25px;
+margin-left: 25px;
 }
 
 .col-12 {
-    width: 100%;
+width: 100%;
 }
 
 .grid {
-    top: 0;
-    bottom: 0;
-    display: flex;
-    align-items: center;
-}
-
-.container {
-    margin-left: 174px;
+top: 0;
+bottom: 0;
+display: flex;
+align-items: center;
 }
 
 :host(app-doacao-cadastro-step1) {
-    width: 85%;
-    display: flow-root;
-}
-
-@media(max-width: 1280px) {
-     :host(app-doacao-cadastro-step1) {
-        zoom: 0.6;
-        width: 100%;
-        display: block;
-        padding: 10%;
-        margin-top: 60px;
-    }
-    .titles {
-        position: absolute;
-        margin-top: -40px;
-        font-size: 25px;
-        width: 100%;
-        text-align: center;
-    }
-    .relative {
-        position: relative;
-    }
-    .center {
-        align-items: center;
-    }
-    .pInputText {
-        margin: 12px;
-    }
-    .espacamento {
-        margin-bottom: 15px;
-        display: block;
-    }
-    .color {
-        background-color: #C0BFBD;
-        font-weight: bold;
-    }
+width: 85%;
+display: block;
+padding: 10%;
 }
 
 .center {
-    align-items: center;
+  align-items: center;
 }
 
 .pInputText {
-    margin: 12px;
+  margin: 12px;
 }
 
 .espacamento {
-    margin-bottom: 15px;
-    display: block;
+  margin-bottom: 15px;
+  display: block;
 }
 
 .color {
-    background-color: #C0BFBD;
-    font-weight: bold;
+  background-color: #C0BFBD;
+  font-weight: bold;
+}
+
+@media(min-width: 1002px) {
+
+  form {
+      display: flex;
+      flex: 1;
+      flex-wrap: wrap;
+      position: relative;
+      min-height: 600px;
+  }
+
+  :host(app-doacao-cadastro-step1) {
+    width: 85%;
+    display: block;
+    padding: 10%;
+  }
+}
+
+@media(max-width: 1001px) {
+
+  body, .scrollbar {
+    overflow-y: scroll;
+  }
+
+  form, :host(app-doacao-cadastro-step1) {
+      flex: 1;
+      flex-wrap: wrap;
+      position: relative;
+      min-height: 600px;
+  }
+
+  :host(app-doacao-cadastro-step1) {
+    width: 85%;
+    display: block;
+    padding: 10%;
+  }
+
+  .left {
+    flex: 1;
+  }
+
+  .right {
+    flex: 1;
+  }
+
 }

@@ -1,9 +1,8 @@
 .titles {
-    top: -390px;
+    position: absolute;
     font-size: 25px;
     width: 100%;
     text-align: center;
-    left: 450px;
     font-weight: normal;
 }
 
@@ -85,21 +84,6 @@ form {
     padding: 10%;
 }
 
-@media(max-width: 1280px) {
-     :host(app-grupo-sanguineo-cadastro) {
-        zoom: 0.7;
-    }
-}
-
-.titles {
-    position: absolute;
-    top: -340px;
-    font-size: 25px;
-    width: 100%;
-    text-align: center;
-    left: 450px;
-}
-
 .relative {
     position: relative;
 }
@@ -138,9 +122,6 @@ form {
 }
 
 @media(max-width: 1280px) {
-     :host(app-grupo-sanguineo-cadastro) {
-        zoom: 0.6;
-    }
     .titles {
         position: absolute;
         top: -140px;
@@ -148,11 +129,5 @@ form {
         width: 100%;
         text-align: center;
         font-weight: normal;
-    }
-     :host(app-grupo-sanguineo-cadastro) {
-        width: 100%;
-        margin-left: -1355px;
-        display: block;
-        padding: 10%;
     }
 }

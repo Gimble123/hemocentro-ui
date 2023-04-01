@@ -110,12 +110,6 @@ p-column-title {
     padding: 10%;
 }
 
-@media(max-width: 1280px) {
-     :host(app-solicitacoes-pesquisa) {
-        zoom: 0.7;
-    }
-}
-
 p-table {
     max-height: 470px;
     display: block;

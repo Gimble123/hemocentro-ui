@@ -1,24 +1,3 @@
-.titles,
-.center {
-    position: absolute;
-    top: -390px;
-    font-size: 25px;
-    width: 100%;
-    text-align: center;
-    left: 450px;
-    font-weight: normal;
-}
-
-.relative {
-    position: relative;
-    top: -40px
-}
-
-.relative h2 {
-    top: inherit;
-    left: inherit
-}
-
 .disabled-hover {
     position: relative;
     z-index: 1;

@@ -8,26 +8,21 @@
             <div class="col-12 md:col-6 p-fluid">
                 <label class="espacamento">Htlv: </label>
                 <input placeholder="Ex: Positivo" pInputText type="text" name="htlv" formControlName="htlv" [required]="true">
-                <app-message [control]="formulario.get('htlv')" error="required" text="Informe o resultado"></app-message>
             </div>
 
             <div class="col-12 md:col-6 p-fluid">
                 <label class="espacamento">Anti hbc: </label>
                 <input placeholder="Ex: Positivo" pInputText type="text" name="antiHbc" formControlName="antiHbc" [required]="true">
-                <app-message [control]="formulario.get('antiHbc')" error="required" text="Informe o resultado"></app-message>
             </div>
 
             <div class="col-12 md:col-6 p-fluid">
                 <label class="espacamento">Hbv nat: </label>
                 <input placeholder="Ex: Positivo" pInputText type="text" name="hbvNat" formControlName="hbvNat" [required]="true">
-
-                <app-message [control]="formulario.get('hbvNat')" error="required" text="Informe o resultado"></app-message>
             </div>
 
             <div class="col-12 md:col-6 p-fluid">
-                <label class="espacamento">Nome do pai: </label>
-                <input placeholder="Ex: Claudio" pInputText type="text" name="nomePai" formControlName="nomePai" [required]="true">
-                <app-message [control]="formulario.get('nomePai')" error="required" text="Informe o nome do pai do doador"></app-message>
+                <label class="espacamento">Nome da mãe: </label>
+                <input placeholder="Ex: Beatriz" pInputText type="text" name="nomeMae" formControlName="nomeMae" [required]="true">
             </div>
 
         </div>
@@ -36,7 +31,6 @@
             <div class="col-12 md:col-6 p-fluid">
                 <label class="espacamento">Responsável pela coleta: </label>
                 <input placeholder="" pInputText type="text" name="responsavelColeta" formControlName="responsavelColeta" [required]="true">
-                <app-message [control]="formulario.get('responsavelColeta')" error="required" text="Informe o responsável pela coleta"></app-message>
             </div>
 
             <div class="col-12 md:col-6 p-fluid" formGroupName="usuario">
@@ -48,7 +42,6 @@
             <div class="col-12 md:col-6 p-fluid">
                 <label class="espacamento">Volume coletado: </label>
                 <input placeholder="Ex: 400ml" pInputText type="text" name="volumeColetado" formControlName="volumeColetado" [required]="true">
-                <app-message [control]="formulario.get('volumeColetado')" error="required" text="Informe o volume coletado"></app-message>
             </div>
 
         </div>

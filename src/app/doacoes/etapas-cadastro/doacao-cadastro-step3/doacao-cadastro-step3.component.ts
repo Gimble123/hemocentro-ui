@@ -29,7 +29,6 @@ export class DoacaoCadastroStep3Component implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.carregarUsuarios();
     this.configurarFormulario();
 
     const step3 = this.doacaoService.getStep3();
@@ -43,16 +42,21 @@ export class DoacaoCadastroStep3Component implements OnInit {
   configurarFormulario() {
     this.formulario = this.formBuilder.group({
       id: [],
-      htlv: [null, Validators.required],
-      antiHbc: [null, Validators.required],
-      hbvNat: [null, Validators.required],
-      nomePai: [null, Validators.required],
-      responsavelColeta: [null, Validators.required],
-      usuario: this.formBuilder.group({
-        id: [null, Validators.required],
-        nome: []
-      }),
-      volumeColetado: [null, Validators.required]
+      hgs: [null],
+      chagas: [null],
+      antiHiv: [null],
+      vdrl: [null],
+      hcv: [null],
+      hcvNat: [null],
+      htlv: [null],
+      antiHbc: [null]
+
+      /*hbvNat: [null],
+      nomeMae: [null],
+      responsavelColeta: [null],
+      volumeColetado: [null],
+      pressaoArterial: [null],
+      temperatura: [null]*/
     });
 
   }
@@ -70,21 +74,11 @@ export class DoacaoCadastroStep3Component implements OnInit {
       .catch(erro => this.errorHandler.handle(erro));
   }
 
-  carregarUsuarios() {
-    this.usuarioService.listarTodos()
-      .then(usuarios => {
-        this.usuarios = usuarios
-          .map((u: any) => ({ label: u.nome, value: u.id }));
-      })
-      .catch(erro => this.errorHandler.handle(erro));
-  }
-
   salvar() {
     this.doacaoService.setStep3(this.formulario.value)
     this.doacaoService.adicionarStep()
       .then(doacaoAdicionada => {
         if (this.editando) {
-          console.log('Editando')
           this.messageService.add({ severity: 'success', detail: 'Doação editada com sucesso!' });
           console.log(this.messageService)
         } else {

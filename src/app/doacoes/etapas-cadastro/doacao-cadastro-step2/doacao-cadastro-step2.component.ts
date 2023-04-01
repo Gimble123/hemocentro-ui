@@ -39,14 +39,13 @@ export class DoacaoCadastroStep2Component implements OnInit {
   configurarFormulario() {
     this.formulario = this.formBuilder.group({
       id: [],
-      pressaoArterial: [null, Validators.required],
-      temperatura: [null, Validators.required],
-      hgs: [null, Validators.required],
-      chagas: [null, Validators.required],
-      antiHiv: [null, Validators.required],
-      vdrl: [null, Validators.required],
-      hcv: [null, Validators.required],
-      hcvNat: [null, Validators.required]
+      pulso: [null],
+      numeroDaBolsa: [null],
+      hematocrito: [null],
+      volumeASerColetado: [null],
+      hbsAg: [null],
+      numeroDoNat: [null],
+      peso: [null]
     });
 
   }
