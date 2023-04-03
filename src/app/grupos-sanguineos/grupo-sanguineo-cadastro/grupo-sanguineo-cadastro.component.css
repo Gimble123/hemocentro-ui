@@ -121,13 +121,49 @@ form {
     width: 480px;
 }
 
-@media(max-width: 1280px) {
-    .titles {
-        position: absolute;
-        top: -140px;
-        font-size: 25px;
-        width: 100%;
-        text-align: center;
-        font-weight: normal;
-    }
+@media (max-width: 992px) {
+  :host(app-grupo-sanguineo-cadastro) {
+    display: block;
+    padding: 10%;
+    width: 100%;
+    position: absolute;
+    top: 120px;
+  }
+
+  form{
+    min-height: auto;
+  }
+
+  form .center{
+    width: 100%
+  }
+
+  .buttom {
+    bottom: 50px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.buttom{
+    width: 100%;
+    bottom: auto;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: initial;
+    position: relative;
+}
+
+.buttom .left{ margin: initial; flex: 0; }
+
+.buttom .left > button{ margin-left: 0; }
+
+.buttom .right {  margin: initial; }
+
+.buttom .right > button{ margin-left: 0; }
+
+
 }

@@ -74,6 +74,10 @@ li {
     background-color: #7c7c7a;
 }
 
+.content-navbar-menu {
+  min-width: 280px;
+}
+
 .content-navbar-menu li a {
     font-size: 16px;
 }
@@ -148,7 +152,7 @@ li {
     display: none;
 }
 
-@media (max-width: 876px) {
+@media (max-width: 992px) {
     .open-menu :host(app-navbar) {
         display: block;
         position: fixed;

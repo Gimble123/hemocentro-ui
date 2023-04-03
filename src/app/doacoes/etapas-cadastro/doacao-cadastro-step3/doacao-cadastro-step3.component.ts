@@ -49,14 +49,10 @@ export class DoacaoCadastroStep3Component implements OnInit {
       hcv: [null],
       hcvNat: [null],
       htlv: [null],
-      antiHbc: [null]
-
-      /*hbvNat: [null],
-      nomeMae: [null],
+      antiHbc: [null],
+      hbvNat: [null],
       responsavelColeta: [null],
-      volumeColetado: [null],
-      pressaoArterial: [null],
-      temperatura: [null]*/
+      volumeColetado: [null]
     });
 
   }
@@ -75,6 +71,7 @@ export class DoacaoCadastroStep3Component implements OnInit {
   }
 
   salvar() {
+    console.log('this.formulario.value', this.formulario.value)
     this.doacaoService.setStep3(this.formulario.value)
     this.doacaoService.adicionarStep()
       .then(doacaoAdicionada => {

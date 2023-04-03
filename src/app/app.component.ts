@@ -27,7 +27,7 @@ export class AppComponent implements OnInit {
 
 
   openMenu() {
-    if(this.elementView.nativeElement.clientWidth <= 876){
+    if(this.elementView.nativeElement.clientWidth <= 992){
       if(this.openmenu){
         this.openmenu = false
       }else{

@@ -45,7 +45,8 @@ export class DoacaoCadastroStep2Component implements OnInit {
       volumeASerColetado: [null],
       hbsAg: [null],
       numeroDoNat: [null],
-      peso: [null]
+      peso: [null],
+      nomeMae: [null]
     });
 
   }

@@ -5,54 +5,63 @@
 
         <div class="left">
 
-            <div class="col-12 md:col-6 p-fluid">
-                <label class="espacamento">Pressão arterial: </label>
-                <input placeholder="Ex: 120/80 mmHg" pInputText type="text" name="pressaoArterial" formControlName="pressaoArterial" [required]="true">
-            </div>
+          <div class="col-12 md:col-6 p-fluid">
+            <label class="espacamento">N° da Bolsa: </label>
+            <input placeholder="Ex: 435" pInputText type="text" name="numeroDaBolsa" formControlName="numeroDaBolsa">
+        </div>
 
-            <div class="col-12 md:col-6 p-fluid">
-                <label class="espacamento">Temperatura: </label>
-                <input placeholder="Ex: 37°" pInputText type="text" name="temperatura" formControlName="temperatura" [required]="true">
-            </div>
 
-            <div class="col-12 md:col-6 p-fluid">
-                <label class="espacamento">Hgs: </label>
-                <input placeholder="Ex: 4,7%" pInputText type="text" name="hgs" formControlName="hgs" [required]="true">
-            </div>
 
-            <div class="col-12 md:col-6 p-fluid">
-                <label class="espacamento">Chagas: </label>
-                <input placeholder="Positivo" pInputText type="text" name="chagas" formControlName="chagas" [required]="true">
-            </div>
+        <div class="col-12 md:col-6 p-fluid">
+            <label class="espacamento">Pulso: </label>
+            <input placeholder="Ex: 120/80 mmHg" pInputText type="text" name="pulso" formControlName="pulso">
 
         </div>
 
-        <div class="right">
-            <div class="col-12 md:col-6 p-fluid">
-                <label class="espacamento">Anti hiv: </label>
-                <input placeholder="Ex: Positivo" pInputText type="text" name="antiHiv" formControlName="antiHiv" [required]="true">
-            </div>
+        <div class="col-12 md:col-6 p-fluid">
+            <label class="espacamento">Hematócrito: </label>
+            <input placeholder="Ex: 45%" pInputText type="text" name="hematocrito" formControlName="hematocrito">
+        </div>
 
-            <div class="col-12 md:col-6 p-fluid">
-                <label class="espacamento">Vdrl: </label>
-                <input placeholder="Ex: Negativo" pInputText type="text" name="vdrl" formControlName="vdrl" [required]="true">
-            </div>
+        <div class="col-12 md:col-6 p-fluid">
+          <label class="espacamento">Nome da mãe: </label>
+          <input placeholder="Ex: Beatriz" pInputText type="text" name="nomeMae" formControlName="nomeMae" [required]="true">
+      </div>
 
-            <div class="col-12 md:col-6 p-fluid">
-                <label class="espacamento">Hcv: </label>
-                <input placeholder="Ex: 65789" pInputText type="text" name="hcv" formControlName="hcv" [required]="true">
-            </div>
+    </div>
 
-            <div class="col-12 md:col-6 p-fluid">
-                <label class="espacamento">HCV NAT: </label>
-                <input placeholder="Ex: Negativo" pInputText type="text" name="hcvNat" formControlName="hcvNat" [required]="true">
-            </div>
+    <div class="right">
+        <div class="col-12 md:col-6 p-fluid">
+            <label class="espacamento">Volume a ser coletado: </label>
+            <input placeholder="Ex: 400 ml" pInputText type="text" name="volumeASerColetado" formControlName="volumeASerColetado">
+        </div>
+
+        <div class="col-12 md:col-6 p-fluid">
+            <label class="espacamento">Antígeno Austrália (Hbs-Ag): </label>
+            <input placeholder="Ex: Negativo" pInputText type="text" name="hbsAg" formControlName="hbsAg">
+        </div>
+
+        <div class="col-12 md:col-6 p-fluid">
+            <label class="espacamento">N° do NAT: </label>
+            <input placeholder="Ex: 65789" pInputText type="text" name="numeroDoNat" formControlName="numeroDoNat">
 
         </div>
+
+        <div class="col-12 md:col-6 p-fluid">
+            <label class="espacamento">Peso: </label>
+            <input placeholder="Ex: 70kg" pInputText type="text" name="peso" formControlName="peso">
+        </div>
+    </div>
+
+
         <div class="col-12 buttom">
             <button pButton type="button" class="color disabled-hover" (click)="voltar()" label="Voltar"></button>
             <button pButton type="submit" class="button-danger" [disabled]="formulario.invalid" label="Próximo"></button>
         </div>
 
     </form>
+
+    <div class="col-12 md:col-6 p-fluid">
+      <label class="espacamento">Campos com * são obrigatórios</label>
+  </div>
 </div>

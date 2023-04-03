@@ -7,41 +7,32 @@
 
             <div class="col-12 md:col-6 p-fluid">
                 <label class="espacamento">Htlv: </label>
-                <input placeholder="Ex: Positivo" pInputText type="text" name="htlv" formControlName="htlv" [required]="true">
+                <input placeholder="Ex: Positivo" pInputText type="text" name="htlv" formControlName="htlv">
             </div>
 
             <div class="col-12 md:col-6 p-fluid">
                 <label class="espacamento">Anti hbc: </label>
-                <input placeholder="Ex: Positivo" pInputText type="text" name="antiHbc" formControlName="antiHbc" [required]="true">
+                <input placeholder="Ex: Positivo" pInputText type="text" name="antiHbc" formControlName="antiHbc">
             </div>
 
             <div class="col-12 md:col-6 p-fluid">
                 <label class="espacamento">Hbv nat: </label>
-                <input placeholder="Ex: Positivo" pInputText type="text" name="hbvNat" formControlName="hbvNat" [required]="true">
+                <input placeholder="Ex: Positivo" pInputText type="text" name="hbvNat" formControlName="hbvNat">
             </div>
 
-            <div class="col-12 md:col-6 p-fluid">
-                <label class="espacamento">Nome da mãe: </label>
-                <input placeholder="Ex: Beatriz" pInputText type="text" name="nomeMae" formControlName="nomeMae" [required]="true">
-            </div>
+
 
         </div>
 
         <div class="right">
             <div class="col-12 md:col-6 p-fluid">
                 <label class="espacamento">Responsável pela coleta: </label>
-                <input placeholder="" pInputText type="text" name="responsavelColeta" formControlName="responsavelColeta" [required]="true">
-            </div>
-
-            <div class="col-12 md:col-6 p-fluid" formGroupName="usuario">
-                <label class="espacamento">Doador: </label>
-                <p-dropdown [options]="usuarios" placeholder="Selecione" name="usuario" [filter]="true" formControlName="id">
-                </p-dropdown>
+                <input placeholder="" pInputText type="text" name="responsavelColeta" formControlName="responsavelColeta">
             </div>
 
             <div class="col-12 md:col-6 p-fluid">
                 <label class="espacamento">Volume coletado: </label>
-                <input placeholder="Ex: 400ml" pInputText type="text" name="volumeColetado" formControlName="volumeColetado" [required]="true">
+                <input placeholder="Ex: 400ml" pInputText type="text" name="volumeColetado" formControlName="volumeColetado">
             </div>
 
         </div>

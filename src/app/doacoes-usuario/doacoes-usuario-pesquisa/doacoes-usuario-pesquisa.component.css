@@ -39,31 +39,6 @@ label {
     margin-right: 5px;
 }
 
-@media (min-width: 40em) {
-    .col-valor-header {
-        width: 120px;
-    }
-    .col-valor {
-        text-align: right !important;
-    }
-    .col-data-header {
-        width: 120px;
-    }
-    .col-data {
-        text-align: center !important;
-    }
-    .col-acoes-header {
-        width: 115px;
-    }
-    .col-acoes {
-        width: 115px;
-        text-align: center !important;
-    }
-    .col-acoes .p-button {
-        margin: 1px;
-    }
-}
-
 td {
     text-align: center;
     vertical-align: center;
@@ -114,7 +89,6 @@ p-column-title {
 .p-datatable-table {
     border: 1px solid red;
     width: 100% !important;
-    /*Importante manter o !important rs */
     margin: auto;
 }
 
@@ -135,49 +109,38 @@ p-column-title {
     padding: 10%;
 }
 
-@media(max-width: 1280px) {
-     :host(app-doacoes-usuario-pesquisa) {
-        zoom: 0.6;
-        width: 100%;
-        display: block;
-        padding: 10%;
-    }
-    .titles {
-        position: absolute;
-        top: -132px;
-        font-size: 25px;
-        width: 100%;
-        text-align: center;
-        font-weight: normal;
-    }
-}
-
 @media (max-width: 992px) {
-     :host(app-doacoes-usuario-pesquisa) {
-        zoom: 0.6;
-    }
-    .p-datatable-table thead {
-        display: none !important;
-    }
-    tr,
-    th {
-        display: flex;
-        flex-direction: column;
-    }
-    .col-data-header {
-        width: 120px;
-    }
-    .col-data {
-        text-align: center !important;
-    }
-    .col-acoes-header {
-        width: 115px;
-    }
-    .col-acoes {
-        width: 115px;
-        text-align: center !important;
-    }
-    .col-acoes .p-button {
-        margin: 1px;
-    }
+  :host(app-doacoes-usuario-pesquisa) {
+    display: block;
+    padding: 10%;
+    width: 100%;
+    position: absolute;
+    top: 120px;
+  }
+
+  .col-valor-header {
+    width: 120px;
+  }
+
+  .col-valor {
+    text-align: right !important;
+  }
+
+  .col-data-header {
+    width: 120px;
+  }
+
+  .col-data {
+    text-align: center !important;
+  }
+
+  .col-acoes-header {
+    width: 120px;
+  }
+
+  .col-acoes {
+    width: 120px;
+    text-align: center !important;
+  }
+
 }

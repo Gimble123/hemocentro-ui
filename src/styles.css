@@ -221,7 +221,7 @@ label {
     display: none;
 }
 
-@media (max-width: 876px) {
+@media (max-width: 992px) {
     .root {
         flex-direction: row-reverse;
     }
@@ -230,4 +230,8 @@ label {
         position: absolute;
         z-index: 11;
     }
+
+    body {
+      overflow: auto;
+  }
 }
