@@ -7,10 +7,11 @@ import { ErrorHandlerService } from './error-handler.service';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { Title } from '@angular/platform-browser';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { RelatoriosService } from '../relatorios/relatorios.service';
 import { RouterModule } from '@angular/router';
 import { ToastModule } from 'primeng/toast';
 import { HttpClient } from '@angular/common/http';
-import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { AuthService } from './../seguranca/auth.service';
 
@@ -48,6 +49,7 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     DatePipe,
     ErrorHandlerService,
     AuthService,
+    RelatoriosService,
 
     MessageService,
     ConfirmationService,
