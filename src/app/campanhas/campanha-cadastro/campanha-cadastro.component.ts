@@ -57,8 +57,6 @@ export class CampanhaCadastroComponent implements OnInit {
       .then((campanha: Campanha) => {
           this.campanha = campanha
 
-          console.log('Campanha ksksd: ', this.campanha);
-
           var dataInicial = new Date(campanha.dataInicial!);
               dataInicial.setDate(dataInicial.getDate() + 1)
 

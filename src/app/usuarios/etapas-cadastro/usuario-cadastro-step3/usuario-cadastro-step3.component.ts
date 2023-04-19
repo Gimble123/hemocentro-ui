@@ -94,7 +94,6 @@ export class UsuarioCadastroStep3Component implements OnInit {
 
     this.usuarioService.adicionarStep()
       .then(() => {
-        console.log(this.formulario.value)
         this.messageService.add({ severity: 'success', detail: 'Usuário adicionado com sucesso!' });
 
         this.router.navigate(['/usuarios'])

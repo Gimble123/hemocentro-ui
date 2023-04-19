@@ -22,22 +22,6 @@ export function tokenGetter(): string {
 }
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    JwtModule.forRoot({
-      config: {
-        tokenGetter,
-        allowedDomains: environment.tokenAllowedDomains,
-        disallowedRoutes: environment.tokenDisallowedRoutes
-      }
-    }),
-    InputTextModule,
-    CoreModule,
-    SegurancaRoutingModule,
-    StepsModule,
-    EtapasFormModule
-  ],
   declarations: [
     FormLoginComponent,
     HomeComponent,
@@ -45,6 +29,25 @@ export function tokenGetter(): string {
 
     FormCadastroContainerComponent
   ],
+  imports: [
+    CommonModule,
+    FormsModule,
+
+    JwtModule.forRoot({
+      config: {
+        tokenGetter,
+        allowedDomains: environment.tokenAllowedDomains,
+        disallowedRoutes: environment.tokenDisallowedRoutes
+      }
+    }),
+
+    InputTextModule,
+    CoreModule,
+    SegurancaRoutingModule,
+    StepsModule,
+    EtapasFormModule
+  ],
+
   providers: [
     JwtHelperService,
     {

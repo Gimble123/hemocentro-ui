@@ -4,12 +4,14 @@ import { NaoAutorizadoComponent } from './core/nao-autorizado.component';
 
 import { PaginaNaoEncontradaComponent } from './core/pagina-nao-encontrada.component';
 import { RelatorioComponent } from './relatorios/relatorio.component';
+import { EstoquesAtualizacaoComponent } from './estoques/estoques-atualizacao/estoques-atualizacao.component';
 
 const routes: Routes = [
   { path: 'cadastro', loadChildren: () => import('../app/seguranca/seguranca.module').then(m => m.SegurancaModule) },
   { path: 'usuarios',  loadChildren: () => import('../app/usuarios/usuarios.module').then(u => u.UsuariosModule) },
   { path: 'doacoes',  loadChildren: () => import('../app/doacoes/doacoes.module').then(d => d.DoacoesModule) },
   { path: 'relatorios', component: RelatorioComponent},
+  { path: 'estoques', component: EstoquesAtualizacaoComponent},
   { path: 'login',  loadChildren: () => import('../app/seguranca/seguranca.module').then(s => s.SegurancaModule) },
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'nao-autorizado', component: NaoAutorizadoComponent },

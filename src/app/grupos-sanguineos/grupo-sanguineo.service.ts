@@ -57,7 +57,6 @@ export class GrupoSanguineoService {
   }
 
   atualizar(grupo: GrupoSanguineo): Promise<GrupoSanguineo> {
-    console.log()
     return this.http.put<GrupoSanguineo>(`${this.gruposSanguineosUrl}/${grupo.id}`, grupo).toPromise();
   }
 

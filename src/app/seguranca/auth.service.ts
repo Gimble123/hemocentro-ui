@@ -27,6 +27,7 @@ export class AuthService {
     private jwtHelper: JwtHelperService,
     private grupoSanguineoService: GrupoSanguineoService
   ) {
+    this.carregarToken();
     this.usuariosUrl = `${environment.apiUrl}/usuarios`
   }
 
@@ -62,28 +63,22 @@ export class AuthService {
       .append('Content-Type', 'application/x-www-form-urlencoded')
       .append('Authorization', 'Basic YW5ndWxhcjpAbmd1bEByMA==');
 
-    const payload = new HttpParams()
-      .append('grant_type', 'refresh_token')
-      .append('refresh_token', localStorage.getItem('refreshToken')!)
+    const body = 'grant_type=refresh_token';
 
-    return this.http.post<any>(this.oauthTokenUrl, payload,
-      { headers })
+    return this.http.post<any>(this.oauthTokenUrl, body,
+      { headers, withCredentials: true })
       .toPromise()
       .then((response: any) => {
         this.armazenarToken(response['access_token']);
-        this.armazenarRefreshToken(response['refresh_token'])
+
         console.log('Novo access token criado!');
 
         return Promise.resolve();
       })
-      .catch((response: any) => {
+      .catch(response => {
         console.error('Erro ao renovar token.', response);
         return Promise.resolve();
       });
-  }
-
-  private armazenarRefreshToken(refreshToken: string) {
-    localStorage.setItem('refreshToken', refreshToken);
   }
 
   isAccessTokenInvalido() {
@@ -111,9 +106,6 @@ export class AuthService {
 
   public armazenarToken(token: string) {
     this.jwtPayload = this.jwtHelper.decodeToken(token);
-
-    console.log("token: ", this.jwtPayload)
-
     localStorage.setItem('token', token);
   }
 
@@ -135,7 +127,6 @@ export class AuthService {
       .toPromise()
       .then(() => {
         this.limparAccessToken();
-        localStorage.clear();
       });
   }
 

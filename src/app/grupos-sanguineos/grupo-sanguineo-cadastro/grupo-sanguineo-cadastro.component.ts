@@ -70,7 +70,6 @@ export class GrupoSanguineoCadastroComponent implements OnInit {
   }
 
   atualizarGrupoSanguineo() {
-    console.log('Grupo Sanguineo Atualização: ', this.grupoSanguineo)
     this.grupoSanguineoService.atualizar(this.grupoSanguineo)
       .then(() => {
 
