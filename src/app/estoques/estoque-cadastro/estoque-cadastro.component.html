@@ -1,0 +1,37 @@
+<div class="container">
+
+
+  <div class="grid">
+      <div class="col-12 relative">
+          <h2 class="titles">{{ editando ? 'Edição de' : 'Novo' }} Estoque</h2>
+      </div>
+
+      <form #estoquesForm="ngForm" autocomplete="off" (ngSubmit)="salvar()">
+          <div class="left">
+            <div class="col-12 md:col-6 sm:col-3 p-fluid">
+              <label class="espacamento">Tipo sanguíneo: </label>
+              <p-dropdown [options]="grupoSanguineo" placeholder="Selecione" name="grupoSanguineo" [(ngModel)]="estoque.grupoSanguineo.id" #estoque.grupoSanguineo="ngModel" [required]="true"></p-dropdown>
+          </div>
+
+          <div class="col-12 md:col-6 sm:col-3 p-fluid">
+              <label class="espacamento">Status: </label>
+              <p-dropdown [options]="statusEstoque" placeholder="Selecione" name="statusEstoque" [(ngModel)]="estoque.status.id" #estoque.status="ngModel" [required]="true"></p-dropdown>
+          </div>
+          </div>
+
+          <div class="right">
+            <div class="col-12 md:col-6 sm:col-3 p-fluid">
+              <label class="espacamento">Data: </label>
+              <p-calendar name="data" name="data" dateFormat="dd/mm/yy" [inline]="false" [readonlyInput]="false" [showIcon]="false" [(ngModel)]="estoque.data" [required]="true"></p-calendar>
+          </div>
+          </div>
+
+          <div class="col-12 buttom">
+              <button pButton type="button" class="color disabled-hover" routerLink="/estoques" label="Voltar"></button>
+              <button pButton type="submit" class="button-danger" label="Finalizar"></button>
+          </div>
+
+      </form>
+
+  </div>
+

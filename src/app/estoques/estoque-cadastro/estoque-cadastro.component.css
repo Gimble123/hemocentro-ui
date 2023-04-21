@@ -1,0 +1,165 @@
+.relative {
+  position: relative;
+  top: -40px
+}
+
+.relative h2 {
+  top: inherit;
+  left: inherit
+}
+
+.disabled-hover {
+  position: relative;
+  z-index: 1;
+}
+
+.disabled-hover,
+.p-button:hover {
+  background-color: #C0BFBD;
+}
+
+.left {
+flex: 1;
+}
+
+.right {
+flex: 1;
+}
+
+.buttom {
+position: absolute;
+bottom: 50px;
+left: 0;
+right: 0;
+display: flex;
+justify-content: space-between;
+}
+
+.buttom button {
+width: 50%;
+}
+
+.buttom button:first-child {
+margin-right: 25px;
+}
+
+.buttom button:last-child {
+margin-left: 25px;
+}
+
+.col-12 {
+width: 100%;
+}
+
+.grid {
+top: 0;
+bottom: 0;
+display: flex;
+align-items: center;
+}
+
+:host(app-estoque-cadastro) {
+width: 85%;
+display: block;
+padding: 10%;
+}
+
+.center {
+  align-items: center;
+}
+
+.pInputText {
+  margin: 12px;
+}
+
+.espacamento {
+  margin-bottom: 15px;
+  display: block;
+}
+
+.color {
+  background-color: #C0BFBD;
+  font-weight: bold;
+}
+
+@media(min-width: 1003px) {
+
+.titles,
+.center {
+  position: absolute;
+  top: -113px;
+  font-size: 25px;
+  margin-top: -10px;
+  width: 100%;
+  text-align: center;
+  font-weight: normal;
+}
+}
+
+@media(min-width: 1002px) {
+
+form {
+    display: flex;
+    flex: 1;
+    flex-wrap: wrap;
+    position: relative;
+    min-height: 600px;
+}
+
+:host(app-estoque-cadastro) {
+  width: 85%;
+  display: block;
+  padding: 10%;
+}
+
+.titles,
+.center {
+  font-size: 25px;
+  width: 100%;
+  margin-top: -23px;
+  text-align: center;
+  font-weight: normal;
+}
+}
+
+@media(max-width: 1001px) {
+form, :host(app-estoque-cadastro) {
+    flex: 1;
+    flex-wrap: wrap;
+    position: relative;
+    min-height: 600px;
+}
+
+.buttom {
+  display: none;
+
+}
+
+.titles,
+.center {
+  font-size: 25px;
+  margin-top: 25px;
+  width: 100%;
+  text-align: center;
+  font-weight: normal;
+}
+
+:host(app-estoque-cadastro) {
+  width: 85%;
+  display: block;
+  padding: 10%;
+}
+
+body {
+  overflow: auto;
+}
+
+.left {
+  flex: 1;
+}
+
+.right {
+  flex: 1;
+}
+
+}

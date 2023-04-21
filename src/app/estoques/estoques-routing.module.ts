@@ -1,13 +1,28 @@
 import { AuthGuard } from '../seguranca/auth.guard';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { EstoquesAtualizacaoComponent } from './estoques-atualizacao/estoques-atualizacao.component';
+import { EstoquesPesquisaComponent } from './estoques-pesquisa/estoques-pesquisa.component';
+import { EstoqueCadastroComponent } from './estoque-cadastro/estoque-cadastro.component';
+
+console.log('Teste estoques routing module')
 
 const routes: Routes = [
   {
     path: 'estoques',
-    component: EstoquesAtualizacaoComponent,
+    component: EstoquesPesquisaComponent,
     canActivate: [ AuthGuard ],
+    data: { roles: ['ROLE_ADMIN'] }
+  },
+  {
+    path: 'estoques/novo',
+    component: EstoqueCadastroComponent,
+    canActivate: [AuthGuard],
+    data: { roles: ['ROLE_ADMIN'] }
+  },
+  {
+    path: 'estoques/:id',
+    component: EstoqueCadastroComponent,
+    canActivate: [AuthGuard],
     data: { roles: ['ROLE_ADMIN'] }
   }
 ];
@@ -16,4 +31,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class EstoquesAtualizacaoRoutingModule { }
+export class EstoquesRoutingModule { }

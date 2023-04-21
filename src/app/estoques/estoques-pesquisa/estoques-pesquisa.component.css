@@ -1,0 +1,148 @@
+label {
+  font-weight: bold;
+}
+
+.label {
+  margin: 0.5em;
+}
+
+.col-valor-header {
+  width: 120px;
+}
+
+.col-valor-content {
+  text-align: right;
+}
+
+.col-data-header {
+  width: 120px;
+}
+
+.col-data-content {
+  text-align: center;
+}
+
+.col-acoes-header {
+  width: 115px;
+}
+
+.col-acoes {
+  width: 115px;
+  text-align: center !important;
+}
+
+.col-acoes .p-button {
+  margin: 1px;
+}
+
+.col-acoes>a {
+  margin-right: 5px;
+}
+
+td {
+  text-align: center;
+  vertical-align: center;
+}
+
+.button-novo-estoque,
+a,
+button {
+  background: #F02323 !important;
+  outline: none !important;
+  box-shadow: none !important;
+  text-decoration: none;
+}
+
+.titles {
+  position: absolute;
+  top: -113px;
+  font-size: 25px;
+  margin-top: -10px;
+  width: 100%;
+  text-align: center;
+  font-weight: normal;
+}
+
+.relative {
+  position: relative;
+}
+
+p-column-title {
+  text-align: center;
+}
+
+.disabled-hover {
+  position: relative;
+  z-index: 1;
+}
+
+.disabled-hover,
+.p-button:hover {
+  background-color: #F02323;
+}
+
+.margin-button {
+  position: absolute;
+  top: -70px;
+  right: 0;
+}
+
+.p-datatable-table {
+  border: 1px solid red;
+  width: 100% !important;
+  /*Importante manter o !important rs */
+  margin: auto;
+}
+
+.grid {
+  top: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+}
+
+.container {
+  margin-top: 30px;
+}
+
+:host(app-estoques-pesquisa) {
+  width: 85%;
+  display: block;
+  padding: 10%;
+}
+
+@media (max-width: 992px) {
+  :host(app-estoques-pesquisa) {
+    display: block;
+    padding: 10%;
+    width: 100%;
+    position: absolute;
+    top: 120px;
+  }
+
+  .col-valor-header {
+    width: 120px;
+  }
+
+  .col-valor {
+    text-align: right !important;
+  }
+
+  .col-data-header {
+    width: 120px;
+  }
+
+  .col-data {
+    text-align: center !important;
+  }
+
+  .col-acoes-header {
+    width: 120px;
+  }
+
+  .col-acoes {
+    width: 120px;
+    text-align: center !important;
+  }
+
+}

@@ -10,8 +10,14 @@ export class GrupoSanguineoInput {
 
 export class Estoque {
   id?: number;
+  data?: Date;
+  status = new StatusEstoque();
+  grupoSanguineo = new GrupoSanguineoInput();
+}
+
+export class StatusEstoque {
+  id?: number;
   status?: string;
-  nomeGrupoSanguineo?: string;
 }
 
 export class UsuarioInput {

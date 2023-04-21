@@ -4,6 +4,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from '../seguranca/auth.guard';
 
+console.log('Teste campanhas routing module')
+
 const routes: Routes = [
     {
       path: 'campanhas',

@@ -16,7 +16,7 @@ import { CampanhasModule } from './campanhas/campanhas.module';
 import { AppRoutingModule } from './app-routing.module';
 import { CampanhasUsuarioModule } from './campanhas-usuario/campanhas-usuario.module';
 import { DoacoesUsuarioModule } from './doacoes-usuario/doacoes-usuario.module';
-import { EstoquesAtualizacaoModule } from './estoques/estoques.module';
+import { EstoquesModule } from './estoques/estoques.module';
 
 @NgModule({
   declarations: [
@@ -39,7 +39,7 @@ import { EstoquesAtualizacaoModule } from './estoques/estoques.module';
     AppRoutingModule,
     ProfileModule,
     RelatoriosModule,
-    EstoquesAtualizacaoModule
+    EstoquesModule
 
   ],
   providers: [],

@@ -3,22 +3,41 @@ import { CommonModule } from '@angular/common';
 import { SharedModule } from '../shared/shared.module';
 
 
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CalendarModule } from 'primeng/calendar';
-import { EstoquesAtualizacaoComponent } from './estoques-atualizacao/estoques-atualizacao.component';
-import { EstoquesAtualizacaoRoutingModule } from './estoques-routing.module';
+import { EstoquesRoutingModule } from './estoques-routing.module';
+import { EstoquesPesquisaComponent } from './estoques-pesquisa/estoques-pesquisa.component';
+import { EstoqueCadastroComponent } from './estoque-cadastro/estoque-cadastro.component';
+import { CoreModule } from '../core/core.module';
+import { InputTextModule } from 'primeng/inputtext';
+import { ButtonModule } from 'primeng/button';
+import { TableModule } from 'primeng/table';
+import { TooltipModule } from 'primeng/tooltip';
+import { SelectButtonModule } from 'primeng/selectbutton';
+import { DropdownModule } from 'primeng/dropdown';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
   declarations: [
-    EstoquesAtualizacaoComponent
+    EstoquesPesquisaComponent,
+    EstoqueCadastroComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
+    CoreModule,
+    InputTextModule,
+    ButtonModule,
+    TableModule,
+    TooltipModule,
     CalendarModule,
+    SelectButtonModule,
+    DropdownModule,
     SharedModule,
-    EstoquesAtualizacaoRoutingModule
+    HttpClientModule,
+    EstoquesRoutingModule
   ]
 })
-export class EstoquesAtualizacaoModule { }
+export class EstoquesModule { }
