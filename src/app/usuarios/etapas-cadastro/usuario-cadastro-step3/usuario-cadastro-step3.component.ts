@@ -67,7 +67,8 @@ export class UsuarioCadastroStep3Component implements OnInit {
       grupoSanguineoId: [null, Validators.required],
       permissaoId: [null, Validators.required],
       escolaridade: [null, Validators.required],
-      numero: [null, Validators.required]
+      numero: [null, Validators.required],
+      apto: [null, Validators.required]
     });
 
   }

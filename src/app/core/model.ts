@@ -69,7 +69,7 @@ export class Doacao {
 }
 
 export class DoacaoCadastroEtapa1 {
-  dataDoacao?: Date;
+  data?: Date;
   hora?: String;
   usuario?: String;
   tipoDoacao?: String;
@@ -80,6 +80,7 @@ export class DoacaoCadastroEtapa1 {
 }
 
 export class DoacaoCadastroEtapa2 {
+  numeroDaBolsa?: String;
   pressaoArterial?: String;
   temperatura?: String;
   hgs?: String;
@@ -157,6 +158,7 @@ export class UsuarioCadastroEtapa3 {
   permissaoDescricao?: string;
   escolaridade?: string;
   numero?: string;
+  apto?: string;
 }
 
 export class AgendamentoInput {

@@ -75,6 +75,7 @@ export class DoacaoCadastroStep3Component implements OnInit {
     this.doacaoService.setStep3(this.formulario.value)
     this.doacaoService.adicionarStep()
       .then(doacaoAdicionada => {
+        console.log(this.editando)
         if (this.editando) {
           this.messageService.add({ severity: 'success', detail: 'Doação editada com sucesso!' });
           console.log(this.messageService)
@@ -82,6 +83,8 @@ export class DoacaoCadastroStep3Component implements OnInit {
           console.log('Adicionando')
           this.messageService.add({ severity: 'success', detail: 'Doação adicionada com sucesso!' });
         }
+
+        this.messageService.add({ severity: 'success', detail: 'Doação editada com sucesso!' });
 
         this.router.navigate(['/doacoes/doacao-container/doacao-cadastro-step1/', doacaoAdicionada.id])
       }

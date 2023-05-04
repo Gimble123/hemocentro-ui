@@ -56,6 +56,12 @@ export class DoacaoCadastroStep1Component implements OnInit {
 
   preencherDoacao() {
     const infoPrincipal = this.doacaoService.getStep1();
+
+    var dataDoacao = new Date(infoPrincipal?.data!);
+      dataDoacao.setDate(dataDoacao.getDate() + 1)
+
+    infoPrincipal!.data = dataDoacao
+
     if (infoPrincipal) {
       this.formulario.patchValue(infoPrincipal)
     }
@@ -64,7 +70,7 @@ export class DoacaoCadastroStep1Component implements OnInit {
   configurarFormulario() {
     this.formulario = this.formBuilder.group({
       id: [],
-      dataDoacao: [null, Validators.required],
+      data: [null, Validators.required],
       hora: [null, Validators.required],
       usuarioId: [null, Validators.required],
       tipoDoacao: [null, Validators.required],
