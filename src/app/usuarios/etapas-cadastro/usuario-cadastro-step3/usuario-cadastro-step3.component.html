@@ -19,11 +19,10 @@
                     <app-message [control]="formulario.get('numero')" error="required" text="Informe o número"></app-message>
                 </div>
 
-                <div class="col-12 md:col-6 p-fluid">
+                <div class="col-12 md:col-6 p-fluid" >
                   <label class="espacamento">Apto: </label>
-                  <input placeholder="Ex: Apto" pInputText type="text" name="apto" formControlName="apto" [required]="true">
-                  <app-message [control]="formulario.get('apto')" error="required" text="Informe se o usuário está apto ou não"></app-message>
-              </div>
+                  <p-dropdown [options]="status" placeholder="Selecione" name="statusId" formControlName="statusId" [required]="true"></p-dropdown>
+                </div>
             </div>
 
             <div class="right">

@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
 import { MessageService } from 'primeng/api';
 import { ErrorHandlerService } from 'src/app/core/error-handler.service';
 import { Title } from '@angular/platform-browser';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-campanha-cadastro',
@@ -57,31 +58,38 @@ export class CampanhaCadastroComponent implements OnInit {
       .then((campanha: Campanha) => {
           this.campanha = campanha
 
-          console.log(this.campanha)
-
           var dataInicial = new Date(campanha.dataInicial!);
-              dataInicial.setDate(dataInicial.getDate() + 1)
 
           var dataFinal = new Date(campanha.dataFinal!);
-              dataFinal.setDate(dataFinal.getDate() + 1)
 
-          campanha.dataInicial = new Date(dataInicial);
-          campanha.dataFinal = new Date(dataFinal);
+          console.log('campanha.dataInicial: ', this.campanha.dataInicial)
+          console.log('dataInicial: ', dataInicial)
+          console.log('campanha.dataFinal: ', this.campanha.dataFinal)
+          console.log('dataFinal: ', dataFinal)
+
+          if (this.campanha.dataInicial != dataInicial && this.campanha.dataFinal != dataFinal) {
+            dataInicial.setDate(dataInicial.getDate() + 1)
+            this.campanha.dataInicial = new Date(dataInicial);
+            //dataFinal.setDate(dataFinal.getDate() + 1)
+            this.campanha.dataFinal = new Date(dataFinal);
+          }
+
+          console.log('Campanha carregada: ', campanha)
 
           this.atualizarTituloEdicao()
       })
       .catch((erro: any) => this.errorHandler.handle(erro));
   }
 
-  salvar() {
+  salvar(form: NgForm) {
     if (this.editando) {
-      this.atualizarCampanha();
+      this.atualizarCampanha(form);
     } else {
-      this.adicionarCampanha();
+      this.adicionarCampanha(form);
     }
   }
 
-  adicionarCampanha() {
+  adicionarCampanha(form: NgForm) {
     this.campanhaService.adicionar(this.campanha)
       .then(() => {
         this.messageService.add({ severity: 'success', detail: 'Campanha adicionada com sucesso!' });
@@ -91,7 +99,10 @@ export class CampanhaCadastroComponent implements OnInit {
       .catch(erro => this.errorHandler.handle(erro));
   }
 
-  atualizarCampanha() {
+  atualizarCampanha(form: NgForm) {
+
+    console.log('Atualização: ', this.campanha);
+
     this.campanhaService.atualizar(this.campanha)
       .then(() => {
 

@@ -1,7 +1,6 @@
-import { PermissaoService } from './../permissoes/permissao.service';
 import { environment } from './../../environments/environment';
 
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Usuario, UsuarioCadastroEtapa1, UsuarioCadastroEtapa2, UsuarioCadastroEtapa3, UsuarioFormStep1, UsuarioFormStep2, UsuarioFormStep3 } from '../core/model';
 
@@ -38,11 +37,14 @@ export class UsuarioService {
   }
 
   pesquisar(filtro: UsuarioFiltro): Promise<any> {
+    const headers = new HttpHeaders()
+        .append('Authorization', 'Basic YWRtaW5AYWxnYW1vbmV5LmNvbTphZG1pbg==');
+
     let params = new HttpParams()
       .set('page', filtro.pagina)
       .set('size', filtro.itensPorPagina);
 
-    return this.http.get(`${this.usuariosUrl}`, { params })
+    return this.http.get(`${this.usuariosUrl}`, { headers, params })
       .toPromise()
       .then((response: any) => {
         const usuarios = response['content'];

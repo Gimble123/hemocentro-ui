@@ -20,6 +20,11 @@ export class StatusEstoque {
   status?: string;
 }
 
+export class StatusDoador {
+  statusDoadorId?: number;
+  status?: string;
+}
+
 export class UsuarioInput {
   grupoSanguineoId?: number;
   login?: string;
@@ -60,12 +65,38 @@ export class CampanhaUsuario {
   grupoSanguineoNome?: string;
 }
 
-export class Doacao {
+export class DoacaoListagem {
   id?: number;
   hora?: Date;
   nomeMae?: string;
   responsavelColeta?: string;
   nomeUsuario?: string;
+}
+
+export class Doacao {
+  id?: number;
+  data?: Date;
+  numeroDaBolsa?: string;
+  pressaoArterial?: String;
+  temperatura?: String;
+  hgs?: String;
+  chagas?: String;
+  antiHiv?: String;
+  vdrl?: String;
+  hcv?: String;
+  hcvNat?: String;
+  usuario?: String;
+  tipoDoacao?: String;
+  tipoDoador?: String;
+  sexo?: String;
+  idadeUsuario?: Number;
+  grupoSanguineoId?: String;
+  htlv?: String;
+  antiHbc?: String;
+  hbvNat?: String;
+  nomeMae?: String;
+  responsavelColeta?: String;
+  volumeColetado?: String;
 }
 
 export class DoacaoCadastroEtapa1 {
@@ -128,6 +159,7 @@ export class Usuario {
   nacionalidade?: string;
   numeroDoacoes?: number;
   permissao = new Permissao();
+  status = new StatusDoador();
 }
 
 export class UsuarioCadastroEtapa1 {
@@ -155,10 +187,10 @@ export class UsuarioCadastroEtapa2 {
 
 export class UsuarioCadastroEtapa3 {
   grupoSanguineoId?: string;
-  permissaoDescricao?: string;
+  permissao = new Permissao();
   escolaridade?: string;
   numero?: string;
-  apto?: string;
+  statusId?: string;
 }
 
 export class AgendamentoInput {

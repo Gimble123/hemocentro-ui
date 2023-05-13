@@ -27,8 +27,6 @@ export class DoacaoCadastroStep2Component implements OnInit {
 
    const step2 = this.doacaoService.getStep2();
 
-    console.log('Info: ', step2)
-
    if (step2)
     this.formulario.patchValue(step2)
 

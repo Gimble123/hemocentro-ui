@@ -85,6 +85,7 @@ export class DoacaoService {
     return this.http.get(`${this.doacoesUrl}/${codigo}`)
       .toPromise()
       .then((response: any) => {
+        this.converterStringsParaDatas([response]);
 
         this.doacaoCadastroEtapa1 = new DoacaoCadastroEtapa1()
         this.doacaoCadastroEtapa2 = new DoacaoCadastroEtapa2()
@@ -129,6 +130,15 @@ export class DoacaoService {
     this.doacaoCadastroEtapa2 = undefined
     this.doacaoCadastroEtapa3 = undefined
     this.editandoDoacao = false;
+  }
+
+  private converterStringsParaDatas(doacoes: Doacao[]) {
+    for (const doacao of doacoes) {
+      let offset = new Date().getTimezoneOffset() * 60000;
+
+      doacao.data = new Date(new Date(doacao.data!).getTime() + offset);
+
+    }
   }
 
 }

@@ -4,8 +4,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { EstoquesPesquisaComponent } from './estoques-pesquisa/estoques-pesquisa.component';
 import { EstoqueCadastroComponent } from './estoque-cadastro/estoque-cadastro.component';
 
-console.log('Teste estoques routing module')
-
 const routes: Routes = [
   {
     path: 'estoques',
