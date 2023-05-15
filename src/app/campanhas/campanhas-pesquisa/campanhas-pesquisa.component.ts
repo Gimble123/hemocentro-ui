@@ -41,22 +41,12 @@ export class CampanhasPesquisaComponent implements OnInit {
       .then((resultado: any) => {
         this.campanhas = resultado.campanhas;
 
-       // console.log(resultado.campanhas[0].dataInicial)
-
         this.campanhas.filter((e) => {
           var t = new Date(e.dataInicial)
           e.dataInicial = t.setDate(t.getDate() + 1)
           var t = new Date(e.dataFinal)
           e.dataFinal = t.setDate(t.getDate() + 1)
         })
-
-        //this.campanhas.setDate(dataInicial.getDate() + 1)
-        //this.campanha.dataInicial = new Date(dataInicial);
-
-        // dataFinal.setDate(dataFinal.getDate() + 1)
-        // this.campanha.dataFinal = new Date(dataFinal);
-
-        console.log('sfcefce ', this.campanhas)
 
         this.totalRegistros = resultado.total;
       })
