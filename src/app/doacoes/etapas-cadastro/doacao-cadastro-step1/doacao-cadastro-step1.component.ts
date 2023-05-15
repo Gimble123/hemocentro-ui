@@ -57,11 +57,6 @@ export class DoacaoCadastroStep1Component implements OnInit {
   preencherDoacao() {
     const infoPrincipal = this.doacaoService.getStep1();
 
-    var dataDoacao = new Date(infoPrincipal?.data!);
-      dataDoacao.setDate(dataDoacao.getDate() + 1)
-
-    infoPrincipal!.data = dataDoacao
-
     if (infoPrincipal) {
       this.formulario.patchValue(infoPrincipal)
     }

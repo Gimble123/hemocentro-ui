@@ -35,6 +35,14 @@ export class DoacoesPesquisaComponent implements OnInit {
     this.doacaoService.pesquisar(this.filtro)
       .then((resultado: any) => {
         this.doacoes = resultado.doacoes;
+
+        this.doacoes.filter((e) => {
+          var t = new Date(e.dataInicial)
+          e.dataInicial = t.setDate(t.getDate() + 1)
+          var t = new Date(e.dataFinal)
+          e.dataFinal = t.setDate(t.getDate() + 1)
+        })
+
         this.totalRegistros = resultado.total;
       })
       .catch(erro => this.errorHandler.handle(erro));
