@@ -1,6 +1,6 @@
 import { GrupoSanguineoService } from '../grupos-sanguineos/grupo-sanguineo.service';
 import { JwtHelperService } from '@auth0/angular-jwt';
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Usuario, UsuarioFormStep1, UsuarioFormStep2, UsuarioFormStep3 } from '../core/model';
@@ -76,7 +76,6 @@ export class AuthService {
         return Promise.resolve();
       })
       .catch(response => {
-        console.error('Erro ao renovar token.', response);
         return Promise.resolve();
       });
   }

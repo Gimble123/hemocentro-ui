@@ -45,7 +45,7 @@ import { StepsModule } from 'primeng/steps';
     DropdownModule,
     InputMaskModule,
     SharedModule,
-    CoreModule,
+
     EtapasCadastroRoutingModule,
     StepsModule
   ]

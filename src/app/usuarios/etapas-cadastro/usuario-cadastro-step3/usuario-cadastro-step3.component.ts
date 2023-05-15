@@ -40,7 +40,6 @@ export class UsuarioCadastroStep3Component implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.title.setTitle('Cadastro de usuários')
     this.configurarFormulario();
     this.carregarGrupoSanguineoSemPaginacao();
     this.carregarPermissoes();
@@ -52,6 +51,7 @@ export class UsuarioCadastroStep3Component implements OnInit {
       this.usuarioService.buscarPorCodigoSteps(id)
         .then(() => {
           this.preencherUsuario()
+
         })
     } else {
       this.preencherUsuario()
@@ -65,19 +65,6 @@ export class UsuarioCadastroStep3Component implements OnInit {
     if (infoPrincipal) {
       this.formulario.patchValue(infoPrincipal)
     }
-  }
-
-  configurarFormulario() {
-
-    this.formulario = this.formBuilder.group({
-      id: [],
-      grupoSanguineoId: [null, Validators.required],
-      permissaoId: [null, Validators.required],
-      escolaridade: [null, Validators.required],
-      numero: [null, Validators.required],
-      statusId: [null, Validators.required]
-    });
-
   }
 
   carregarGrupoSanguineoSemPaginacao() {
@@ -106,14 +93,28 @@ export class UsuarioCadastroStep3Component implements OnInit {
       .catch(erro => this.errorHandler.handle(erro));
   }
 
+  configurarFormulario() {
+
+    this.formulario = this.formBuilder.group({
+      id: [],
+      grupoSanguineoId: [null, Validators.required],
+      permissaoId: [null, Validators.required],
+      escolaridade: [null, Validators.required],
+      numero: [null, Validators.required],
+      statusId: [null, Validators.required]
+    });
+
+  }
+
   salvar() {
     this.usuarioService.setStep3(this.formulario.value)
-
     this.usuarioService.adicionarStep()
       .then(() => {
-        this.messageService.add({ severity: 'success', detail: 'Usuário adicionado com sucesso!' });
+        this.messageService.add({ severity: 'success', detail: 'Usuário editado com sucesso!' });
 
-        this.router.navigate(['/usuarios'])
+        console.log(this.messageService.add({severity: 'success', detail: 'Teste'}))
+
+        this.router.navigate(['usuarios'])
       }
       ).catch(erro => this.errorHandler.handle(erro));
   }

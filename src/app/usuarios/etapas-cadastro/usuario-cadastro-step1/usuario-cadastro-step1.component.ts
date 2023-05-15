@@ -45,8 +45,6 @@ export class UsuarioCadastroStep1Component implements OnInit {
   preencherUsuario() {
     const infoPrincipal = this.usuarioService.getStep1();
 
-    console.log("Info: ", infoPrincipal)
-
     if (infoPrincipal) {
       this.formulario.patchValue(infoPrincipal)
     }

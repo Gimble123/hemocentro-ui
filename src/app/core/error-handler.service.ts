@@ -22,7 +22,7 @@ export class ErrorHandlerService {
 
       if (errorResponse.status === 403) {
         msg = 'Você não tem permissão para executar esta ação'
-      }    
+      }
 
       try {
         msg = errorResponse.error[0].mensagemUsuario;

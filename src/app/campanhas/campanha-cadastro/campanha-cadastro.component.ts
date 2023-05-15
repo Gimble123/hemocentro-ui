@@ -19,6 +19,9 @@ export class CampanhaCadastroComponent implements OnInit {
   grupoSanguineo: any[] = [];
   dataInicial: string = '';
   dataFinal: string = '';
+  isLoading: boolean = false;
+  dInicial = new Date();
+  dFim = new Date();
 
   constructor(
     private campanhaService: CampanhaService,
@@ -62,19 +65,15 @@ export class CampanhaCadastroComponent implements OnInit {
 
           var dataFinal = new Date(campanha.dataFinal!);
 
-          console.log('campanha.dataInicial: ', this.campanha.dataInicial)
-          console.log('dataInicial: ', dataInicial)
-          console.log('campanha.dataFinal: ', this.campanha.dataFinal)
-          console.log('dataFinal: ', dataFinal)
+          dataInicial.setDate(dataInicial.getDate() + 1)
+          dataFinal.setDate(dataFinal.getDate() + 1)
 
-          if (this.campanha.dataInicial != dataInicial && this.campanha.dataFinal != dataFinal) {
-            dataInicial.setDate(dataInicial.getDate() + 1)
-            this.campanha.dataInicial = new Date(dataInicial);
-            //dataFinal.setDate(dataFinal.getDate() + 1)
-            this.campanha.dataFinal = new Date(dataFinal);
-          }
+          this.campanha.dataInicial = new Date(dataInicial);
 
-          console.log('Campanha carregada: ', campanha)
+          this.campanha.dataFinal = new Date(dataFinal);
+
+          this.dInicial = this.campanha.dataInicial
+          this.dFim = this.campanha.dataFinal
 
           this.atualizarTituloEdicao()
       })
@@ -92,8 +91,8 @@ export class CampanhaCadastroComponent implements OnInit {
   adicionarCampanha(form: NgForm) {
     this.campanhaService.adicionar(this.campanha)
       .then(() => {
+        this.isLoading = true
         this.messageService.add({ severity: 'success', detail: 'Campanha adicionada com sucesso!' });
-
         this.router.navigate(['campanhas']);
       })
       .catch(erro => this.errorHandler.handle(erro));
@@ -101,13 +100,13 @@ export class CampanhaCadastroComponent implements OnInit {
 
   atualizarCampanha(form: NgForm) {
 
-    console.log('Atualização: ', this.campanha);
+    if(this.dFim == this.campanha.dataFinal){ this.campanha.dataFinal!.setDate(this.campanha.dataFinal!.getDate() - 1)}
+    if(this.dInicial == this.campanha.dataInicial){ this.campanha.dataInicial!.setDate(this.campanha.dataInicial!.getDate() - 1)}
 
     this.campanhaService.atualizar(this.campanha)
       .then(() => {
-
+        this.isLoading = true
         this.messageService.add({ severity: 'success', detail: 'Campanha alterada com sucesso!' });
-
         this.router.navigate(['campanhas']);
       })
       .catch(erro => this.errorHandler.handle(erro));

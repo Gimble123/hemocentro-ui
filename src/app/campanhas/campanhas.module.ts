@@ -14,6 +14,7 @@ import { DropdownModule } from 'primeng/dropdown';
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { CalendarModule } from 'primeng/calendar';
 import { CampanhasRoutingModule } from './campanhas-routing.module';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
 
 
 
@@ -36,7 +37,8 @@ import { CampanhasRoutingModule } from './campanhas-routing.module';
     DropdownModule,
     SharedModule,
     HttpClientModule,
-    CampanhasRoutingModule
+    CampanhasRoutingModule,
+    ProgressSpinnerModule
   ],
   exports: []
 })

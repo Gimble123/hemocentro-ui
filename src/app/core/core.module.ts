@@ -11,9 +11,10 @@ import { RelatoriosService } from '../relatorios/relatorios.service';
 import { RouterModule } from '@angular/router';
 import { ToastModule } from 'primeng/toast';
 import { HttpClient } from '@angular/common/http';
-import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { AuthService } from './../seguranca/auth.service';
+import { NaoAutorizadoComponent } from './nao-autorizado.component';
 
 registerLocaleData(localePt, 'pt-BR');
 
@@ -24,7 +25,8 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
 @NgModule({
   declarations: [
     NavbarComponent,
-    PaginaNaoEncontradaComponent
+    PaginaNaoEncontradaComponent,
+    NaoAutorizadoComponent
   ],
   imports: [
     CommonModule,
@@ -43,7 +45,7 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   exports: [
     NavbarComponent,
     ToastModule,
-    ConfirmDialogModule
+    ConfirmDialogModule,
   ],
   providers: [
     DatePipe,
@@ -53,7 +55,8 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
 
     MessageService,
     ConfirmationService,
-    Title
+    Title,
+    TranslateService
   ]
 })
 export class CoreModule { }

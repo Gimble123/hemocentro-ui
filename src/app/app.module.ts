@@ -37,7 +37,6 @@ import { EstoquesModule } from './estoques/estoques.module';
     CoreModule,
     SegurancaModule,
     AppRoutingModule,
-    ProfileModule,
     RelatoriosModule,
     EstoquesModule
 

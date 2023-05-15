@@ -21,11 +21,6 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { EtapasCadastroRoutingModule } from './etapas-cadastro-routing.module';
 
 @NgModule({
-  declarations: [
-    DoacaoCadastroStep1Component,
-    DoacaoCadastroStep2Component,
-    DoacaoCadastroStep3Component
-  ],
   imports: [
     CommonModule,
     FormsModule,
@@ -44,6 +39,11 @@ import { EtapasCadastroRoutingModule } from './etapas-cadastro-routing.module';
     SharedModule,
     CoreModule,
     EtapasCadastroRoutingModule
+  ],
+  declarations: [
+    DoacaoCadastroStep1Component,
+    DoacaoCadastroStep2Component,
+    DoacaoCadastroStep3Component
   ]
 })
 export class EtapasModule { }
