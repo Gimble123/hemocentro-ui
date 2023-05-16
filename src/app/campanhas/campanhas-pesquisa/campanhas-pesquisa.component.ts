@@ -69,7 +69,7 @@ export class CampanhasPesquisaComponent implements OnInit {
   }
 
   excluir(campanha: any) {
-    this.campanhaService.excluir(campanha.id)
+    this.campanhaService.excluir(campanha.campanhaId)
       .then(() => {
         if (this.grid.first === 0) {
           this.pesquisar();

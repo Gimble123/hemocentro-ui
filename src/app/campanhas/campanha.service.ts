@@ -68,7 +68,9 @@ export class CampanhaService {
       "grupoSanguineo": {
           "id": campanha.grupoSanguineo.id,
           "nome": "B+"
-      }
+      },
+      "textoEmail": campanha.textoEmail,
+      "enviarEmail": campanha.enviarEmail
   }
 
     return this.http.post<Campanha>(this.campanhasUrl, novaCampanha)

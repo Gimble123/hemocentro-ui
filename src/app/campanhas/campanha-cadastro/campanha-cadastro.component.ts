@@ -23,6 +23,11 @@ export class CampanhaCadastroComponent implements OnInit {
   dInicial = new Date();
   dFim = new Date();
 
+  enviarEmail = [
+    { label: 'Sim', value: true },
+    { label: 'Não', value: false },
+  ];
+
   constructor(
     private campanhaService: CampanhaService,
     private grupoSanguineoService: GrupoSanguineoService,

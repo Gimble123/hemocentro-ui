@@ -1,3 +1,4 @@
+
 export class GrupoSanguineo {
   id?: number;
   nome?: string;
@@ -55,6 +56,17 @@ export class Campanha {
   dataInicial?: Date;
   dataFinal?: Date;
   grupoSanguineo = new GrupoSanguineoInput();
+  textoEmail?: string;
+  enviarEmail?: boolean;
+
+}
+
+export class CampanhaListagem {
+  campanhaId?: number;
+  campanhaNome?: string;
+  dataInicialCampanha?: Date;
+  dataFinalCampanha?: Date;
+  grupoSanguineoNome?: string;
 }
 
 export class CampanhaUsuario {

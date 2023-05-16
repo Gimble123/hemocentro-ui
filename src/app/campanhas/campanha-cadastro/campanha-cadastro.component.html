@@ -24,6 +24,12 @@
                     [(ngModel)]="campanha.dataInicial"
                     [required]="true"></p-calendar>
                 </div>
+
+                <div class="col-12 p-fluid">
+                  <label class="espacamento">Texto e-mail: </label>
+                  <textarea pInputTextarea rows="3" style="width: 576px; height: 268px;" name="textoEmail" [(ngModel)]="campanha.textoEmail"></textarea>
+                </div>
+
             </div>
 
             <div class="right">
@@ -42,6 +48,11 @@
                     [showIcon]="false"
                     [(ngModel)]="campanha.dataFinal"
                     [required]="true"></p-calendar>
+                </div>
+
+                <div class="col-12 md:col-6 sm:col-3 p-fluid">
+                  <label class="espacamento">Enviar e-mail: </label>
+                  <p-dropdown [options]="enviarEmail" placeholder="Selecione" name="enviarEmail" [(ngModel)]="campanha.enviarEmail" #campanha.enviarEmail="ngModel" [required]="true"></p-dropdown>
                 </div>
             </div>
 

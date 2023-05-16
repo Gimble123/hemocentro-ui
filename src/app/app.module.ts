@@ -1,6 +1,6 @@
 import { RelatoriosModule } from './relatorios/relatorios.module';
 import { ProfileModule } from './profile/profile.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { DoacoesModule } from './doacoes/doacoes.module';
 import { AgendamentosModule } from './agendamentos/agendamentos.module';
 import { SolicitacoesModule } from './solicitacoes/solicitacoes.module';
@@ -17,10 +17,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { CampanhasUsuarioModule } from './campanhas-usuario/campanhas-usuario.module';
 import { DoacoesUsuarioModule } from './doacoes-usuario/doacoes-usuario.module';
 import { EstoquesModule } from './estoques/estoques.module';
+import { SpinnerComponent } from './spinner/spinner/spinner.component';
+import { LoadingInterceptor } from './loading.interceptor';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SpinnerComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -41,7 +44,11 @@ import { EstoquesModule } from './estoques/estoques.module';
     EstoquesModule
 
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

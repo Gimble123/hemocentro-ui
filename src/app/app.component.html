@@ -1,3 +1,4 @@
+<app-spinner></app-spinner>
 <div *ngIf="exibindoNavbar() && exibindoNavbarCadastro1() && exibindoNavbarCadastro2() && exibindoNavbarCadastro3() && exibindoNavbarResetPassword()" class="button-menu" (click)="openMenu()"><i class="fa-solid fa-bars"></i></div>
 <div [ngClass]="openmenu ? 'plix close-menu' : 'plix open-menu'" #menu>
     <app-navbar *ngIf="exibindoNavbar() && exibindoNavbarCadastro1() && exibindoNavbarCadastro2() && exibindoNavbarCadastro3() && exibindoNavbarResetPassword()">
