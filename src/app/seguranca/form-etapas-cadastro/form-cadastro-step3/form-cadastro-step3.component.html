@@ -43,14 +43,13 @@
                     <input class="input-cor" pInputText type="text" name="cor" formControlName="cor" placeholder="Informe sua cor" required>
                 </div>
 
-                <div class="col-6 buttom">
-                    <div class="left">
-                        <button pButton type="button" class="color disabled-hover button-voltar" (click)="voltar()" label="Voltar"></button>
-                    </div>
-                    <div class="right">
-                        <button pButton type="submit" class="button-danger" [disabled]="formulario.invalid" label="Finalizar"></button>
-                    </div>
-                </div>
+                <div class="col-12 p-fluid">
+                  <button pButton type="submit" class="button-danger" [disabled]="formulario.invalid" label="Finalizar"></button>
+              </div>
+
+              <div class="col-12 p-fluid">
+                  <button pButton type="button" class="color disabled-hover button-voltar" (click)="voltar()" label="Voltar"></button>
+              </div>
 
             </div>
             <div class="container-footer">

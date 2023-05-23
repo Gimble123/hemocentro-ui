@@ -1,0 +1,53 @@
+<div class="container">
+
+    <form autocomplete="off" (ngSubmit)="salvar()" [formGroup]="formulario">
+
+
+        <div class="left">
+
+            <div class="col-12 md:col-6 p-fluid">
+                <label class="espacamento">Hgs: </label>
+                <input placeholder="Ex: Positivo" pInputText type="text" name="hgs" formControlName="hgs">
+            </div>
+
+            <div class="col-12 md:col-6 p-fluid">
+                <label class="espacamento">Chagas: </label>
+                <input placeholder="Ex: Positivo" pInputText type="text" name="chagas" formControlName="chagas">
+            </div>
+
+            <div class="col-12 md:col-6 p-fluid">
+                <label class="espacamento">Anti Hiv: </label>
+                <input placeholder="Ex: Positivo" pInputText type="text" name="antiHiv" formControlName="antiHiv">
+            </div>
+
+            <div class="col-12 md:col-6 p-fluid">
+              <label class="espacamento">Vdrl: </label>
+              <input placeholder="Ex: Negativo" pInputText type="text" name="vdrl" formControlName="vdrl">
+            </div>
+
+        </div>
+
+        <div class="right">
+            <div class="col-12 md:col-6 p-fluid">
+                <label class="espacamento">Hcv: </label>
+                <input placeholder="Ex: Positivo" pInputText type="text" name="hcv" formControlName="hcv">
+            </div>
+
+            <div class="col-12 md:col-6 p-fluid">
+                <label class="espacamento">Hcv nat: </label>
+                <input placeholder="Ex: Positivo" pInputText type="text" name="hcvNat" formControlName="hcvNat">
+            </div>
+
+            <div class="col-12 p-fluid">
+              <label class="espacamento">Observação: </label>
+              <textarea pInputTextarea rows="2" style="width: 576px; height: 125px;" name="observacao" formControlName="observacao"></textarea>
+            </div>
+
+        </div>
+        <div class="col-12 buttom">
+            <button pButton type="button" class="color disabled-hover" (click)="voltar()" label="Voltar"></button>
+            <button pButton type="submit" class="button-danger" [disabled]="formulario.invalid" label="Finalizar"></button>
+        </div>
+
+    </form>
+</div>

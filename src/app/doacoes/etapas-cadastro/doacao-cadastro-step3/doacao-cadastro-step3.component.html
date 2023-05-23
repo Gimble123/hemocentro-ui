@@ -20,7 +20,10 @@
                 <input placeholder="Ex: Positivo" pInputText type="text" name="hbvNat" formControlName="hbvNat">
             </div>
 
-
+            <div class="col-12 md:col-6 p-fluid">
+              <label class="espacamento">Pressão Arterial: </label>
+              <input placeholder="Ex: 120 mmHg/80 mmHg" pInputText type="text" name="pressaoArterial" formControlName="pressaoArterial">
+            </div>
 
         </div>
 
@@ -35,10 +38,20 @@
                 <input placeholder="Ex: 400ml" pInputText type="text" name="volumeColetado" formControlName="volumeColetado">
             </div>
 
+            <div class="col-12 md:col-6 p-fluid">
+              <label class="espacamento">Hbv nat: </label>
+              <input placeholder="Ex: Positivo" pInputText type="text" name="hbvNat" formControlName="hbvNat">
+            </div>
+
+            <div class="col-12 md:col-6 p-fluid">
+              <label class="espacamento">Temperatura: </label>
+              <input placeholder="Ex: 36.5" pInputText type="text" name="temperatura" formControlName="temperatura">
+            </div>
+
         </div>
         <div class="col-12 buttom">
             <button pButton type="button" class="color disabled-hover" (click)="voltar()" label="Voltar"></button>
-            <button pButton type="submit" class="button-danger" [disabled]="formulario.invalid" label="Finalizar"></button>
+            <button pButton type="submit" class="button-danger" [disabled]="formulario.invalid" label="Próximo"></button>
         </div>
 
     </form>

@@ -1,7 +1,6 @@
 import { DoacaoCadastroStep3Component } from './doacao-cadastro-step3/doacao-cadastro-step3.component';
 import { DoacaoCadastroStep2Component } from './doacao-cadastro-step2/doacao-cadastro-step2.component';
 import { DoacaoCadastroStep1Component } from './doacao-cadastro-step1/doacao-cadastro-step1.component';
-import { CoreModule } from './../../core/core.module';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
@@ -19,6 +18,7 @@ import { TooltipModule } from 'primeng/tooltip';
 
 import { SharedModule } from 'src/app/shared/shared.module';
 import { EtapasCadastroRoutingModule } from './etapas-cadastro-routing.module';
+import { DoacaoCadastroStep4Component } from './doacao-cadastro-step4/doacao-cadastro-step4.component';
 
 @NgModule({
   imports: [
@@ -36,14 +36,16 @@ import { EtapasCadastroRoutingModule } from './etapas-cadastro-routing.module';
     SelectButtonModule,
     DropdownModule,
     InputMaskModule,
+
     SharedModule,
-    CoreModule,
+
     EtapasCadastroRoutingModule
   ],
   declarations: [
     DoacaoCadastroStep1Component,
     DoacaoCadastroStep2Component,
-    DoacaoCadastroStep3Component
+    DoacaoCadastroStep3Component,
+    DoacaoCadastroStep4Component
   ]
 })
 export class EtapasModule { }

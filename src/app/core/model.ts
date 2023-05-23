@@ -124,8 +124,6 @@ export class DoacaoCadastroEtapa1 {
 
 export class DoacaoCadastroEtapa2 {
   numeroDaBolsa?: String;
-  pressaoArterial?: String;
-  temperatura?: String;
   hgs?: String;
   chagas?: String;
   antiHiv?: String;
@@ -141,9 +139,17 @@ export class DoacaoCadastroEtapa3 {
   nomeMae?: String;
   responsavelColeta?: String;
   volumeColetado?: String;
+  pressaoArterial?: String;
+  temperatura?: String;
 }
 
 export class DoacaoCadastroEtapa4 {
+  hgs?: String;
+  chagas?: String;
+  antiHiv?: String;
+  vdrl?: String;
+  hcv?: String;
+  hcvNat?: String;
   observacao?: String;
 }
 

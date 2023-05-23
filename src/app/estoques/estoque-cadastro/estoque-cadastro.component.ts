@@ -18,7 +18,7 @@ export class EstoqueCadastroComponent implements OnInit {
   estoque = new Estoque();
   statusEstoque: any[] = [];
   grupoSanguineo: any[] = [];
-  data: string = '';
+  dataAtualizacao = new Date();;
 
   constructor(
     private estoqueService: EstoquesService,
@@ -69,9 +69,12 @@ export class EstoqueCadastroComponent implements OnInit {
           this.estoque = estoque
 
           var data = new Date(estoque.data!);
-              data.setDate(data.getDate() + 1)
 
-          estoque.data = new Date(data);
+          data.setDate(data.getDate() + 1)
+
+          this.estoque.data = new Date(data);
+
+          this.dataAtualizacao = this.estoque.data
 
           this.atualizarTituloEdicao()
       })
@@ -97,6 +100,9 @@ export class EstoqueCadastroComponent implements OnInit {
   }
 
   atualizarEstoque() {
+
+    if (this.dataAtualizacao == this.estoque.data) { this.estoque.data!.setDate(this.estoque.data!.getDate() - 1)}
+
     this.estoqueService.atualizar(this.estoque)
       .then(() => {
 

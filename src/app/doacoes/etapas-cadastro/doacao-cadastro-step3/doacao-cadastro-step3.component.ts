@@ -52,7 +52,9 @@ export class DoacaoCadastroStep3Component implements OnInit {
       antiHbc: [null],
       hbvNat: [null],
       responsavelColeta: [null],
-      volumeColetado: [null]
+      volumeColetado: [null],
+      pressaoArterial: [null],
+      temperatura: [null]
     });
 
   }
@@ -72,13 +74,7 @@ export class DoacaoCadastroStep3Component implements OnInit {
 
   salvar() {
     this.doacaoService.setStep3(this.formulario.value)
-    this.doacaoService.adicionarStep()
-      .then(() => {
-        this.messageService.add({ severity: 'success', detail: 'Lançamento adicionado com sucesso!' });
-
-        this.router.navigate(['/doacoes'])
-      }
-      ).catch(erro => this.errorHandler.handle(erro));
+    this.router.navigate(['doacoes/doacao-container/doacao-cadastro-step4'])
   }
 
   voltar() {

@@ -5,6 +5,7 @@ import { AuthGuard } from "src/app/seguranca/auth.guard";
 import { DoacaoContainerComponent } from './doacao-container/doacao-container.component';
 import { DoacaoCadastroStep2Component } from './doacao-cadastro-step2/doacao-cadastro-step2.component';
 import { DoacaoCadastroStep3Component } from './doacao-cadastro-step3/doacao-cadastro-step3.component';
+import { DoacaoCadastroStep4Component } from './doacao-cadastro-step4/doacao-cadastro-step4.component';
 
 const routes: Routes = [
   {
@@ -35,6 +36,12 @@ const routes: Routes = [
       {
         path: 'doacao-cadastro-step3',
         component: DoacaoCadastroStep3Component,
+        canActivate: [AuthGuard],
+        data: { roles: ['ROLE_ADMIN'] }
+      },
+      {
+        path: 'doacao-cadastro-step4',
+        component: DoacaoCadastroStep4Component,
         canActivate: [AuthGuard],
         data: { roles: ['ROLE_ADMIN'] }
       }
