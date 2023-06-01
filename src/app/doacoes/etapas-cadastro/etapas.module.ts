@@ -15,10 +15,10 @@ import { InputTextareaModule } from 'primeng/inputtextarea';
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { TableModule } from 'primeng/table';
 import { TooltipModule } from 'primeng/tooltip';
-
-import { SharedModule } from 'src/app/shared/shared.module';
 import { EtapasCadastroRoutingModule } from './etapas-cadastro-routing.module';
 import { DoacaoCadastroStep4Component } from './doacao-cadastro-step4/doacao-cadastro-step4.component';
+import { SharedModule } from 'src/app/shared/shared.module';
+import { DoacaoCadastroStep5Component } from './doacao-cadastro-step5/doacao-cadastro-step5.component';
 
 @NgModule({
   imports: [
@@ -45,7 +45,8 @@ import { DoacaoCadastroStep4Component } from './doacao-cadastro-step4/doacao-cad
     DoacaoCadastroStep1Component,
     DoacaoCadastroStep2Component,
     DoacaoCadastroStep3Component,
-    DoacaoCadastroStep4Component
+    DoacaoCadastroStep4Component,
+    DoacaoCadastroStep5Component
   ]
 })
 export class EtapasModule { }

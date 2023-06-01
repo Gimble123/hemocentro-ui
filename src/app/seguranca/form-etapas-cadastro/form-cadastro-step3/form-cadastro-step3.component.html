@@ -44,7 +44,7 @@
                 </div>
 
                 <div class="col-12 p-fluid">
-                  <button pButton type="submit" class="button-danger" [disabled]="formulario.invalid" label="Finalizar"></button>
+                  <button pButton (click)="realizarTriagem()" type="submit" class="button-danger" [disabled]="formulario.invalid" label="Finalizar"></button>
               </div>
 
               <div class="col-12 p-fluid">

@@ -1,0 +1,28 @@
+<div class="container">
+
+    <form autocomplete="off" (ngSubmit)="salvar()" [formGroup]="formulario">
+
+
+        <div class="left">
+
+            <div class="col-12 md:col-6 p-fluid">
+                <label class="espacamento">Hbv: </label>
+                <input placeholder="Ex: Positivo" pInputText type="text" name="hbv" formControlName="hbv">
+            </div>
+
+        </div>
+
+        <div class="right">
+            <div class="col-12 md:col-6 p-fluid">
+                <label class="espacamento">Anti-Hcv: </label>
+                <input placeholder="Ex: Positivo" pInputText type="text" name="antiHcv" formControlName="antiHcv">
+            </div>
+
+        </div>
+        <div class="col-12 buttom">
+            <button pButton type="button" class="color disabled-hover" (click)="voltar()" label="Voltar"></button>
+            <button pButton type="submit" class="button-danger" [disabled]="formulario.invalid" label="Finalizar"></button>
+        </div>
+
+    </form>
+</div>

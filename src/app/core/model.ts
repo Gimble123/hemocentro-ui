@@ -153,6 +153,11 @@ export class DoacaoCadastroEtapa4 {
   observacao?: String;
 }
 
+export class DoacaoCadastroEtapa5 {
+  hbv?: String;
+  antiHcv?: String;
+}
+
 export class Usuario {
 	id?: number;
 	login?: string;

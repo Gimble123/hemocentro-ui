@@ -13,7 +13,7 @@ import { TooltipModule } from 'primeng/tooltip';
 import { CalendarModule } from 'primeng/calendar';
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { DropdownModule } from 'primeng/dropdown';
-import { SharedModule } from 'primeng/api';
+import { SharedModule } from '../shared/shared.module';
 import { HttpClientModule } from '@angular/common/http';
 import { StepsModule } from 'primeng/steps';
 import { DoacaoContainerComponent } from './etapas-cadastro/doacao-container/doacao-container.component';

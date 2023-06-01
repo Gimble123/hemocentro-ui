@@ -1,4 +1,4 @@
-import { DoacaoCadastroEtapa1, DoacaoCadastroEtapa2, DoacaoCadastroEtapa3, DoacaoCadastroEtapa4 } from './../core/model';
+import { DoacaoCadastroEtapa1, DoacaoCadastroEtapa2, DoacaoCadastroEtapa3, DoacaoCadastroEtapa4, DoacaoCadastroEtapa5 } from './../core/model';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Doacao } from '../core/model';
@@ -20,6 +20,7 @@ export class DoacaoService {
   doacaoCadastroEtapa2: DoacaoCadastroEtapa2 | undefined
   doacaoCadastroEtapa3: DoacaoCadastroEtapa3 | undefined
   doacaoCadastroEtapa4: DoacaoCadastroEtapa4 | undefined
+  doacaoCadastroEtapa5: DoacaoCadastroEtapa5 | undefined
 
   editandoDoacao: boolean = false;
 
@@ -68,11 +69,11 @@ export class DoacaoService {
   }
 
   adicionarStep(): Promise<Doacao> {
-    if (!this.doacaoCadastroEtapa1 || !this.doacaoCadastroEtapa2 || !this.doacaoCadastroEtapa3 || !this.doacaoCadastroEtapa4)
+    if (!this.doacaoCadastroEtapa1 || !this.doacaoCadastroEtapa2 || !this.doacaoCadastroEtapa3 || !this.doacaoCadastroEtapa4 || !this.doacaoCadastroEtapa5)
       return Promise.reject('Doação incompleta')
 
     let doacao = new Doacao()
-    Object.assign(doacao, this.doacaoCadastroEtapa1, this.doacaoCadastroEtapa2, this.doacaoCadastroEtapa3, this.doacaoCadastroEtapa4)
+    Object.assign(doacao, this.doacaoCadastroEtapa1, this.doacaoCadastroEtapa2, this.doacaoCadastroEtapa3, this.doacaoCadastroEtapa4, this.doacaoCadastroEtapa5)
 
       return this.http.post<Doacao>(`${this.doacoesUrl}`, doacao)
       .toPromise()
@@ -92,11 +93,13 @@ export class DoacaoService {
         this.doacaoCadastroEtapa2 = new DoacaoCadastroEtapa2()
         this.doacaoCadastroEtapa3 = new DoacaoCadastroEtapa3();
         this.doacaoCadastroEtapa4 = new DoacaoCadastroEtapa4();
+        this.doacaoCadastroEtapa5 = new DoacaoCadastroEtapa5();
 
         Object.assign(this.doacaoCadastroEtapa1, response)
         Object.assign(this.doacaoCadastroEtapa2, response)
         Object.assign(this.doacaoCadastroEtapa3, response)
         Object.assign(this.doacaoCadastroEtapa4, response)
+        Object.assign(this.doacaoCadastroEtapa5, response)
 
         this.editandoDoacao = true;
 
@@ -120,6 +123,10 @@ export class DoacaoService {
     this.doacaoCadastroEtapa4 = step4
   }
 
+  setStep5(step5: DoacaoCadastroEtapa5) {
+    this.doacaoCadastroEtapa5 = step5
+  }
+
   getStep1() {
     return this.doacaoCadastroEtapa1
   }
@@ -136,11 +143,16 @@ export class DoacaoService {
     return this.doacaoCadastroEtapa4
   }
 
+  getStep5() {
+    return this.doacaoCadastroEtapa5
+  }
+
   apagarSteps() {
     this.doacaoCadastroEtapa1 = undefined
     this.doacaoCadastroEtapa2 = undefined
     this.doacaoCadastroEtapa3 = undefined
     this.doacaoCadastroEtapa4 = undefined
+    this.doacaoCadastroEtapa5 = undefined
     this.editandoDoacao = false;
   }
 

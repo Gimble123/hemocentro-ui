@@ -58,17 +58,7 @@ export class DoacaoCadastroStep4Component implements OnInit {
 
   salvar() {
     this.doacaoService.setStep4(this.formulario.value)
-    this.doacaoService.adicionarStep()
-      .then(() => {
-        if (this.editando) {
-          this.messageService.add({ severity: 'success', detail: 'Doação editada com sucesso!' });
-        } else {
-          this.messageService.add({ severity: 'success', detail: 'Doação cadastrada com sucesso!' });
-        }
-
-        this.router.navigate(['/doacoes'])
-      }
-      ).catch(erro => this.errorHandler.handle(erro));
+    this.router.navigate(['doacoes/doacao-container/doacao-cadastro-step5'])
   }
 
   voltar() {

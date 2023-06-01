@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
-import { MessageService } from 'primeng/api';
+import { ConfirmationService, MessageService } from 'primeng/api';
 import { ErrorHandlerService } from 'src/app/core/error-handler.service';
 
 @Component({
@@ -24,6 +24,7 @@ export class FormCadastroStep3Component implements OnInit {
     private formBuilder: FormBuilder,
     private title: Title,
     private errorHandler: ErrorHandlerService,
+    private confirmationService: ConfirmationService
   ) { }
 
   ngOnInit(): void {
@@ -51,10 +52,20 @@ export class FormCadastroStep3Component implements OnInit {
 
   }
 
+  realizarTriagem(): void {
+    this.confirmationService.confirm({
+      message: 'Deseja iniciar a triagem agora?',
+      accept: () => {
+        window.location.href = "https://web.telegram.org/k/#@VitalHemoterapia_bot";
+      }
+    });
+  }
+
   salvar() {
     this.auth.setFormStep3(this.formulario.value)
     this.auth.adicionarStepFormCadastro()
       .then(() => {
+        this.realizarTriagem();
         this.messageService.add({ severity: 'success', detail: 'Cadastro realizado com sucesso! Uma nova senha foi enviada ao seu e-mail' });
 
         this.router.navigate(['/login'])

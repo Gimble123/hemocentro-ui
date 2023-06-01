@@ -63,6 +63,7 @@ export class AgendamentoCadastroComponent implements OnInit {
   adicionarAgendamento() {
 
     let agendamento = {
+        "agendamentoId": this.agendamentoInput.agendamentoId,
         "dataAgendamento": this.agendamentoInput.dataAgendamento,
         "usuarioId": this.idUsuarioLogado
     }

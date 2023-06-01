@@ -29,7 +29,6 @@ export class DoacaoCadastroStep1Component implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private formBuilder: FormBuilder,
-    private title: Title,
     private errorHandler: ErrorHandlerService
   ) {}
 
@@ -68,7 +67,7 @@ export class DoacaoCadastroStep1Component implements OnInit {
       data: [null, Validators.required],
       hora: [null, Validators.required],
       usuarioId: [null, Validators.required],
-      tipoDoacao: [null, Validators.required],
+      tipoDoacao: [null],
       tipoDoador: [null, Validators.required],
       sexoUsuario: [null, Validators.required],
       idadeUsuario: [null, Validators.required],
